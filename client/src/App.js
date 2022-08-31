@@ -1,8 +1,9 @@
+import { Landing_Page } from "./Components/Landing_Page/Landing_Page";
 
 function App() {
   return (
     <div className="App">
-      <h1>Qatarbets</h1>
+      <Landing_Page/>
     </div>
   );
 }
