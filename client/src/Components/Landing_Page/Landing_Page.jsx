@@ -6,10 +6,10 @@ export const Landing_Page = () => {
   return (
     <>
       <div><Navbar /></div>
-      <div>
-        <img className="absolute " src={Soccer_Players}>
+      <div className="flex justify-center">
+        <img className="absolute w-full min-h-screen min-w-max" src={Soccer_Players}>
         </img>
-        <img className="absolute w-3/4 translate-y-8 z-20" src={Encabezado}>
+        <img className="absolute max-h-48 px-8 translate-y-8 z-20" src={Encabezado}>
         </img>
       </div>
     </>
