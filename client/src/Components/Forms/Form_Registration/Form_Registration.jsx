@@ -18,15 +18,15 @@ export default function Form_Restration() {
         </div>
         <div>
           <p>Contraseña*</p>
-        <input type="password" name='password' placeholder='Tu Contraseña' />
+          <input type="password" name='password' placeholder='Tu Contraseña' />
         </div>
         <div>
-        <p>Fecha de Nacimiento*</p>
-        <input type="date" name="birth" required pattern="\d{4}-\d{2}-\d{2}" />
+          <p>Fecha de Nacimiento*</p>
+          <input type="date" name="birth" required pattern="\d{4}-\d{2}-\d{2}" />
         </div>
         <div>
-        <p>Avatar</p>
-        <input type="text" name='avatar' placeholder='url de la img'/>
+          <p>Avatar</p>
+          <input type="text" name='avatar' placeholder='url de la img'/>
         </div>
       </from>
     </div>
