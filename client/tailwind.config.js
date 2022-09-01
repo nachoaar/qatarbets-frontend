@@ -14,8 +14,11 @@ module.exports = {
       },
       colors: {
         'redApp': '#FF003F',
+        'redHover': '#FF0033',
         'mikeWhite': '#fefefe',
-        'mikeBlack': '#2b2b2b'
+        'mikeBlack': '#2b2b2b',
+        'footer': '#550065',
+        'squareFooter': '#FFBF00'
       },
       backgroundImage: {
         'soccerPlayers': "url('../src/media/Soccer_Players.png')",
