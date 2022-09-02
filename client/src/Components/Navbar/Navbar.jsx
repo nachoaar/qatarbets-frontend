@@ -48,13 +48,13 @@ export const Navbar = () => {
 
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
-                                    <div className="flex space-x-4">
+                                    <div className="font-titulo  flex space-x-4">
                                         {navigation.map((item) => (
                                             <a
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-gray-900 text-white' : 'text-mikeWhite text-base font-semibold hover:bg-mikeWhite hover:text-redApp',
+                                                    item.current ? 'bg-gray-900 text-white text-xl' : 'text-white text-xl font-semibold hover:bg-white hover:text-rojo',
                                                     'px-3 py-2 rounded-md text-sm '
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
