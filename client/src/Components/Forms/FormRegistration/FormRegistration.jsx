@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Form_Restration() {
+export default function FormRestration() {
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Form_Betting() {
+export default function FormBetting() {
 
   return (
     <div>
