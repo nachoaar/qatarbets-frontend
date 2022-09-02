@@ -9,7 +9,7 @@ export const SectionUno = () => {
       <div className="bg-soccerPlayers bg-cover flex flex-col items-center justify-center bg-center h-full">
         <div className="flex flex-col items-start px-8 gap-3">
           <img className=" max-h-48" src={Encabezado}></img>
-          <p className="text-mikeWhite font-semibold max-w-md text-justify">
+          <p className="text-blanco font-semibold max-w-md text-justify">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut soluta
             ullam itaque unde odit? Exercitationem eos deleniti, cupiditate
             ratione voluptates quisquam corrupti fugiat quibusdam at eum
