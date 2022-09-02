@@ -13,12 +13,13 @@ module.exports = {
         'body': ['Open Sans']
       },
       colors: {
-        'redApp': '#FF003F',
-        'redHover': '#FF0033',
-        'mikeWhite': '#fefefe',
-        'mikeBlack': '#2b2b2b',
-        'footer': '#550065',
-        'squareFooter': '#FFBF00'
+        'rojo': '#D20A46',
+        'rojosec': '#FF003F',
+        'rojobg': '#CB0032',
+        'morado': '#550065',
+        'moradobg': '#550065',
+        'blanco': '#FFFF',
+        'amarillo': '#FFBF00'
       },
       backgroundImage: {
         'soccerPlayers': "url('../src/media/Soccer_Players.png')",
