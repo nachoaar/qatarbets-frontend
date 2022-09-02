@@ -1,26 +1,34 @@
 import React from "react";
 import { Navbar } from "../Navbar/Navbar";
-import { BotonGroup } from "../Utils/BotonGroup";
+import { CardMedium } from "../Utils/CardMedium";
+import { CardSmall } from "../Utils/CardSmall";
+import { Sidebar } from "../Utils/Sidebar";
+import { TitleContent } from "../Utils/TitleContent";
 
 export const Home = () => {
   return (
-    <div className="h-screen bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
+    <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
       <Navbar />
-      <div className="flex flex-row justify-between items-center py-6 w-5/6 h-screen">
-        <div className="h-full w-1/5 bg-gradient-to-b from-rojobg to-moradobg py-2 flex flex-col gap-1">
-          <h1 className="text-lg text-white font-bold px-2">Grupos</h1>
-          <BotonGroup />
-          <BotonGroup />
-          <BotonGroup />
-          <BotonGroup />
-          <BotonGroup />
-          <BotonGroup />
-          <BotonGroup />
-          <BotonGroup />
-          <h1 className="text-lg text-white font-bold px-2">Fechas</h1>
-        </div>
-        <div className="h-full w-4/5 bg-yellow-500">
-          <h1>soy el contenedor</h1>
+      <div className="flex flex-row justify-between py-6 w-5/6 ">
+        <Sidebar />
+        <div className="h-full w-4/5 flex flex-col gap-1 pl-2">
+          <TitleContent title="PROXIMOS PARTIDOS / LO QUE TIRE EL FILTRO" />
+          <div class="container-card-m" className="flex flex-row justify-between gap-1">
+            <CardMedium />
+            <CardMedium />
+            <CardMedium />
+            <CardMedium />
+          </div>
+          <div class="publicidad-horizontal" className="w-full h-20 bg-slate-400">
+            <h1 className="text-black font-bold">SLIDE PUBLICITARIO</h1>
+          </div>
+          <TitleContent title="PARTIDOS MAS APOSTADOS O LO QUE SEA"/>
+          <div class="container-card-s" className="flex flex-row justify-between gap-1">
+            <CardSmall />
+            <CardSmall />
+            <CardSmall />
+            <CardSmall />
+          </div>
         </div>
       </div>
     </div>
