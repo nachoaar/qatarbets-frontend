@@ -6,18 +6,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': [ 'koulen', '-apple-system', 'BlinkMacSystemFont'],
-        'serif': ['Georgia', 'Cambria'],
-        'mono': ['SFMono-Regular', 'Menlo'],
-        'display': ['Oswald'],
-        'body': ['Open Sans']
+        'parrafo': ['Marvel', 'sans-serif'],
+        'titulo': ['Koulen', 'cursive'],
+        'fifa': ['Aclonica', 'sans-serif']
       },
       colors: {
         'rojo': '#D20A46',
         'rojosec': '#FF003F',
-        'rojobg': '#CB0032',
         'morado': '#550065',
-        'moradobg': '#550065',
+        'moradosec': '#6D0082',
         'blanco': '#FFFF',
         'amarillo': '#FFBF00'
       },

@@ -3,7 +3,7 @@ import { CardLarge } from "../Utils/CardLarge";
 
 export const SectionDos = () => {
   return (
-    <div className="h-max flex flex-col justify-between items-center bg-moradobg py-6">
+    <div className="h-max flex flex-col justify-between items-center bg-morado py-6">
       <div className="flex flex-col flex-auto gap-4 items-center w-full justify-center">
         <div className="w-5/6 bg-gradient-to-b from-transparent to-amarillo flex flex-col  md:flex-row justify-between">
           <CardLarge />
