@@ -1,6 +1,7 @@
 import { Navbar } from "../Navbar/Navbar";
 import { SectionDos } from "./SectionDos";
 import { SectionUno } from "./SectionUno";
+import { SectionThree } from "./SectionThree";
 
 export const LandingPage = () => {
   return (
@@ -8,6 +9,7 @@ export const LandingPage = () => {
       <Navbar />
       <SectionUno />
       <SectionDos />
+      <SectionThree />
     </div>
   )
 }

@@ -2,7 +2,7 @@
 // https://tailwindui.com/components/application-ui/navigation/navbars#component-70a9bdf83ef2c8568c5cddf6c39c2331
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, Belcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
@@ -17,7 +17,7 @@ function classNames(...classes) {
 
 export const Navbar = () => {
     return (
-        <Disclosure as="nav" className="bg-redApp sticky top-0 z-50 ">
+        <Disclosure as="nav" className="bg-rojo sticky top-0 z-50 w-full">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
