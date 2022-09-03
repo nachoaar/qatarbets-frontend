@@ -6,19 +6,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': [ 'koulen', '-apple-system', 'BlinkMacSystemFont'],
-        'serif': ['Georgia', 'Cambria'],
-        'mono': ['SFMono-Regular', 'Menlo'],
-        'display': ['Oswald'],
-        'body': ['Open Sans']
+        'parrafo': ['Marvel', 'sans-serif'],
+        'titulo': ['Koulen', 'cursive'],
+        'fifa': ['Aclonica', 'sans-serif']
       },
       colors: {
-        'redApp': '#FF003F',
-        'redHover': '#FF0033',
-        'mikeWhite': '#fefefe',
-        'mikeBlack': '#2b2b2b',
-        'footer': '#550065',
-        'squareFooter': '#FFBF00'
+        'rojo': '#D20A46',
+        'rojosec': '#FF003F',
+        'morado': '#550065',
+        'moradosec': '#6D0082',
+        'blanco': '#FFFF',
+        'amarillo': '#FFBF00'
       },
       backgroundImage: {
         'soccerPlayers': "url('../src/media/Soccer_Players.png')",

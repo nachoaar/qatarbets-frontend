@@ -2,7 +2,7 @@
 // https://tailwindui.com/components/application-ui/navigation/navbars#component-70a9bdf83ef2c8568c5cddf6c39c2331
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, Belcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
@@ -17,7 +17,7 @@ function classNames(...classes) {
 
 export const Navbar = () => {
     return (
-        <Disclosure as="nav" className="bg-redApp sticky top-0 z-50 ">
+        <Disclosure as="nav" className="bg-rojo sticky top-0 z-50 w-full">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -48,13 +48,13 @@ export const Navbar = () => {
 
                                 </div>
                                 <div className="hidden sm:ml-6 sm:block">
-                                    <div className="flex space-x-4">
+                                    <div className="font-titulo  flex space-x-4">
                                         {navigation.map((item) => (
                                             <a
                                                 key={item.name}
                                                 href={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-gray-900 text-white' : 'text-mikeWhite text-base font-semibold hover:bg-mikeWhite hover:text-redApp',
+                                                    item.current ? 'bg-gray-900 text-white text-xl' : 'text-white text-xl font-semibold hover:bg-white hover:text-rojo',
                                                     'px-3 py-2 rounded-md text-sm '
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
