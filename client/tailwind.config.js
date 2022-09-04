@@ -18,7 +18,7 @@ module.exports = {
         'moradopie': '#1C0021',
         'blanco': '#FFFF',
         'amarillo': '#FFBF00',
-        'grisfooter': '#7A7A7A'
+        'grisfooter': '#7A7A7A',
         'gris': '#D9D9D9'
       },
       backgroundImage: {
