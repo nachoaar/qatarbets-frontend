@@ -1,5 +1,6 @@
 import React from "react";
 import Encabezado from "../../media/Encabezado.png";
+import {Link} from "react-router-dom";
 import { Boton } from "../Utils/Boton";
 import { Countdown } from "./Countdown/Countdown";
 
@@ -15,7 +16,9 @@ export const SectionUno = () => {
             ratione voluptates quisquam corrupti fugiat quibusdam at eum
             consectetur rem explicabo sunt!
           </p>
-          <Boton name="Register" />
+          <Link to="/register">
+          <Boton  name="Register" />
+          </Link>
         </div>
       </div>
       <Countdown />
