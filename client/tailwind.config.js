@@ -17,7 +17,8 @@ module.exports = {
         'moradosec': '#6D0082',
         'moradopie': '#1C0021',
         'blanco': '#FFFF',
-        'amarillo': '#FFBF00'
+        'amarillo': '#FFBF00',
+        'gris': '#7A7A7A'
       },
       backgroundImage: {
         'soccerPlayers': "url('../src/media/Soccer_Players.png')",
