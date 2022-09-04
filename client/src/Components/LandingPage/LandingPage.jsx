@@ -2,6 +2,7 @@ import { Navbar } from "../Navbar/Navbar";
 import { SectionDos } from "./SectionDos";
 import { SectionUno } from "./SectionUno";
 import { SectionThree } from "./SectionThree";
+import { Footer } from "../Footer/Footer";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getFixture } from "../../redux/actions/fixtureActions";
@@ -23,6 +24,7 @@ export const LandingPage = () => {
       <SectionUno />
       <SectionDos />
       <SectionThree />
+      <Footer />
     </div>
   );
 };

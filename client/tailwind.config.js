@@ -15,8 +15,10 @@ module.exports = {
         'rojosec': '#FF003F',
         'morado': '#550065',
         'moradosec': '#6D0082',
+        'moradopie': '#1C0021',
         'blanco': '#FFFF',
         'amarillo': '#FFBF00',
+        'grisfooter': '#7A7A7A'
         'gris': '#D9D9D9'
       },
       backgroundImage: {
