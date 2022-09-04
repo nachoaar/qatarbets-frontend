@@ -1,6 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 // https://tailwindui.com/components/application-ui/navigation/navbars#component-70a9bdf83ef2c8568c5cddf6c39c2331
 import { Fragment } from 'react'
+import {Link} from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, Belcon, XMarkIcon } from '@heroicons/react/24/outline'
 
@@ -122,7 +123,7 @@ export const Navbar = () => {
                                                         href="#"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
-                                                        Sign out
+                                                        <Link to='/register'>Sign out</Link>
                                                     </a>
                                                 )}
                                             </Menu.Item>
