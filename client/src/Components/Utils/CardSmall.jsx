@@ -3,7 +3,7 @@ import React from "react";
 export const CardSmall = () => {
   return (
     <button className="h-44 wid-auto md:w-4/12">
-      <div className="h-full  bg-rojo flex flex-col justify-between py-2 px-4 ease-out duration-300 hover:bg-rojosec rounded-tl-lg rounded-tr-2xl rounded-br-lg rounded-bl-2xl  font-parrafo">
+      <div className="h-full  bg-rojo flex flex-col justify-between py-2 px-4 ease-out duration-300 hover:bg-rojosec rounded-tl-lg rounded-tr-2xl rounded-br-lg rounded-bl-2xl  font-parrafo hover:-translate-y-1">
         <div className="bg-blanco">
           <h1 className="bg-rojosec text-center text-white">2022-11-20</h1>
         </div>
