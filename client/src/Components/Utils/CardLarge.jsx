@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const CardLarge = (props) => {
   return (
     <button className="h-60 wid-auto md:w-4/12 p-4 ">
+      <Link to={`/detail/${props.id}`}>
       <div className="h-full  bg-rojo flex flex-col justify-between py-2 px-4 ease-out duration-300 hover:bg-rojosec rounded-tl-lg rounded-tr-2xl rounded-br-lg rounded-bl-2xl  font-parrafo hover:-translate-y-3">
         <div className="bg-blanco">
           <h1 className="bg-rojosec text-center text-white">{props.date}</h1>
@@ -46,6 +48,7 @@ export const CardLarge = (props) => {
           </div>
         </div>
       </div>
+    </Link>
     </button>
   );
 };

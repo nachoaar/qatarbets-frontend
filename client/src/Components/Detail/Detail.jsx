@@ -1,4 +1,8 @@
 import React from 'react'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { matchId } from '../../redux/actions/matchActions';
 import { Footer } from '../Footer/Footer';
 import { Navbar } from "../Navbar/Navbar";
 import { Alignment } from '../Utils/Alignment';
@@ -7,6 +11,21 @@ import { TitleContent } from '../Utils/TitleContent';
 import { CardDetail } from './CardDetail/CardDetail';
 
 export const Detail = () => {
+
+  let {id} = useParams();
+  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(matchId(id));
+  },[dispatch])
+
+  let {match} = useSelector((store) => store.match);
+
+  console.log(match[0].date);
+
+
+
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
       <Navbar />
