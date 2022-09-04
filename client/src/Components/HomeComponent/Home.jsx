@@ -4,12 +4,13 @@ import { CardMedium } from "../Utils/CardMedium";
 import { CardSmall } from "../Utils/CardSmall";
 import { Sidebar } from "../Utils/Sidebar";
 import { TitleContent } from "../Utils/TitleContent";
+import { Footer } from "../Footer/Footer";
 
 export const Home = () => {
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
       <Navbar />
-      <div className="flex flex-row justify-between py-6 w-5/6 ">
+      <div className="flex flex-row justify-between py-6 w-5/6 mb-20 mt-20">
         <Sidebar />
         <div className="h-full w-4/5 flex flex-col gap-1 pl-2">
           <TitleContent title="PROXIMOS PARTIDOS / LO QUE TIRE EL FILTRO" />
@@ -31,6 +32,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
