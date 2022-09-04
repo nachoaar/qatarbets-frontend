@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getFixture } from "../../redux/actions/fixtureActions";
 import { getTeams } from "../../redux/actions/teamActions";
+import { getGroups } from "../../redux/actions/groupActions";
 
 export const LandingPage = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,8 @@ export const LandingPage = () => {
   useEffect(() => {
     dispatch(getFixture());
     dispatch(getTeams());
-  }, []);
+    dispatch(getGroups());
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col">
