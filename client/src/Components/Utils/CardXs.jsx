@@ -1,15 +1,11 @@
 import React from "react";
 
-export const CardSmall = () => {
+export const CardXs = () => {
   return (
-    <button className="h-44 wid-auto md:w-4/12">
-      <div className="h-full  bg-rojo flex flex-col justify-between py-2 px-4 ease-out duration-300 hover:bg-rojosec rounded-tl-lg rounded-tr-2xl rounded-br-lg rounded-bl-2xl  font-parrafo hover:-translate-y-1">
+    <button className="h-24 wid-auto">
+      <div className="h-full  bg-rojo flex flex-col justify-between py-1 px-2 ease-out duration-300 hover:bg-rojosec rounded-tl-md rounded-tr-xl rounded-br-md rounded-bl-xl  font-parrafo">
         <div className="bg-blanco">
           <h1 className="bg-rojosec text-center text-white">2022-11-20</h1>
-        </div>
-        <div className=" flex flex-row justify-between text-white p-1">
-          <p className="font-fifa text-left">FIFA WORLD CUP</p>
-          <span className="text-sm">Group Stage - 1</span>
         </div>
         <div className="bg-rojosec text-white p-1 flex flex-row justify-between">
           <div>
@@ -22,13 +18,13 @@ export const CardSmall = () => {
         </div>
         <div className="flex flex-row justify-between gap-1">
           <div className="w-1/3 bg-slate-200">
-            <p>home: 1.40</p>
+            <p>1.40</p>
           </div>
           <div className="w-1/3 bg-slate-200">
-            <p>draw: 2</p>
+            <p>2</p>
           </div>
           <div className="w-1/3 bg-slate-200">
-            <p>away: 3.5</p>
+            <p>3.5</p>
           </div>
         </div>
       </div>

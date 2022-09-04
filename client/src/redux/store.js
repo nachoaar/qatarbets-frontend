@@ -4,9 +4,9 @@ import fixture from "./reducer/fixtureSlice";
 import group from "./reducer/groupSlice";
 
 export default configureStore({
-  reducer:{
+  reducer: {
     teams,
     fixture,
-    group
-  }
-})
+    group,
+  },
+});
