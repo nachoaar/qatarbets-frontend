@@ -3,7 +3,7 @@
 import { Fragment } from 'react'
 import {Link} from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, Belcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
@@ -18,7 +18,7 @@ function classNames(...classes) {
 
 export const Navbar = () => {
     return (
-        <Disclosure as="nav" className="bg-rojo sticky top-0 z-50 w-full">
+        <Disclosure as="nav" className="bg-rojo sticky top-0 z-50 w-full shadow-md">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -48,7 +48,7 @@ export const Navbar = () => {
                                     </svg>
 
                                 </div>
-                                <div className="hidden sm:ml-6 sm:block">
+                                {/* <div className="hidden sm:ml-6 sm:block">
                                     <div className="font-titulo  flex space-x-4">
                                         {navigation.map((item) => (
                                             <a
@@ -64,7 +64,7 @@ export const Navbar = () => {
                                             </a>
                                         ))}
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 {/* <button
