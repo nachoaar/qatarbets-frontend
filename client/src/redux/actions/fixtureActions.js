@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getAllFixture } from "../reducer/fixtureSlice";
+import { getAllFixture, getGroupFixture } from "../reducer/fixtureSlice";
 
 
 
@@ -10,3 +10,8 @@ export function getFixture() {
   };
 }
 
+export function getGroupMatch(payload) {
+  return async function (dispatch) {
+    dispatch(getGroupFixture(payload))
+  };
+}
