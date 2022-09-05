@@ -2,6 +2,7 @@ import React from "react";
 import { CardLarge } from "../Utils/CardLarge";
 import { CardXs } from "../Utils/CardXs";
 import { TitleContentSmall } from "../Utils/TitleContentSmall";
+import { Link } from "react-router-dom";
 
 export const SectionDos = (props) => {
   return (
@@ -10,11 +11,13 @@ export const SectionDos = (props) => {
         <div className="w-5/6 bg-gradient-to-b from-transparent to-amarillo flex flex-col  md:flex-row justify-between">
           {props.upcomingMatches.map((m) => {
             return (
-              <CardLarge
+                <CardLarge
+                key={m.id}
                 date={m.date}
                 homeTeam={m.home_team.name}
                 awayTeam={m.away_team.name}
                 awayTeamLogo={m.away_team.logo}
+                id={m.id}
               />
             );
           })}
