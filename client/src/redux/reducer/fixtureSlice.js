@@ -1,15 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const fixtureSlice = createSlice({
+
   name: "fixture",
   initialState: {
     fixture: [],
     fixtureGroup: [],
     fixtureGamesPerGroup: [],
+    filtredMatches: [],
+
   },
   reducers: {
     getAllFixture: (state, action) => {
-      state.fixture = action.payload;
+      state.fixture = action.payload
+    },
+    filterByGroup: (state,action) =>{
+
+      const asd = state.fixture?.filter((match) => match.groupId === Number(action.payload)).slice(0,4)
+      console.log(asd)
+        state.filtredMatches = asd
+
     },
     getGroupFixture: (state, action) => {
       state.fixtureGroup = state.fixture.filter(
@@ -31,6 +41,5 @@ export const fixtureSlice = createSlice({
   },
 });
 
-export const { getAllFixture, getGroupFixture, getGamesPerGroup } =
-  fixtureSlice.actions;
+export const { getAllFixture, getGroupFixture, getGamesPerGroup,filterByGroup  } = fixtureSlice.actions;
 export default fixtureSlice.reducer;

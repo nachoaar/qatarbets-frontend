@@ -26,6 +26,7 @@ export const LandingPage = () => {
 
   const upcomingMatches = fixture.fixture.slice(0, 3);
 
+
   return (
     <div className="flex flex-col">
       <Navbar />

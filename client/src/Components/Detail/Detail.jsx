@@ -27,6 +27,7 @@ export const Detail = () => {
 
   useEffect(() => {
     dispatch(matchId(id));
+
     dispatch(groupById(group))
     dispatch(getGroupMatch(group))
   },[dispatch, id, group])
