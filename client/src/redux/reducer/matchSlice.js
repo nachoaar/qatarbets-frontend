@@ -1,14 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  match: [],
-};
-
 export const matchSlice = createSlice({
   name:'match',
-  initialState,
+  initialState:{
+    match: []
+  },
   reducers:{
-    getMatch: (state = initialState, action) => {
+    getMatch: (state, action) => {
       state.match = action.payload
     }
   }
