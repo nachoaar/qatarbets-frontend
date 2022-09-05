@@ -4,7 +4,7 @@ export const CardMedium = ({match}) => {
 
   return (
     <button className="h-80 wid-auto md:w-3/12  ">
-      <div className="h-full  bg-rojo flex flex-col justify-between p-3 ease-out duration-300 hover:bg-rojosec rounded-tl-lg rounded-tr-2xl rounded-br-lg rounded-bl-2xl  font-parrafo hover:-translate-y-1">
+      <div className="m-1 h-full  bg-rojo flex flex-col justify-between p-3 ease-out duration-300 hover:bg-rojosec rounded-tl-lg rounded-tr-2xl rounded-br-lg rounded-bl-2xl  font-parrafo hover:-translate-y-1">
         <div className="bg-blanco">
           <h1 className="bg-rojosec text-center text-white">2022-11-20</h1>
         </div>
