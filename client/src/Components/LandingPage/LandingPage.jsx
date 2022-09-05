@@ -21,7 +21,7 @@ export const LandingPage = () => {
   const fixture = useSelector((estate) => estate.fixture);
   const upcomingMatches = fixture.fixture.slice(0, 3);
 
-  console.log(upcomingMatches)
+  console.log(fixture.fixture.length)
 
   return (
     <div className="flex flex-col">

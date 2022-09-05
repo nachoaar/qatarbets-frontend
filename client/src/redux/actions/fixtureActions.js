@@ -1,5 +1,6 @@
 import axios from "axios";
-import { getAllFixture } from "../reducer/fixtureSlice";
+import FilterByGroups from "../../Components/Filter/FilterByGroup";
+import { getAllFixture, filterByGroup} from "../reducer/fixtureSlice";
 
 
 
@@ -10,3 +11,11 @@ export function getFixture() {
   };
 }
 
+
+export function filterByGroupAction(payload){
+  console.log(payload)
+  return async function (dispatch){
+    
+    dispatch(filterByGroup(payload))
+  }
+}

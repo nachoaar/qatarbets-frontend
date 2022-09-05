@@ -1,22 +1,28 @@
 import React from "react";
-import Card from "../Card/Card";
+import { useSelector } from "react-redux";
+import { CardMedium } from "../Utils/CardMedium";
+import { filterByGroupAction, getFixture } from "../../redux/actions/fixtureActions";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
-export default function Cards({Matches}){
+export default function Cards({allMatch}){
+    let fourMatches = allMatch?.slice(0,4)
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(getFixture())
+    },[dispatch])
+    const filtrados = useSelector((state) => state.fixture.filtredMatches)
+
+ 
+
     return(
         <div>
-            { Matches && Matches.map( match => {
+            { filtrados.length > 1 ?  filtrados.map((match)=>{
                 return(
-                    // cuando se tenga el redux y las action sobre todo hay que cambiar 
-                    //los datos y la informacion que se trae por la correcta ya que 
-                    //esto es un maquetado simplemente
-                    <Card   
-                    id={match.id}
-                    home={match.home}
-                    away={match.away}
-                    logoHome={match.logoHome}
-                    logoAway={match.logoAway}
-                    />
+                    <CardMedium match={match}/>
                 )
+            }) : fourMatches.map((match) =>{
+                return(<CardMedium match={match}/>)
             })}
         </div>
     )

@@ -22,7 +22,7 @@ export const Detail = () => {
 
   let {match} = useSelector((store) => store.match);
 
-  console.log(match[0].date);
+ console.log(match[0]?.date)
 
 
 

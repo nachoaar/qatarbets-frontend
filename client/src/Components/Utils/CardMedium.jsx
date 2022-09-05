@@ -1,6 +1,7 @@
 import React from "react";
 
-export const CardMedium = () => {
+export const CardMedium = ({match}) => {
+
   return (
     <button className="h-80 wid-auto md:w-3/12  ">
       <div className="h-full  bg-rojo flex flex-col justify-between p-3 ease-out duration-300 hover:bg-rojosec rounded-tl-lg rounded-tr-2xl rounded-br-lg rounded-bl-2xl  font-parrafo hover:-translate-y-1">
@@ -14,16 +15,16 @@ export const CardMedium = () => {
         <div className="bg-rojosec text-white p-1 flex flex-row justify-between">
           <div>
             <div>
-              <p>bandera</p>
+            <img src={`https://countryflagsapi.com/png/${match?.home_team.name}`} alt={match?.home_team.name}/>
             </div>
-            <h3>Argentina</h3>
+            <h3>{match?.home_team.name}</h3>
           </div>
           <h3>Vs</h3>
           <div>
-            <h3>Brazil</h3>
-            <div>
-              <p>bandera</p>
+            <div className="">
+              <img src={`https://countryflagsapi.com/png/${match?.away_team.name}`} alt={match?.away_team.name}/>
             </div>
+            <h3>{match?.away_team.name}</h3>
           </div>
         </div>
         <div className="flex flex-col justify-between gap-1">
