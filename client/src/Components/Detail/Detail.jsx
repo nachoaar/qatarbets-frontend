@@ -37,7 +37,7 @@ export const Detail = () => {
       <Navbar />
       <div className="flex flex-row justify-center p-4 w-5/6 gap-3 h-auto">
         <div className="w-4/5">
-          <div className="flex flex-row gap-1">
+          <div className="flex flex-row gap-2">
             <div className="w-7/12">
               <CardDetail
                 date={match[0]?.date}
