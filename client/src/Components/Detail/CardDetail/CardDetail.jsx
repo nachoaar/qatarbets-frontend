@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const CardDetail = (props) => {
-  
+
   return (
     <div className="bg-rojo w-full h-auto p-3 font-parrafo rounded-tl rounded-tr-2xl rounded-br rounded-bl-2xl">
       <div className="bg-rojosec flex items-center justify-around p-2">
