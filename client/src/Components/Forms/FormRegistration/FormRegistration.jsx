@@ -55,7 +55,7 @@ export default function FormRestration() {
       <Navbar />
     <Center>
         <VStack maxW="900px" w = {[250, 300, 400]} boxShadow='dark-lg' p='6' rounded='md' bg='white' m={8}>
-          <Heading>Sign oup</Heading>
+          <Heading>Sign up</Heading>
           <form onSubmit={handleSubmit(onSubmit)}>
 
             <FormControl m={3} w = {[150, 250, 350]}  id='name' isInvalid={errors.name? true : false} isRequired>

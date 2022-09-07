@@ -12,7 +12,7 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route exact path="/register" element={<FormRestration />} />
       <Route exact path="/login" element={<FormLogin />} />
-      <Route exact path="/detail" element={<Detail />} />
+      <Route exact path="/detail/:id" element={<Detail />} />
     </Routes>
   );
 }

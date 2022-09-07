@@ -3,7 +3,7 @@
 import { Fragment } from 'react'
 import {Link} from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, Belcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
@@ -18,7 +18,7 @@ function classNames(...classes) {
 
 export const Navbar = () => {
     return (
-        <Disclosure as="nav" className="bg-rojo sticky top-0 z-50 w-full">
+        <Disclosure as="nav" className="bg-rojo sticky top-0 z-50 w-full shadow-md">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -36,6 +36,7 @@ export const Navbar = () => {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
+                                    <Link to="/">
                                     <svg className="h-10" width="62" height="65" viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0 28.1631C0 10.8274 13.2927 0.16156 31 0.16156C48.7219 0.16156 62 10.8274 62 28.1631C62 50.8268 40.3058 64.1616 31 64.1616C21.7039 64.1616 0 50.8268 0 28.1631Z" fill="url(#paint0_linear_13_93)" />
                                         <path d="M14.1087 37.5297C14.1087 15.8515 26.5164 7.76182 30.4935 7.76182C34.4852 7.76182 46.8882 15.8515 46.8882 37.5297C46.8882 48.2053 40.6794 54.8654 30.4935 54.8654C20.3125 54.8654 14.1087 48.2053 14.1087 37.5297Z" fill="#FF003F" />
@@ -46,9 +47,10 @@ export const Navbar = () => {
                                             </linearGradient>
                                         </defs>
                                     </svg>
+                                    </Link>
 
                                 </div>
-                                <div className="hidden sm:ml-6 sm:block">
+                                {/* <div className="hidden sm:ml-6 sm:block">
                                     <div className="font-titulo  flex space-x-4">
                                         {navigation.map((item) => (
                                             <a
@@ -64,7 +66,7 @@ export const Navbar = () => {
                                             </a>
                                         ))}
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 {/* <button
@@ -80,11 +82,11 @@ export const Navbar = () => {
                                     <div>
                                         <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
                                             <span className="sr-only">Open user menu</span>
-                                            <img
+                                            {/* <img
                                                 className="h-8 w-8 rounded-full"
                                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                                 alt=""
-                                            />
+                                            /> */}
                                         </Menu.Button>
                                     </div>
                                     <Transition
@@ -100,7 +102,7 @@ export const Navbar = () => {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a
-                                                        href="#"
+                                                        href="/"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
                                                         Your Profile
@@ -110,7 +112,7 @@ export const Navbar = () => {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a
-                                                        href="#"
+                                                        href="/"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
                                                         Settings
@@ -120,7 +122,7 @@ export const Navbar = () => {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a
-                                                        href="#"
+                                                        href="/"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
                                                         <Link to='/register'>Sign out</Link>
