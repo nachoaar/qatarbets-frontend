@@ -36,9 +36,9 @@ export default function FormRestration() {
 
 
   const onSubmit = (input) => {
-    const {name, age, email, pass} = input;
+    const {name, email, pass} = input;
     setSuccessful(false);
-    dispatch(registerUser({name, age, email, pass}))
+    dispatch(registerUser({name, email, pass}))
     .unwrap()
       .then(() => {
         setSuccessful(true);
@@ -72,7 +72,7 @@ export default function FormRestration() {
               </FormErrorMessage>
             </FormControl>
 
-            <FormControl m={3} w = {[150, 250, 350]} id='age'  isInvalid={errors.age? true : false} isRequired>
+            {/* <FormControl m={3} w = {[150, 250, 350]} id='age'  isInvalid={errors.age? true : false} isRequired>
               <FormLabel htmlFor='age'>Age</FormLabel>
                 <Input autoComplete='off' type='number' {...register('age', {
                     min: {
@@ -84,7 +84,7 @@ export default function FormRestration() {
                 <FormErrorMessage>
                   {errors.age && errors.age.message}
                 </FormErrorMessage>
-            </FormControl>
+            </FormControl> */}
 
             <FormControl m={3} w = {[150, 250, 350]} id='email'  isInvalid={errors.email? true : false} isRequired>
               <FormLabel htmlFor='email'>Email</FormLabel>

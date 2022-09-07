@@ -1,5 +1,5 @@
 import axios from "axios";
-import authHeader from "./authServiceAtions";
+import authHeader from "./authHeaderActions";
 
 
 const getPublicContent = () => {
