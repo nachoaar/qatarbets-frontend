@@ -42,8 +42,8 @@ export const Navbar = () => {
                                         <path d="M14.1087 37.5297C14.1087 15.8515 26.5164 7.76182 30.4935 7.76182C34.4852 7.76182 46.8882 15.8515 46.8882 37.5297C46.8882 48.2053 40.6794 54.8654 30.4935 54.8654C20.3125 54.8654 14.1087 48.2053 14.1087 37.5297Z" fill="#FF003F" />
                                         <defs>
                                             <linearGradient id="paint0_linear_13_93" x1="31" y1="64.1616" x2="31" y2="0.16156" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="white" />
-                                                <stop offset="1" stop-color="#6C1A2F" stop-opacity="0" />
+                                                <stop stopColor="white" />
+                                                <stop offset="1" stopColor="#6C1A2F" stopOpacity="0" />
                                             </linearGradient>
                                         </defs>
                                     </svg>

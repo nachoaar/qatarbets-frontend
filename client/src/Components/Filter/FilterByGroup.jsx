@@ -21,7 +21,7 @@ export default function FilterByGroups(){
         <div>
             <div>
                 <select onChange={e => handleByGroup(e)}>
-                    <option selected={1}>Select</option>
+                    <option>Select</option>
                     {groups && groups.group?.map(group =>{
                         return(
                             <option key={group.name} value={group.id}>{group.name}</option>

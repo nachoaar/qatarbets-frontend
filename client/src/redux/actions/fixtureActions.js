@@ -1,8 +1,5 @@
 import axios from "axios";
-import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup} from "../reducer/fixtureSlice";
-
-
-
+import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup, getFixtureCity} from "../reducer/fixtureSlice";
 
 export function getFixture() {
   return async function (dispatch) {
@@ -13,6 +10,17 @@ export function getFixture() {
   };
 }
 
+export function getGroupMatch(payload) {
+  return async function (dispatch) {
+    dispatch(getGroupFixture(payload));
+  };
+}
+
+export function getByCity(payload) {
+  return async function (dispatch) {
+    dispatch(getFixtureCity(payload));
+  };
+}
 
 export function filterByGroupAction(payload){
   console.log(payload)
@@ -22,11 +30,6 @@ export function filterByGroupAction(payload){
   }
 }
 
-export function getGroupMatch(payload) {
-  return async function (dispatch) {
-    dispatch(getGroupFixture(payload));
-  };
-}
 
 export function getMatchesPerGroup(payload) {
   return async function (dispatch) {
