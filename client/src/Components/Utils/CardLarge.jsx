@@ -5,16 +5,16 @@ export const CardLarge = (props) => {
 
   return (
     <Link to={`/detail/${props.id}`}>
-      <button className="transition-colors duration-700 hover:bg-rojo scroll-smooth mb-3 snap-center h-60 w-96 bg-rojosec rounded-tr-3xl rounded-bl-3xl rounded-md flex flex-col p-6">
+      <button className="transition-colors duration-700 hover:bg-rojo scroll-smooth mb-3 snap-center h-52 w-80 bg-rojosec rounded-tr-3xl rounded-bl-3xl rounded-md flex flex-col p-6">
         <div className="w-full h-10 bg-morado flex justify-center items-center">
           <p className="font-parrafo text-2xl text-white">2022-11-20</p>
         </div>
         <div className="w-full h-12 flex justify-between items-center px-2">
-          <p className="font-fifa text-xl text-white">FIFA WORLD CUP</p>
+          <p className="font-fifa text-md text-white">FIFA WORLD CUP</p>
           <p className="font-parrafo text-white">{`Group Stage - ${props.groupId}`}</p>
         </div>
-        <div className="w-full h-16 flex bg-morado items-center px-2">
-          <div className="text-white flex justify-start items-center w-full gap-3">
+        <div className="w-full h-16 flex bg-morado items-center justify-center px-1">
+          <div className="text-white flex justify-start items-center w-full gap-1">
             <div className="h-10 w-10 rounded border-2 border-white bg-rojo overflow-hidden flex items-center justify-center">
               <img
                 src={`https://countryflagsapi.com/png/${props.home_team}`}
@@ -25,7 +25,7 @@ export const CardLarge = (props) => {
             <p className="font-parrafo">{props.home_team}</p>
           </div>
           <p className="text-white w-10 h-10 flex items-center justify-center font-fifa">vs</p>
-          <div className="text-white flex justify-end items-center w-full gap-3">
+          <div className="text-white flex justify-end items-center w-full gap-1">
             <p className="font-parrafo">{props.away_team}</p>
             <div className="h-10 w-10 rounded border-2 border-white bg-rojo overflow-hidden flex items-center justify-center">
               <img

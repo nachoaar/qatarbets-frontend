@@ -12,7 +12,7 @@ export const CardMatch = (props) => {
           <div className="w-20 h-full bg-rojosec flex justify-center items-center rounded-md">
             <h1 className="font-fifa text-xl text-white">{letter}</h1>
           </div>
-          <div className="flex flex-col h-full w-52 rounded-md gap-1">
+          <div className="flex flex-col h-full w-44 rounded-md gap-1">
             <div className="w-full bg-morado h-1/2 rounded-md flex flex-row gap-3 justify-start items-center">
               <div className="overflow-hidden border-2 border-white w-10 h-10 bg-morado translate-x-1 rounded flex items-center">
                 <img

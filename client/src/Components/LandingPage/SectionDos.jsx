@@ -1,15 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { CardLarge } from "../Utils/CardLarge";
 import { CardXs } from "../Utils/CardXs";
 import { TitleContentSmall } from "../Utils/TitleContentSmall";
+import { Countdown } from "../LandingPage/Countdown/Countdown";
+
 
 export const SectionDos = (props) => {
   /* console.log(props.matchesPerGroups[0]) */
 
   return (
     <div className="h-max flex flex-col justify-around items-center bg-morado py-6">
-      <div className="flex flex-col flex-auto gap-4 items-center w-full justify-center">
+      <Countdown />
+      <div className="flex flex-col flex-auto gap-4 items-center w-full justify-center mt-12">
         <div className="w-5/6 bg-gradient-to-b from-transparent to-amarillo flex flex-col  md:flex-row justify-around">
           {props.upcomingMatches.map((m) => {
             return (
