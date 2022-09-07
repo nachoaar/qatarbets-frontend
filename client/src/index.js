@@ -10,7 +10,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import dotenv from "dotenv";
 dotenv.config();
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
+axios.defaults.baseURL = process.env.REACT_APP_API || "https://qatarbets-backend-production-ab54.up.railway.app" || "http://localhost:3001";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
