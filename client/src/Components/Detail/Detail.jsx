@@ -5,13 +5,17 @@ import { useParams } from "react-router-dom";
 import { getGroupMatch } from "../../redux/actions/fixtureActions";
 import { groupById } from "../../redux/actions/groupActions";
 import { matchId } from "../../redux/actions/matchActions";
+import {
+  startingPlayersAway,
+  startingPlayersHome,
+} from "../../redux/actions/playersActions";
 import { Footer } from "../Footer/Footer";
 import { Navbar } from "../Navbar/Navbar";
-import { Alignment } from "../Utils/Alignment";
 import { SidebarMatch } from "../Utils/SidebarMatch";
 import { TitleContent } from "../Utils/TitleContent";
 import { CardDetail } from "./CardDetail/CardDetail";
 import { CardCity } from "./CaredCity/CardCity";
+import { Court } from "./Court/Court";
 
 export const Detail = () => {
   let { id } = useParams();
@@ -20,17 +24,26 @@ export const Detail = () => {
 
   let { match } = useSelector((store) => store.match);
   let group = match[0]?.groupId;
+  let homeId = match[0]?.home_team_id;
+  let awayId = match[0]?.away_team_id;
 
   let { groupId } = useSelector((store) => store.group);
 
   let { fixtureGroup } = useSelector((store) => store.fixture);
 
-  useEffect(() => {
-    dispatch(matchId(id));
+  let playersHome = useSelector((store) => store.players.startingPlayersHome);
+  let playersAway = useSelector((store) => store.players.startingPlayersAway);
 
+  console.log(playersHome);
+
+  useEffect(() => {
+    dispatch(matchId(id))
+      .then((res) => dispatch(startingPlayersHome(homeId)))
+      .then((res) => dispatch(startingPlayersAway(awayId)));
     dispatch(groupById(group));
     dispatch(getGroupMatch(group));
-  }, [dispatch, id, group]);
+
+  }, [dispatch, id, group, homeId, awayId]);
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
@@ -40,11 +53,8 @@ export const Detail = () => {
           <div className="flex flex-row gap-2">
             <div className="w-7/12">
               <CardDetail
-                date={match[0]?.date}
                 home_team={match[0]?.home_team.name}
                 away_team={match[0]?.away_team.name}
-                city={match[0]?.city}
-                stadium_name={match[0]?.stadium_name}
                 group={groupId[0]?.name.toUpperCase().replace("_", " ")}
               />
             </div>
@@ -56,20 +66,28 @@ export const Detail = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row gap-3 mt-3">
-            <div className="w-full">
-              <TitleContent title="PLANTILLAS" />
-              <div className="flex flex-row gap-5">
-                <div className="w-2/4">
-                  <Alignment />
-                </div>
-                <div className="w-2/4">
-                  <Alignment />
-                </div>
-              </div>
+
+          <div className="w-full flex flex-col h-auto">
+            <TitleContent title="PLANTILLAS" />
+            <div className="w-full h-96">
+              {Object.entries(playersHome).length === 0 ? (
+                <h2>no se cargo nada todavi</h2>
+              ) : (
+                <Court
+                  playersGoalkeeperHome={playersHome.goalkeeper}
+                  playersDefenderHome={playersHome.defenders}
+                  playersMidfielderHome={playersHome.midfielder}
+                  playersAttackersHome={playersHome.attackers}
+                  playersGoalkeeperAway={playersAway.goalkeeper}
+                  playersDefenderAway={playersAway.defenders}
+                  playersMidfielderAway={playersAway.midfielder}
+                  playersAttackersAway={playersAway.attackers}
+                />
+              )}
             </div>
           </div>
         </div>
+
         <SidebarMatch
           group={groupId[0]?.name.toUpperCase().replace("_", " ")}
           fixture={fixtureGroup}
