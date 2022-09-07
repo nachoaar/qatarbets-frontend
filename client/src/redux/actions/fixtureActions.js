@@ -1,10 +1,12 @@
 import axios from "axios";
+
 import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup, getFixtureCity} from "../reducer/fixtureSlice";
+import { axiosURL } from "../../index.js";
 
 export function getFixture() {
   return async function (dispatch) {
     const types = await axios.get(
-      "https://qatarbets-backend-production-ab54.up.railway.app/fixture/get"
+      `${axiosURL}/fixture/get`
     );
     dispatch(getAllFixture(types.data));
   };

@@ -1,11 +1,12 @@
 import axios from "axios";
 import { getAllTeams } from "../reducer/teamSlice";
+import { axiosURL } from "../../index.js";
 
 
 
 export function getTeams() {
   return async function (dispatch) {
-    const teams = await axios.get("https://qatarbets-backend-production-ab54.up.railway.app/teams/get");
+    const teams = await axios.get(`${axiosURL}/teams/get`);
     dispatch(getAllTeams(teams.data))
   };
 }
