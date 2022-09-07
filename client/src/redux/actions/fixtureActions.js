@@ -7,7 +7,7 @@ import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup} from "
 export function getFixture() {
   return async function (dispatch) {
     const types = await axios.get(
-      "https://qatarbets-backend-production-ab54.up.railway.app/fixture/get"
+      "/fixture/get"
     );
     dispatch(getAllFixture(types.data));
   };

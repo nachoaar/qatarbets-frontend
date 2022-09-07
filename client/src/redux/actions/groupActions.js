@@ -3,7 +3,7 @@ import { getAllGroup, getGroupId } from "../reducer/groupSlice";
 
 export function getGroups() {
   return async function (dispatch) {
-    const group = await axios.get("https://qatarbets-backend-production-ab54.up.railway.app/groups");
+    const group = await axios.get("/groups");
     dispatch(getAllGroup(group.data))
   };
 }
