@@ -3,8 +3,6 @@ import { ButtonMatch } from "./ButtonMatch";
 import { TitleContent } from "./TitleContent";
 
 export const SidebarMatch = (props) => {
-  
-  console.log(props.fixture);
 
   return (
     <div className="h-full w-1/5 bg-gradient-to-b from-rojo to-morado py-5 flex flex-col gap-1 p-3 pr-10 rounded-tr-3xl">

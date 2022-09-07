@@ -8,18 +8,18 @@ export const SectionDos = (props) => {
   /* console.log(props.matchesPerGroups[0]) */
 
   return (
-    <div className="h-max flex flex-col justify-between items-center bg-morado py-6">
+    <div className="h-max flex flex-col justify-around items-center bg-morado py-6">
       <div className="flex flex-col flex-auto gap-4 items-center w-full justify-center">
-        <div className="w-5/6 bg-gradient-to-b from-transparent to-amarillo flex flex-col  md:flex-row justify-between">
+        <div className="w-5/6 bg-gradient-to-b from-transparent to-amarillo flex flex-col  md:flex-row justify-around">
           {props.upcomingMatches.map((m) => {
             return (
               <CardLarge
                 key={m.id}
-                date={m.date}
-                homeTeam={m.home_team.name}
-                awayTeam={m.away_team.name}
-                awayTeamLogo={m.away_team.logo}
                 id={m.id}
+                date={m.date}
+                home_team={m.home_team.name}
+                away_team={m.away_team.name}
+                groupId={m.groupId}
               />
             );
           })}
