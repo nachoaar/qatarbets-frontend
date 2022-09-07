@@ -3,9 +3,7 @@ import { Navbar } from "../Navbar/Navbar";
 import { SidebarHome } from "../Utils/SidebarHome";
 import { TitleContent } from "../Utils/TitleContent";
 import { Footer } from "../Footer/Footer";
-import Cards from "../Cards/Cards";
 import { CardSmall } from "../Utils/CardSmall";
-import FilterIndex from "../Filter/FilterIndex";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -39,7 +37,7 @@ export const Home = () => {
           </div>
           <div className="w-full h-auto flex flex-row gap-2 snap-x overflow-auto">
             {/* <Cards allMatch={matches}/> */}
-            {matches&&matches.map((m) => {
+            {matches&&matches.slice(0,10).map((m) => {
               return (
                 <CardLarge
                   key={m.id}

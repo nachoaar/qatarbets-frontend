@@ -6,7 +6,7 @@ import lin from '../../media/linkedin.png'
 
 export const Footer = () => {
     return (
-        <div className="w-full items-center bg-moradopie text-gris flex flex-wrap mx-auto justify-evenly px-20 pb-5 pt-6">
+        <div className="w-full items-center bg-morado text-gris flex flex-wrap mx-auto justify-evenly px-20 pb-5 pt-6">
             <div className="max-w-xl">
                 <svg className="pl-6" width="209" height="81" viewBox="0 0 209 81" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.69958 36.5166C7.69958 20.7133 19.8347 10.9904 36 10.9904C52.1786 10.9904 64.3004 20.7133 64.3004 36.5166C64.3004 57.1768 44.4955 69.3328 36 69.3328C27.5134 69.3328 7.69958 57.1768 7.69958 36.5166Z" fill="url(#paint0_linear_279_662)" />
