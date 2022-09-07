@@ -1,11 +1,11 @@
 import axios from "axios";
 import { getMatch } from "../reducer/matchSlice";
-
+import { axiosURL } from "../../index.js";
 
 
 export function matchId(payload) {
   return async function (dispatch) {
-    const match = await axios.get(`https://qatarbets-backend-production-ab54.up.railway.app/fixture/${payload}`);
+    const match = await axios.get(`${axiosURL}/fixture/${payload}`);
     dispatch(getMatch(match.data))
   };
 }
