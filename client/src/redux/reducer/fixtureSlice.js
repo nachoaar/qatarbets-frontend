@@ -5,6 +5,7 @@ export const fixtureSlice = createSlice({
   name: "fixture",
   initialState: {
     fixture: [],
+    fixtureFilter: [],
     fixtureGroup: [],
     fixtureGamesPerGroup: [],
     filtredMatches: [],
@@ -13,6 +14,17 @@ export const fixtureSlice = createSlice({
   reducers: {
     getAllFixture: (state, action) => {
       state.fixture = action.payload
+      state.fixtureFilter = action.payload.slice(0,10)
+    },
+    getGroupFixture: (state, action) => {
+      state.fixtureFilter = state.fixture.filter(
+        (g) => g.groupId === action.payload
+      );
+    },
+    getFixtureCity: (state, action) => {
+      state.fixtureFilter = state.fixtureFilter.filter(
+        (g) => g.city === action.payload
+      );
     },
     filterByGroup: (state,action) =>{
 
@@ -20,11 +32,6 @@ export const fixtureSlice = createSlice({
       console.log(asd)
         state.filtredMatches = asd
 
-    },
-    getGroupFixture: (state, action) => {
-      state.fixtureGroup = state.fixture.filter(
-        (g) => g.groupId === action.payload
-      );
     },
     getGamesPerGroup: (state, action) => {
       /* state.fixtureGamesPerGroup = []; */
@@ -41,5 +48,5 @@ export const fixtureSlice = createSlice({
   },
 });
 
-export const { getAllFixture, getGroupFixture, getGamesPerGroup,filterByGroup  } = fixtureSlice.actions;
+export const { getAllFixture, getGroupFixture, getGamesPerGroup, filterByGroup, getFixtureCity  } = fixtureSlice.actions;
 export default fixtureSlice.reducer;

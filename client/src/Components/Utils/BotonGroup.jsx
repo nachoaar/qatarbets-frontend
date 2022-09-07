@@ -1,20 +1,41 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { getGroupMatch } from "../../redux/actions/fixtureActions";
 
-export const BotonGroup = () => {
+
+export const BotonGroup = (props) => {
+
+  const dispatch = useDispatch();
+
+  let mitad = Math.floor(props.teams.length / 2)
+  let team1 = props.teams.slice(0, mitad);
+  let team2 = props.teams.slice(mitad);
+
+  function handleOnClick(e) {
+    e.preventDefault();
+    dispatch(getGroupMatch(props.id));
+  }
+
   return (
-    <button className="w-full ease-out duration-300 bg-slate-100 hover:bg-violet-600 text-rose-600 hover:text-white">
-      <div className="flex flex-row justify-between ">
+    <button onClick={(e) => handleOnClick(e)} className="w-full transition duration-700 bg-gris hover:bg-rojo text-rojo hover:text-white font-parrafo p-2">
+      <div className="flex flex-row justify-between gap-3">
         <div className="p-3 flex items-center">
-          <h1 className="font-bold">A</h1>
+          <h1 className="font-fifa font-medium text-xl">{props.name}</h1>
         </div>
-        <div className="flex flex-col justify-center w-full">
-          <div className="flex flex-col lg:flex-row gap-2 px-2 text-sm">
-            <p>Qatar</p>
-            <p>Ecuador</p>
+        <div className="flex flex-row justify-between w-full gap-3">
+          <div className="text-left w-2/4">
+            {team1&&team1.map((t) => {
+              return (
+                <p key={t.name}>{t.name}</p>
+              )
+            })}
           </div>
-          <div className="flex flex-col lg:flex-row  gap-2 px-2 text-sm">
-            <p>Senegal</p>
-            <p>Netherlands</p>
+          <div className="text-left w-2/4">
+            {team2&&team2.map((t) => {
+              return (
+                <p key={t.name}>{t.name}</p>
+              )
+            })}
           </div>
         </div>
       </div>

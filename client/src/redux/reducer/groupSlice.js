@@ -4,11 +4,13 @@ export const groupSlice = createSlice({
   name:"group",
   initialState:{
     group: [],
-    groupId: []
+    groupId: [],
+    groupName: []
   },
   reducers:{
     getAllGroup: (state, action) => {
       state.group = action.payload
+      state.groupName = state.group.map((id) => {return id.name})
     },
     getGroupId: (state, action) => {
       state.groupId = state.group.filter((g) => g.id === action.payload);
