@@ -7,6 +7,7 @@ import { groupById } from "../../redux/actions/groupActions";
 import { matchId } from "../../redux/actions/matchActions";
 import {
   startingPlayersAway,
+  startingPlayersClean,
   startingPlayersHome,
 } from "../../redux/actions/playersActions";
 import { Footer } from "../Footer/Footer";
@@ -37,13 +38,16 @@ export const Detail = () => {
   console.log(playersHome);
 
   useEffect(() => {
-    dispatch(matchId(id))
-      .then((res) => dispatch(startingPlayersHome(homeId)))
-      .then((res) => dispatch(startingPlayersAway(awayId)));
+    dispatch(matchId(id));
     dispatch(groupById(group));
     dispatch(getGroupMatch(group));
-
+    dispatch(startingPlayersHome(homeId));
+    dispatch(startingPlayersAway(awayId));
+    return () => {
+      dispatch(startingPlayersClean());
+    };
   }, [dispatch, id, group, homeId, awayId]);
+
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
