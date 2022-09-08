@@ -4,6 +4,7 @@ import { Fragment } from 'react'
 import {Link} from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react';
 
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
@@ -17,12 +18,24 @@ function classNames(...classes) {
 }
 
 export const Navbar = () => {
+
+    const [color, setColor] = useState(false);
+    const changeColor = () => {
+        if (window.scrollY >= 20) {
+            setColor(true)
+        } else {
+            setColor(false)
+        }
+    }
+
+    window.addEventListener('scroll', changeColor);
+
     return (
-        <Disclosure as="nav" className="bg-rojo sticky top-0 z-50 w-full shadow-md">
+        <Disclosure as="nav" className={color ? "bg-rojo fixed top-0 z-50 w-full transition duration-500 shadow-xl" : "bg-transparent fixed top-0 z-50 w-full transition duration-500"}>
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                        <div className="relative flex h-16 items-center justify-between">
+                        <div className="relative flex h-20 items-center justify-between">
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                 {/* Mobile menu button*/}
                                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-mikeWhite hover:text-mikeBlack focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -42,8 +55,8 @@ export const Navbar = () => {
                                         <path d="M14.1087 37.5297C14.1087 15.8515 26.5164 7.76182 30.4935 7.76182C34.4852 7.76182 46.8882 15.8515 46.8882 37.5297C46.8882 48.2053 40.6794 54.8654 30.4935 54.8654C20.3125 54.8654 14.1087 48.2053 14.1087 37.5297Z" fill="#FF003F" />
                                         <defs>
                                             <linearGradient id="paint0_linear_13_93" x1="31" y1="64.1616" x2="31" y2="0.16156" gradientUnits="userSpaceOnUse">
-                                                <stop stop-color="white" />
-                                                <stop offset="1" stop-color="#6C1A2F" stop-opacity="0" />
+                                                <stop stopColor="white" />
+                                                <stop offset="1" stopColor="#6C1A2F" stopOpacity="0" />
                                             </linearGradient>
                                         </defs>
                                     </svg>

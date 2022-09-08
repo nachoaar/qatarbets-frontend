@@ -20,10 +20,10 @@ export default function Cards({allMatch}){
         <div>
             { filtrados.length > 1 ?  filtrados.map((match)=>{
                 return(
-                    <CardMedium match={match}/>
+                    <CardMedium key={match.id} match={match}/>
                 )
             }) : fourMatches.map((match) =>{
-                return(<CardMedium match={match}/>)
+                return(<CardMedium key={match.id} match={match}/>)
             })}
         </div>
     )
