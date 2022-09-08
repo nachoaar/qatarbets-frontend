@@ -3,8 +3,12 @@ import Encabezado from "../../media/Encabezado.png";
 import {Link} from "react-router-dom";
 import { Boton } from "../Utils/Boton";
 import { Navbar } from "../Navbar/Navbar";
+import { useAuth0 } from '@auth0/auth0-react'
 
 export const SectionUno = () => {
+
+  const { loginWithRedirect } = useAuth0();
+
   return (
     <div className="h-screen flex flex-col justify-between">
       <Navbar />
@@ -17,10 +21,13 @@ export const SectionUno = () => {
             ratione voluptates quisquam corrupti fugiat quibusdam at eum
             consectetur rem explicabo sunt!
           </p>
+          <div>
           <Link to="/register">
           <Boton  name="Register" />
           </Link>
+          <Boton onClick={()=> loginWithRedirect()} name="login" />
         </div>
+          </div>
       </div>
     </div>
   );

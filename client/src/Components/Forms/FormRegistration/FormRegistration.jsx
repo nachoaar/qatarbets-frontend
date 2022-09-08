@@ -36,9 +36,9 @@ export default function FormRestration() {
 
 
   const onSubmit = (input) => {
-    const {name, email, pass} = input;
+    const {name, age ,email, pass} = input;
     setSuccessful(false);
-    dispatch(registerUser({name, email, pass}))
+    dispatch(registerUser({name, age, email, pass}))
     .unwrap()
       .then(() => {
         setSuccessful(true);
@@ -61,6 +61,10 @@ export default function FormRestration() {
             <FormControl m={3} w = {[150, 250, 350]}  id='name' isInvalid={errors.name? true : false} isRequired>
               <FormLabel htmlFor='name'>Username</FormLabel>
               <Input autoComplete='off' type='text' {...register('name', {
+                required: {
+                  value: true,
+                  message: "Required field"
+                },
                   pattern: {
                     value: /[A-Z]+$/i,
                     message: 'only letters'
@@ -72,7 +76,7 @@ export default function FormRestration() {
               </FormErrorMessage>
             </FormControl>
 
-            {/* <FormControl m={3} w = {[150, 250, 350]} id='age'  isInvalid={errors.age? true : false} isRequired>
+            <FormControl m={3} w = {[150, 250, 350]} id='age'  isInvalid={errors.age? true : false} isRequired>
               <FormLabel htmlFor='age'>Age</FormLabel>
                 <Input autoComplete='off' type='number' {...register('age', {
                     min: {
@@ -84,11 +88,15 @@ export default function FormRestration() {
                 <FormErrorMessage>
                   {errors.age && errors.age.message}
                 </FormErrorMessage>
-            </FormControl> */}
+            </FormControl>
 
             <FormControl m={3} w = {[150, 250, 350]} id='email'  isInvalid={errors.email? true : false} isRequired>
               <FormLabel htmlFor='email'>Email</FormLabel>
                 <Input autoComplete='off' type='text' {...register('email', {
+                  required: {
+                    value: true,
+                    message: "Required field"
+                  },
                     pattern: {
                       value: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g,
                       message: 'invalid format'
@@ -104,6 +112,10 @@ export default function FormRestration() {
               <FormLabel htmlFor='pass'>Password</FormLabel>
               <InputGroup size='md'>
                 <Input autoComplete='off' type={show ? 'text' : 'password'} {...register('pass', {
+                  required: {
+                    value: true,
+                    message: "Required field"
+                  },
                     minLength: {
                       value: 8,
                       message: 'Greater than 8'
