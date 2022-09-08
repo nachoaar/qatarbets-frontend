@@ -7,10 +7,10 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 export const SectionUno = () => {
 
+
   const { loginWithRedirect } = useAuth0();
   const {user} = useAuth0()
   console.log(user);
-
 
   return (
     <div className="h-screen flex flex-col justify-between bg-morado">
@@ -28,7 +28,7 @@ export const SectionUno = () => {
           <Link to="/register">
           <Boton  name="Register" />
           </Link>
-          <Boton onClick={()=> loginWithRedirect()} name="login" />
+          <button type="button" onClick={()=> loginWithRedirect()} className="font-titulo text-blanco text-2xl bg-rojosec rounded-tr-3xl rounded-bl-3xl rounded-br-md w-60 h-16 ease-out duration-300 hover:shadow-xl hover:shadow-rojo/30">Login</button>
         </div>
           </div>
       </div>
