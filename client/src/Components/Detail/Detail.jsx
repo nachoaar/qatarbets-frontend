@@ -38,7 +38,12 @@ export const Detail = () => {
   console.log(playersHome);
 
   useEffect(() => {
-    dispatch(matchId(id));
+
+    window.scrollTo(0, 0);
+    dispatch(matchId(id))
+      .then((res) => dispatch(startingPlayersHome(homeId)))
+      .then((res) => dispatch(startingPlayersAway(awayId)));
+
     dispatch(groupById(group));
     dispatch(getGroupMatch(group));
     dispatch(startingPlayersHome(homeId));
@@ -52,7 +57,7 @@ export const Detail = () => {
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
       <Navbar />
-      <div className="flex flex-row justify-center p-4 w-5/6 gap-3 h-auto">
+      <div className="flex flex-row justify-center p-4 w-5/6 gap-3 h-auto mt-20">
         <div className="w-4/5">
           <div className="flex flex-row gap-2">
             <div className="w-7/12">
