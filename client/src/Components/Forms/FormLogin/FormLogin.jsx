@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
 import { login } from '../../../redux/reducer/userSlice';
 
+
 import {
   FormControl,
   FormLabel,
@@ -41,13 +42,15 @@ export default function FormLogin(props) {
     dispatch(login({email, pass}))
     .unwrap()
       .then(() => {
-        props.history.push("/profile");
+        props.history.push("/home");
         window.location.reload();
       })
       .catch(() => {
         setLoading(false);
       });
   };
+
+  console.log("estado del usuario", isLoggedIn);
 
   if (isLoggedIn) {
     return <Navigate to="/profile" />;

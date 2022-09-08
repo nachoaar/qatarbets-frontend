@@ -15,6 +15,7 @@ export default configureStore({
     group,
     match: matchReducer,
     players,
-    message
+    message,
+    user
   }
 })
