@@ -11,13 +11,14 @@ export const SectionThree = () => {
 
   return (
     <div className="h-auto pt-10 pb-10 w-full min-h-screen flex justify-center items-center bg-gradient-to-b from-morado to-rojo">
-        <div className="flex w-5/6 flex-wrap justify-center gap-4">
+        <div className="flex w-5/6 flex-wrap justify-between">
           {group&&group.map((g) => {
             return (
               <Groups
                 key={g.id}
                 name={g.name}
                 teams={g.teams}
+                id={g.id}
               />
             )
           })}
