@@ -32,11 +32,11 @@ export const Home = () => {
   }, [dispatch]);
 
   const matches = useSelector((state) => state.fixture?.fixture);
-  const letra = useSelector((state) => state.fixture?.fixtureFilter);
+  const filter = useSelector((state) => state.fixture?.fixtureFilter);
 
   const letras = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
-  let letraGroup = letra[0]?.groupId;
+  let letraGroup = filter[0]?.groupId;
 
   console.log(letras[letraGroup]);
 
@@ -44,11 +44,11 @@ export const Home = () => {
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
       <Navbar />
       <div className="flex flex-row justify-between w-5/6 mb-20 mt-20 gap-3">
-        <SidebarHome />
+        <SidebarHome filter={filter} />
         <div className="h-full w-4/5 flex flex-col gap-3">
           <TitleContent
             title={
-              letra.length > 6
+              filter.length > 6
                 ? `proximos partidos`
                 : "partidos del grupo: " + letras[letraGroup - 1]
             }
