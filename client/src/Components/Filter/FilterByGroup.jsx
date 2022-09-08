@@ -20,8 +20,7 @@ export default function FilterByGroups(){
     return(
         <div>
             <div>
-                <select onChange={e => handleByGroup(e)}>
-                    <option selected={1}>Select</option>
+                <select onChange={e => handleByGroup(e)}>                   
                     {groups && groups.group?.map(group =>{
                         return(
                             <option key={group.name} value={group.id}>{group.name}</option>
