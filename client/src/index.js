@@ -14,8 +14,6 @@ dotenv.config(); */
 
 export const CLIENTID = process.env.REACT_APP_CLIENTID
 export const DOMAIN = process.env.REACT_APP_DOMAIN
-console.log("CLIENTID", CLIENTID);
-console.log("DOMAIN", DOMAIN);
 export const axiosURL = process.env.REACT_APP_API || "https://qatarbets-backend-production-ab54.up.railway.app" || "http://localhost:3000";
 
 
