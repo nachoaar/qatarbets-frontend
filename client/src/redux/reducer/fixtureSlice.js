@@ -6,6 +6,7 @@ export const fixtureSlice = createSlice({
   initialState: {
     fixture: [],
     fixtureFilter: [],
+    fixtureFilterCopy: [],
     fixtureGroup: [],
     fixtureGamesPerGroup: [],
     filtredMatches: [],
@@ -17,12 +18,14 @@ export const fixtureSlice = createSlice({
       state.fixtureFilter = action.payload.slice(0,10)
     },
     getGroupFixture: (state, action) => {
-      state.fixtureFilter = state.fixture.filter(
+      const filter = state.fixture.filter(
         (g) => g.groupId === action.payload
       );
+      state.fixtureFilter = filter
+      state.fixtureFilterCopy = filter
     },
     getFixtureCity: (state, action) => {
-      state.fixtureFilter = state.fixtureFilter.filter(
+      state.fixtureFilter = state.fixtureFilterCopy.filter(
         (g) => g.city === action.payload
       );
     },

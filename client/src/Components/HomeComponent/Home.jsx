@@ -32,7 +32,7 @@ export const Home = () => {
   }, [dispatch]);
 
   const matches = useSelector((state) => state.fixture?.fixture);
-  const filter = useSelector((state) => state.fixture?.fixtureFilter);
+  const filter = useSelector((state) => state.fixture?.fixtureFilterCopy);
 
   const letras = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
