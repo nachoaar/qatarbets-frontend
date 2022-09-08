@@ -7,6 +7,7 @@ import { groupById } from "../../redux/actions/groupActions";
 import { matchId } from "../../redux/actions/matchActions";
 import {
   startingPlayersAway,
+  startingPlayersClean,
   startingPlayersHome,
 } from "../../redux/actions/playersActions";
 import { Footer } from "../Footer/Footer";
@@ -38,12 +39,16 @@ export const Detail = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    dispatch(matchId(id))
-      .then((res) => dispatch(startingPlayersHome(homeId)))
-      .then((res) => dispatch(startingPlayersAway(awayId)));
+    dispatch(matchId(id));
+    dispatch(startingPlayersHome(homeId));
+    dispatch(startingPlayersAway(awayId));
     dispatch(groupById(group));
     dispatch(getGroupMatch(group));
-
+    return () => {
+      dispatch(startingPlayersClean());
+      homeId = null;
+      awayId = null;
+    };
   }, [dispatch, id, group, homeId, awayId]);
 
   return (
