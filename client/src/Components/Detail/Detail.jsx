@@ -38,21 +38,18 @@ export const Detail = () => {
   console.log(playersHome);
 
   useEffect(() => {
-
     window.scrollTo(0, 0);
-    dispatch(matchId(id))
-      .then((res) => dispatch(startingPlayersHome(homeId)))
-      .then((res) => dispatch(startingPlayersAway(awayId)));
-
-    dispatch(groupById(group));
-    dispatch(getGroupMatch(group));
+    dispatch(matchId(id));
     dispatch(startingPlayersHome(homeId));
     dispatch(startingPlayersAway(awayId));
+    dispatch(groupById(group));
+    dispatch(getGroupMatch(group));
     return () => {
       dispatch(startingPlayersClean());
+      homeId = null;
+      awayId = null;
     };
   }, [dispatch, id, group, homeId, awayId]);
-
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">

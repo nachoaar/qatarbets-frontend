@@ -25,5 +25,6 @@ export default configureStore({
     message,
     Dashbets: betSlice,
     gambler: gamblerSlice
+    user
   }
 })
