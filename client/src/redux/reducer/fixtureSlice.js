@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const fixtureSlice = createSlice({
-
   name: "fixture",
   initialState: {
     fixture: [],
@@ -10,31 +9,35 @@ export const fixtureSlice = createSlice({
     fixtureGroup: [],
     fixtureGamesPerGroup: [],
     filtredMatches: [],
-
   },
   reducers: {
     getAllFixture: (state, action) => {
-      state.fixture = action.payload
-      state.fixtureFilter = action.payload.slice(0,10)
+      const ordenado = action.payload.sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
+      );
+      state.fixture = ordenado;
+      state.fixtureFilter = ordenado.slice(0, 10);
+      state.fixtureFilterCopy = ordenado;
     },
     getGroupFixture: (state, action) => {
-      const filter = state.fixture.filter(
-        (g) => g.groupId === action.payload
+      const filter = state.fixture.filter((g) => g.groupId === action.payload);
+      const ordenado = filter.sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
       );
-      state.fixtureFilter = filter
-      state.fixtureFilterCopy = filter
+      state.fixtureFilter = ordenado;
+      state.fixtureFilterCopy = ordenado;
     },
     getFixtureCity: (state, action) => {
       state.fixtureFilter = state.fixtureFilterCopy.filter(
         (g) => g.city === action.payload
       );
     },
-    filterByGroup: (state,action) =>{
-
-      const asd = state.fixture?.filter((match) => match.groupId === Number(action.payload)).slice(0,4)
-      console.log(asd)
-        state.filtredMatches = asd
-
+    filterByGroup: (state, action) => {
+      const asd = state.fixture
+        ?.filter((match) => match.groupId === Number(action.payload))
+        .slice(0, 4);
+      console.log(asd);
+      state.filtredMatches = asd;
     },
     getGamesPerGroup: (state, action) => {
       /* state.fixtureGamesPerGroup = []; */
@@ -51,5 +54,11 @@ export const fixtureSlice = createSlice({
   },
 });
 
-export const { getAllFixture, getGroupFixture, getGamesPerGroup, filterByGroup, getFixtureCity  } = fixtureSlice.actions;
+export const {
+  getAllFixture,
+  getGroupFixture,
+  getGamesPerGroup,
+  filterByGroup,
+  getFixtureCity,
+} = fixtureSlice.actions;
 export default fixtureSlice.reducer;
