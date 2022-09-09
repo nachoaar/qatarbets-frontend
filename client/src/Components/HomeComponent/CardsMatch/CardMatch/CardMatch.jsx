@@ -7,6 +7,7 @@ export const CardMatch = (props) => {
 
 
 let date = new Date(props.date)
+
 date = date.toLocaleDateString("es-AR",{day:'numeric', month:'numeric', year:'numeric'});
 
 let hora = new Date(props.date)

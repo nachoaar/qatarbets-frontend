@@ -71,6 +71,9 @@ export const Home = () => {
                   home_team={m.home_team.name}
                   away_team={m.away_team.name}
                   groupId={m.groupId}
+                  profit_coef_home={m.profit_coef_home}
+                  profit_coef_draw={m.profit_coef_draw}
+                  profit_coef_away={m.profit_coef_away}
                 />
               );
             })}

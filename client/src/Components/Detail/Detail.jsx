@@ -63,6 +63,9 @@ export const Detail = () => {
                 away_team={match[0]?.away_team.name}
                 group={groupId[0]?.name.toUpperCase().replace("_", " ")}
                 date={match[0]?.date}
+                profit_coef_home={match[0]?.profit_coef_home}
+                profit_coef_draw={match[0]?.profit_coef_draw}
+                profit_coef_away={match[0]?.profit_coef_away}
               />
             </div>
             <div className="w-5/12 h-max">
