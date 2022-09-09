@@ -11,7 +11,7 @@ export const Court = ({
   playersAttackersAway,
 }) => {
   return (
-    <div className="w-full h-full flex flex-row bg-green-600 gap-4">
+    <div className="w-full h-full flex flex-row bg-canchita bg-cover gap-4">
       {/* EQUIPO LOCAL */}
       <div className="w-1/2 h-auto flex flex-row justify-between ">
         <div className="h-full w-auto flex flex-col items-center justify-around px-2">
@@ -24,8 +24,8 @@ export const Court = ({
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-xl">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-md">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -44,8 +44,8 @@ export const Court = ({
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-xl">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-md">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -63,8 +63,8 @@ export const Court = ({
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-xl">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-md">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -82,8 +82,8 @@ export const Court = ({
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-xl">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-md">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -104,8 +104,8 @@ export const Court = ({
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-xl">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-md">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -123,8 +123,8 @@ export const Court = ({
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-xl">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-md">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -142,8 +142,8 @@ export const Court = ({
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-xl">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-md">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -161,8 +161,8 @@ export const Court = ({
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-xl">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-md">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
