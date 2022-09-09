@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup, getFixtureCity} from "../reducer/fixtureSlice";
+import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup, getFixtureCity, orderFixture} from "../reducer/fixtureSlice";
 import { axiosURL } from "../../index.js";
 
 export function getFixture() {
@@ -24,10 +24,16 @@ export function getByCity(payload) {
   };
 }
 
+export function orderByDate(payload) {
+  return async function (dispatch) {
+    dispatch(orderFixture(payload));
+  };
+}
+
 export function filterByGroupAction(payload){
   console.log(payload)
   return async function (dispatch){
-    
+
     dispatch(filterByGroup(payload))
   }
 }

@@ -1,6 +1,9 @@
 import React from "react";
 
 export const CardDetail = (props) => {
+
+
+
   return (
     <div className="bg-rojosec w-full h-full p-3 font-parrafo rounded-tl rounded-tr-2xl rounded-br rounded-bl-2xl flex flex-col justify-between">
       <div className=" flex flex-row justify-around text-white p-1 font-fifa">
