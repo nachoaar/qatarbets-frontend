@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export const Court = ({
   playersGoalkeeperHome,
   playersDefenderHome,
@@ -15,21 +14,41 @@ export const Court = ({
     <div className="w-full h-full flex flex-row bg-green-600 gap-4">
       {/* EQUIPO LOCAL */}
       <div className="w-1/2 h-auto flex flex-row justify-between ">
-        <div className="h-full w-auto flex flex-col items-center justify-around px-2 ">
-          <div className="rounded-full overflow-hidden hover:w-40 hover:h-40 hover:bg-slate-300 transition duration-700 ease-in-out hover:rounded-none">
-            <img
-              src={playersGoalkeeperHome && playersGoalkeeperHome[0].photo}
-              alt=""
-              className="h-12 w-12"
-            />
-          </div>
+        <div className="h-full w-auto flex flex-col items-center justify-around px-2">
+          {playersGoalkeeperHome &&
+            playersGoalkeeperHome.map((p) => {
+              return (
+                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                  <img
+                    src={p.photo}
+                    alt=""
+                    className="h-12 w-12 group-hover:w-16 group-hover:h-16"
+                  />
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-xl">{p.name}</p>
+                    <p>{p.position}</p>
+                    <p>age: {p.age}</p>
+                  </div>
+                </div>
+              );
+            })}
         </div>
+
         <div className="h-full w-auto flex flex-col items-center justify-around px-2">
           {playersDefenderHome &&
             playersDefenderHome.map((p) => {
               return (
-                <div className="rounded-full overflow-hidden">
-                  <img src={p.photo} alt="" className="h-12 w-12" />
+                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                  <img
+                    src={p.photo}
+                    alt=""
+                    className="h-12 w-12 group-hover:w-16 group-hover:h-16"
+                  />
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-xl">{p.name}</p>
+                    <p>{p.position}</p>
+                    <p>age: {p.age}</p>
+                  </div>
                 </div>
               );
             })}
@@ -38,8 +57,17 @@ export const Court = ({
           {playersMidfielderHome &&
             playersMidfielderHome.map((p) => {
               return (
-                <div className="rounded-full overflow-hidden">
-                  <img src={p.photo} alt="" className="h-12 w-12" />
+                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                  <img
+                    src={p.photo}
+                    alt=""
+                    className="h-12 w-12 group-hover:w-16 group-hover:h-16"
+                  />
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-xl">{p.name}</p>
+                    <p>{p.position}</p>
+                    <p>age: {p.age}</p>
+                  </div>
                 </div>
               );
             })}
@@ -48,8 +76,17 @@ export const Court = ({
           {playersAttackersHome &&
             playersAttackersHome.map((p) => {
               return (
-                <div className="rounded-full overflow-hidden">
-                  <img src={p.photo} alt="" className="h-12 w-12" />
+                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                  <img
+                    src={p.photo}
+                    alt=""
+                    className="h-12 w-12 group-hover:w-16 group-hover:h-16"
+                  />
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-xl">{p.name}</p>
+                    <p>{p.position}</p>
+                    <p>age: {p.age}</p>
+                  </div>
                 </div>
               );
             })}
@@ -61,8 +98,17 @@ export const Court = ({
           {playersAttackersAway &&
             playersAttackersAway.map((p) => {
               return (
-                <div className="rounded-full overflow-hidden">
-                  <img src={p.photo} alt="" className="h-12 w-12" />
+                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                  <img
+                    src={p.photo}
+                    alt=""
+                    className="h-12 w-12 group-hover:w-16 group-hover:h-16"
+                  />
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-xl">{p.name}</p>
+                    <p>{p.position}</p>
+                    <p>age: {p.age}</p>
+                  </div>
                 </div>
               );
             })}
@@ -71,8 +117,17 @@ export const Court = ({
           {playersMidfielderAway &&
             playersMidfielderAway.map((p) => {
               return (
-                <div className="rounded-full overflow-hidden">
-                  <img src={p.photo} alt="" className="h-12 w-12" />
+                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                  <img
+                    src={p.photo}
+                    alt=""
+                    className="h-12 w-12 group-hover:w-16 group-hover:h-16"
+                  />
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-xl">{p.name}</p>
+                    <p>{p.position}</p>
+                    <p>age: {p.age}</p>
+                  </div>
                 </div>
               );
             })}
@@ -81,20 +136,39 @@ export const Court = ({
           {playersDefenderAway &&
             playersDefenderAway.map((p) => {
               return (
-                <div className="rounded-full overflow-hidden">
-                  <img src={p.photo} alt="" className="h-12 w-12" />
+                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                  <img
+                    src={p.photo}
+                    alt=""
+                    className="h-12 w-12 group-hover:w-16 group-hover:h-16"
+                  />
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-xl">{p.name}</p>
+                    <p>{p.position}</p>
+                    <p>age: {p.age}</p>
+                  </div>
                 </div>
               );
             })}
         </div>
         <div className="h-full w-auto flex flex-col items-center justify-around px-2">
-          <div className="rounded-full overflow-hidden">
-            <img
-              src={playersGoalkeeperAway && playersGoalkeeperAway[0].photo}
-              alt=""
-              className="h-12 w-12"
-            />
-          </div>
+          {playersGoalkeeperAway &&
+            playersGoalkeeperAway.map((p) => {
+              return (
+                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                  <img
+                    src={p.photo}
+                    alt=""
+                    className="h-12 w-12 group-hover:w-16 group-hover:h-16"
+                  />
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-full group-hover:p-2 text-left text-xs bg-white ">
+                    <p className="font-semibold text-xl">{p.name}</p>
+                    <p>{p.position}</p>
+                    <p>age: {p.age}</p>
+                  </div>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>
