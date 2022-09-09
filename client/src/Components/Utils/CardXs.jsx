@@ -23,13 +23,13 @@ export const CardXs = (props) => {
         </div>
         <div className="flex flex-row justify-between gap-1">
           <div className="w-1/3 bg-slate-200">
-            <p>1.40</p>
+            <p>Local: {props.profit_coef_home}</p>
           </div>
           <div className="w-1/3 bg-slate-200">
-            <p>2</p>
+            <p>Empate: {props.profit_coef_draw}</p>
           </div>
           <div className="w-1/3 bg-slate-200">
-            <p>3.5</p>
+            <p>Visitante: {props.profit_coef_away}</p>
           </div>
         </div>
       </div>

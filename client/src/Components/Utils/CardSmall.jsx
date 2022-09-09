@@ -24,13 +24,13 @@ export const CardSmall = ({match}) => {
         </div>
         <div className="flex flex-row justify-between gap-1">
           <div className="w-1/3 bg-slate-200">
-            <p>home: 1.40</p>
+            <p>Local: {match?.profit_coef_home}</p>
           </div>
           <div className="w-1/3 bg-slate-200">
-            <p>draw: 2</p>
+            <p>Empate: {match?.profit_coef_home}</p>
           </div>
           <div className="w-1/3 bg-slate-200">
-            <p>away: 3.5</p>
+            <p>Visitante: {match?.profit_coef_home}</p>
           </div>
         </div>
       </div>

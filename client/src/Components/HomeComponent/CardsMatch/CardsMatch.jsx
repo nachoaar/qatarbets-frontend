@@ -9,13 +9,13 @@ export const CardsMatch = () => {
   /*   fixtureFilter.sort(
     (a, b) => new Date(a.date).getTime() > new Date(b.date).getTime()
   ); */
-/*
+  /*
   fixtureFilter.sort(
     (a, b) => new Date(a.date) > new Date(b.date)
   );
 
   console.log(fixtureFilter); */
-/*   console.log(ordenado); */
+  /*   console.log(ordenado); */
 
   return (
     <div className="bg-morado w-full h-1/5 rounded flex flex-col gap-1 overflow-hidden">
@@ -32,6 +32,9 @@ export const CardsMatch = () => {
               status={m.status}
               id={m.id}
               date={m.date}
+              profit_coef_home={m.profit_coef_home}
+              profit_coef_draw={m.profit_coef_draw}
+              profit_coef_away={m.profit_coef_away}
             />
           );
         })}
