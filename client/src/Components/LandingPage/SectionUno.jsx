@@ -6,9 +6,9 @@ import { Navbar } from "../Navbar/Navbar";
 
 export const SectionUno = () => {
   return (
-    <div className="h-screen flex flex-col justify-between">
+    <div className="h-screen flex flex-col justify-between bg-morado">
       <Navbar />
-      <div className="bg-soccerPlayers bg-cover flex flex-col items-center justify-center bg-center h-screen">
+      <div className="bg-soccerPlayers bg-cover flex flex-col items-center justify-center bg-center h-screen mix-blend-hard-light">
         <div className="flex flex-col items-start px-8 gap-3">
           <img className=" max-h-48" src={Encabezado} alt="encabezado"></img>
           <p className="text-blanco font-parrafo max-w-md text-justify">

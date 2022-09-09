@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { startingPlayersClean } from "../../../redux/actions/playersActions";
+import React from "react";
+
 
 export const Court = ({
   playersGoalkeeperHome,
@@ -12,16 +11,6 @@ export const Court = ({
   playersMidfielderAway,
   playersAttackersAway,
 }) => {
-
-  const dispatch = useDispatch()
-
-/*   useEffect(() => {
-    return () => {
-      dispatch(startingPlayersClean());
-    };
-  }, []); */
-
-  useEffect( () => () => dispatch(startingPlayersClean()), [] );
 
 
   return (

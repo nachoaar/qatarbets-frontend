@@ -3,6 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
+    "@syncfusion/ej2": "^19.4.48",
+    "@syncfusion/ej2-react-calendars": "^19.4.48",
+    "@syncfusion/ej2-react-charts": "^19.4.50",
+    "@syncfusion/ej2-react-dropdowns": "^19.4.52",
+    "@syncfusion/ej2-react-grids": "^19.4.50",
+    "@syncfusion/ej2-react-inputs": "^19.4.52",
+    "@syncfusion/ej2-react-kanban": "^19.4.48",
+    "@syncfusion/ej2-react-popups": "^19.4.52",
+    "@syncfusion/ej2-react-richtexteditor": "^19.4.50",
+    "@syncfusion/ej2-react-schedule": "^19.4.50",
+    "@auth0/auth0-react": "^1.10.2",
+=======
+>>>>>>> e2f87b30b8cfdd37b775ad1ed0ee3db2851ef566
     "@chakra-ui/icons": "^2.0.9",
     "@chakra-ui/react": "^2.3.1",
     "@chakra-ui/theme": "^2.1.10",
@@ -18,14 +32,19 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+<<<<<<< HEAD
+    "chart.js": "^3.9.1",
+=======
     "jsonwebtoken": "^8.5.1",
     "dotenv": "^16.0.1",
+>>>>>>> e2f87b30b8cfdd37b775ad1ed0ee3db2851ef566
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.2",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "recharts": "^2.1.14",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
