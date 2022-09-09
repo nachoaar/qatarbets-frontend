@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react';
+import { GoogleLogout } from 'react-google-login';
 
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
@@ -26,6 +27,10 @@ export const Navbar = () => {
         } else {
             setColor(false)
         }
+    }
+
+    const logout = (response) => {
+      console.log(response);
     }
 
     window.addEventListener('scroll', changeColor);
@@ -147,6 +152,12 @@ export const Navbar = () => {
                                 </Menu>
                             </div>
                         </div>
+                        <GoogleLogout
+                          clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                          buttonText="Logout"
+                          onLogoutSuccess={logout}
+                        >
+                        </GoogleLogout>
                     </div>
 
                     <Disclosure.Panel className="sm:hidden">

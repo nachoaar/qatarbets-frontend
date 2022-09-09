@@ -4,6 +4,9 @@ import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
 import  { registerUser }  from '../../../redux/reducer/userSlice'
 import { clearMessage } from '../../../redux/reducer/messageSlice'
+import GoogleLogin from 'react-google-login';
+import { CLIENTID } from '../../../index'
+
 
 import {
   FormControl,
@@ -48,7 +51,10 @@ export default function FormRestration() {
       });
   };
 
-  // /^([a-zA-z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/gm
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
+
 
   return (
     <>
@@ -133,7 +139,16 @@ export default function FormRestration() {
                   </FormErrorMessage>
             </FormControl>
 
-          <Button type='submit' colorScheme='red' m={3}>Register</Button>
+            <div>
+              <Button type='submit' colorScheme='red' m={3}>Register</Button>
+              <GoogleLogin
+                clientId={CLIENTID}
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+              />
+            </div>
           </form>
         </VStack>
     </Center>

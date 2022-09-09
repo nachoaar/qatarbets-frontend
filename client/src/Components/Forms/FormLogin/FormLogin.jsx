@@ -5,6 +5,8 @@ import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
 import { login } from '../../../redux/reducer/userSlice';
+import GoogleLogin from 'react-google-login';
+import { CLIENTID } from '../../../index'
 
 
 import {
@@ -49,6 +51,10 @@ export default function FormLogin(props) {
         setLoading(false);
       });
   };
+
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
 
   console.log("estado del usuario", isLoggedIn);
 
@@ -102,6 +108,13 @@ export default function FormLogin(props) {
           <Button type='submit' colorScheme='red' m={3}>Login</Button>
           <Link to="/register">
           <Button colorScheme='gray' m={3}>Register</Button>
+          <GoogleLogin
+            clientId={CLIENTID}
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          />
           </Link>
         </form>
       </VStack>
