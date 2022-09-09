@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getFixture } from "../../redux/actions/fixtureActions";
 import { BotonGroup } from "./BotonGroup";
 import { ButtonCity } from "./Buttons/ButtonCity";
+import { ButtonFecha } from "./Buttons/ButtonFecha";
 import { TitleContent } from "./TitleContent";
 
 export const SidebarHome = ({ filter }) => {
@@ -60,7 +61,9 @@ export const SidebarHome = ({ filter }) => {
             return <ButtonCity ciudad={c} />;
           })}
 
-        <TitleContent title="fechas" />
+        <TitleContent title="orden de fechas" />
+        <ButtonFecha order="ascendente" cod="asc"/>
+        <ButtonFecha order="descendente" cod="desc"/>
       </div>
     </div>
   );
