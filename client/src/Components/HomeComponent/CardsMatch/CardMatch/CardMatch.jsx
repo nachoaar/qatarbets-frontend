@@ -80,26 +80,26 @@ fechados = fechados.toLocaleDateString("es-AR",{ weekday:'long', day:'numeric', 
         <div className="flex flex-row gap-1 justify-between">
           <div className="flex flex-col bg-rojosec h-full w-auto">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
-              <p className="font-parrafo text-white text-lg px-6">HOME</p>
+              <p className="font-parrafo text-white text-lg px-6">LOCAL</p>
             </div>
             <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
-              <p className="font-parrafo text-black text-lg">1.40</p>
+              <p className="font-parrafo text-black text-lg">{props.profit_coef_home}</p>
             </div>
           </div>
           <div className="flex flex-col bg-rojosec h-full w-auto">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
-              <p className="font-parrafo text-white text-lg px-6">DRAW</p>
+              <p className="font-parrafo text-white text-lg px-6">EMPATE</p>
             </div>
             <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
-              <p className="font-parrafo text-black text-lg">2</p>
+              <p className="font-parrafo text-black text-lg">{props.profit_coef_draw}</p>
             </div>
           </div>
           <div className="flex flex-col bg-rojosec h-full w-auto">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
-              <p className="font-parrafo text-white text-lg px-6">AWAY</p>
+              <p className="font-parrafo text-white text-lg px-6">VISITANTE</p>
             </div>
             <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
-              <p className="font-parrafo text-black text-lg">3.5</p>
+              <p className="font-parrafo text-black text-lg">{props.profit_coef_away}</p>
             </div>
           </div>
         </div>
