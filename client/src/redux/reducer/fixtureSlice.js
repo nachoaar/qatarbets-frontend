@@ -32,6 +32,21 @@ export const fixtureSlice = createSlice({
         (g) => g.city === action.payload
       );
     },
+    orderFixture: (state, action) => {
+      /* console.log(action.payload) */
+      const fixture = [...state.fixtureFilter]
+      console.log(fixture)
+      const ordenadoAsc = fixture.sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
+      );
+      const ordenadoDesc = fixture.sort(
+        (a, b) => new Date(a.date) > new Date(b.date)
+      );
+      if(action.payload === "asc"){
+        console.log("paso el if")
+        state.fixtureFilter = [...ordenadoAsc]
+      } state.fixtureFilter = [...ordenadoDesc]
+    },
     filterByGroup: (state, action) => {
       const asd = state.fixture
         ?.filter((match) => match.groupId === Number(action.payload))
@@ -60,5 +75,6 @@ export const {
   getGamesPerGroup,
   filterByGroup,
   getFixtureCity,
+  orderFixture
 } = fixtureSlice.actions;
 export default fixtureSlice.reducer;
