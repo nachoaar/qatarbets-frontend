@@ -21,7 +21,7 @@ function App() {
       <Route exact path="/register" element={<FormRestration />} />
       <Route exact path="/login" element={<FormLogin />} />
       <Route exact path="/detail/:id" element={<Detail />} />
-      <Route exact path="/dashboard" element={<Dashboard />}/>
+      <Route exact path="/dashboardAdmin" element={<Dashboard />}/>
       <Route exact path="/dashboard/stats/" element={<StatDashboard />} />
       <Route exact path="/dashboard/bets/" element={<BetDashboard />} />
       <Route exact path="/dashboard/matchs/" element={<MatchDashboard />} />

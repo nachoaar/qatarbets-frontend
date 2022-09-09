@@ -2,7 +2,7 @@ import React from 'react';
 import { NavbarDashboard } from './NavbarDashboard/NavbarDashboard';
 import { SidebarDashboard } from './SidebarDashboard/SidebarDashboard';
 
-export const Dashboard = () => {
+export const DashboardAdmin = () => {
   return (
     <div className="bg-gris w-full h-screen flex flex-row justify-between gap-5">
       <div className="bg-white h-full w-1/5">

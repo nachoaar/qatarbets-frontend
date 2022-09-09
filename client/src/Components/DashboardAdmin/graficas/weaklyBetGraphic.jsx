@@ -28,8 +28,8 @@ const [two,setTwo] = useState(true)
     }
 
     return(
-        <div>
-            <LineChart width={730} height={250} data={sortedData}
+        <div className="flex flex-col justify-center items-center">
+            <LineChart width={500} height={250} data={sortedData}
   margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
   <CartesianGrid strokeDasharray="3 3" />
   <XAxis dataKey="name" />
@@ -39,8 +39,10 @@ const [two,setTwo] = useState(true)
 { one === true ? (<Line type="monotone" dataKey="loses" stroke="#82ca9d" />) :(<></>)}
 {  two === true ? (<Line type="monotone" dataKey="gains" stroke="#8884d8" />):(<></>)}
     </LineChart>
+    <div className="flex gap-2">
         <button className=" flex-1 m-1 border shadow-sm " onClick={(e)=>{ handleButtons(e)}} value='gains'>Gains</button> 
         <button className=" flex-1 m-1 border shadow-sm" onClick={(e)=>{handleButtons(e)}} value='loses'>Loses</button>
+    </div>
         </div>
     )
 }
