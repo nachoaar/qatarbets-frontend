@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
+import  { registerUser }  from '../../../redux/reducer/userSlice'
+import { clearMessage } from '../../../redux/reducer/messageSlice'
+
 import {
   FormControl,
   FormLabel,
@@ -15,16 +19,34 @@ import {
   // FormHelperText,
 } from '@chakra-ui/react'
 
+
+
 export default function FormRestration() {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const [successful, setSuccessful] = useState(false);
+  const { message } = useSelector((state) => state.message);
 
-  const [show, setShow] = React.useState(false)
+  const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearMessage());
+  }, [dispatch]);
 
 
-  const onSubmit = data => console.log(data);
-
-  console.log(errors)
+  const onSubmit = (input) => {
+    const {name, age ,email, pass} = input;
+    setSuccessful(false);
+    dispatch(registerUser({name, age, email, pass}))
+    .unwrap()
+      .then(() => {
+        setSuccessful(true);
+      })
+      .catch(() => {
+        setSuccessful(false);
+      });
+  };
 
   // /^([a-zA-z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/gm
 
@@ -39,6 +61,10 @@ export default function FormRestration() {
             <FormControl m={3} w = {[150, 250, 350]}  id='name' isInvalid={errors.name? true : false} isRequired>
               <FormLabel htmlFor='name'>Username</FormLabel>
               <Input autoComplete='off' type='text' {...register('name', {
+                required: {
+                  value: true,
+                  message: "Required field"
+                },
                   pattern: {
                     value: /[A-Z]+$/i,
                     message: 'only letters'
@@ -67,6 +93,10 @@ export default function FormRestration() {
             <FormControl m={3} w = {[150, 250, 350]} id='email'  isInvalid={errors.email? true : false} isRequired>
               <FormLabel htmlFor='email'>Email</FormLabel>
                 <Input autoComplete='off' type='text' {...register('email', {
+                  required: {
+                    value: true,
+                    message: "Required field"
+                  },
                     pattern: {
                       value: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g,
                       message: 'invalid format'
@@ -78,13 +108,17 @@ export default function FormRestration() {
                 </FormErrorMessage>
             </FormControl>
 
-            <FormControl m={3} w = {[150, 250, 350]} id='password'  isInvalid={errors.password? true : false} isRequired>
-              <FormLabel htmlFor='password'>Password</FormLabel>
+            <FormControl m={3} w = {[150, 250, 350]} id='pass'  isInvalid={errors.pass? true : false} isRequired>
+              <FormLabel htmlFor='pass'>Password</FormLabel>
               <InputGroup size='md'>
-                <Input autoComplete='off' type={show ? 'text' : 'password'} {...register('password', {
+                <Input autoComplete='off' type={show ? 'text' : 'password'} {...register('pass', {
+                  required: {
+                    value: true,
+                    message: "Required field"
+                  },
                     minLength: {
-                      value: 6,
-                      message: 'Greater than 6'
+                      value: 8,
+                      message: 'Greater than 8'
                       }
                       })} placeholder='Your Password'
                       />
@@ -95,14 +129,10 @@ export default function FormRestration() {
                   </InputRightElement>
                   </InputGroup>
                   <FormErrorMessage>
-                    {errors.password && errors.password.message}
+                    {errors.pass && errors.pass.message}
                   </FormErrorMessage>
             </FormControl>
 
-          {/* <div>
-            <p>Avatar</p>
-            <input type="text" name='avatar' placeholder='url de la img'/>
-          </div> */}
           <Button type='submit' colorScheme='red' m={3}>Register</Button>
           </form>
         </VStack>

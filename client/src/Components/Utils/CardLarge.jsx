@@ -2,53 +2,52 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const CardLarge = (props) => {
+
   return (
-    <button className="h-60 wid-auto md:w-4/12 p-4 ">
-      <Link to={`/detail/${props.id}`}>
-      <div className="h-full  bg-rojo flex flex-col justify-between py-2 px-4 ease-out duration-300 hover:bg-rojosec rounded-tl-lg rounded-tr-2xl rounded-br-lg rounded-bl-2xl  font-parrafo hover:-translate-y-3">
-        <div className="bg-blanco">
-          <h1 className="bg-rojosec text-center text-white">{props.date}</h1>
+    <Link to={`/detail/${props.id}`}>
+      <button className="transition-colors duration-700 hover:bg-rojo scroll-smooth mb-3 snap-center h-52 w-80 bg-rojosec rounded-tr-3xl rounded-bl-3xl rounded-md flex flex-col p-4">
+        <div className="w-full h-10 bg-morado flex justify-center items-center">
+          <p className="font-parrafo text-2xl text-white">2022-11-20</p>
         </div>
-        <div className=" flex flex-row justify-between text-white p-1">
-          <p className="font-fifa">FIFA WORLD CUP</p>
-          <span className="text-sm">Group Stage - 1</span>
+        <div className="w-full h-12 flex justify-between items-center px-2">
+          <p className="font-fifa text-md text-white">FIFA WORLD CUP</p>
+          <p className="font-parrafo text-white">{`Group Stage - ${props.groupId}`}</p>
         </div>
-        <div className="bg-rojosec text-white p-1 flex flex-row justify-between">
-          <div className="flex flex-row justify-between gap-2 items-center">
-            <div className="border-2 border-white">
+        <div className="w-full h-16 flex bg-morado items-center justify-center px-2">
+          <div className="text-white flex justify-start items-center w-full gap-1">
+            <div className="h-8 w-10 rounded border-2 border-white bg-rojo overflow-hidden flex items-center justify-center">
               <img
-                src={`https://countryflagsapi.com/png/${props.homeTeam}`}
+                src={`https://countryflagsapi.com/png/${props.home_team}`}
                 alt=""
-                className="w-8 h-8"
+                className="h-8 w-10"
               />
             </div>
-            <h3>{props.homeTeam}</h3>
+            <p className="font-parrafo">{props.home_team}</p>
           </div>
-          <h3>Vs</h3>
-          <div className="flex flex-row justify-between gap-2 items-center">
-            <h3>{props.awayTeam}</h3>
-            <div className="border-2 border-white">
+          <p className="text-white w-10 h-10 flex items-center justify-center font-fifa">vs</p>
+          <div className="text-white flex justify-end items-center w-full gap-1">
+            <p className="font-parrafo">{props.away_team}</p>
+            <div className="h-8 w-10 rounded border-2 border-white bg-rojo overflow-hidden flex items-center justify-center">
               <img
-                src={`https://countryflagsapi.com/png/${props.awayTeam}`}
+                src={`https://countryflagsapi.com/png/${props.away_team}`}
                 alt=""
-                className="w-8 h-8 "
+                className="h-8 w-10"
               />
             </div>
           </div>
         </div>
-        <div className="flex flex-row justify-between">
-          <div className="w-1/4 bg-slate-200">
-            <p>home: 1.40</p>
+        <div className="w-full mt-2 h-8 flex justify-center items-center gap-2">
+          <div className="bg-white h-full w-4/5 flex items-center justify-center">
+            <p>1.40</p>
           </div>
-          <div className="w-1/4 bg-slate-200">
-            <p>draw: 2</p>
+          <div className="bg-white h-full w-full flex items-center justify-center">
+            <p>2</p>
           </div>
-          <div className="w-1/4 bg-slate-200">
-            <p>away: 3.5</p>
+          <div className="bg-white h-full w-4/5 flex items-center justify-center">
+            <p>3.5</p>
           </div>
         </div>
-      </div>
+      </button>
     </Link>
-    </button>
   );
 };

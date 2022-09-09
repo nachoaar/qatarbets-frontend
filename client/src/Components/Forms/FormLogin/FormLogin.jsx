@@ -1,7 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect  } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Navigate } from 'react-router-dom';
 import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
+import { clearMessage } from '../../../redux/reducer/messageSlice'
+import { login } from '../../../redux/reducer/userSlice';
+
 
 import {
   FormControl,
@@ -17,15 +21,40 @@ import {
   // FormHelperText,
 } from '@chakra-ui/react'
 
-export default function FormLogin() {
+
+export default function FormLogin(props) {
+  const dispatch = useDispatch();
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const { isLoggedIn } = useSelector((state) => state.user);
+  const { message } = useSelector((state) => state.message);
 
-
-  const [show, setShow] = React.useState(false)
+  const [loading, setLoading] = useState(false);
+  const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
 
+  useEffect(() => {
+    dispatch(clearMessage());
+  }, [dispatch]);
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = (input) => {
+    const { email, pass } = input;
+    setLoading(true);
+    dispatch(login({email, pass}))
+    .unwrap()
+      .then(() => {
+        props.history.push("/home");
+        window.location.reload();
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  };
+
+  console.log("estado del usuario", isLoggedIn);
+
+  if (isLoggedIn) {
+    return <Navigate to="/profile" />;
+  }
 
   return (
     <>
@@ -49,13 +78,13 @@ export default function FormLogin() {
             </FormErrorMessage>
           </FormControl>
 
-          <FormControl m={3} w = {[150, 250, 350]} id='password'  isInvalid={errors.password? true : false} isRequired>
+          <FormControl m={3} w = {[150, 250, 350]} id='pass'  isInvalid={errors.pass? true : false} isRequired>
             <FormLabel htmlFor='password'>Password</FormLabel>
               <InputGroup size='md'>
-                <Input autoComplete='off' type={show ? 'text' : 'password'} {...register('password', {
+                <Input autoComplete='off' type={show ? 'text' : 'password'} {...register('pass', {
                   minLength: {
-                    value: 6,
-                    message: 'Greater than 6'
+                    value: 8,
+                    message: 'Greater than 8'
                     }
                     })} placeholder='Your Password'
                 />
@@ -66,7 +95,7 @@ export default function FormLogin() {
                   </InputRightElement>
               </InputGroup>
             <FormErrorMessage>
-              {errors.password && errors.password.message}
+              {errors.pass && errors.pass.message}
             </FormErrorMessage>
           </FormControl>
 
@@ -76,7 +105,6 @@ export default function FormLogin() {
           </Link>
         </form>
       </VStack>
-
     </Center>
     </>
   )
