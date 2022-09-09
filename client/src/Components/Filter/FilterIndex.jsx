@@ -14,6 +14,9 @@ export default function FilterIndex(){
                     <h3>Groups</h3>
                     <FilterByGroups />
                 </div>
+                <div>
+                    <FilterByDate />
+                </div>
 
             </div>
         </div>

@@ -20,8 +20,12 @@ export default function FilterByGroups(){
     return(
         <div>
             <div>
+<<<<<<< HEAD
+                <select onChange={e => handleByGroup(e)}>                   
+=======
                 <select onChange={e => handleByGroup(e)}>
                     <option>Select</option>
+>>>>>>> e2f87b30b8cfdd37b775ad1ed0ee3db2851ef566
                     {groups && groups.group?.map(group =>{
                         return(
                             <option key={group.name} value={group.id}>{group.name}</option>

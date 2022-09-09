@@ -6,6 +6,7 @@ export const fixtureSlice = createSlice({
     fixture: [],
     fixtureFilter: [],
     fixtureFilterCopy: [],
+    fixtureDashboard: [],
     fixtureGroup: [],
     fixtureGamesPerGroup: [],
     filtredMatches: [],
@@ -18,6 +19,7 @@ export const fixtureSlice = createSlice({
       state.fixture = ordenado;
       state.fixtureFilter = ordenado.slice(0, 10);
       state.fixtureFilterCopy = ordenado;
+      state.fixtureDashboard = action.payload
     },
     getGroupFixture: (state, action) => {
       const filter = state.fixture.filter((g) => g.groupId === action.payload);

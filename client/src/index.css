@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Koulen&family=Marvel&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -19,13 +20,11 @@ code {
 }
 
 *::-webkit-scrollbar{
-  width: 15px;
-  height: 10px;
+  width: 5px;
 }
 
 *::-webkit-scrollbar-thumb{
-  background-color: #E4E4E4;
-  border-radius: 10px;
+  background-color: white;
 }
 
 body::-webkit-scrollbar{

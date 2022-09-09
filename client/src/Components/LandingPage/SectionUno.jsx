@@ -1,6 +1,6 @@
 import React from "react";
 import Encabezado from "../../media/Encabezado.png";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Boton } from "../Utils/Boton";
 import { Navbar } from "../Navbar/Navbar";
 import { useAuth0 } from '@auth0/auth0-react'
@@ -17,7 +17,7 @@ export const SectionUno = () => {
       <Navbar />
       <div className="bg-soccerPlayers bg-cover flex flex-col items-center justify-center bg-center h-screen mix-blend-hard-light">
         <div className="flex flex-col items-start px-8 gap-3">
-          <img className=" max-h-48" src={Encabezado}></img>
+          <img className=" max-h-48" src={Encabezado} alt="encabezado"></img>
           <p className="text-blanco font-parrafo max-w-md text-justify">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut soluta
             ullam itaque unde odit? Exercitationem eos deleniti, cupiditate
