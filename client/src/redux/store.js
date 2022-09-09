@@ -6,7 +6,6 @@ import group from "./reducer/groupSlice";
 // import user from "./reducer/userSlice";
 import message  from "./reducer/messageSlice";
 import matchReducer from "./reducer/matchSlice";
-import bets from "./reducer/betsSlice"
 import players from "./reducer/playersSlice";
 import betSlice from "./reducer/dashboardReducer/betSlice";
 import gamblerSlice from "./reducer/dashboardReducer/gamblerSlice";
@@ -20,7 +19,6 @@ export default configureStore({
     fixture,
     group,
     match: matchReducer,
-    bets,
     players,
     message,
     Dashbets: betSlice,

@@ -9,15 +9,13 @@ export default function DayliBetsGraphic({allBets}){
     let sortedData = data?.sort((a,b)=> Number(a.date) - Number(b.date))
 
     return(
-        <div>
+        <div className="bg-white rounded-3xl shadow pt-5 flex flex-col justify-center">
         <BarChart
           width={500}
           height={300}
           data={sortedData}
           margin={{
-            top: 5,
             right: 30,
-            left: 20,
             bottom: 5,
           }}
         >

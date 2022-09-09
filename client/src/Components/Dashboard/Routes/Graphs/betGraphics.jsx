@@ -25,7 +25,7 @@ export default function BetResultGraph(){
       };
 
     return (
-        <PieChart width={200} height={200}>
+        <PieChart width={200} height={200} className="bg-white rounded-3xl shadow">
           <Pie
             data={data}
             cx="50%"

@@ -12,14 +12,12 @@ export const UserCard = (props) => {
                   <th className="border border-gristexto bg-gris text-gristexto">NAME</th>
                   <th className="border border-gristexto bg-gris text-gristexto">ROL</th>
                   <th className="border border-gristexto bg-gris text-gristexto">STATUS</th>
-                  <th className="border border-gristexto bg-gris text-gristexto">BET</th>
                 </tr>
                 <tr>
                   <td className="border border-gristexto content-center pl-2 w-12"><img src={props.avatar} alt="avatar" className={`h-7 w-7 rounded-full border-2 ${props.userbanned === false ? "border-solid border-green-400" : "border-solid border-rojosec"}`} /></td>
                   <td className="border border-gristexto">{props.name}</td>
                   <td className="border border-gristexto">{props.rol}</td>
                   <td className={`border border-gristexto ${props.userbanned === false ? "text-green-500" : "text-rojosec"}`}>{props.userbanned === false ? 'active' : 'banned'}</td>
-                  <td className="border border-gristexto">a</td>
                 </tr>
               </tbody>
             </table>
