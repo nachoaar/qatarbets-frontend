@@ -30,7 +30,7 @@ export const Detail = () => {
 
   let { groupId } = useSelector((store) => store.group);
 
-  let { fixtureGroup } = useSelector((store) => store.fixture);
+  let { fixtureFilter } = useSelector((store) => store.fixture);
 
   let playersHome = useSelector((store) => store.players.startingPlayersHome);
   let playersAway = useSelector((store) => store.players.startingPlayersAway);
@@ -38,21 +38,18 @@ export const Detail = () => {
   console.log(playersHome);
 
   useEffect(() => {
-
     window.scrollTo(0, 0);
-    dispatch(matchId(id))
-      .then((res) => dispatch(startingPlayersHome(homeId)))
-      .then((res) => dispatch(startingPlayersAway(awayId)));
-
-    dispatch(groupById(group));
-    dispatch(getGroupMatch(group));
+    dispatch(matchId(id));
     dispatch(startingPlayersHome(homeId));
     dispatch(startingPlayersAway(awayId));
+    dispatch(groupById(group));
+    dispatch(getGroupMatch(group));
     return () => {
       dispatch(startingPlayersClean());
+      homeId = null;
+      awayId = null;
     };
   }, [dispatch, id, group, homeId, awayId]);
-
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
@@ -65,6 +62,7 @@ export const Detail = () => {
                 home_team={match[0]?.home_team.name}
                 away_team={match[0]?.away_team.name}
                 group={groupId[0]?.name.toUpperCase().replace("_", " ")}
+                date={match[0]?.date}
               />
             </div>
             <div className="w-5/12 h-max">
@@ -83,14 +81,14 @@ export const Detail = () => {
                 <h2>no se cargo nada todavi</h2>
               ) : (
                 <Court
-                  playersGoalkeeperHome={playersHome.goalkeeper}
-                  playersDefenderHome={playersHome.defenders}
-                  playersMidfielderHome={playersHome.midfielder}
-                  playersAttackersHome={playersHome.attackers}
-                  playersGoalkeeperAway={playersAway.goalkeeper}
-                  playersDefenderAway={playersAway.defenders}
-                  playersMidfielderAway={playersAway.midfielder}
-                  playersAttackersAway={playersAway.attackers}
+                  playersGoalkeeperHome={playersHome?.goalkeeper}
+                  playersDefenderHome={playersHome?.defenders}
+                  playersMidfielderHome={playersHome?.midfielder}
+                  playersAttackersHome={playersHome?.attackers}
+                  playersGoalkeeperAway={playersAway?.goalkeeper}
+                  playersDefenderAway={playersAway?.defenders}
+                  playersMidfielderAway={playersAway?.midfielder}
+                  playersAttackersAway={playersAway?.attackers}
                 />
               )}
             </div>
@@ -99,7 +97,7 @@ export const Detail = () => {
 
         <SidebarMatch
           group={groupId[0]?.name.toUpperCase().replace("_", " ")}
-          fixture={fixtureGroup}
+          fixture={fixtureFilter}
         />
       </div>
       <Footer />

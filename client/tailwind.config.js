@@ -26,6 +26,7 @@ module.exports = {
       },
       backgroundImage: {
         'soccerPlayers': "url('../src/media/Soccer_Players.png')",
+        'canchita': "url('../src/media/cancha.jpg')"
         // 'footer-texture': "url('/img/footer-texture.png')",
       },
     },
