@@ -4,7 +4,7 @@ import { Elements, CardElement, useStripe, useElements } from '@stripe/react-str
 import { Boton } from '../Utils/Boton';
 import axios from 'axios';
 
-const stripePromise = loadStripe("pk_test_51Lf5Z3I9jvIrubEQTIjniJRp0Cf2594MF8pv11AXeHDLQRIgYXYouRHlKYaZ2unO0aPiaPv0SWUXP4hl4xuNhB3J00GAso0TuL");
+const stripePromise = loadStripe("pk_test_51LfBfGH8GSChtV84IGSv7a6FNuytSwQSVrCy3gyenf4zdJ7TtMsWodH3bxJ4AhAyRMd7UhsiLpGTH9r7uGDKTJiV00wpKR8Haa");
 
 
 const CheckoutForm = () => {
@@ -24,13 +24,13 @@ const CheckoutForm = () => {
     if (!error) {
       const { id } = paymentMethod;
 
-      const { data } = await axios.post('http://localhost:3001/pay/api/checkout', {
+      const { data } = await axios.post('http://localhost:3001/pay/', {
         id,
         amount: amount * 100
       });
 
       if (data.message === 'Successful Payment') {
-        await axios.post('http://localhost:3001/bet/newBet', {
+        const { data } = await axios.post('http://localhost:3001/bet/newBet', {
           fecha_hora: new Date(),
           money_bet: amount,
           result: "draw",
@@ -38,8 +38,10 @@ const CheckoutForm = () => {
           expected_profit: amount * 1.6,
           final_profit: 0,
           matchId: 855734,
-          userId: "175d16fc-2af6-4b99-b6bb-fd27b69f6a21"
-        })
+        }, { withCredentials: true });
+        if (data === 'La apuesta se creo correctamente') {
+          alert('Pago realizado con exito!!')
+        }
       }
     }
   };
