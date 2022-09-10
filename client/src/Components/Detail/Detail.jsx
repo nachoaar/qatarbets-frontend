@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useModal } from "../../hooks/useModal";
 import { getGroupMatch } from "../../redux/actions/fixtureActions";
 import { groupById } from "../../redux/actions/groupActions";
 import { matchId } from "../../redux/actions/matchActions";
@@ -11,6 +12,8 @@ import {
   startingPlayersHome,
 } from "../../redux/actions/playersActions";
 import { Footer } from "../Footer/Footer";
+import FormLogin from "../Forms/FormLogin/FormLogin";
+import Modal from "../Modal/Modal";
 import { Navbar } from "../Navbar/Navbar";
 import { SidebarMatch } from "../Utils/SidebarMatch";
 import { TitleContent } from "../Utils/TitleContent";
@@ -19,6 +22,10 @@ import { CardCity } from "./CaredCity/CardCity";
 import { Court } from "./Court/Court";
 
 export const Detail = () => {
+
+ const [isOpenLogin, openModalLogin, closeModalLogin] = useModal(false)
+ const [isOpenBet, openModalBet, closeModalBet] = useModal(false)
+
   let { id } = useParams();
 
   const dispatch = useDispatch();
@@ -53,6 +60,16 @@ export const Detail = () => {
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
+
+      <Modal isOpen={isOpenBet} closeModal={closeModalBet}>
+        <h3>modal Bet</h3>
+        <p>este es el contenido del modal</p>
+        <img src="https://placeimg.com/400/400/animals" alt="Animals" />
+      </Modal>
+      {/* <Modal isOpen={isOpenLogin}>
+        <FormLogin />
+      </Modal> */}
+
       <Navbar />
       <div className="flex flex-row justify-center p-4 w-5/6 gap-3 h-auto mt-20">
         <div className="w-4/5">
@@ -66,6 +83,7 @@ export const Detail = () => {
                 profit_coef_home={match[0]?.profit_coef_home}
                 profit_coef_draw={match[0]?.profit_coef_draw}
                 profit_coef_away={match[0]?.profit_coef_away}
+                openModal={openModalBet}
               />
             </div>
             <div className="w-5/12 h-max">
