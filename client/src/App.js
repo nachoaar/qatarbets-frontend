@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 import { Detail } from "./Components/Detail/Detail";
 import FormLogin from "./Components/Forms/FormLogin/FormLogin";
@@ -7,6 +8,12 @@ import { LandingPage } from "./Components/LandingPage/LandingPage";
 import {PaymentForm} from "./Components/PaymentForm/PaymentForm";
 
 function App() {
+
+  /* axios.get('http://localhost:3001/validate', {withCredentials: true})
+  .then((res) => {
+    console.log(res.data);
+  }) */
+
   return (
     <Routes>
       <Route exact path="/" element={<LandingPage />} />
