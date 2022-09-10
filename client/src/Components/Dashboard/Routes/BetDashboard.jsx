@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAllBets } from '../../../redux/actions/dashboardActions/betActions';
+import { getAllBets } from '../../../redux/actions/dashboardActions/dashBetActions';
 import BetResultGraph from './Graphs/betGraphics';
 import DayliBetsGraphic from './Graphs/dayliBets';
 import WeaklyBetsGraphic from './Graphs/weaklyBetGraphic';
@@ -15,12 +15,14 @@ import { BetCard } from './Cards/BetCard';
 export const BetDashboard = () => {
 
   const dispatch = useDispatch();
+  
+  const {bets} = useSelector((store) => store.dashbets);
 
   useEffect(() => {
-    dispatch(getAllBets());
-  },[dispatch]);
-
-  const {bets} = useSelector((store) => store.Dashbets);
+    if (bets.length === 0) {
+      dispatch(getAllBets());
+    } 
+  },[dispatch, bets]);
 
   return (
     <div className="bg-gris w-full h-screen flex flex-row justify-between gap-5">
@@ -57,7 +59,9 @@ export const BetDashboard = () => {
            <div className="w-full h-auto flex flex-col gap-4 items-center justify-center pt-3">
               <h2 className="font-titulodash font-bold text-gristexto">resultado de apostados</h2>
               <div className="w-full border-b border-gristexto"></div>
-              <BetResultGraph />
+              <BetResultGraph
+                dataa={bets}
+              />
               <div className="w-full border-b border-gristexto"></div>
               <h2 className="font-titulodash font-bold text-gristexto">apuestas realizadas por hora</h2>
               <div className="w-full border-b border-gristexto"></div>

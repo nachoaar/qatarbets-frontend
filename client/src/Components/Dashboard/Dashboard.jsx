@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getAllBets } from '../../redux/actions/dashboardActions/dashBetActions';
+import { dashFixture } from '../../redux/actions/dashboardActions/dashFixtureActions';
+import { getGamblers } from '../../redux/actions/dashboardActions/dashGamblerActions';
 import { NavbarDashboard } from './NavbarDashboard/NavbarDashboard';
 import { SidebarDashboard } from './SidebarDashboard/SidebarDashboard';
 
 export const DashboardAdmin = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(dashFixture());
+    dispatch(getAllBets());
+    dispatch(getGamblers());
+  },[dispatch]);
+
   return (
     <div className="bg-gris w-full h-screen flex flex-row justify-between gap-5">
       <div className="bg-white h-full w-1/5">

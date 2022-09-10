@@ -7,10 +7,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react';
 
 const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'Team', href: '#', current: false },
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
+    { name: 'Login', href: '#', current: true },
+    { name: 'Register', href: '#', current: false }
 ]
 
 function classNames(...classes) {

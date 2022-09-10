@@ -1,6 +1,6 @@
 import axios from "axios";
 import { axiosURL } from "../../../index.js";
-import { GamblerId, Gambler } from "../../reducer/dashboardReducer/gamblerSlice.js";
+import { GamblerId, Gambler, GamblerName, CacheGambler } from "../../reducer/dashboardReducer/dashgamblerSlice.js";
 
 export function getGamblers() {
   return async function (dispatch) {
@@ -17,5 +17,17 @@ export function getGamblerId(payload) {
       `${axiosURL}/user/userId/${payload}`
     );
     dispatch(GamblerId(gambler.data));
+  }
+}
+
+export function getGamblerName(payload) {
+  return async function (dispatch) {
+    dispatch(GamblerName(payload));
+  }
+}
+
+export function CacheDashGambler() {
+  return async function (dispatch) {
+    dispatch(CacheGambler());
   }
 }
