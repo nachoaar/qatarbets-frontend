@@ -1,6 +1,6 @@
 import axios from "axios";
 import { axiosURL } from "../../../index.js";
-import { AllBets } from "../../reducer/dashboardReducer/betSlice.js";
+import { AllBets } from "../../reducer/dashboardReducer/dashbetSlice.js";
 
 export function getAllBets() {
   return async function (dispatch) {

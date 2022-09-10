@@ -7,8 +7,9 @@ import user from "./reducer/userSlice";
 import message  from "./reducer/messageSlice";
 import matchReducer from "./reducer/matchSlice";
 import players from "./reducer/playersSlice";
-import betSlice from "./reducer/dashboardReducer/betSlice";
-import gamblerSlice from "./reducer/dashboardReducer/gamblerSlice";
+import betSlice from "./reducer/dashboardReducer/dashbetSlice";
+import gamblerSlice from "./reducer/dashboardReducer/dashgamblerSlice";
+import fixtureDashSlice from "./reducer/dashboardReducer/dashfixtureSlice";
 
 
 
@@ -21,8 +22,9 @@ export default configureStore({
     match: matchReducer,
     players,
     message,
-    Dashbets: betSlice,
-    gambler: gamblerSlice,
-    user
+    dashbets: betSlice,
+    dashgambler: gamblerSlice,
+    dashfixture: fixtureDashSlice,
+    user,
   }
 })

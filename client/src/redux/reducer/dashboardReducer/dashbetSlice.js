@@ -12,5 +12,5 @@ export const betSlice = createSlice({
   }
 });
 
-export const { AllBets  } = betSlice.actions;
+export const { AllBets } = betSlice.actions;
 export default betSlice.reducer;

@@ -1,20 +1,32 @@
 import React from 'react';
+import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFixture } from '../../../redux/actions/fixtureActions';
+import { dashFixture } from '../../../redux/actions/dashboardActions/dashFixtureActions';
 import { NavbarDashboard } from '../NavbarDashboard/NavbarDashboard';
 import { SidebarDashboard } from '../SidebarDashboard/SidebarDashboard';
 import { MatchCard } from './Cards/MatchCard';
+import WeekBets from './Graphs/mostPickedInTheWeek';
 
 export const MatchDashboard = () => {
-
+  
   const dispatch = useDispatch();
+  const [date, setDate] = useState('');
 
+  const {filterFixtureDash} = useSelector((store) => store.dashfixture);
+  const {bets} = useSelector((store) => store.dashbets);
+  
   useEffect(() => {
-    dispatch(getFixture());
-  },[dispatch]);
+    if (filterFixtureDash.length === 0) {
+      dispatch(dashFixture());
+    }
+  },[dispatch, filterFixtureDash]);
 
-  const {fixtureDashboard} = useSelector((store) => store.fixture);
+  function handleInput(e){
+    e.preventDefault()
+    if(e.target.value.length === 10){
+    setDate(e.target.value)}
+}
 
   return (
     <div className="bg-gris w-full h-screen flex flex-row justify-between gap-5">
@@ -32,7 +44,7 @@ export const MatchDashboard = () => {
         <div className="w-full h-full flex flex-row overflow-auto divide-x divide-gristexto">
         <div className="flex flex-col w-1/2 h-full overflow-auto p-5">
             <div className="w-full h-auto flex flex-col gap-5">
-              {fixtureDashboard&&fixtureDashboard.map((m) => {
+              {filterFixtureDash&&filterFixtureDash.map((m) => {
                 return (
                   <MatchCard
                     key={m.id}
@@ -51,7 +63,16 @@ export const MatchDashboard = () => {
             </div>
           </div>
           <div className="flex flex-col w-1/2 h-full overflow-auto">
-            
+            <div className="w-full h-auto flex flex-col gap-4 items-center justify-center pt-3">
+              <h2 className="font-titulodash font-bold text-gristexto">resultado de la semana</h2>
+              <div className="w-full border-b border-gristexto"></div>
+                <WeekBets
+                  dataa={bets}
+                  date={date}
+                />
+                <input type="text"placeholder="ingrese una fecha"  onChange={(e) => handleInput(e)}/>
+              <div className="w-full border-b border-gristexto"></div>
+            </div>
           </div>
         </div>
       </div>

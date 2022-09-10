@@ -6,7 +6,6 @@ import gruopBalanceByDate from "./groupByDay";
 export default function WeaklyBetsGraphic({dataa}){
 
 let data = gruopBalanceByDate(dataa)
-console.log(Number(data[0]?.date))
 let sortedData = data?.sort((a,b) => Number(a.date) - Number(b.date))
 
 
@@ -22,28 +21,27 @@ const [two,setTwo] = useState(true)
             setTwo(!two)
 
         }
-        if(e.target.value === 'loses'){
+        if(e.target.value === 'losed'){
             setOne(!one)
         }
     }
 
     return(
         <div className="flex flex-col justify-center items-center bg-white rounded-3xl shadow pt-5 mb-6">
-            <LineChart width={500} height={250} data={sortedData}
+            <LineChart width={450} height={250} data={sortedData}
               margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            { one === true ? (<Line type="monotone" dataKey="loses" stroke="#82ca9d" />) :(<></>)}
-            {  two === true ? (<Line type="monotone" dataKey="gains" stroke="#8884d8" />):(<></>)}
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+            { one === true ? (<Line type="monotone" dataKey="losed" stroke="#8884d8"/>) :(<></>)}
+            {  two === true ? (<Line type="monotone" dataKey="gains" stroke="#82ca9d"  />):(<></>)}
             </LineChart>
             <div className="flex gap-2">
                 <button className=" flex-1 m-1 border shadow-sm " onClick={(e)=>{ handleButtons(e)}} value='gains'>Gains</button> 
-                <button className=" flex-1 m-1 border shadow-sm" onClick={(e)=>{handleButtons(e)}} value='loses'>Loses</button>
+                <button className=" flex-1 m-1 border shadow-sm" onClick={(e)=>{handleButtons(e)}} value='losed'>Losed</button>
             </div>
         </div>
     )
 }
-
