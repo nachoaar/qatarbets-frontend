@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-=======
     "@auth0/auth0-react": "^1.10.2",
->>>>>>> 91055d4bddc97cf20374da2e1621002f88570eee
     "@chakra-ui/icons": "^2.0.9",
     "@chakra-ui/react": "^2.3.1",
     "@chakra-ui/theme": "^2.1.10",
