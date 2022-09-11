@@ -5,7 +5,7 @@ import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
 import { login } from '../../../redux/reducer/userSlice';
-
+import { GoogleLogin } from 'react-google-login';
 
 import {
   FormControl,
@@ -56,6 +56,14 @@ export default function FormLogin(props) {
     return <Navigate to="/profile" />;
   }
 
+  const responseGoogle = (res) => {
+    console.log('Logueado como: ', res.profileObj);
+  }
+
+  const responseGoogleF = (res) => {
+    console.log('Login fail: ', res);
+  }
+
   return (
     <>
     <Navbar />
@@ -94,6 +102,12 @@ export default function FormLogin(props) {
                 </Button>
                   </InputRightElement>
               </InputGroup>
+              <GoogleLogin
+              clientId="214431339153-ao6cnr5b12t0j093f4ica9lrtdd4mka1.apps.googleusercontent.com"
+              buttonText="Logueate reyyy"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogleF}
+              cookiePolicy={'single_host_origin'}/>
             <FormErrorMessage>
               {errors.pass && errors.pass.message}
             </FormErrorMessage>
