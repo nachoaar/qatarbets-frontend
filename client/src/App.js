@@ -10,7 +10,6 @@ import { Home } from "./Components/HomeComponent/Home";
 import { LandingPage } from "./Components/LandingPage/LandingPage";
 
 
-
 function App() {
   return (
     <Routes>
