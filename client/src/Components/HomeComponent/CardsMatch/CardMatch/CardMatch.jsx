@@ -12,9 +12,6 @@ date = date.toLocaleDateString("es-AR",{day:'numeric', month:'numeric', year:'nu
 
 let hora = new Date(props.date)
 
-/* var fechados = new Date(props.date);
-fechados = fechados.toLocaleDateString("es-AR",{ weekday:'long', day:'numeric', month:'numeric', year:'numeric'});
-*/
 
 
 
