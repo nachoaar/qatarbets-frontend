@@ -34,16 +34,14 @@ export const SectionUno = () => {
       <div className="bg-soccerPlayers bg-cover flex flex-col items-center justify-center bg-center h-screen mix-blend-hard-light">
         <div className="flex flex-col items-start px-8 gap-3">
           <img className=" max-h-48" src={Encabezado} alt="encabezado"></img>
-          <p className="text-blanco font-parrafo max-w-md text-justify">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut soluta
-            ullam itaque unde odit? Exercitationem eos deleniti, cupiditate
-            ratione voluptates quisquam corrupti fugiat quibusdam at eum
-            consectetur rem explicabo sunt!
+          <p className="text-blanco text-2xl font-parrafo max-w-md text-justify">
+            Apuestas Deportivas, QATARBETS Sitio N°1 en Casa de apuestas online de la copa del mundo. La primera casa de apuestas mundialistas en LATAM.
           </p>
           <div>
             {botonRender}
         </div>
           </div>
+        </div>
       </div>
     </div>
   );
