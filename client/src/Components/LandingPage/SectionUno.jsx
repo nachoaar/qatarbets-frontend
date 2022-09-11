@@ -43,6 +43,5 @@ export const SectionUno = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
