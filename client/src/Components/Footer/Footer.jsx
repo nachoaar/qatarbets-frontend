@@ -1,5 +1,5 @@
 import React from 'react';
-import fb from '../../media/facebook.png'
+// import fb from '../../media/facebook.png'
 import tw from '../../media/twitter.png'
 import ig from '../../media/instagram.png'
 import lin from '../../media/linkedin.png'
@@ -7,7 +7,7 @@ import lin from '../../media/linkedin.png'
 export const Footer = () => {
     return (
         <div className="w-full items-center bg-morado text-gris flex flex-wrap mx-auto justify-evenly px-20 pb-5 pt-6">
-            <div className="max-w-xl">
+            <div className="max-w-3xl">
                 <svg className="pl-6" width="209" height="81" viewBox="0 0 209 81" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.69958 36.5166C7.69958 20.7133 19.8347 10.9904 36 10.9904C52.1786 10.9904 64.3004 20.7133 64.3004 36.5166C64.3004 57.1768 44.4955 69.3328 36 69.3328C27.5134 69.3328 7.69958 57.1768 7.69958 36.5166Z" fill="url(#paint0_linear_279_662)" />
                     <path d="M20.5796 45.0551C20.5796 25.2933 31.9069 17.9188 35.5376 17.9188C39.1817 17.9188 50.5046 25.2933 50.5046 45.0551C50.5046 54.787 44.8365 60.8583 35.5376 60.8583C26.2432 60.8583 20.5796 54.787 20.5796 45.0551Z" fill="#FF003F" />
@@ -19,9 +19,9 @@ export const Footer = () => {
                         </linearGradient>
                     </defs>
                 </svg>
-                <div className=" text-xl text-justify font-parrafo px-6 max-w-2xl">Lorem incidunt illum alias hic! Rem fugiat asperiores reprehenderit eveniet quidem soluta veritatis voluptate cupiditate numquam modi! Facere eum ullam earum pariatur quos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste labore ipsam accusantium deserunt, reiciendis iusto nemo sed impedit! Commodi explicabo recusandae sint corporis repellendus nulla quibusdam labore assumenda, dolorem eum!</div>
+                <div className=" text-xl text-justify font-parrafo px-6 max-w-3xl">Apuestas Deportivas, QATARBETS Sitio N°1 en Casa de apuestas online de la copa del mundo. Con las apuestas de la copa del mundo ¡Estás a punto de vivir la emoción de ganar!, Somos QATARBETS, la familia más grande de la web en entretenimiento para ganar dinero real con el mundial; la primera casa de apuestas mundialistas en LATAM. Además de ser la primera casa legal que avaló Soy Henry PF’s, contamos con el respaldo tecnológico de Soy Henry, el gigante mundial en el sector de Bootcamps en Desarrollo Web.</div>
             </div>
-            <div className="min-w-fit px-6">
+            {/* <div className="min-w-fit px-6">
                 <h3 className="font-titulo text-2xl mt-4 text-white mb-5">Soluciones</h3>
                 <div className="font-parrafo text-xl px-6">
                     <h5 className="cursor-pointer my-1 hover:opacity-70">App Desarrollo</h5>
@@ -38,25 +38,33 @@ export const Footer = () => {
                     <h5 className="cursor-pointer my-1 hover:opacity-70">Procesos</h5>
                     <h5 className="cursor-pointer my-1 hover:opacity-70">Servicios</h5>
                 </div>
-            </div>
+            </div> */}
             <div className="min-w-fit px-6">
                 <h3 className="font-titulo text-2xl mt-4 text-white mb-5">Redes Sociales</h3>
                 <div className="font-parrafo text-xl px-6">
-                    <div className="flex items-center gap-3">
+                    {/* <div className="flex items-center gap-3">
                         <img className="w-5 h-5 cursor-pointer" src={fb} alt='Facebook'></img>
-                        <h5 className="cursor-pointer my-1 hover:opacity-70">Facebook</h5>
-                    </div>
+                        <a href='https://www.linkedin.com/company/qatar-bets/' target='_blank' rel="noopener noreferrer">
+                            <h5 className="cursor-pointer my-1 hover:opacity-70">Facebook</h5>
+                        </a>
+                    </div> */}
                     <div className="flex items-center gap-3">
                         <img className="w-5 h-5 cursor-pointer" src={tw} alt='Twitter'></img>
-                        <h5 className="cursor-pointer my-1 hover:opacity-70">Twitter</h5>
+                        <a href='https://twitter.com/QatarBets' target='_blank' rel="noopener noreferrer">
+                            <h5 className="cursor-pointer my-1 hover:opacity-70">Twitter</h5>
+                        </a>
                     </div>
                     <div className="flex items-center gap-3">
                         <img className="w-5 h-5 cursor-pointer" src={ig} alt='Instagram'></img>
-                        <h5 className="cursor-pointer my-1 hover:opacity-70">Instagram</h5>
+                        <a href='https://www.instagram.com/qatar_bets/' target='_blank' rel="noopener noreferrer">
+                            <h5 className="cursor-pointer my-1 hover:opacity-70">Instagram</h5>
+                        </a>
                     </div>
                     <div className="flex items-center gap-3">
                         <img className="w-5 h-5 cursor-pointer" src={lin} alt='Linkedin'></img>
-                        <h5 className="cursor-pointer my-1 hover:opacity-70">Linkedin</h5>
+                        <a href='https://www.linkedin.com/company/qatar-bets/' target='_blank' rel="noopener noreferrer">
+                            <h5 className="cursor-pointer my-1 hover:opacity-70">Linkedin</h5>
+                        </a>
                     </div>
                 </div>
             </div>
