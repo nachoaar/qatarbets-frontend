@@ -81,7 +81,7 @@ export default function FormLogin(props) {
           </FormControl>
 
           <FormControl m={3} w = {[150, 250, 350]} id='pass'  isInvalid={errors.pass? true : false} isRequired>
-            <FormLabel htmlFor='password'>Contraceña</FormLabel>
+            <FormLabel htmlFor='password'>Contraseña</FormLabel>
               <InputGroup size='md'>
                 <Input autoComplete='off' type={show ? 'text' : 'password'} {...register('pass', {
                   minLength: {
@@ -101,9 +101,9 @@ export default function FormLogin(props) {
             </FormErrorMessage>
           </FormControl>
 
-          <Button type='submit' colorScheme='red' m={3}>Login</Button>
+          <Button type='submit' colorScheme='red' m={3}>Iniciar Sesion</Button>
           <Link to="/register">
-          <Button colorScheme='gray' m={3}>Register</Button>
+          <Button colorScheme='gray' m={3}>Registrarse</Button>
           </Link>
         </form>
       </VStack>

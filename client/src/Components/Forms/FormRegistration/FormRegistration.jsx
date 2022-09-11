@@ -116,7 +116,7 @@ export default function FormRestration() {
             </FormControl>
 
             <FormControl m={3} w = {[150, 250, 350]} id='pass'  isInvalid={errors.pass? true : false} isRequired>
-              <FormLabel htmlFor='pass'>Contraceña</FormLabel>
+              <FormLabel htmlFor='pass'>Contraseña</FormLabel>
               <InputGroup size='md'>
                 <Input autoComplete='off' type={show ? 'text' : 'password'} {...register('pass', {
                   required: {
@@ -140,7 +140,7 @@ export default function FormRestration() {
                   </FormErrorMessage>
             </FormControl>
 
-          <Button type='submit' colorScheme='red' m={3}>Registrar</Button>
+          <Button type='submit' colorScheme='red' m={3}>Registrarse</Button>
           <FormErrorMessage>{message && message}</FormErrorMessage>
           </form>
         </VStack>
