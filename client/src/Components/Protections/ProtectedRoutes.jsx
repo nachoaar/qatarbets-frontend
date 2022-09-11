@@ -7,7 +7,7 @@ const ProtectedRoutes =  () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/validate/rol', {withCredentials: true}).then((res) => {
+    axios.get('https://qatarbets-backend-production-ab54.up.railway.app/validate/rol', {withCredentials: true}).then((res) => {
       setLoading(false)
       setAdmin(res.data)
     })
