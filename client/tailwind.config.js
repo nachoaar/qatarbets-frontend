@@ -8,7 +8,8 @@ module.exports = {
       fontFamily: {
         'parrafo': ['Marvel', 'sans-serif'],
         'titulo': ['Koulen', 'cursive'],
-        'fifa': ['Aclonica', 'sans-serif']
+        'fifa': ['Aclonica', 'sans-serif'],
+        'titulodash': ['Roboto', 'sans-serif']
       },
       colors: {
         'rojo': '#D20A46',
@@ -19,10 +20,13 @@ module.exports = {
         'blanco': '#FFFF',
         'amarillo': '#FFBF00',
         'grisfooter': '#7A7A7A',
-        'gris': '#E4E4E4'
+        'gris': '#E4E4E4',
+        'gristexto': '#8B8BA7',
+        'textotable': '#5C5C5C'
       },
       backgroundImage: {
         'soccerPlayers': "url('../src/media/Soccer_Players.png')",
+        'canchita': "url('../src/media/cancha.jpg')"
         // 'footer-texture': "url('/img/footer-texture.png')",
       },
     },

@@ -30,7 +30,7 @@ export const Detail = () => {
 
   let { groupId } = useSelector((store) => store.group);
 
-  let { fixtureGroup } = useSelector((store) => store.fixture);
+  let { fixtureFilter } = useSelector((store) => store.fixture);
 
   let playersHome = useSelector((store) => store.players.startingPlayersHome);
   let playersAway = useSelector((store) => store.players.startingPlayersAway);
@@ -62,6 +62,10 @@ export const Detail = () => {
                 home_team={match[0]?.home_team.name}
                 away_team={match[0]?.away_team.name}
                 group={groupId[0]?.name.toUpperCase().replace("_", " ")}
+                date={match[0]?.date}
+                profit_coef_home={match[0]?.profit_coef_home}
+                profit_coef_draw={match[0]?.profit_coef_draw}
+                profit_coef_away={match[0]?.profit_coef_away}
               />
             </div>
             <div className="w-5/12 h-max">
@@ -80,14 +84,14 @@ export const Detail = () => {
                 <h2>no se cargo nada todavi</h2>
               ) : (
                 <Court
-                  playersGoalkeeperHome={playersHome.goalkeeper}
-                  playersDefenderHome={playersHome.defenders}
-                  playersMidfielderHome={playersHome.midfielder}
-                  playersAttackersHome={playersHome.attackers}
-                  playersGoalkeeperAway={playersAway.goalkeeper}
-                  playersDefenderAway={playersAway.defenders}
-                  playersMidfielderAway={playersAway.midfielder}
-                  playersAttackersAway={playersAway.attackers}
+                  playersGoalkeeperHome={playersHome?.goalkeeper}
+                  playersDefenderHome={playersHome?.defenders}
+                  playersMidfielderHome={playersHome?.midfielder}
+                  playersAttackersHome={playersHome?.attackers}
+                  playersGoalkeeperAway={playersAway?.goalkeeper}
+                  playersDefenderAway={playersAway?.defenders}
+                  playersMidfielderAway={playersAway?.midfielder}
+                  playersAttackersAway={playersAway?.attackers}
                 />
               )}
             </div>
@@ -96,7 +100,7 @@ export const Detail = () => {
 
         <SidebarMatch
           group={groupId[0]?.name.toUpperCase().replace("_", " ")}
-          fixture={fixtureGroup}
+          fixture={fixtureFilter}
         />
       </div>
       <Footer />

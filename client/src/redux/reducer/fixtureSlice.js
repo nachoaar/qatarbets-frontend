@@ -1,37 +1,58 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const fixtureSlice = createSlice({
-
   name: "fixture",
   initialState: {
     fixture: [],
     fixtureFilter: [],
+    fixtureFilterCopy: [],
     fixtureGroup: [],
     fixtureGamesPerGroup: [],
     filtredMatches: [],
-
   },
   reducers: {
     getAllFixture: (state, action) => {
-      state.fixture = action.payload
-      state.fixtureFilter = action.payload.slice(0,10)
+      const ordenado = action.payload.sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
+      );
+      state.fixture = ordenado;
+      state.fixtureFilter = ordenado.slice(0, 10);
+      state.fixtureFilterCopy = ordenado;
     },
     getGroupFixture: (state, action) => {
-      state.fixtureFilter = state.fixture.filter(
-        (g) => g.groupId === action.payload
+      const filter = state.fixture.filter((g) => g.groupId === action.payload);
+      const ordenado = filter.sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
       );
+      state.fixtureFilter = ordenado;
+      state.fixtureFilterCopy = ordenado;
     },
     getFixtureCity: (state, action) => {
-      state.fixtureFilter = state.fixtureFilter.filter(
+      state.fixtureFilter = state.fixtureFilterCopy.filter(
         (g) => g.city === action.payload
       );
     },
-    filterByGroup: (state,action) =>{
-
-      const asd = state.fixture?.filter((match) => match.groupId === Number(action.payload)).slice(0,4)
-      console.log(asd)
-        state.filtredMatches = asd
-
+    orderFixture: (state, action) => {
+      /* console.log(action.payload) */
+      const fixture = [...state.fixtureFilter]
+      console.log(fixture)
+      const ordenadoAsc = fixture.sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
+      );
+      const ordenadoDesc = fixture.sort(
+        (a, b) => new Date(a.date) > new Date(b.date)
+      );
+      if(action.payload === "asc"){
+        console.log("paso el if")
+        state.fixtureFilter = [...ordenadoAsc]
+      } state.fixtureFilter = [...ordenadoDesc]
+    },
+    filterByGroup: (state, action) => {
+      const asd = state.fixture
+        ?.filter((match) => match.groupId === Number(action.payload))
+        .slice(0, 4);
+      console.log(asd);
+      state.filtredMatches = asd;
     },
     getGamesPerGroup: (state, action) => {
       /* state.fixtureGamesPerGroup = []; */
@@ -48,5 +69,12 @@ export const fixtureSlice = createSlice({
   },
 });
 
-export const { getAllFixture, getGroupFixture, getGamesPerGroup, filterByGroup, getFixtureCity  } = fixtureSlice.actions;
+export const {
+  getAllFixture,
+  getGroupFixture,
+  getGamesPerGroup,
+  filterByGroup,
+  getFixtureCity,
+  orderFixture
+} = fixtureSlice.actions;
 export default fixtureSlice.reducer;
