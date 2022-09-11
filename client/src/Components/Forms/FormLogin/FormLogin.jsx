@@ -52,11 +52,7 @@ export default function FormLogin(props) {
       });
   };
 
-  console.log("estado del usuario", isLoggedIn);
 
-  if (isLoggedIn) {
-    return <Navigate to="/home" />;
-  }
 
   return (
     <>
