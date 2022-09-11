@@ -1,5 +1,6 @@
 import React from "react";
 import Encabezado from "../../media/Encabezado.png";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Boton } from "../Utils/Boton";
 import { Navbar } from "../Navbar/Navbar";
@@ -7,8 +8,27 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 export const SectionUno = () => {
 
+  const { isLoggedIn } = useSelector((state) => state.user);
 
-  const { loginWithRedirect } = useAuth0();
+  let botonRender = isLoggedIn;
+
+  if(isLoggedIn){
+    botonRender = <div>
+      <Link to="/home">
+        <Boton  name="Apostar" />
+      </Link>
+    </div>
+  } else {
+    botonRender = <div>
+      <Link to="/register">
+        <Boton  name="Registrarse" />
+      </Link>
+      <Link to="/login">
+        <Boton  name="Acceder" />
+      </Link>
+    </div>
+  }
+
   const {user} = useAuth0()
   console.log(user);
 
@@ -25,10 +45,7 @@ export const SectionUno = () => {
             consectetur rem explicabo sunt!
           </p>
           <div>
-          <Link to="/register">
-          <Boton  name="Register" />
-          </Link>
-          <button type="button" onClick={()=> loginWithRedirect()} className="font-titulo text-blanco text-2xl bg-rojosec rounded-tr-3xl rounded-bl-3xl rounded-br-md w-60 h-16 ease-out duration-300 hover:shadow-xl hover:shadow-rojo/30">Login</button>
+            {botonRender}
         </div>
           </div>
       </div>

@@ -87,7 +87,7 @@ export const Navbar = () => {
                                     </div>
                                 </div> */}
                             </div>
-                            <button onClick={(e) => handleOnClick(e)} className="text-white">My Profile</button>
+                            <button onClick={(e) => handleOnClick(e)} className="text-white">Mi Perfil</button>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 {/* <button
                                     type="button"
@@ -174,7 +174,7 @@ export const Navbar = () => {
                             ))}
                         </div>
                     </Disclosure.Panel>
-                    <UserProfile 
+                    <UserProfile
                         modal={modal}
                         setModal={setModal}
                     />

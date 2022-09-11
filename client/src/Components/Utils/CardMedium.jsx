@@ -11,7 +11,7 @@ export const CardMedium = ({match}) => {
         </div>
         <div className=" flex flex-col justify-between text-white p-1">
           <p className="font-fifa">FIFA WORLD CUP</p>
-          <span className="text-sm">Group Stage - {groupLetter(match?.groupId)}</span>
+          <span className="text-sm">Fase de Grupo - {groupLetter(match?.groupId)}</span>
         </div>
         <div className="bg-rojosec text-white p-1 flex flex-row justify-between">
           <div>
