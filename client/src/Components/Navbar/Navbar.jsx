@@ -4,6 +4,7 @@ import { Fragment } from 'react'
 import {Link} from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useSelector } from "react-redux";
 import { useState } from 'react';
 import { UserProfile } from '../User/UserProfile';
 
@@ -28,6 +29,13 @@ export const Navbar = () => {
             setColor(false)
         }
     }
+
+    const { isLoggedIn } = useSelector((state) => state.user);
+    let islogerenderusrprofile = null;
+    if(isLoggedIn){
+      islogerenderusrprofile = <button onClick={(e) => handleOnClick(e)} className="text-white">Mi Perfil</button>
+    }
+
 
     window.addEventListener('scroll', changeColor);
 
@@ -87,7 +95,7 @@ export const Navbar = () => {
                                     </div>
                                 </div> */}
                             </div>
-                            <button onClick={(e) => handleOnClick(e)} className="text-white">My Profile</button>
+                            {islogerenderusrprofile}
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 {/* <button
                                     type="button"
@@ -174,7 +182,7 @@ export const Navbar = () => {
                             ))}
                         </div>
                     </Disclosure.Panel>
-                    <UserProfile 
+                    <UserProfile
                         modal={modal}
                         setModal={setModal}
                     />
