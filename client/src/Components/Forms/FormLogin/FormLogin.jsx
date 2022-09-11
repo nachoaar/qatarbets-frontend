@@ -88,7 +88,7 @@ export default function FormLogin(props) {
                     value: 8,
                     message: '8 Carateres Minimo'
                     }
-                    })} placeholder='Tu contraceña(8)'
+                    })} placeholder='Tu contraseña(8)'
                 />
               <InputRightElement width='5.5rem'>
                 <Button h='2rem' size='sm' onClick={handleClick}>
