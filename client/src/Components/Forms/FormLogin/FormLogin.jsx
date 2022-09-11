@@ -52,9 +52,9 @@ export default function FormLogin(props) {
 
   console.log("estado del usuario", isLoggedIn);
 
-  if (isLoggedIn) {
+  /* if (isLoggedIn) {
     return <Navigate to="/profile" />;
-  }
+  } */
 
   return (
     <>
