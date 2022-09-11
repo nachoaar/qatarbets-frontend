@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Boton } from "../Utils/Boton";
 import { Navbar } from "../Navbar/Navbar";
-import { useAuth0 } from '@auth0/auth0-react'
 
 export const SectionUno = () => {
 
@@ -28,9 +27,6 @@ export const SectionUno = () => {
       </Link>
     </div>
   }
-
-  const {user} = useAuth0()
-  console.log(user);
 
   return (
     <div className="h-screen flex flex-col justify-between bg-morado">
