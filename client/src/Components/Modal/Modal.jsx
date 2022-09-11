@@ -6,13 +6,13 @@ const Modal = ({ isOpen, closeModal, children }) => {
   return (
     <article
       onClick={closeModal}
-      className={`fixed z-50 inset-0 w-full h-screen bg-black bg-opacity-50 justify-center items-center ${
+      className={`fixed z-50 inset-0 w-full h-screen p-5 bg-black bg-opacity-50 justify-center items-center ${
         isOpen ? "flex" : "hidden"
       } `}
     >
       <div
         onClick={handleModalContainerClick}
-        className="relative bg-white p-4"
+        className="relative bg-gris p-4 h-full overflow-auto "
       >
         <button
           onClick={closeModal}

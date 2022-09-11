@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useModal } from "../../hooks/useModal";
 import { getGroupMatch } from "../../redux/actions/fixtureActions";
 import { groupById } from "../../redux/actions/groupActions";
-import { matchId } from "../../redux/actions/matchActions";
+import { matchClean, matchId } from "../../redux/actions/matchActions";
 import {
   startingPlayersAway,
   startingPlayersClean,
@@ -18,35 +18,32 @@ import Modal from "../Modal/Modal";
 import { Navbar } from "../Navbar/Navbar";
 import { ProfitsPotentials } from "../Utils/ProfitsPotentials";
 import { SidebarMatch } from "../Utils/SidebarMatch";
-import { TitleContent } from "../Utils/TitleContent";
+import { TitleContentMedium } from "../Utils/TitleContentMedium";
 import { CardDetail } from "./CardDetail/CardDetail";
 import { CardCity } from "./CaredCity/CardCity";
 import { Court } from "./Court/Court";
 
 export const Detail = () => {
-  const [isOpenLogin, openModalLogin, closeModalLogin] = useModal(false);
+  /* const [isOpenLogin, openModalLogin, closeModalLogin] = useModal(false); */
   const [isOpenBet, openModalBet, closeModalBet] = useModal(false);
 
   let { id } = useParams();
-
   const dispatch = useDispatch();
 
   let { match } = useSelector((store) => store.match);
+  let { groupId } = useSelector((store) => store.group);
+  let { fixtureFilter } = useSelector((store) => store.fixture);
+  let playersHome = useSelector((store) => store.players.startingPlayersHome);
+  let playersAway = useSelector((store) => store.players.startingPlayersAway);
+
   let group = match[0]?.groupId;
   let homeId = match[0]?.home_team_id;
   let awayId = match[0]?.away_team_id;
 
-  let { groupId } = useSelector((store) => store.group);
-
-  let { fixtureFilter } = useSelector((store) => store.fixture);
-
-  let playersHome = useSelector((store) => store.players.startingPlayersHome);
-  let playersAway = useSelector((store) => store.players.startingPlayersAway);
-
   const [profit, setProfit] = useState(0);
   const [bet, setBet] = useState("");
 
-  useEffect(() => {
+    useEffect( () => {
     window.scrollTo(0, 0);
     dispatch(matchId(id));
     dispatch(startingPlayersHome(homeId));
@@ -55,10 +52,9 @@ export const Detail = () => {
     dispatch(getGroupMatch(group));
     return () => {
       dispatch(startingPlayersClean());
-      homeId = null;
-      awayId = null;
     };
-  }, [dispatch, id, group, homeId, awayId]);
+  }, [awayId, dispatch, group, homeId, id]);
+
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
@@ -90,10 +86,9 @@ export const Detail = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col h-auto">
-            <TitleContent title="PLANTILLAS" />
+          <div className="w-full flex flex-col h-auto mt-4">
+            <TitleContentMedium title="Formacion de los equipos" />
             <div className="w-full h-auto">
-
               {Object.entries(playersHome).length === 0 ? (
                 <h2>no se cargo nada todavi</h2>
               ) : (
@@ -108,7 +103,6 @@ export const Detail = () => {
                   playersAttackersAway={playersAway?.attackers}
                 />
               )}
-
             </div>
           </div>
         </div>

@@ -6,16 +6,6 @@ export const CardsMatch = () => {
   const { fixtureFilter } = useSelector((store) => store.fixture);
   const { groupName } = useSelector((store) => store.group);
 
-  /*   fixtureFilter.sort(
-    (a, b) => new Date(a.date).getTime() > new Date(b.date).getTime()
-  ); */
-  /*
-  fixtureFilter.sort(
-    (a, b) => new Date(a.date) > new Date(b.date)
-  );
-
-  console.log(fixtureFilter); */
-  /*   console.log(ordenado); */
 
   return (
     <div className="bg-morado w-full h-1/5 rounded flex flex-col gap-1 overflow-hidden">

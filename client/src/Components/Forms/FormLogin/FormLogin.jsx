@@ -58,7 +58,7 @@ export default function FormLogin(props) {
 
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
     <Center>
       <VStack maxW="900px" w = {[250, 300, 400]} boxShadow='dark-lg' p='6' rounded='md' bg='white' m={8}>
         <Heading>Login</Heading>
