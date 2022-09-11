@@ -8,9 +8,12 @@ export const matchSlice = createSlice({
   reducers:{
     getMatch: (state, action) => {
       state.match = action.payload
+    },
+    cleanMatch: (state) => {
+      state.match = []
     }
   }
 });
 
-export const { getMatch } = matchSlice.actions;
+export const { getMatch, cleanMatch } = matchSlice.actions;
 export default matchSlice.reducer;

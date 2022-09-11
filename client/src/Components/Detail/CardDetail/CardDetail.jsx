@@ -3,6 +3,12 @@ import React from "react";
 export const CardDetail = (props) => {
 
 
+  const onClick = (profit, bet) => {
+    /* e.preventDefault(); */
+    props.openModal();
+    props.setProfit(profit);
+    props.setBet(bet)
+  };
 
   return (
     <div className="bg-rojosec w-full h-full p-3 font-parrafo rounded-tl rounded-tr-2xl rounded-br rounded-bl-2xl flex flex-col justify-between">
@@ -38,15 +44,24 @@ export const CardDetail = (props) => {
         </div>
       </div>
       <div className="flex flex-row justify-around gap-2 h-12">
-        <button className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white">
+        <button
+          onClick={() => onClick(props.profit_coef_home, "local")}
+          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
+        >
           <span>Local:</span>
           <p>{props.profit_coef_home}</p>
         </button>
-        <button className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white">
+        <button
+          onClick={() => onClick(props.profit_coef_draw, "empate")}
+          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
+        >
           <span>Empate:</span>
           <p>{props.profit_coef_draw}</p>
         </button>
-        <button className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white">
+        <button
+          onClick={() => onClick(props.profit_coef_away, "visitante")}
+          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
+        >
           <span>Visitante:</span>
           <p>{props.profit_coef_away}</p>
         </button>
