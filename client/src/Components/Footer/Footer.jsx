@@ -1,5 +1,5 @@
 import React from 'react';
-// import fb from '../../media/facebook.png'
+import fb from '../../media/facebook.png'
 import tw from '../../media/twitter.png'
 import ig from '../../media/instagram.png'
 import lin from '../../media/linkedin.png'
@@ -42,12 +42,12 @@ export const Footer = () => {
             <div className="min-w-fit px-6">
                 <h3 className="font-titulo text-2xl mt-4 text-white mb-5">Redes Sociales</h3>
                 <div className="font-parrafo text-xl px-6">
-                    {/* <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                         <img className="w-5 h-5 cursor-pointer" src={fb} alt='Facebook'></img>
-                        <a href='https://www.linkedin.com/company/qatar-bets/' target='_blank' rel="noopener noreferrer">
+                        <a href='https://www.facebook.com/QatarBetsLATAM' target='_blank' rel="noopener noreferrer">
                             <h5 className="cursor-pointer my-1 hover:opacity-70">Facebook</h5>
                         </a>
-                    </div> */}
+                    </div>
                     <div className="flex items-center gap-3">
                         <img className="w-5 h-5 cursor-pointer" src={tw} alt='Twitter'></img>
                         <a href='https://twitter.com/QatarBets' target='_blank' rel="noopener noreferrer">
