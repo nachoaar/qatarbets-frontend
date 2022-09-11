@@ -4,7 +4,9 @@ import { Fragment } from 'react'
 import {Link} from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useSelector } from "react-redux";
 import { useState } from 'react';
+import { UserProfile } from '../User/UserProfile';
 
 const navigation = [
     { name: 'Login', href: '#', current: true },
@@ -17,6 +19,8 @@ function classNames(...classes) {
 
 export const Navbar = () => {
 
+    const [modal, setModal] = useState(false);
+
     const [color, setColor] = useState(false);
     const changeColor = () => {
         if (window.scrollY >= 20) {
@@ -26,7 +30,19 @@ export const Navbar = () => {
         }
     }
 
+    const { isLoggedIn } = useSelector((state) => state.user);
+    let islogerenderusrprofile = null;
+    if(isLoggedIn){
+      islogerenderusrprofile = <button onClick={(e) => handleOnClick(e)} className="text-white">Mi Perfil</button>
+    }
+
+
     window.addEventListener('scroll', changeColor);
+
+    function handleOnClick(e) {
+        e.preventDefault();
+        setModal(true);
+    }
 
     return (
         <Disclosure as="nav" className={color ? "bg-rojo fixed top-0 z-50 w-full transition duration-500 shadow-xl" : "bg-transparent fixed top-0 z-50 w-full transition duration-500"}>
@@ -79,6 +95,7 @@ export const Navbar = () => {
                                     </div>
                                 </div> */}
                             </div>
+                            {islogerenderusrprofile}
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 {/* <button
                                     type="button"
@@ -165,6 +182,10 @@ export const Navbar = () => {
                             ))}
                         </div>
                     </Disclosure.Panel>
+                    <UserProfile
+                        modal={modal}
+                        setModal={setModal}
+                    />
                 </>
             )}
         </Disclosure>

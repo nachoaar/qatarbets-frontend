@@ -11,7 +11,7 @@ export const CardLarge = (props) => {
         </div>
         <div className="w-full h-12 flex justify-between items-center px-2">
           <p className="font-fifa text-md text-white">FIFA WORLD CUP</p>
-          <p className="font-parrafo text-white">{`Group Stage - ${props.groupId}`}</p>
+          <p className="font-parrafo text-white">{`Fase de Grupo - ${props.groupId}`}</p>
         </div>
         <div className="w-full h-16 flex bg-morado items-center justify-center px-2">
           <div className="text-white flex justify-start items-center w-full gap-1">
