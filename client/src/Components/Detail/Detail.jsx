@@ -62,22 +62,8 @@ export const Detail = () => {
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
-      <Modal isOpen={isOpenBet} closeModal={closeModalBet}>
-        <ProfitsPotentials
-          profit={profit}
-          home_team={match[0]?.home_team.name}
-          away_team={match[0]?.away_team.name}
-          date={match[0]?.date}
-          bet={bet}
-        />
-        <FormLogin />
-      </Modal>
-
-      {/* <Modal isOpen={isOpenLogin}>
-        <FormLogin />
-      </Modal> */}
-
       <Navbar />
+
       <div className="flex flex-row justify-center p-4 w-5/6 gap-3 h-auto mt-20">
         <div className="w-4/5">
           <div className="flex flex-row gap-2">
@@ -106,7 +92,8 @@ export const Detail = () => {
 
           <div className="w-full flex flex-col h-auto">
             <TitleContent title="PLANTILLAS" />
-            <div className="w-full h-96">
+            <div className="w-full h-auto">
+
               {Object.entries(playersHome).length === 0 ? (
                 <h2>no se cargo nada todavi</h2>
               ) : (
@@ -121,6 +108,7 @@ export const Detail = () => {
                   playersAttackersAway={playersAway?.attackers}
                 />
               )}
+
             </div>
           </div>
         </div>
@@ -131,6 +119,17 @@ export const Detail = () => {
         />
       </div>
       <Footer />
+
+      <Modal isOpen={isOpenBet} closeModal={closeModalBet}>
+        <ProfitsPotentials
+          profit={profit}
+          home_team={match[0]?.home_team.name}
+          away_team={match[0]?.away_team.name}
+          date={match[0]?.date}
+          bet={bet}
+        />
+        <FormLogin />
+      </Modal>
     </div>
   );
 };
