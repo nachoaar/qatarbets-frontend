@@ -7,9 +7,7 @@ const register = async (name, age, email, pass) => {
     email,
     pass,
   }
-    const postUser = await axios.post('http://localhost:3001/user/register', dataUser);
-    console.log("llegue al post!");
-    console.log(postUser);
+    const postUser = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/user/register', dataUser);
     return postUser;
 };
 //https://qatarbets-backend-production-ab54.up.railway.app
@@ -19,8 +17,6 @@ const loginUser = async (email, pass) => {
     if(logUser.data){
       localStorage.setItem("user", JSON.stringify(logUser.data));
     }
-    console.log(logUser);
-    //console.log(logUser.data);
     return logUser.data
   } catch (error) {
     console.log(error)

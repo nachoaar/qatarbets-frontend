@@ -50,17 +50,20 @@ export default function FormRestration() {
   let messages = null;
 
   if(message){
+    if (message === "Usuario Registrado!") {
+      navigate('/login')
+    }
     messages =
       <VStack maxW="900px">
-        <Alert status='success'>
+        <Alert status='error'>
         <AlertIcon />
         <AlertTitle mr={2}>|</AlertTitle>
           <AlertDescription>
             {message}
           </AlertDescription>
-          <Link to="/login">
+          {/* <Link to="/login">
           <Button colorScheme='red'>Iniciar Sesión</Button>
-          </Link>
+          </Link> */}
         </Alert>
       </VStack>
   };
