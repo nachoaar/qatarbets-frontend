@@ -78,7 +78,7 @@ let hora = new Date(props.date)
         <div className="flex flex-row gap-1 justify-between">
           <div className="flex flex-col bg-rojosec h-full w-auto">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
-              <p className="font-parrafo text-white text-lg px-6">LOCAL</p>
+              <p className="font-parrafo text-white text-md px-4">LOCAL</p>
             </div>
             <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
               <p className="font-parrafo text-black text-lg">{props.profit_coef_home}</p>
@@ -86,7 +86,7 @@ let hora = new Date(props.date)
           </div>
           <div className="flex flex-col bg-rojosec h-full w-auto">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
-              <p className="font-parrafo text-white text-lg px-6">EMPATE</p>
+              <p className="font-parrafo text-white text-md px-4">EMPATE</p>
             </div>
             <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
               <p className="font-parrafo text-black text-lg">{props.profit_coef_draw}</p>
@@ -94,7 +94,7 @@ let hora = new Date(props.date)
           </div>
           <div className="flex flex-col bg-rojosec h-full w-auto">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
-              <p className="font-parrafo text-white text-lg px-6">VISITANTE</p>
+              <p className="font-parrafo text-white text-md px-4">VISITANTE</p>
             </div>
             <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
               <p className="font-parrafo text-black text-lg">{props.profit_coef_away}</p>

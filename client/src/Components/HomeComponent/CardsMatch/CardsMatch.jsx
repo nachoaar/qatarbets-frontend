@@ -27,7 +27,7 @@ export const CardsMatch = () => {
               profit_coef_away={m.profit_coef_away}
             />
           );
-        })}
+        }).slice(0,9)}
     </div>
   );
 };

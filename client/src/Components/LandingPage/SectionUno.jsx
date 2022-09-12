@@ -21,8 +21,8 @@ export const SectionUno = () => {
           <div>
             {user.isLoggedIn ? (
               <Link to="/home">
-                <Boton  name="Ingresar" />
-              </Link>                
+                <Boton  name="Ingresar al sitio" />
+              </Link>
             ) : (
               <>
                 <Link to="/register">

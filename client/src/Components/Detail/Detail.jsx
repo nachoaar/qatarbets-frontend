@@ -4,7 +4,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useModal } from "../../hooks/useModal";
-import { getGroupMatch, getMatchId, matchIdClean } from "../../redux/actions/fixtureActions";
+import {
+  getGroupMatch,
+  getMatchId,
+  matchIdClean,
+} from "../../redux/actions/fixtureActions";
 import {
   startingPlayersAway,
   startingPlayersClean,
@@ -12,6 +16,7 @@ import {
 } from "../../redux/actions/playersActions";
 import { Footer } from "../Footer/Footer";
 import FormLogin from "../Forms/FormLogin/FormLogin";
+import { Slider } from "../HomeComponent/Slider/Slider";
 import Modal from "../Modal/Modal";
 import { Navbar } from "../Navbar/Navbar";
 import { PaymentForm } from "../PaymentForm/PaymentForm";
@@ -23,16 +28,14 @@ import { CardCity } from "./CaredCity/CardCity";
 import { Court } from "./Court/Court";
 
 export const Detail = () => {
-
-
   let { id } = useParams();
- /*  console.log("id del partido - " + id); */
+  /*  console.log("id del partido - " + id); */
 
   const dispatch = useDispatch();
 
   //miramos el match
   const match = useSelector((state) => state.fixture.fixtureMatchId);
-/*   console.log("match");
+  /*   console.log("match");
   console.log(match); */
 
   //obtengo el id de los equipos del match
@@ -43,12 +46,12 @@ export const Detail = () => {
   let playersAway = useSelector((store) => store.players.startingPlayersAway);
 
   const groupId = match[0]?.groupId; //obtengo el id del grupo del partido
-/*   console.log("grupo id");
+  /*   console.log("grupo id");
   console.log(groupId); */
 
   //miramos los partidos del grupo
   const matchesGroup = useSelector((state) => state.fixture.fixtureFilter);
-/*   console.log("partidos por grupo");
+  /*   console.log("partidos por grupo");
   console.log(matchesGroup); */
 
   const nameGroups = ["A", "B", "C", "D", "E", "F", "G", "H"];
@@ -61,18 +64,16 @@ export const Detail = () => {
   useEffect(() => {
     dispatch(getMatchId(id)); //obtengo el partido
     dispatch(getGroupMatch(groupId)); //action que obtiene todos los partidos del grupo pasado por parametro
-    return ()=>{
+    return () => {
       dispatch(startingPlayersClean());
       /* dispatch(matchIdClean()) */
-    }
+    };
   }, [id, groupId]);
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(startingPlayersHome(idHome));
     dispatch(startingPlayersAway(idAway));
-  },[idHome, idAway])
-
-
+  }, [idHome, idAway]);
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
@@ -106,7 +107,7 @@ export const Detail = () => {
 
           <div className="w-full flex flex-col h-auto mt-4">
             <TitleContentMedium title="Formacion de los equipos" />
-            <div className="w-full h-auto">
+            <div className="w-full h-auto pb-4">
               {Object.entries(playersHome).length === 0 ? (
                 <h2>no se cargo nada todavi</h2>
               ) : (
@@ -122,9 +123,10 @@ export const Detail = () => {
                 />
               )}
             </div>
+            <div className="w-full h-32 overflow-hidden flex items-center">
+              <Slider />
+            </div>
           </div>
-
-
         </div>
 
         <SidebarMatch group={nameGroups[groupId - 1]} fixture={matchesGroup} />
@@ -132,7 +134,7 @@ export const Detail = () => {
       <Footer />
 
       <Modal isOpen={isOpenBet} closeModal={closeModalBet}>
-        <TitleContentMedium title="simula tu apuesta"/>
+        <TitleContentMedium title="simula tu apuesta" />
         <ProfitsPotentials
           profit={profit}
           home_team={match[0]?.home_team.name}
@@ -141,7 +143,7 @@ export const Detail = () => {
           bet={bet}
         />
         {/* <FormLogin /> */}
-        <TitleContentMedium title="realiza tu pago"/>
+        <TitleContentMedium title="realiza tu pago" />
         <PaymentForm />
       </Modal>
     </div>

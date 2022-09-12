@@ -25,7 +25,7 @@ export const Court = ({
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
                   <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md">{p.name}</p>
+                    <p className="font-semibold text-md bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -45,7 +45,7 @@ export const Court = ({
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
                   <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md">{p.name}</p>
+                    <p className="font-semibold text-md  bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -64,7 +64,7 @@ export const Court = ({
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
                   <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md">{p.name}</p>
+                    <p className="font-semibold text-md  bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -83,7 +83,7 @@ export const Court = ({
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
                   <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md">{p.name}</p>
+                    <p className="font-semibold text-md  bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -105,7 +105,7 @@ export const Court = ({
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
                   <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md">{p.name}</p>
+                    <p className="font-semibold text-md  bg-rojosec text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -124,7 +124,7 @@ export const Court = ({
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
                   <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md">{p.name}</p>
+                    <p className="font-semibold text-md  bg-rojosec text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -143,7 +143,7 @@ export const Court = ({
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
                   <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md">{p.name}</p>
+                    <p className="font-semibold text-md  bg-rojosec text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -162,7 +162,7 @@ export const Court = ({
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
                   <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md">{p.name}</p>
+                    <p className="font-semibold text-md  bg-rojosec text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>

@@ -13,6 +13,9 @@ import { getGroups } from "../../redux/actions/groupActions";
 import { CardLarge } from "../Utils/CardLarge";
 import { Slider } from "./Slider/Slider";
 import { useLocation } from "react-router-dom";
+import { getTeams } from "../../redux/actions/teamActions";
+import { startingAllPlayers } from "../../redux/actions/playersActions";
+import { TitleContentMedium } from "../Utils/TitleContentMedium";
 
 export const Home = () => {
   let { search } = useLocation();
@@ -24,12 +27,14 @@ export const Home = () => {
   const matches = useSelector((state) => state.fixture?.fixture);
   const filter = useSelector((state) => state.fixture?.fixtureFilterCopy);
 
+  const teams = useSelector((state) => state.teams.teams);
+  const numerosId = teams?.map((t) => t.id);
+
   const letras = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
   let letraGroup = filter[0]?.groupId;
 
-  console.log(letras[letraGroup]);
-
+  /*  console.log(letras[letraGroup]); */
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,9 +43,13 @@ export const Home = () => {
       dispatch(getGroupMatch(Number(groupId)));
     } else {
       dispatch(getFixture());
+      dispatch(getTeams());
     }
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(startingAllPlayers(numerosId));
+  }, [numerosId]);
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
@@ -61,34 +70,40 @@ export const Home = () => {
         </div>
       </div>
 
-      <div className="w-full flex flex-col gap-2 items-center">
-        <div className="w-5/6 h-auto flex flex-row gap-2 snap-x overflow-auto">
-          {/* <Cards allMatch={matches}/> */}
-          {matches &&
-            matches.slice(0, 10).map((m) => {
-              return (
-                <CardLarge
-                  key={m.id}
-                  id={m.id}
-                  home_team={m.home_team.name}
-                  away_team={m.away_team.name}
-                  groupId={m.groupId}
-                  profit_coef_home={m.profit_coef_home}
-                  profit_coef_draw={m.profit_coef_draw}
-                  profit_coef_away={m.profit_coef_away}
-                />
-              );
-            })}
-        </div>
+      <div className="w-full flex flex-col gap-4 items-center">
         <div className="w-5/6 h-32 overflow-hidden flex items-center">
           <Slider />
         </div>
-        <TitleContent title="PARTIDOS MAS APOSTADOS" />
-        <div className="flex flex-row justify-between gap-1 w-5/6 mb-10">
-          <CardSmall match={matches[3]} />
-          <CardSmall match={matches[2]} />
-          <CardSmall match={matches[1]} />
-          <CardSmall match={matches[0]} />
+        <div className="flex flex-col w-full justify-center items-center">
+          <TitleContentMedium title="Proximos partidos" />
+          <div className="w-5/6 h-auto flex flex-row gap-2 snap-x overflow-auto">
+            {/* <Cards allMatch={matches}/> */}
+            {matches &&
+              matches.slice(0, 10).map((m) => {
+                return (
+                  <CardLarge
+                    key={m.id}
+                    id={m.id}
+                    home_team={m.home_team.name}
+                    away_team={m.away_team.name}
+                    groupId={m.groupId}
+                    profit_coef_home={m.profit_coef_home}
+                    profit_coef_draw={m.profit_coef_draw}
+                    profit_coef_away={m.profit_coef_away}
+                    date={m.date}
+                  />
+                );
+              })}
+          </div>
+        </div>
+        <div className="flex flex-col w-full justify-center items-center">
+          <TitleContentMedium title="Partidos mas apostados" />
+          <div className="flex flex-row justify-between gap-1 w-5/6 mb-10">
+            <CardSmall match={matches[3]} />
+            <CardSmall match={matches[2]} />
+            <CardSmall match={matches[1]} />
+            <CardSmall match={matches[0]} />
+          </div>
         </div>
       </div>
 
