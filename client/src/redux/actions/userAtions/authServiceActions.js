@@ -7,10 +7,12 @@ const register = async (name, age, email, pass) => {
     email,
     pass,
   }
-    const postUser = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/user/register', dataUser);
+    const postUser = await axios.post('http://localhost:3001/user/register', dataUser);
+    console.log("llegue al post!");
     console.log(postUser);
+    return postUser;
 };
-
+//https://qatarbets-backend-production-ab54.up.railway.app
 const loginUser = async (email, pass) => {
   try {
     const logUser = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/user/login',{email, pass}, {withCredentials: true} );

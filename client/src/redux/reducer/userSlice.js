@@ -4,11 +4,12 @@ import authService from '../actions/userAtions/authServiceActions'
 const user = JSON.parse(localStorage.getItem("user"));
 
 export  const registerUser = createAsyncThunk(
-  "user/register",
+  "user/registerUser",
   async ({name, age, email, pass}, thunkAPI) => {
     try {
       const response = await authService.register(name, age, email, pass);
-      thunkAPI.dispatch(setMessage(response.data.message));
+      console.log('response:', response);
+      thunkAPI.dispatch(setMessage(response.data));
       return response.data;
     } catch (error) {
       const message =
