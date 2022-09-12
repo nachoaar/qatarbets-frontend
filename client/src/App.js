@@ -1,6 +1,4 @@
-import axios from "axios";
 import { Routes, Route } from "react-router-dom";
-import { DashboardAdmin } from "./Components/Dashboard/Dashboard";
 import { BetDashboard } from "./Components/Dashboard/Routes/BetDashboard";
 import { MatchDashboard } from "./Components/Dashboard/Routes/MatchDashboard";
 import { UserDashboard } from "./Components/Dashboard/Routes/UserDashboard";
@@ -31,10 +29,9 @@ function App() {
         <Route path="/payment" element={<PaymentForm />} />
         <Route exact path="/detail/:id" element={<Detail />} />
         <Route element={<ProtectedRoutes />}>
-          <Route exact path="/dashboard" element={<DashboardAdmin />} />
+          <Route exact path="/dashboard" element={<UserDashboard />} />
           <Route exact path="/dashboard/bets/" element={<BetDashboard />} />
           <Route exact path="/dashboard/matchs/" element={<MatchDashboard />} />
-          <Route exact path="/dashboard/users/" element={<UserDashboard />} />
         </Route>
       </Route>
     </Routes>
