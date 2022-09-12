@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 export const Slider = () => {
 
-  const images = ['publicidad1.jpg','publicidad2.jpg','publicidad3.jpg'];
+  const images = ['publicidad1.png','publicidad2.png','publicidad3.png'];
   let autoPlay = true;
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [selectedImage, setSelectedImage] = useState(images[0]);
@@ -35,7 +35,7 @@ export const Slider = () => {
 
   return (
     <div className="w-full h-full flex justify-between items-center gap-2">
-      <div className="h-full w-full flex overflow-hidden rounded-lg bg-cover bg-center" style={{backgroundImage: `url(${require(`../../../media/${selectedImage}`)})`}}>
+      <div className="cursor-pointer h-full w-full flex overflow-hidden rounded-lg bg-cover bg-center" style={{backgroundImage: `url(${require(`../../../media/${selectedImage}`)})`}}>
 
       </div>
     </div>

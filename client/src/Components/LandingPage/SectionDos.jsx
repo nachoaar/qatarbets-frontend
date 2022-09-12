@@ -54,7 +54,7 @@ export const SectionDos = (props) => {
             </p>
           </div>
           <div className="w-full md:w-3/5 rounded-3xl overflow-hidden">
-            <img src={require(`../../media/${selectedImage}`)} alt="" className="mix-blend-luminosity	" />
+            <img src={require(`../../media/${selectedImage}`)} alt="" className="cursor-pointer"/>
           </div>
         </div>
 
