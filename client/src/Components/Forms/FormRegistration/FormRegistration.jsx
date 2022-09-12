@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar } from "../../Navbar/Navbar";
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import  { registerUser }  from '../../../redux/reducer/userSlice'
 import { clearMessage } from '../../../redux/reducer/messageSlice'
@@ -32,6 +32,7 @@ export default function FormRestration() {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(clearMessage());
@@ -50,6 +51,7 @@ export default function FormRestration() {
       .catch(() => {
         setSuccessful(false);
       });
+    navigate("/home");
   };
 
   /* if (isLoggedIn) {

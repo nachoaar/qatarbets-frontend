@@ -1,7 +1,6 @@
 import React, { useState, useEffect  } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate } from 'react-router-dom';
-import { Navbar } from "../../Navbar/Navbar";
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
 import { login } from '../../../redux/reducer/userSlice';
@@ -25,6 +24,7 @@ import {
 
 export default function FormLogin(props) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { reset, register, handleSubmit, formState: { errors } } = useForm();
   const { isLoggedIn } = useSelector((state) => state.user);
   const { message } = useSelector((state) => state.message);
@@ -50,6 +50,9 @@ export default function FormLogin(props) {
       .catch(() => {
         setLoading(false);
       });
+    if (isLoggedIn) {
+      navigate("/home");
+    }
   };
 
 
