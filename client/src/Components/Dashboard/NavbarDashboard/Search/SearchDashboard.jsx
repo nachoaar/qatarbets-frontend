@@ -27,7 +27,7 @@ export const SearchDashboard = () => {
     setInput({
       search: "",
     });
-    navigate("/dashboard/users");
+    navigate("/dashboard/");
   }
 
   return (
