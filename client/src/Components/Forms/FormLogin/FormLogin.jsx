@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from 'react-router-dom';
-import { Navbar } from "../../Navbar/Navbar";
+// import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
 import { login } from '../../../redux/reducer/userSlice';
@@ -17,6 +17,10 @@ import {
   Input,
   InputRightElement,
   VStack,
+  AlertDescription,
+  Alert,
+  AlertTitle,
+  AlertIcon,
   Button,
   FormErrorMessage,
   // FormHelperText,
@@ -52,6 +56,24 @@ export default function FormLogin(props) {
       });
   };
 
+  let messages = null;
+
+  if(message){
+    messages =
+      <VStack maxW="900px">
+        <Alert status='error'>
+        <AlertIcon />
+        <AlertTitle mr={2}>|</AlertTitle>
+          <AlertDescription>
+            {message}
+          </AlertDescription>
+          <Link to="/login">
+          <Button colorScheme='red'>Iniciar Sesión</Button>
+          </Link>
+        </Alert>
+      </VStack>
+  };
+
 
 
   return (
@@ -59,6 +81,7 @@ export default function FormLogin(props) {
     {/* <Navbar /> */}
     <Center>
       <VStack maxW="900px" w = {[250, 300, 400]} boxShadow='dark-lg' p='6' rounded='md' bg='white' m={20}>
+        {messages}
         <Heading>Login</Heading>
 
         <form onSubmit={handleSubmit(onSubmit)}>
