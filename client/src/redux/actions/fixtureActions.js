@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup, getFixtureCity, orderFixture} from "../reducer/fixtureSlice";
+import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup, getFixtureCity, orderFixture, MatchId, matchId} from "../reducer/fixtureSlice";
 import { axiosURL } from "../../index.js";
 
 export function getFixture() {
@@ -39,9 +39,17 @@ export function filterByGroupAction(payload){
 }
 
 
-export function getMatchesPerGroup(payload) {
+export function getMatchesPerGroup() {
   return async function (dispatch) {
-    dispatch(getGamesPerGroup(payload));
+    dispatch(getGamesPerGroup());
+  };
+}
+
+
+//nuevo para detail 2
+export function getMatchId(payload) {
+  return async function (dispatch) {
+    dispatch(matchId(payload));
   };
 }
 

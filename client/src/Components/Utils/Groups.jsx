@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Groups = (props) => {
 
-  console.log(props)
+
 
 let navigate = useNavigate()
 

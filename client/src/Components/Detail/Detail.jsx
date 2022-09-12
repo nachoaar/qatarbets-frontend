@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useModal } from "../../hooks/useModal";
-import { getGroupMatch } from "../../redux/actions/fixtureActions";
+import { getGroupMatch, getMatchId } from "../../redux/actions/fixtureActions";
 import { groupById } from "../../redux/actions/groupActions";
 import { matchClean, matchId } from "../../redux/actions/matchActions";
 import {
@@ -24,10 +24,10 @@ import { CardCity } from "./CaredCity/CardCity";
 import { Court } from "./Court/Court";
 
 export const Detail = () => {
-  /* const [isOpenLogin, openModalLogin, closeModalLogin] = useModal(false); */
-  const [isOpenBet, openModalBet, closeModalBet] = useModal(false);
 
-  let { id } = useParams();
+
+
+/*   let { id } = useParams();
   const dispatch = useDispatch();
 
   let { match } = useSelector((store) => store.match);
@@ -53,7 +53,42 @@ export const Detail = () => {
     return () => {
       dispatch(startingPlayersClean());
     };
-  }, [awayId, dispatch, group, homeId, id]);
+  }, [awayId, dispatch, group, homeId, id]); */
+
+
+
+
+
+  let { id } = useParams();
+  console.log("id del partido - " + id)
+
+  const dispatch = useDispatch();
+
+  //miramos el match
+  const match = useSelector((state) => state.fixture.fixtureMatchId);
+  console.log("match");
+  console.log(match);
+
+  const groupId = match[0]?.groupId; //obtengo el id del grupo del partido
+  console.log("grupo id");
+  console.log(groupId);
+
+
+  //miramos los partidos del grupo
+  const matchesGroup = useSelector((state) => state.fixture.fixtureFilter);
+  console.log("partidos por grupo");
+  console.log(matchesGroup);
+
+  const nameGroups = ["A","B","C","D","E","F","G","H"]
+
+  //para el modal
+  const [isOpenBet, openModalBet, closeModalBet] = useModal(false);
+
+
+  useEffect(() => {
+    dispatch(getMatchId(id)); //obtengo el partido
+    dispatch(getGroupMatch(groupId)); //action que obtiene todos los partidos del grupo pasado por parametro
+  }, [id, groupId]);
 
 
   return (
@@ -67,14 +102,14 @@ export const Detail = () => {
               <CardDetail
                 home_team={match[0]?.home_team.name}
                 away_team={match[0]?.away_team.name}
-                group={groupId[0]?.name.toUpperCase().replace("_", " ")}
+                group={nameGroups[groupId - 1] }
                 date={match[0]?.date}
                 profit_coef_home={match[0]?.profit_coef_home}
                 profit_coef_draw={match[0]?.profit_coef_draw}
                 profit_coef_away={match[0]?.profit_coef_away}
-                openModal={openModalBet}
+                /* openModal={openModalBet}
                 setProfit={setProfit}
-                setBet={setBet}
+                setBet={setBet} */
               />
             </div>
             <div className="w-5/12 h-max">
@@ -86,7 +121,7 @@ export const Detail = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col h-auto mt-4">
+          {/* <div className="w-full flex flex-col h-auto mt-4">
             <TitleContentMedium title="Formacion de los equipos" />
             <div className="w-full h-auto">
               {Object.entries(playersHome).length === 0 ? (
@@ -104,17 +139,19 @@ export const Detail = () => {
                 />
               )}
             </div>
-          </div>
+          </div> */}
+
+
         </div>
 
         <SidebarMatch
-          group={groupId[0]?.name.toUpperCase().replace("_", " ")}
-          fixture={fixtureFilter}
+          group={nameGroups[groupId - 1]}
+          fixture={matchesGroup}
         />
       </div>
       <Footer />
 
-      <Modal isOpen={isOpenBet} closeModal={closeModalBet}>
+      {/* <Modal isOpen={isOpenBet} closeModal={closeModalBet}>
         <ProfitsPotentials
           profit={profit}
           home_team={match[0]?.home_team.name}
@@ -123,7 +160,8 @@ export const Detail = () => {
           bet={bet}
         />
         <FormLogin />
-      </Modal>
+      </Modal> */}
     </div>
+
   );
 };
