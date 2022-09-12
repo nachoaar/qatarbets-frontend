@@ -48,13 +48,25 @@ const CheckoutForm = () => {
 
   const handleInputChange = (inputAmount) => {
     setAmount(inputAmount);
-    console.log(amount);
   }
+
+  console.log(amount);
 
   return <form onSubmit={handleSubmit}>
     <div className="bg-moradosec w-full mx-auto px-6 py-8 rounded-lg">
       <label className="font-titulo text-white mr-5 text-xl">Amount USD $</label>
-      <input className="rounded-md w-24" type="number" onChange={e => handleInputChange(e.target.value)} />
+       <select
+          onChange={e => handleInputChange(e.target.value)}
+          id="monto"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+          <option selected>Seleccione el monto a apostar</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="200">200</option>
+          <option value="500">500</option>
+          <option value="1000">1000</option>
+        </select>
       <CardElement className="bg-white rounded-md py-3 my-6" />
       <ButtonMedium name={'Buy'} />
     </div>
@@ -68,4 +80,3 @@ export const PaymentForm = () => {
     </Elements>
   )
 }
-

@@ -15,11 +15,11 @@ export const UserCard = () => {
                   <th className="border border-gristexto bg-gris text-gristexto">BET</th>
                 </tr>
                 <tr>
-                  <td className="border border-gristexto">a</td>
-                  <td className="border border-gristexto">a</td>
-                  <td className={`border border-gristexto`}>a</td>
-                  <td className="border border-gristexto">a</td>
-                  <td className="border border-gristexto">a</td>
+                  <td className="border border-gristexto">-</td>
+                  <td className="border border-gristexto">-</td>
+                  <td className={`border border-gristexto`}>-</td>
+                  <td className="border border-gristexto">-</td>
+                  <td className="border border-gristexto">-</td>
                 </tr>
               </tbody>
             </table>
