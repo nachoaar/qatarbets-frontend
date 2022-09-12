@@ -1,8 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { UserCard } from './UserBetCard.jsx/UserCard';
 // import UserStatGafic from '../Dashboard/Routes/Graphs/userGrafics';
 
 export const UserProfile = ({modal, setModal}) => {
+ 
+  const user = useSelector((state) => state.user);
 
   function handleOnClick(e) {
     e.preventDefault();
@@ -21,11 +24,15 @@ export const UserProfile = ({modal, setModal}) => {
           </button>
           <div className="w-full flex justify-between items-end">
             <div className="w-full h-auto mb-2 flex justify-start items-start gap-4">
-              <div className="w-32 h-32  border-4 border-gristexto rounded-xl">
-                img
+              <div className="w-32 h-32 overflow-hidden border-4 border-gristexto rounded-xl">
+              <img
+                className="h-32 w-32"
+                src=""
+                alt="avatar usuario"
+              />
               </div>
               <div className="flex flex-col gap-2">
-                <p className="border-b border-grisfooter w-40">Name</p>
+                <p className="border-b border-grisfooter w-40 font-titulodash">Name</p>
                 <p className="border-b border-grisfooter w-40">Age</p>
                 <p className="border-b border-grisfooter w-40">Email</p>
               </div>
