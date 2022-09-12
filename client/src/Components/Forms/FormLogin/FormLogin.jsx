@@ -132,10 +132,10 @@ export default function FormLogin(props) {
           <Link to="/register">
           <Button colorScheme='gray' m={3}>Registrarse</Button>
           </Link>
-          <Link to="/login">
-          <Button colorScheme='gray' m={3}>Iniciar Sesion</Button>
-          </Link>
         </form>
+        <Link to="/">
+            <p className="text-rojosec font-titulodash text-sm">¿Deseas volver? hace click aquí</p>
+        </Link>
       </VStack>
     </Center>
     <Footer/>
