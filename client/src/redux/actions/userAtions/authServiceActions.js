@@ -23,8 +23,14 @@ const loginUser = async (email, pass) => {
   }
 }
 
-const logoutUser = () => {
-  localStorage.removeItem("user");
+const logoutUser = async () => {
+ try {
+  const logoutUser = await axios.get("https://qatarbets-backend-production-ab54.up.railway.app/validate/logout2");
+
+  console.log(logoutUser)
+ } catch (error){
+  console.log(error)
+ }
 };
 
 const authService = {
