@@ -154,6 +154,9 @@ export default function FormRestration() {
             </FormControl>
 
           <Button type='submit' colorScheme='red' m={3}>Registrarse</Button>
+          <Link to="/login">
+          <Button colorScheme='gray' m={3}>Iniciar Sesion</Button>
+          </Link>
           <FormErrorMessage>{message && message}</FormErrorMessage>
           </form>
         </VStack>
