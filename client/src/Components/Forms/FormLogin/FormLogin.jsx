@@ -8,6 +8,7 @@ import { Footer } from "../../Footer/Footer";
 import { login, logout } from "../../../redux/reducer/userSlice";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { gapi } from "gapi-script";
+import { useCookies } from "react-cookie";
 
 import {
   FormControl,
@@ -26,8 +27,10 @@ import {
   AlertDescription,
   // FormHelperText,
 } from "@chakra-ui/react";
+import axios from "axios";
 
 export default function FormLogin(props) {
+  const [cookies, setCookie] = useCookies(["acces_token"]);
   const dispatch = useDispatch();
   const {
     reset,
@@ -104,8 +107,14 @@ export default function FormLogin(props) {
   //   return <Navigate to="/profile" />;
   // }
 
-  const responseGoogle = (res) => {
-    console.log("Logueado como: ", res.profileObj);
+  const responseGoogle = async (res) => {
+    /* console.log(res);
+    console.log("Logueado como: ", res.profileObj); */
+    
+    console.log("accessToken: ", res.accessToken);
+    console.log("tokenId: ", res.tokenId);
+    let data = await axios.post('http://localhost:3001/validate/google', {token: res.tokenId})
+    console.log(data.data);
   };
 
   const responseGoogleF = (res) => {
@@ -185,9 +194,9 @@ export default function FormLogin(props) {
                 buttonText="Login"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogleF}
+                isSignedIn={true}
                 cookiePolicy={"single_host_origin"}
               />
-
               <GoogleLogout
                 clientId={clientId}
                 buttonText={"Logout"}

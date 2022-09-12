@@ -7,6 +7,7 @@ import store from "./redux/store";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from '@chakra-ui/react';
+import { CookiesProvider } from "react-cookie";
 
 /* import dotenv from "dotenv";
 dotenv.config(); */
@@ -17,7 +18,7 @@ export const axiosURL = process.env.REACT_APP_API || "https://qatarbets-backend-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-
+  <CookiesProvider>
   <ChakraProvider >
     <Provider store={store}>
       <BrowserRouter>
@@ -25,6 +26,7 @@ root.render(
       </BrowserRouter>
     </Provider>
   </ChakraProvider>
+  </CookiesProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
