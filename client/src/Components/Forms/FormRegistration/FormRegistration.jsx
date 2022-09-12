@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import { Navbar } from "../../Navbar/Navbar";
 import { Navigate, useNavigate } from 'react-router-dom';
+
 import { useForm } from "react-hook-form";
 import  { registerUser }  from '../../../redux/reducer/userSlice'
 import { clearMessage } from '../../../redux/reducer/messageSlice'
@@ -45,6 +46,14 @@ export default function FormRestration() {
     reset();
     const {name, age ,email, pass} = input;
     dispatch(registerUser({name, age, email, pass}))
+    .unwrap()
+      .then(() => {
+        setSuccessful(true);
+      })
+      .catch(() => {
+        setSuccessful(false);
+      });
+    navigate("/login");
   };
 
   let messages = null;

@@ -6,13 +6,14 @@ function Logout() {
 
   const navigate = useNavigate();
 
-  let handleClick = async (e) => {
+  async function handleClick(e) {
+    e.preventDefault();
     await axios.get('https://qatarbets-backend-production-ab54.up.railway.app/validate/logout', {withCredentials: true})
-    navigate('/login')
+    navigate('/')
   }
 
   return (
-    <button onClick={handleClick}>Logout</button>
+    <p onClick={(e) => handleClick(e)}>Logout</p>
   )
 }
 

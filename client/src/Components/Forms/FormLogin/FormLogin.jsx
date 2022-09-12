@@ -1,6 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate } from 'react-router-dom';
+
 import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
@@ -34,6 +35,7 @@ export default function FormLogin(props) {
   const { message } = useSelector((state) => state.message);
   const navigate = useNavigate()
 
+
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
@@ -49,7 +51,7 @@ export default function FormLogin(props) {
     dispatch(login({email, pass}))
     .unwrap()
       .then(() => {
-        props.history.push("/home");
+        navigate("/home");
         window.location.reload();
       })
       .catch(() => {
