@@ -9,6 +9,7 @@ import FormLogin from "./Components/Forms/FormLogin/FormLogin";
 import FormRestration from "./Components/Forms/FormRegistration/FormRegistration";
 import { Home } from "./Components/HomeComponent/Home";
 import { LandingPage } from "./Components/LandingPage/LandingPage";
+import Logout from "./Components/Logout/Logout";
 import { PaymentForm } from "./Components/PaymentForm/PaymentForm";
 import LoggedRoutes from "./Components/Protections/LoggedRoutes";
 import ProtectedRoutes from "./Components/Protections/ProtectedRoutes";
@@ -24,6 +25,7 @@ function App() {
       <Route exact path="/" element={<LandingPage />} />
       <Route exact path="/register" element={<FormRestration />} />
       <Route exact path="/login" element={<FormLogin />} />
+      <Route exact path="/logout" element={<Logout />} />
       <Route element={<LoggedRoutes />}>
         <Route path="/home" element={<Home />} />
         <Route path="/payment" element={<PaymentForm />} />

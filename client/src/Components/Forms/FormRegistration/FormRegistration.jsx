@@ -52,9 +52,9 @@ export default function FormRestration() {
       });
   };
 
-  if (isLoggedIn) {
+  /* if (isLoggedIn) {
     return <Navigate to="/home" />;
-  }
+  } */
 
 
   return (
