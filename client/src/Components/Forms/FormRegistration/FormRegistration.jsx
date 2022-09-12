@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import { Navbar } from "../../Navbar/Navbar";
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import  { registerUser }  from '../../../redux/reducer/userSlice'
 import { clearMessage } from '../../../redux/reducer/messageSlice'
@@ -28,6 +29,8 @@ import {
 export default function FormRestration() {
   const { reset, register, handleSubmit, formState: { errors } } = useForm();
   const { message } = useSelector((state) => state.message);
+  const { isLoggedIn } = useSelector((state) => state.user);
+  const navigate = useNavigate()
 
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
@@ -47,17 +50,20 @@ export default function FormRestration() {
   let messages = null;
 
   if(message){
+    if (message === "Usuario Registrado!") {
+      navigate('/login')
+    }
     messages =
       <VStack maxW="900px">
-        <Alert status='success'>
+        <Alert status='error'>
         <AlertIcon />
         <AlertTitle mr={2}>|</AlertTitle>
           <AlertDescription>
             {message}
           </AlertDescription>
-          <Link to="/login">
+          {/* <Link to="/login">
           <Button colorScheme='red'>Iniciar Sesión</Button>
-          </Link>
+          </Link> */}
         </Alert>
       </VStack>
   };

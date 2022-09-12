@@ -1,7 +1,13 @@
 import React, { useState, useEffect  } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+<<<<<<< HEAD
 import { Link, Navigate } from 'react-router-dom';
 // import { Navbar } from "../../Navbar/Navbar";
+=======
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+
+import { Navbar } from "../../Navbar/Navbar";
+>>>>>>> 6606edbf0c288a65aeba2625266904b2b593f05b
 import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
 import { login } from '../../../redux/reducer/userSlice';
@@ -23,6 +29,10 @@ import {
   AlertIcon,
   Button,
   FormErrorMessage,
+  AlertIcon,
+  Alert,
+  AlertTitle,
+  AlertDescription,
   // FormHelperText,
 } from '@chakra-ui/react'
 
@@ -32,6 +42,8 @@ export default function FormLogin(props) {
   const { reset, register, handleSubmit, formState: { errors } } = useForm();
   const { isLoggedIn } = useSelector((state) => state.user);
   const { message } = useSelector((state) => state.message);
+  const navigate = useNavigate()
+
 
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false)
@@ -48,7 +60,7 @@ export default function FormLogin(props) {
     dispatch(login({email, pass}))
     .unwrap()
       .then(() => {
-        props.history.push("/home");
+        navigate("/home");
         window.location.reload();
       })
       .catch(() => {
@@ -57,6 +69,7 @@ export default function FormLogin(props) {
   };
 
   let messages = null;
+<<<<<<< HEAD
 
   if(message){
     messages =
@@ -74,7 +87,31 @@ export default function FormLogin(props) {
       </VStack>
   };
 
+=======
+>>>>>>> 6606edbf0c288a65aeba2625266904b2b593f05b
 
+  if(message){
+    /* if (message === "Usuario Registrado!") {
+      navigate('/login')
+    } */
+    if (message.hasOwnProperty("error")) {
+      messages =
+        <VStack maxW="900px">
+          <Alert status='error'>
+          <AlertIcon />
+          <AlertTitle mr={2}>|</AlertTitle>
+            <AlertDescription>
+              {message.error}
+            </AlertDescription>
+            {/* <Link to="/login">
+            <Button colorScheme='red'>Iniciar Sesión</Button>
+            </Link> */}
+          </Alert>
+        </VStack>
+    } else {
+      navigate('/home')
+    }
+  };
 
   return (
     <>
@@ -83,6 +120,7 @@ export default function FormLogin(props) {
       <VStack maxW="900px" w = {[250, 300, 400]} boxShadow='dark-lg' p='6' rounded='md' bg='white' m={20}>
         {messages}
         <Heading>Login</Heading>
+      {messages}
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl m={3} w = {[150, 250, 350]} id='email'  isInvalid={errors.email? true : false} isRequired>

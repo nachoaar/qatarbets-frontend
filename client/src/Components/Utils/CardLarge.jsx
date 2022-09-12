@@ -36,7 +36,7 @@ export const CardLarge = (props) => {
             </div>
           </div>
         </div>
-        <div className="w-full mt-2 h-8 flex justify-center items-center gap-2">
+        <div className="w-full mt-2 h-8 flex justify-center items-center gap-2 text-xs">
           <div className="bg-white h-full w-4/5 flex items-center justify-center">
             <p>Local: {props.profit_coef_home}</p>
           </div>
