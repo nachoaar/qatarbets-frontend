@@ -152,10 +152,12 @@ export default function FormRestration() {
                     {errors.pass && errors.pass.message}
                   </FormErrorMessage>
             </FormControl>
-
           <Button type='submit' colorScheme='red' m={3}>Registrarse</Button>
           <FormErrorMessage>{message && message}</FormErrorMessage>
           </form>
+        <Link to="/login">
+            <p className="text-rojosec font-titulodash text-sm">¿Ya tenés una cuenta? ingresa aquí</p>
+        </Link>
         </VStack>
     </Center>
     <Footer />
