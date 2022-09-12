@@ -74,6 +74,9 @@ export const fixtureSlice = createSlice({
       console.log(match);
       state.fixtureMatchId = match;
     },
+    cleanMatchId: (state) =>{
+      state.fixtureMatchId = []
+    }
   },
 });
 
@@ -85,5 +88,6 @@ export const {
   getFixtureCity,
   orderFixture,
   matchId,
+  cleanMatchId
 } = fixtureSlice.actions;
 export default fixtureSlice.reducer;

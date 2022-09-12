@@ -17,10 +17,12 @@ export const playersSlice = createSlice({
       }
     },
     getStartingPlayersHome: (state, action) => {
-      state.startingPlayersHome = action.payload;
+      const playersHome = state.allStartingPlayers.filter(p => p.goalkeeper[0].teamId === action.payload)
+      state.startingPlayersHome = playersHome;
     },
     getStartingPlayersAway: (state, action) => {
-      state.startingPlayersAway = action.payload;
+      const playersAway = state.allStartingPlayers.filter(p => p.goalkeeper[0].teamId === action.payload)
+      state.startingPlayersAway = playersAway;
     },
     cleanStartingPlayers: (state) => {
       state.startingPlayersHome = [];
