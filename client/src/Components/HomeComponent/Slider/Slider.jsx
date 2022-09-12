@@ -35,7 +35,7 @@ export const Slider = () => {
 
   return (
     <div className="w-full h-full flex justify-between items-center gap-2">
-      <div className="cursor-pointer h-full w-full flex overflow-hidden rounded-lg bg-cover bg-center" style={{backgroundImage: `url(${require(`../../../media/${selectedImage}`)})`}}>
+      <div className="cursor-pointer h-full w-full flex overflow-hidden bg-cover bg-center" style={{backgroundImage: `url(${require(`../../../media/${selectedImage}`)})`}}>
 
       </div>
     </div>

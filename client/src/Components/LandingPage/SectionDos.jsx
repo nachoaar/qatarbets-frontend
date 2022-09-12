@@ -53,7 +53,7 @@ export const SectionDos = (props) => {
               partido que mas te gusta y realizar tu apuesta.{" "}
             </p>
           </div>
-          <div className="w-full md:w-3/5 rounded-3xl overflow-hidden">
+          <div className="w-full md:w-3/5 overflow-hidden">
             <img src={require(`../../media/${selectedImage}`)} alt="" className="cursor-pointer"/>
           </div>
         </div>
