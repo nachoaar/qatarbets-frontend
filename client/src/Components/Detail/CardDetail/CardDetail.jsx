@@ -14,7 +14,7 @@ export const CardDetail = (props) => {
     <div className="bg-rojosec w-full h-full p-3 font-parrafo rounded-tl rounded-tr-2xl rounded-br rounded-bl-2xl flex flex-col justify-between">
       <div className=" flex flex-row justify-around text-white p-1 font-fifa">
         <p>FIFA WORLD CUP</p>
-        <p>{props.group}</p>
+        <p>GRUPO: {props.group}</p>
       </div>
       <div className="bg-morado text-white py-9 flex flex-row justify-around items-center mb-3">
         <div className="flex flex-col justify-center items-center">

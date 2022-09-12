@@ -3,24 +3,38 @@ import { createSlice } from "@reduxjs/toolkit";
 export const playersSlice = createSlice({
   name: "players",
   initialState: {
-    allPlayers: [],
+    allStartingPlayers: [],
     startingPlayersHome: [],
     startingPlayersAway: [],
   },
   reducers: {
+    getStartingAllPlayers: (state, action) => {
+      if (state.allStartingPlayers.length < 32) {
+        state.allStartingPlayers = [
+          ...state.allStartingPlayers,
+          action.payload,
+        ];
+      }
+    },
     getStartingPlayersHome: (state, action) => {
-      state.startingPlayersHome = action.payload;
+      const playersHome = state.allStartingPlayers.filter(p => p.goalkeeper[0].teamId === action.payload)
+      state.startingPlayersHome = playersHome;
     },
     getStartingPlayersAway: (state, action) => {
-      state.startingPlayersAway = action.payload;
+      const playersAway = state.allStartingPlayers.filter(p => p.goalkeeper[0].teamId === action.payload)
+      state.startingPlayersAway = playersAway;
     },
     cleanStartingPlayers: (state) => {
-      state.startingPlayersHome = []
-      state.startingPlayersAway = []
+      state.startingPlayersHome = [];
+      state.startingPlayersAway = [];
     },
   },
 });
 
-export const { getStartingPlayersHome, getStartingPlayersAway, cleanStartingPlayers } =
-  playersSlice.actions;
+export const {
+  getStartingPlayersHome,
+  getStartingPlayersAway,
+  cleanStartingPlayers,
+  getStartingAllPlayers,
+} = playersSlice.actions;
 export default playersSlice.reducer;
