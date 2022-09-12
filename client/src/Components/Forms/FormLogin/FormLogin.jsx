@@ -1,13 +1,8 @@
 import React, { useState, useEffect  } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-<<<<<<< HEAD
-import { Link, Navigate } from 'react-router-dom';
-// import { Navbar } from "../../Navbar/Navbar";
-=======
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 
-import { Navbar } from "../../Navbar/Navbar";
->>>>>>> 6606edbf0c288a65aeba2625266904b2b593f05b
+// import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
 import { login } from '../../../redux/reducer/userSlice';
@@ -29,10 +24,6 @@ import {
   AlertIcon,
   Button,
   FormErrorMessage,
-  AlertIcon,
-  Alert,
-  AlertTitle,
-  AlertDescription,
   // FormHelperText,
 } from '@chakra-ui/react'
 
@@ -69,7 +60,6 @@ export default function FormLogin(props) {
   };
 
   let messages = null;
-<<<<<<< HEAD
 
   if(message){
     messages =
@@ -86,9 +76,6 @@ export default function FormLogin(props) {
         </Alert>
       </VStack>
   };
-
-=======
->>>>>>> 6606edbf0c288a65aeba2625266904b2b593f05b
 
   if(message){
     /* if (message === "Usuario Registrado!") {
