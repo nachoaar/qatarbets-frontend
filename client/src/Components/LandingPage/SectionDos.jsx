@@ -1,11 +1,40 @@
-import React from "react";
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { CardLarge } from "../Utils/CardLarge";
 import { Countdown } from "../LandingPage/Countdown/Countdown";
-import imageSectionDos from "../../media/imageSectionDos.png";
 import { useSelector } from "react-redux";
 import { TitleContent } from "../Utils/TitleContent";
-export const SectionDos = () => {
 
+export const SectionDos = (props) => {
+  
+  const images = ['publilanding1.png','publilanding2.png','publilanding3.png'];
+  let autoPlay = true;
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(images[0]);
+
+  useEffect(() => {
+    if(autoPlay) {
+      const interval = setInterval(() => {
+        selectNewImage(selectedIndex, images)    
+      }, 5000);
+      return () => clearInterval(interval);
+    }
+  });
+
+  const selectNewImage = (index, images, next = true) => {
+    const condition = next ? selectedIndex < images.length -1 : selectedIndex > 0;
+    const nextIndex = next ? (condition ? selectedIndex + 1 : 0) : condition ? selectedIndex - 1 : images.length - 1;
+    setSelectedImage(images[nextIndex]);
+    setSelectedIndex(nextIndex);
+  }
+
+  const previous = () => {
+    selectNewImage(selectedIndex, images, false)
+  }
+
+  const next = () => {
+    selectNewImage(selectedIndex, images)
+  }
 
   const matches = useSelector((state) => state.fixture?.fixture);
 /*   const matchesMostBets = useSelector((state) => state.match.matchesMostBets);
@@ -24,12 +53,8 @@ export const SectionDos = () => {
               partido que mas te gusta y realizar tu apuesta.{" "}
             </p>
           </div>
-          <div className="w-full md:w-3/5 ">
-            <img
-              src={imageSectionDos}
-              alt=""
-              className="mix-blend-luminosity	"
-            />
+          <div className="w-full md:w-3/5 rounded-3xl overflow-hidden">
+            <img src={require(`../../media/${selectedImage}`)} alt="" className="mix-blend-luminosity	" />
           </div>
         </div>
 

@@ -84,7 +84,7 @@ export const Home = () => {
           <Slider />
         </div>
         <TitleContent title="PARTIDOS MAS APOSTADOS" />
-        <div className="flex flex-row justify-between gap-1 w-5/6">
+        <div className="flex flex-row justify-between gap-1 w-5/6 mb-10">
           <CardSmall match={matches[3]} />
           <CardSmall match={matches[2]} />
           <CardSmall match={matches[1]} />

@@ -3,8 +3,11 @@ import Encabezado from "../../media/Encabezado.png";
 import { Link } from "react-router-dom";
 import { Boton } from "../Utils/Boton";
 import { Navbar } from "../Navbar/Navbar";
+import { useSelector } from "react-redux";
 
 export const SectionUno = () => {
+
+  const user = useSelector((state) => state.user);
 
   return (
     <div className="h-screen flex flex-col justify-between bg-morado">
@@ -16,12 +19,20 @@ export const SectionUno = () => {
             Apuestas Deportivas, QATARBETS Sitio N°1 en Casa de apuestas online de la copa del mundo. La primera casa de apuestas mundialistas en LATAM.
           </p>
           <div>
-          <Link to="/register">
-            <Boton  name="Registrarse" />
-          </Link>
-          <Link to="/login">
-            <Boton  name="Acceder" />
-          </Link>
+            {user.isLoggedIn ? (
+              <Link to="/home">
+                <Boton  name="Ingresar" />
+              </Link>                
+            ) : (
+              <>
+                <Link to="/register">
+                  <Boton  name="Registrarse" />
+                </Link>
+                <Link to="/login">
+                  <Boton  name="Login" />
+                </Link>
+              </>
+            )}
         </div>
           </div>
         </div>
