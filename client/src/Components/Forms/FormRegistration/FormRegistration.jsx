@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 import { Navbar } from "../../Navbar/Navbar";
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
@@ -17,15 +18,16 @@ import {
   InputRightElement,
   VStack,
   Button,
-  FormErrorMessage
+  FormErrorMessage,
+  AlertIcon,
+  Alert,
+  AlertTitle,
+  AlertDescription,
   // FormHelperText,
 } from '@chakra-ui/react'
 
-
-
 export default function FormRestration() {
   const { reset, register, handleSubmit, formState: { errors } } = useForm();
-  const [successful, setSuccessful] = useState(false);
   const { message } = useSelector((state) => state.message);
   const { isLoggedIn } = useSelector((state) => state.user);
   const navigate = useNavigate()
@@ -42,27 +44,34 @@ export default function FormRestration() {
   const onSubmit = (input) => {
     reset();
     const {name, age ,email, pass} = input;
-    setSuccessful(false);
     dispatch(registerUser({name, age, email, pass}))
-    .unwrap()
-      .then(() => {
-        setSuccessful(true);
-      })
-      .catch(() => {
-        setSuccessful(false);
-      });
   };
 
-  /* if (isLoggedIn) {
-    return <Navigate to="/home" />;
-  } */
+  let messages = null;
 
+  if(message){
+    messages =
+      <VStack maxW="900px">
+        <Alert status='success'>
+        <AlertIcon />
+        <AlertTitle mr={2}>|</AlertTitle>
+          <AlertDescription>
+            {message}
+          </AlertDescription>
+          <Link to="/login">
+          <Button colorScheme='red'>Iniciar Sesión</Button>
+          </Link>
+        </Alert>
+      </VStack>
+  };
 
   return (
     <>
       <Navbar />
+
     <Center>
         <VStack maxW="900px" w = {[250, 300, 400]} boxShadow='dark-lg' p='6' rounded='md' bg='white' m={20}>
+          {messages}
           <Heading>Registro</Heading>
           <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -146,7 +155,7 @@ export default function FormRestration() {
           </form>
         </VStack>
     </Center>
-    <Footer/>
+    <Footer />
     </>
   )
 }
