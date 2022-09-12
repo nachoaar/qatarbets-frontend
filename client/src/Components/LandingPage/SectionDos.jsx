@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { TitleContent } from "../Utils/TitleContent";
 
 export const SectionDos = (props) => {
-  
+
   const images = ['publilanding1.png','publilanding2.png','publilanding3.png'];
   let autoPlay = true;
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -15,7 +15,7 @@ export const SectionDos = (props) => {
   useEffect(() => {
     if(autoPlay) {
       const interval = setInterval(() => {
-        selectNewImage(selectedIndex, images)    
+        selectNewImage(selectedIndex, images)
       }, 5000);
       return () => clearInterval(interval);
     }
@@ -76,6 +76,7 @@ export const SectionDos = (props) => {
                       profit_coef_home={m.profit_coef_home}
                       profit_coef_draw={m.profit_coef_draw}
                       profit_coef_away={m.profit_coef_away}
+                      date={m.date}
                     />
                   );
                 })}
@@ -98,6 +99,7 @@ export const SectionDos = (props) => {
                       profit_coef_home={m.profit_coef_home}
                       profit_coef_draw={m.profit_coef_draw}
                       profit_coef_away={m.profit_coef_away}
+                      date={m.date}
                     />
                   );
                 })}

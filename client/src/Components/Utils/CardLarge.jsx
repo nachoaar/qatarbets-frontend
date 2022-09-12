@@ -3,11 +3,21 @@ import { Link } from "react-router-dom";
 
 export const CardLarge = (props) => {
 
+  let date = new Date(props.date);
+
+  date = date.toLocaleDateString("es-AR", {
+    weekday: "long",
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+  });
+
+
   return (
     <Link to={`/detail/${props.id}`}>
       <button className="transition-colors duration-700 hover:bg-rojo scroll-smooth mb-3 snap-center h-52 w-80 bg-rojosec rounded-tr-3xl rounded-bl-3xl rounded-md flex flex-col p-4">
         <div className="w-full h-10 bg-morado flex justify-center items-center">
-          <p className="font-parrafo text-2xl text-white">2022-11-20</p>
+          <p className="font-parrafo text-xl text-white">{date}</p>
         </div>
         <div className="w-full h-12 flex justify-between items-center px-2">
           <p className="font-fifa text-md text-white">FIFA WORLD CUP</p>
