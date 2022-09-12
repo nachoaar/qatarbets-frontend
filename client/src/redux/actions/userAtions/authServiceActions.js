@@ -9,6 +9,7 @@ const register = async (name, age, email, pass) => {
   }
     const postUser = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/user/register', dataUser);
     console.log(postUser);
+    return postUser
 };
 
 const loginUser = async (email, pass) => {

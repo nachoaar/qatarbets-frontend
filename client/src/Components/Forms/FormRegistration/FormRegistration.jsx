@@ -48,15 +48,15 @@ export default function FormRestration() {
 
   if(message){
     messages =
-      <VStack maxW="900px"  w = {[250, 300, 400]}>
+      <VStack maxW="900px">
         <Alert status='success'>
         <AlertIcon />
-        <AlertTitle mr={3}>Felicidades</AlertTitle>
+        <AlertTitle mr={2}>|</AlertTitle>
           <AlertDescription>
             {message}
           </AlertDescription>
           <Link to="/login">
-          <Button colorScheme='red'>Iniciar Sesion</Button>
+          <Button colorScheme='red'>Iniciar Sesión</Button>
           </Link>
         </Alert>
       </VStack>
