@@ -97,7 +97,7 @@ export const SectionDos = (props) => {
                       id={m.matchData.id}
                       home_team={m.homeName.name}
                       away_team={m.awayName.name}
-                      groupId={m.groupId}
+                      groupId={m.matchData.groupId}
                       profit_coef_home={m.matchData.profit_coef_home}
                       profit_coef_draw={m.matchData.profit_coef_draw}
                       profit_coef_away={m.matchData.profit_coef_away}
