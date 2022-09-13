@@ -27,6 +27,8 @@ export const Home = () => {
   const matches = useSelector((state) => state.fixture?.fixture);
   const filter = useSelector((state) => state.fixture?.fixtureFilterCopy);
 
+  const matchesMostBets = useSelector((state) => state.match.matchesMostBets);
+
   const teams = useSelector((state) => state.teams.teams);
   const numerosId = teams?.map((t) => t.id);
 
@@ -99,10 +101,22 @@ export const Home = () => {
         <div className="flex flex-col w-full justify-center items-center">
           <TitleContentMedium title="Partidos mas apostados" />
           <div className="flex flex-row justify-between gap-1 w-5/6 mb-10">
-            <CardSmall match={matches[3]} />
-            <CardSmall match={matches[2]} />
-            <CardSmall match={matches[1]} />
-            <CardSmall match={matches[0]} />
+            {matchesMostBets &&
+              matchesMostBets.slice(0, 4).map((m) => {
+                return (
+                  <CardSmall
+                    key={m.matchData.id}
+                    id={m.matchData.id}
+                    home_team={m.homeName.name}
+                    away_team={m.awayName.name}
+                    groupId={m.matchData.groupId}
+                    profit_coef_home={m.matchData.profit_coef_home}
+                    profit_coef_draw={m.matchData.profit_coef_draw}
+                    profit_coef_away={m.matchData.profit_coef_away}
+                    date={m.matchData.date}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>

@@ -62,6 +62,7 @@ export const Detail = () => {
   const [isOpenBet, openModalBet, closeModalBet] = useModal(false);
 
   useEffect(() => {
+    /* window.scrollTo(0, 0); */
     dispatch(getMatchId(id)); //obtengo el partido
     dispatch(getGroupMatch(groupId)); //action que obtiene todos los partidos del grupo pasado por parametro
     return () => {
@@ -144,7 +145,7 @@ export const Detail = () => {
         />
         {/* <FormLogin /> */}
         <TitleContentMedium title="realiza tu pago" />
-        <PaymentForm />
+        <PaymentForm  />
       </Modal>
     </div>
   );
