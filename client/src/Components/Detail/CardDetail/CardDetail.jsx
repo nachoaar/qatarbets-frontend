@@ -3,11 +3,12 @@ import React from "react";
 export const CardDetail = (props) => {
 
 
-  const onClick = (profit, bet) => {
+  const onClick = (profit, bet, betEng) => {
     /* e.preventDefault(); */
     props.openModal();
     props.setProfit(profit);
-    props.setBet(bet)
+    props.setBet(bet);
+    props.setBetEng(betEng)
   };
 
   return (
@@ -45,21 +46,21 @@ export const CardDetail = (props) => {
       </div>
       <div className="flex flex-row justify-around gap-2 h-12">
         <button
-          onClick={() => onClick(props.profit_coef_home, "local")}
+          onClick={() => onClick(props.profit_coef_home, "local", "home")}
           className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
         >
           <span>Local:</span>
           <p>{props.profit_coef_home}</p>
         </button>
         <button
-          onClick={() => onClick(props.profit_coef_draw, "empate")}
+          onClick={() => onClick(props.profit_coef_draw, "empate", "draw")}
           className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
         >
           <span>Empate:</span>
           <p>{props.profit_coef_draw}</p>
         </button>
         <button
-          onClick={() => onClick(props.profit_coef_away, "visitante")}
+          onClick={() => onClick(props.profit_coef_away, "visitante", "away")}
           className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
         >
           <span>Visitante:</span>

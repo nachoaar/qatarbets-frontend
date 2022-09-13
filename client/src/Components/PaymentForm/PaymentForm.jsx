@@ -76,7 +76,7 @@ const CheckoutForm = (props) => {
 }
 
 export const PaymentForm = (props) => {
-  // console.log(props);
+  console.log(props);
   return (
     <Elements stripe={stripePromise}>
       <CheckoutForm props = {props}/>

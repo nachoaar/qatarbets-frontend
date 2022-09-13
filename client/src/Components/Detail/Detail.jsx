@@ -59,6 +59,7 @@ export const Detail = () => {
   //para el modal
   const [profit, setProfit] = useState(0);
   const [bet, setBet] = useState("");
+  const [betEng, setBetEng] = useState("");
   const [isOpenBet, openModalBet, closeModalBet] = useModal(false);
 
   useEffect(() => {
@@ -94,6 +95,7 @@ export const Detail = () => {
                 openModal={openModalBet}
                 setProfit={setProfit}
                 setBet={setBet}
+                setBetEng={setBetEng}
               />
             </div>
             <div className="w-5/12 h-max">
@@ -147,7 +149,7 @@ export const Detail = () => {
         <PaymentForm
           profit={profit}
           id={id}
-          bet={bet}
+          bet={betEng}
         />
       </Modal>
     </div>
