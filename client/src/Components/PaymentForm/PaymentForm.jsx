@@ -7,8 +7,10 @@ import { ButtonMedium } from '../Utils/Buttons/ButtonMedium';
 const stripePromise = loadStripe("pk_test_51LfBfGH8GSChtV84IGSv7a6FNuytSwQSVrCy3gyenf4zdJ7TtMsWodH3bxJ4AhAyRMd7UhsiLpGTH9r7uGDKTJiV00wpKR8Haa");
 
 
-const CheckoutForm = () => {
-
+const CheckoutForm = (props) => {
+  // console.log(props);
+  // console.log(id, profit, bet);
+  const {id, profit, bet} = props.props
   const [amount, setAmount] = useState(0);
 
   const stripe = useStripe();
@@ -22,10 +24,10 @@ const CheckoutForm = () => {
     });
 
     if (!error) {
-      const { id } = paymentMethod;
+      const { payId } = paymentMethod;
 
       const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/pay/', {
-        id,
+        payId,
         amount: amount * 100
       });
 
@@ -33,11 +35,11 @@ const CheckoutForm = () => {
         const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/bet/newBet', {
           fecha_hora: new Date(),
           money_bet: amount,
-          result: "draw",
+          result: bet,
           condition: "ready",
-          expected_profit: amount * 1.6,
+          expected_profit: amount * profit,
           final_profit: 0,
-          matchId: 855734,
+          matchId: id,
         }, { withCredentials: true });
         if (data === 'La apuesta se creo correctamente') {
           alert('Pago realizado con exito!!')
@@ -73,10 +75,11 @@ const CheckoutForm = () => {
   </form>
 }
 
-export const PaymentForm = () => {
+export const PaymentForm = (props) => {
+  // console.log(props);
   return (
     <Elements stripe={stripePromise}>
-      <CheckoutForm />
+      <CheckoutForm props = {props}/>
     </Elements>
   )
 }
