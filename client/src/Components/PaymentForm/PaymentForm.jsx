@@ -4,11 +4,13 @@ import { Elements, CardElement, useStripe, useElements } from '@stripe/react-str
 import axios from 'axios';
 import { ButtonMedium } from '../Utils/Buttons/ButtonMedium';
 
-const stripePromise = loadStripe("pk_test_51LfBfGH8GSChtV84IGSv7a6FNuytSwQSVrCy3gyenf4zdJ7TtMsWodH3bxJ4AhAyRMd7UhsiLpGTH9r7uGDKTJiV00wpKR8Haa");
+const stripePromise = loadStripe(`${process.env.REACT_APP_CLAVE_STRIPE}`);
 
 
-const CheckoutForm = () => {
-
+const CheckoutForm = (props) => {
+  // console.log(props);
+  // console.log(id, profit, bet);
+  const {matchId, profit, bet} = props.props
   const [amount, setAmount] = useState(0);
 
   const stripe = useStripe();
@@ -20,24 +22,24 @@ const CheckoutForm = () => {
       type: 'card',
       card: elements.getElement(CardElement)
     });
-
+//https://qatarbets-backend-production-ab54.up.railway.app
     if (!error) {
       const { id } = paymentMethod;
 
       const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/pay/', {
         id,
         amount: amount * 100
-      });
+      }, { withCredentials: true });
 
       if (data.message === 'Successful Payment') {
         const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/bet/newBet', {
           fecha_hora: new Date(),
           money_bet: amount,
-          result: "draw",
+          result: bet,
           condition: "ready",
-          expected_profit: amount * 1.6,
+          expected_profit: amount * profit,
           final_profit: 0,
-          matchId: 855734,
+          matchId: matchId,
         }, { withCredentials: true });
         if (data === 'La apuesta se creo correctamente') {
           alert('Pago realizado con exito!!')
@@ -73,10 +75,11 @@ const CheckoutForm = () => {
   </form>
 }
 
-export const PaymentForm = () => {
+export const PaymentForm = (props) => {
+  // console.log(props);
   return (
     <Elements stripe={stripePromise}>
-      <CheckoutForm />
+      <CheckoutForm props = {props}/>
     </Elements>
   )
 }
