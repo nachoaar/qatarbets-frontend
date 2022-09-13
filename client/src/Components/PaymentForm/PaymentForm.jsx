@@ -4,13 +4,13 @@ import { Elements, CardElement, useStripe, useElements } from '@stripe/react-str
 import axios from 'axios';
 import { ButtonMedium } from '../Utils/Buttons/ButtonMedium';
 
-const stripePromise = loadStripe("pk_test_51LfBfGH8GSChtV84IGSv7a6FNuytSwQSVrCy3gyenf4zdJ7TtMsWodH3bxJ4AhAyRMd7UhsiLpGTH9r7uGDKTJiV00wpKR8Haa");
+const stripePromise = loadStripe(`${process.env.REACT_APP_CLAVE_STRIPE}`);
 
 
 const CheckoutForm = (props) => {
   // console.log(props);
   // console.log(id, profit, bet);
-  const {id, profit, bet} = props.props
+  const {matchId, profit, bet} = props.props
   const [amount, setAmount] = useState(0);
 
   const stripe = useStripe();
@@ -22,14 +22,14 @@ const CheckoutForm = (props) => {
       type: 'card',
       card: elements.getElement(CardElement)
     });
-
+//https://qatarbets-backend-production-ab54.up.railway.app
     if (!error) {
-      const { payId } = paymentMethod;
+      const { id } = paymentMethod;
 
       const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/pay/', {
-        payId,
+        id,
         amount: amount * 100
-      });
+      }, { withCredentials: true });
 
       if (data.message === 'Successful Payment') {
         const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/bet/newBet', {
@@ -39,7 +39,7 @@ const CheckoutForm = (props) => {
           condition: "ready",
           expected_profit: amount * profit,
           final_profit: 0,
-          matchId: id,
+          matchId: matchId,
         }, { withCredentials: true });
         if (data === 'La apuesta se creo correctamente') {
           alert('Pago realizado con exito!!')
