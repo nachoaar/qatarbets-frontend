@@ -73,7 +73,7 @@ export const Home = () => {
       </div>
 
       <div className="w-full flex flex-col gap-4 items-center">
-        <div className="w-5/6 h-32 overflow-hidden flex items-center">
+        <div className="w-5/6 h-40 overflow-hidden flex items-center">
           <Slider />
         </div>
         <div className="flex flex-col w-full justify-center items-center">

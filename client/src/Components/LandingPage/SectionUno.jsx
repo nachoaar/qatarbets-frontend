@@ -24,14 +24,14 @@ export const SectionUno = () => {
                 <Boton  name="Ingresar al sitio" />
               </Link>
             ) : (
-              <>
+              <div className="flex gap-5">
                 <Link to="/register">
                   <Boton  name="Registrarse" />
                 </Link>
                 <Link to="/login">
                   <Boton  name="Login" />
                 </Link>
-              </>
+              </div>
             )}
         </div>
           </div>
