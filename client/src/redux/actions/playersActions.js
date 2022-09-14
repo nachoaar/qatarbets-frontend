@@ -8,18 +8,16 @@ import {
 
 //trae 11 jugadores por equipo
 export function startingAllPlayers(teams) {
-  console.log("desde la action");
-  console.log(teams);
 
   return async function (dispatch) {
     const startingPlayers = [];
 
     teams.map(async (id) => {
-      console.log("desde el map" + id);
+
       const players = await axios.get(
         `https://qatarbets-backend-production-ab54.up.railway.app/teams/playersSquadDb11/${id}`
       );
-      console.log(players.data);
+
       /* startingPlayers = [...startingPlayers, players.data] */
       dispatch(getStartingAllPlayers(players.data));
     });
