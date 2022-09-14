@@ -9,6 +9,7 @@ import {
   getMatchId,
   matchIdClean,
 } from "../../redux/actions/fixtureActions";
+import { matchesHeadToHead } from "../../redux/actions/matchActions";
 import {
   startingPlayersAway,
   startingPlayersClean,
@@ -74,6 +75,7 @@ export const Detail = () => {
   useEffect(() => {
     dispatch(startingPlayersHome(idHome));
     dispatch(startingPlayersAway(idAway));
+    dispatch(matchesHeadToHead(idHome, idAway))
   }, [idHome, idAway]);
 
   return (

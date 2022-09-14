@@ -1,5 +1,5 @@
 import axios from "axios";
-import { cleanMatch, getMatch, getMatchesMostBets } from "../reducer/matchSlice";
+import { cleanMatch, getMatch, getMatchesHeadToHead, getMatchesMostBets } from "../reducer/matchSlice";
 import { axiosURL } from "../../index.js";
 
 
@@ -16,6 +16,15 @@ export function matchesMostBets() {
       `${axiosURL}/bet/bets5`
     );
     dispatch(getMatchesMostBets(mostBet.data));
+  };
+}
+
+export function matchesHeadToHead(idHome, idAway) {
+  return async function (dispatch) {
+    const matches = await axios.get(
+      `${axiosURL}/fixture/headToHeadDb/${idHome}/${idAway}`
+    );
+    dispatch(getMatchesHeadToHead(matches.data));
   };
 }
 
