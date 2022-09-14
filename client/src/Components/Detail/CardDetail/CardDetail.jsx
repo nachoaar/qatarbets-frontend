@@ -1,13 +1,15 @@
 import React from "react";
+import { ButtonHeadToHead } from "./ButtonHeadToHead/ButtonHeadToHead";
+import { ButtonHeadToHeadAway } from "./ButtonHeadToHead/ButtonHeadToHeadAway";
 
 export const CardDetail = (props) => {
-
+  console.log(props.headToHead);
 
   const onClick = (profit, bet) => {
     /* e.preventDefault(); */
     props.openModal();
     props.setProfit(profit);
-    props.setBet(bet)
+    props.setBet(bet);
   };
 
   return (
@@ -43,6 +45,25 @@ export const CardDetail = (props) => {
           </div>
         </div>
       </div>
+
+      <div className="w-full h-auto bg-morado p-2">
+        <h3 className="text-white">head to head</h3>
+        <div className="w-full h-auto flex flex-row">
+          <div className="w-full h-auto flex flex-row justify-start gap-1">
+            {props.headToHead &&
+              props.headToHead.map((m) => {
+                return <ButtonHeadToHead result={m.result} />;
+              })}
+          </div>
+          <div className="w-full h-auto flex flex-row justify-end gap-1">
+            {props.headToHead &&
+              props.headToHead.map((m) => {
+                return <ButtonHeadToHeadAway result={m.result} />;
+              })}
+          </div>
+        </div>
+      </div>
+
       <div className="flex flex-row justify-around gap-2 h-12">
         <button
           onClick={() => onClick(props.profit_coef_home, "local")}

@@ -24,6 +24,7 @@ import { PaymentForm } from "../PaymentForm/PaymentForm";
 import { ProfitsPotentials } from "../Utils/ProfitsPotentials";
 import { SidebarMatch } from "../Utils/SidebarMatch";
 import { TitleContentMedium } from "../Utils/TitleContentMedium";
+import { Bench } from "./Bench/Bench";
 import { CardDetail } from "./CardDetail/CardDetail";
 import { CardCity } from "./CaredCity/CardCity";
 import { Court } from "./Court/Court";
@@ -55,6 +56,8 @@ export const Detail = () => {
   /*   console.log("partidos por grupo");
   console.log(matchesGroup); */
 
+  const headToHead = useSelector((state) => state.match.matchesHeadToHead);
+
   const nameGroups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
   //para el modal
@@ -75,7 +78,7 @@ export const Detail = () => {
   useEffect(() => {
     dispatch(startingPlayersHome(idHome));
     dispatch(startingPlayersAway(idAway));
-    dispatch(matchesHeadToHead(idHome, idAway))
+    dispatch(matchesHeadToHead(idHome, idAway));
   }, [idHome, idAway]);
 
   return (
@@ -97,6 +100,7 @@ export const Detail = () => {
                 openModal={openModalBet}
                 setProfit={setProfit}
                 setBet={setBet}
+                headToHead={headToHead}
               />
             </div>
             <div className="w-5/12 h-max">
@@ -110,6 +114,12 @@ export const Detail = () => {
 
           <div className="w-full flex flex-col h-auto mt-4">
             <TitleContentMedium title="Formacion de los equipos" />
+            <Bench
+              homeName={match[0]?.home_team.name}
+              awayName={match[0]?.away_team.name}
+              coachHome={match[0]?.home_team.coach}
+              coachAway={match[0]?.away_team.coach}
+            />
             <div className="w-full h-auto pb-4">
               {Object.entries(playersHome).length === 0 ? (
                 <h2>no se cargo nada todavi</h2>
@@ -147,7 +157,7 @@ export const Detail = () => {
         />
         {/* <FormLogin /> */}
         <TitleContentMedium title="realiza tu pago" />
-        <PaymentForm  />
+        <PaymentForm />
       </Modal>
     </div>
   );
