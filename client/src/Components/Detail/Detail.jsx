@@ -145,7 +145,11 @@ export const Detail = () => {
         />
         {/* <FormLogin /> */}
         <TitleContentMedium title="realiza tu pago" />
-        <PaymentForm  />
+        <PaymentForm
+          profit={profit}
+          matchId={id}
+          bet={bet}
+        />
       </Modal>
     </div>
   );
