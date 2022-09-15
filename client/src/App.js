@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { BetDashboard } from "./Components/Dashboard/Routes/BetDashboard";
 import { MatchDashboard } from "./Components/Dashboard/Routes/MatchDashboard";
+import { Simulation } from "./Components/Dashboard/Routes/SimulationDashboard";
 import { UserDashboard } from "./Components/Dashboard/Routes/UserDashboard";
 import { Detail } from "./Components/Detail/Detail";
 import FormLogin from "./Components/Forms/FormLogin/FormLogin";
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/dashboard" element={<UserDashboard />} />
           <Route exact path="/dashboard/bets/" element={<BetDashboard />} />
           <Route exact path="/dashboard/matchs/" element={<MatchDashboard />} />
+          <Route exact path="/dashboard/simulation" element={<Simulation />} />
         </Route>
       </Route>
     </Routes>
