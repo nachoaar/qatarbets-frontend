@@ -18,8 +18,7 @@ export const LandingPage = () => {
 
   const teams = useSelector((state) => state.teams.teams);
   const numerosId = teams?.map((t) => t.id);
-  console.log("numerosId");
-  console.log(numerosId);
+
 
   const allPlayers = useSelector((state) => state.players?.allStartingPlayers);
 
