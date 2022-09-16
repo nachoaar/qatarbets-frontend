@@ -5,6 +5,7 @@ import { UserDashboard } from "./Components/Dashboard/Routes/UserDashboard";
 import { Detail } from "./Components/Detail/Detail";
 import FormLogin from "./Components/Forms/FormLogin/FormLogin";
 import FormRestration from "./Components/Forms/FormRegistration/FormRegistration";
+import GoogleRegister from "./Components/Google/GoogleRegister";
 import { Home } from "./Components/HomeComponent/Home";
 import { LandingPage } from "./Components/LandingPage/LandingPage";
 import Logout from "./Components/Logout/Logout";
@@ -21,6 +22,7 @@ function App() {
   return (
     <Routes>
       <Route exact path="/" element={<LandingPage />} />
+      <Route exact path="/google" element={<GoogleRegister />} />
       <Route exact path="/register" element={<FormRestration />} />
       <Route exact path="/login" element={<FormLogin />} />
       <Route exact path="/logout" element={<Logout />} />
