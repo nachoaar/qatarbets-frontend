@@ -21,8 +21,7 @@ function GoogleRegister() {
     const {data} = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/user/login', {
       pass: userInfo.pass,
       email: userInfo.email
-    });
-    console.log(data);
+    }, {withCredentials: true});
     if (data.message === 'Usuario logueado con exito!') {
       navigate('/home');
     }else {
@@ -44,9 +43,8 @@ function GoogleRegister() {
     e.preventDefault();
     const { data } = await axios.post(
       "https://qatarbets-backend-production-ab54.up.railway.app/user/register",
-      user
+      user, {withCredentials: true}
     );
-    console.log(data);
   };
   return (
     <div>
