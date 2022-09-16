@@ -18,7 +18,7 @@ function GoogleRegister() {
       avatar: decoded.picture,
     };
     setUser(userInfo);
-    const {data} = await axios.post('http://localhost:3001/user/login', {
+    const {data} = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/user/login', {
       pass: userInfo.pass,
       email: userInfo.email
     });
@@ -43,7 +43,7 @@ function GoogleRegister() {
   let handleSubmit = async (e) => {
     e.preventDefault();
     const { data } = await axios.post(
-      "http://localhost:3001/user/register",
+      "https://qatarbets-backend-production-ab54.up.railway.app/user/register",
       user
     );
     console.log(data);
