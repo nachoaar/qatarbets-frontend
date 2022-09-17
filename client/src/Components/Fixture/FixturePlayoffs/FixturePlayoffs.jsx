@@ -185,7 +185,6 @@ export const FixturePlayoffs = () => {
           <div className="font-fifa text-3xl text-white">
             <p>Final</p>
           </div>
-          <div>logo</div>
           <div>
             <CardPlayoffs
               nameHome={
@@ -202,8 +201,28 @@ export const FixturePlayoffs = () => {
               id={15}
             />
           </div>
-          <div>
+          <div className="flex flex-col gap-4">
             <Separator />
+            <Separator />
+          </div>
+          <div className="font-fifa text-md text-white">
+            <p>3er puesto</p>
+          </div>
+          <div>
+            <CardPlayoffs
+              nameHome={
+                matchesRound2[1]?.home_name
+                  ? matchesRound2[1].home_name
+                  : "- Perderdor 13"
+              }
+              nameAway={
+                matchesRound2[1]?.away_name
+                  ? matchesRound2[1].away_name
+                  : "- Perdedor 13"
+              }
+              stage={"Final"}
+              id={15}
+            />
           </div>
         </div>
 

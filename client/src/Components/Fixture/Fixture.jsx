@@ -38,27 +38,27 @@ export const Fixture = () => {
 
   return (
     <div className="flex flex-col items-center h-auto w-11/12">
-      <div className="bg-slate-400 w-full flex flex-row gap-4 pl-8 py-2">
+      <div className="bg-moradosec w-full flex flex-row gap-4 pl-8 py-2 text-md">
         <button
-          className="bg-morado text-white font-fifa text-lg p-2"
+          className="bg-rojo text-white p-2 rounded"
           onClick={onSimulateRound16}
         >
           cargar octavos
         </button>
         <button
-          className="bg-morado text-white font-fifa text-lg p-2"
+          className="bg-rojo text-white p-2 rounded"
           onClick={onSimulateRound8}
         >
           cargar cuartos
         </button>
         <button
-          className="bg-morado text-white font-fifa text-lg p-2"
+          className="bg-rojo text-white p-2 rounded"
           onClick={onSimulateRound4}
         >
           cargar semis
         </button>
         <button
-          className="bg-morado text-white font-fifa text-lg p-2"
+          className="bg-rojo text-white p-2 rounded"
           onClick={onSimulateRound2}
         >
           cargar final
