@@ -7,7 +7,8 @@ export const ButtonReturn = ({title}) => {
 
   const onClick = (e)=>{
     e.preventDefault();
-    navigate(`/home`)
+    /* navigate(`/home/`) */
+    navigate(`/home?fase=fase`)
   }
 
 

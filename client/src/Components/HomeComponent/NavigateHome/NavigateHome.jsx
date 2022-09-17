@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export const NavigateHome = ({setChange})=>{
+export const NavigateHome = ({setChange, change})=>{
 
 
   const onChange = (e, change) => {
@@ -16,13 +16,15 @@ export const NavigateHome = ({setChange})=>{
         <button
           onClick={(e) => onChange(e, true)}
           className="rounded-tr-xl rounded-bl-xl bg-morado text-white font-fifa text-lg p-2 focus:outline-none focus:ring focus:bg-rojo focus:ring-rojosec"
-          autoFocus
+          autoFocus={change ? true : false}
+          /* autoFocus */
         >
           Fase de grupos
         </button>
         <button
           onClick={(e) => onChange(e, false)}
           className="rounded-tr-xl rounded-bl-xl bg-morado text-white font-fifa text-lg p-2 focus:outline-none focus:ring focus:bg-rojo focus:ring-rojosec"
+          autoFocus={!change ? true : false}
         >
           Fase de eliminatorias
         </button>
