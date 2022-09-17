@@ -6,7 +6,7 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
-function GoogleRegister() {
+function GoogleAuth() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [token, setToken] = useState(false);
@@ -88,4 +88,4 @@ function GoogleRegister() {
   );
 }
 
-export default GoogleRegister;
+export default GoogleAuth;
