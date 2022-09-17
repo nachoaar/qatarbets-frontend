@@ -11,7 +11,7 @@ import betSlice from "./reducer/dashboardReducer/dashbetSlice";
 import gamblerSlice from "./reducer/dashboardReducer/dashgamblerSlice";
 import fixtureDashSlice from "./reducer/dashboardReducer/dashfixtureSlice";
 import simulationSlice  from "./reducer/dashboardReducer/dashsimulationSlice";
-
+import internalUserData from "./reducer/internalUserData";
 
 
 export default configureStore({
@@ -27,5 +27,6 @@ export default configureStore({
     dashfixture: fixtureDashSlice,
     user,
     dashsimulation: simulationSlice,
+    internalUser: internalUserData,
   }
 })

@@ -18,11 +18,14 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
+
 export const Navbar = () => {
-
+    
     const [modal, setModal] = useState(false);
-
     const [color, setColor] = useState(false);
+    const lUser = useSelector((store) => store.internalUser.user)
+
+
     const changeColor = () => {
         if (window.scrollY >= 20) {
             setColor(true)
@@ -30,7 +33,6 @@ export const Navbar = () => {
             setColor(false)
         }
     }
-
     const user = useSelector((state) => state.user);
     // let islogerenderusrprofile = null;
     // if(isLoggedIn){
@@ -137,6 +139,13 @@ export const Navbar = () => {
                                                     <p onClick={(e) => handleOnClick(e)} className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>Mi Perfil</p>
                                                 )}
                                             </Menu.Item>
+                                            { lUser[0]?.rol === "admin" ? <Menu.Item>
+                                                {({ active }) => (
+                                                <Link to='/dashboard'>
+                                                    <p className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>Dashboard</p>
+                                                </Link>
+                                                )}
+                                            </Menu.Item> : <></>}
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <div className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>

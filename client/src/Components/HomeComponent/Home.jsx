@@ -16,6 +16,8 @@ import { useLocation } from "react-router-dom";
 import { getTeams } from "../../redux/actions/teamActions";
 import { startingAllPlayers } from "../../redux/actions/playersActions";
 import { TitleContentMedium } from "../Utils/TitleContentMedium";
+import { getInternalUser,getIuBets,sortBets } from "../../redux/actions/internalUserActions";
+
 
 export const Home = () => {
   let { search } = useLocation();
@@ -26,7 +28,7 @@ export const Home = () => {
 
   const matches = useSelector((state) => state.fixture?.fixture);
   const filter = useSelector((state) => state.fixture?.fixtureFilterCopy);
-
+  const user = useSelector((store)=> store.internalUser?.user)
   const matchesMostBets = useSelector((state) => state.match.matchesMostBets);
 
   const teams = useSelector((state) => state.teams.teams);
@@ -41,6 +43,8 @@ export const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getGroups());
+    dispatch(getInternalUser())
+    dispatch(getIuBets())
     if (groupId) {
       dispatch(getGroupMatch(Number(groupId)));
     } else {
@@ -48,8 +52,9 @@ export const Home = () => {
       dispatch(getTeams());
     }
   }, [dispatch]);
-
+  
   useEffect(() => {
+    dispatch(sortBets(user[0]?.id))
     dispatch(startingAllPlayers(numerosId));
   }, [numerosId]);
 

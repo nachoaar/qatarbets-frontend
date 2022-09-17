@@ -31,7 +31,7 @@ export function orderByDate(payload) {
 }
 
 export function filterByGroupAction(payload){
-  console.log(payload)
+
   return async function (dispatch){
 
     dispatch(filterByGroup(payload))

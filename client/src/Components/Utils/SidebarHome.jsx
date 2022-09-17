@@ -14,7 +14,6 @@ export const SidebarHome = ({ filter }) => {
   let ciudades = new Set(filter?.map((c) => c.city));
   let ciudadesArray = Array.from(ciudades);
 
-  console.log(ciudadesArray);
 
   function handleOnClick(e) {
     e.preventDefault();

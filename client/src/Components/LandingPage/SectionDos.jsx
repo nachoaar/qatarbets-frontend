@@ -31,7 +31,7 @@ export const SectionDos = (props) => {
   const matches = useSelector((state) => state.fixture?.fixture);
   const matchesMostBets = useSelector((state) => state.match.matchesMostBets);
 
-  console.log(matchesMostBets);
+
 
 /*   useEffect(() => {
     if(autoPlay) {
