@@ -55,11 +55,7 @@ function GoogleAuth() {
         avatar: user.avatar,
       })
     );
-    const { data } = await axios.post(
-      "https://qatarbets-backend-production-ab54.up.railway.app/user/register",
-      user,
-      { withCredentials: true }
-    );
+    navigate('/login')
   };
   return (
     <div>
