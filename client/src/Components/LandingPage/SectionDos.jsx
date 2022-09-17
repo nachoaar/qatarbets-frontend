@@ -31,7 +31,6 @@ export const SectionDos = (props) => {
   const matches = useSelector((state) => state.fixture?.fixture);
   const matchesMostBets = useSelector((state) => state.match.matchesMostBets);
 
-  console.log(matchesMostBets);
 
 /*   useEffect(() => {
     if(autoPlay) {
@@ -48,7 +47,7 @@ export const SectionDos = (props) => {
 
       <div className="flex flex-col flex-auto gap-4 items-center w-full justify-center mt-12">
         <div className="flex flex-col md:flex-row w-5/6 h-auto justify-between pb-8 items-center">
-          <div className="w-full md:w-2/5 font-fifa text-white flex flex-col gap-4 pr-16">
+          <div className="w-full sm:w-2/5 font-fifa text-white flex flex-col gap-4 sm:pr-16 text-center sm:text-left mb-8">
             <h2 className="text-3xl">APOSTA Y GANA!</h2>
             <p className="text-lg">
               En Qatarbets ganar es muy facil. Solo tenes que el elegir el
