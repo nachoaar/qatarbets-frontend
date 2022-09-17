@@ -24,6 +24,12 @@ export const Home = () => {
   let { search } = useLocation();
   let query = new URLSearchParams(search);
   let groupId = query.get("id");
+  let fase = query.get("fase");
+
+  let mostrar = true
+  if(fase) mostrar = false
+
+  console.log(fase);
 
   const dispatch = useDispatch();
 
@@ -37,7 +43,10 @@ export const Home = () => {
 
   let letraGroup = filter[0]?.groupId;
 
-  const [change, SetChange] = useState(true);
+  //estado local para mostrar o los grupos o las llaves
+  const [change, SetChange] = useState(mostrar);
+
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -58,7 +67,7 @@ export const Home = () => {
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
       <Navbar />
-      <NavigateHome setChange={SetChange} />
+      <NavigateHome setChange={SetChange} change={change}/>
       {change ? (
         <div className="flex flex-row justify-between w-11/12 my-2 gap-3">
           <SidebarHome filter={filter} />
