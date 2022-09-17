@@ -3,6 +3,8 @@ import { BetDashboard } from "./Components/Dashboard/Routes/BetDashboard";
 import { MatchDashboard } from "./Components/Dashboard/Routes/MatchDashboard";
 import { UserDashboard } from "./Components/Dashboard/Routes/UserDashboard";
 import { Detail } from "./Components/Detail/Detail";
+import { DetailRounds } from "./Components/Detail/DetailRounds";
+import { Fixture } from "./Components/Fixture/Fixture";
 import FormLogin from "./Components/Forms/FormLogin/FormLogin";
 import FormRestration from "./Components/Forms/FormRegistration/FormRegistration";
 import GoogleRegister from "./Components/Google/GoogleRegister";
@@ -30,6 +32,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/payment" element={<PaymentForm />} />
         <Route exact path="/detail/:id" element={<Detail />} />
+        <Route exact path="/detail/:stage/:id" element={<DetailRounds />} />
         <Route element={<ProtectedRoutes />}>
           <Route exact path="/dashboard" element={<UserDashboard />} />
           <Route exact path="/dashboard/bets/" element={<BetDashboard />} />

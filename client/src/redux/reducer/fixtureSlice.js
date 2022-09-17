@@ -10,6 +10,11 @@ export const fixtureSlice = createSlice({
     fixtureGamesPerGroup: [],
     filtredMatches: [],
     fixtureMatchId: [],
+    fixtureRoundOf16: [],
+    fixtureRoundOf8: [],
+    fixtureRoundOf4: [],
+    fixtureRoundOf2: []
+
   },
   reducers: {
     getAllFixture: (state, action) => {
@@ -66,7 +71,7 @@ export const fixtureSlice = createSlice({
         /* state.fixtureGamesPerGroup.push(state.fixture.filter(m => m.groupId === i).slice(0, action.payload)); */
       }
     },
-    //nuevo para detail dos
+    //
     matchId: (state, action) => {
       console.log("desde la action " + action.payload);
       const match = state.fixture?.filter((m) => m.id === Number(action.payload));
@@ -76,6 +81,18 @@ export const fixtureSlice = createSlice({
     },
     cleanMatchId: (state) =>{
       state.fixtureMatchId = []
+    },
+    matchesRound16: (state, action) => {
+      state.fixtureRoundOf16 = action.payload
+    },
+    matchesRound8: (state, action) => {
+      state.fixtureRoundOf8 = action.payload
+    },
+    matchesRound4: (state, action) => {
+      state.fixtureRoundOf4 = action.payload
+    },
+    matchesRound2: (state, action) => {
+      state.fixtureRoundOf2 = action.payload
     }
   },
 });
@@ -88,6 +105,10 @@ export const {
   getFixtureCity,
   orderFixture,
   matchId,
-  cleanMatchId
+  cleanMatchId,
+  matchesRound16,
+  matchesRound8,
+  matchesRound4,
+  matchesRound2
 } = fixtureSlice.actions;
 export default fixtureSlice.reducer;
