@@ -49,14 +49,14 @@ export default function FormLogin(props) {
     const { email, pass } = input;
     setLoading(true);
     dispatch(login({email, pass}))
-    .unwrap()
+    /* .unwrap()
       .then(() => {
         navigate("/home");
         window.location.reload();
       })
       .catch(() => {
         setLoading(false);
-      });
+      }); */
   };
 
   let messages = null;

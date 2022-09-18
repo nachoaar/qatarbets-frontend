@@ -4,11 +4,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useModal } from "../../hooks/useModal";
-import {
-  getGroupMatch,
-  getMatchId,
-  matchIdClean,
-} from "../../redux/actions/fixtureActions";
 import { matchesHeadToHead } from "../../redux/actions/matchActions";
 import {
   startingPlayersAway,
@@ -16,45 +11,64 @@ import {
   startingPlayersHome,
 } from "../../redux/actions/playersActions";
 import { Footer } from "../Footer/Footer";
-import FormLogin from "../Forms/FormLogin/FormLogin";
 import { Slider } from "../HomeComponent/Slider/Slider";
 import Modal from "../Modal/Modal";
 import { Navbar } from "../Navbar/Navbar";
 import { PaymentForm } from "../PaymentForm/PaymentForm";
 import { ProfitsPotentials } from "../Utils/ProfitsPotentials";
-import { SidebarMatch } from "../Utils/SidebarMatch";
+import { SidebarRounds } from "../Utils/SidebarRounds";
 import { TitleContentMedium } from "../Utils/TitleContentMedium";
 import { Bench } from "./Bench/Bench";
 import { CardDetail } from "./CardDetail/CardDetail";
 import { CardCity } from "./CaredCity/CardCity";
 import { Court } from "./Court/Court";
 
-export const Detail = () => {
-  let { id } = useParams();
-  /*  console.log("id del partido - " + id); */
+export const DetailRounds = () => {
+  let { id, stage } = useParams();
 
   const dispatch = useDispatch();
 
-  //miramos el match
-  const match = useSelector((state) => state.fixture.fixtureMatchId);
-  /*   console.log("match");
-  console.log(match); */
+  const matchesOctavos = useSelector(
+    (state) => state.fixture.fixtureRoundOf16[8]
+  );
+  const matchesCuartos = useSelector((state) => state.fixture.fixtureRoundOf8);
+  const matchesSemis = useSelector((state) => state.fixture.fixtureRoundOf4);
+  const matchesFinal = useSelector((state) => state.fixture.fixtureRoundOf2);
+
+  let match = [];
+  let matches = [];
+
+  if (stage === "Octavos") {
+    match = matchesOctavos?.find((m) => m.id === Number(id));
+    matches = matchesOctavos;
+  }
+  if (stage === "Cuartos") {
+    match = matchesCuartos?.find((m) => m.id === Number(id));
+    matches = matchesCuartos;
+  }
+  if (stage === "Semis") {
+    match = matchesSemis?.find((m) => m.id === Number(id));
+    matches = matchesSemis;
+  }
+  if (stage === "Final") {
+    match = matchesFinal?.find((m) => m.id === Number(id));
+    matches = matchesFinal;
+  }
+
+
+
+  console.log("partido filtrado");
+  console.log(match);
 
   //obtengo el id de los equipos del match
-  const idHome = match[0]?.home_team_id;
-  const idAway = match[0]?.away_team_id;
+  const idHome = match?.home_team_id;
+  const idAway = match?.away_team_id;
 
+  //obtengo los players por equipo
   let playersHome = useSelector((store) => store.players.startingPlayersHome);
   let playersAway = useSelector((store) => store.players.startingPlayersAway);
 
-  const groupId = match[0]?.groupId; //obtengo el id del grupo del partido
-  /*   console.log("grupo id");
-  console.log(groupId); */
 
-  //miramos los partidos del grupo
-  const matchesGroup = useSelector((state) => state.fixture.fixtureFilter);
-  /*   console.log("partidos por grupo");
-  console.log(matchesGroup); */
 
   const headToHead = useSelector((state) => state.match.matchesHeadToHead);
 
@@ -65,20 +79,14 @@ export const Detail = () => {
   const [bet, setBet] = useState("");
   const [isOpenBet, openModalBet, closeModalBet] = useModal(false);
 
-  useEffect(() => {
-    /* window.scrollTo(0, 0); */
-    dispatch(getMatchId(id)); //obtengo el partido
-    dispatch(getGroupMatch(groupId)); //action que obtiene todos los partidos del grupo pasado por parametro
-    return () => {
-      dispatch(startingPlayersClean());
-      /* dispatch(matchIdClean()) */
-    };
-  }, [id, groupId]);
 
   useEffect(() => {
     dispatch(startingPlayersHome(idHome));
     dispatch(startingPlayersAway(idAway));
     dispatch(matchesHeadToHead(idHome, idAway));
+    return() => {
+      dispatch(startingPlayersClean())
+    }
   }, [idHome, idAway]);
 
   return (
@@ -90,13 +98,12 @@ export const Detail = () => {
           <div className="flex flex-row gap-2">
             <div className="w-7/12">
               <CardDetail
-                home_team={match[0]?.home_team.name}
-                away_team={match[0]?.away_team.name}
-                group={nameGroups[groupId - 1]}
-                date={match[0]?.date}
-                profit_coef_home={match[0]?.profit_coef_home}
-                profit_coef_draw={match[0]?.profit_coef_draw}
-                profit_coef_away={match[0]?.profit_coef_away}
+                home_team={match?.home_name}
+                away_team={match?.away_name}
+                date={match?.date}
+                profit_coef_home={match?.profit_coef_home}
+                profit_coef_draw={match?.profit_coef_draw}
+                profit_coef_away={match?.profit_coef_away}
                 openModal={openModalBet}
                 setProfit={setProfit}
                 setBet={setBet}
@@ -105,9 +112,9 @@ export const Detail = () => {
             </div>
             <div className="w-5/12 h-max">
               <CardCity
-                date={match[0]?.date}
-                city={match[0]?.city}
-                stadium_name={match[0]?.stadium_name}
+                date={match?.date}
+                city={match?.city}
+                stadium_name={match?.stadium_name}
               />
             </div>
           </div>
@@ -115,10 +122,11 @@ export const Detail = () => {
           <div className="w-full flex flex-col h-auto mt-4">
             <TitleContentMedium title="Formacion de los equipos" />
             <Bench
-              homeName={match[0]?.home_team.name}
-              awayName={match[0]?.away_team.name}
-              coachHome={match[0]?.home_team.coach}
-              coachAway={match[0]?.away_team.coach}
+              homeName={match?.home_name}
+              awayName={match?.away_name}
+              /*
+
+               */
             />
             <div className="w-full h-auto pb-4">
               {Object.entries(playersHome).length === 0 ? (
@@ -142,7 +150,7 @@ export const Detail = () => {
           </div>
         </div>
 
-        <SidebarMatch group={nameGroups[groupId - 1]} fixture={matchesGroup} />
+        <SidebarRounds stage={stage} fixture={matches} />
       </div>
       <Footer />
 
@@ -150,12 +158,12 @@ export const Detail = () => {
         <TitleContentMedium title="simula tu apuesta" />
         <ProfitsPotentials
           profit={profit}
-          home_team={match[0]?.home_team.name}
-          away_team={match[0]?.away_team.name}
-          date={match[0]?.date}
+          home_team={match?.home_name}
+          away_team={match?.away_name}
+          date={match?.date}
           bet={bet}
         />
-        {/* <FormLogin /> */}
+
         <TitleContentMedium title="realiza tu pago" />
         <PaymentForm
           profit={profit}

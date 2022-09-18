@@ -15,7 +15,7 @@ export const SectionUno = () => {
       <div className="bg-soccerPlayers bg-cover flex flex-col items-center justify-center bg-center h-screen mix-blend-hard-light">
         <div className="flex flex-col items-start px-8 gap-3">
           <img className=" max-h-48" src={Encabezado} alt="encabezado"></img>
-          <p className="text-blanco text-2xl font-parrafo max-w-md text-justify">
+          <p className="text-blanco text-xl font-parrafo sm:max-w-md text-justify">
             Apuestas Deportivas, QATARBETS Sitio N°1 en Casa de apuestas online de la copa del mundo. La primera casa de apuestas mundialistas en LATAM.
           </p>
           <div>
@@ -24,7 +24,7 @@ export const SectionUno = () => {
                 <Boton  name="Ingresar al sitio" />
               </Link>
             ) : (
-              <div className="flex gap-5">
+              <div className="flex flex-wrap gap-5">
                 <Link to="/register">
                   <Boton  name="Registrarse" />
                 </Link>

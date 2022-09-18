@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import { SidebarHome } from "../Utils/SidebarHome";
 import { TitleContent } from "../Utils/TitleContent";
@@ -17,20 +17,28 @@ import { getTeams } from "../../redux/actions/teamActions";
 import { startingAllPlayers } from "../../redux/actions/playersActions";
 import { TitleContentMedium } from "../Utils/TitleContentMedium";
 import { getInternalUser,getIuBets,sortBets } from "../../redux/actions/internalUserActions";
+import { matchesMostBets } from "../../redux/actions/matchActions";
+import { Fixture } from "../Fixture/Fixture";
+import { NavigateHome } from "./NavigateHome/NavigateHome";
 
 
 export const Home = () => {
   let { search } = useLocation();
   let query = new URLSearchParams(search);
   let groupId = query.get("id");
+  let fase = query.get("fase");
+
+  let mostrar = true
+  if(fase) mostrar = false
+
+  console.log(fase);
 
   const dispatch = useDispatch();
 
   const matches = useSelector((state) => state.fixture?.fixture);
   const filter = useSelector((state) => state.fixture?.fixtureFilterCopy);
   const user = useSelector((store)=> store.internalUser?.user)
-  const matchesMostBets = useSelector((state) => state.match.matchesMostBets);
-
+  const mostBets = useSelector((state) => state.match.matchesMostBets);
   const teams = useSelector((state) => state.teams.teams);
   const numerosId = teams?.map((t) => t.id);
 
@@ -38,13 +46,17 @@ export const Home = () => {
 
   let letraGroup = filter[0]?.groupId;
 
-  /*  console.log(letras[letraGroup]); */
+  //estado local para mostrar o los grupos o las llaves
+  const [change, SetChange] = useState(mostrar);
+
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getGroups());
     dispatch(getInternalUser())
     dispatch(getIuBets())
+    dispatch(matchesMostBets());
     if (groupId) {
       dispatch(getGroupMatch(Number(groupId)));
     } else {
@@ -61,29 +73,34 @@ export const Home = () => {
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
       <Navbar />
-      <div className="flex flex-row justify-between w-5/6 mt-20 mb-8 gap-3">
-        <SidebarHome filter={filter} />
-        <div className="h-full w-3/5 flex flex-col gap-3">
-          <TitleContent
-            title={
-              filter.length > 6
-                ? `proximos partidos`
-                : "partidos del grupo: " + letras[letraGroup - 1]
-            }
-          />
-          <div className="w-full h-auto bg-morado">
-            <CardsMatch />
+      <NavigateHome setChange={SetChange} change={change}/>
+      {change ? (
+        <div className="flex flex-row justify-between w-11/12 my-2 gap-3">
+          <SidebarHome filter={filter} />
+          <div className="h-full w-3/5 flex flex-col gap-3">
+            <TitleContent
+              title={
+                filter.length > 6
+                  ? `proximos partidos`
+                  : "partidos del grupo: " + letras[letraGroup - 1]
+              }
+            />
+            <div className="w-full h-auto bg-morado">
+              <CardsMatch />
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <Fixture />
+      )}
 
       <div className="w-full flex flex-col gap-4 items-center">
-        <div className="w-5/6 h-40 overflow-hidden flex items-center">
+        <div className="w-11/12 h-40 overflow-hidden flex items-center">
           <Slider />
         </div>
         <div className="flex flex-col w-full justify-center items-center">
           <TitleContentMedium title="Proximos partidos" />
-          <div className="w-5/6 h-auto flex flex-row gap-2 snap-x overflow-auto">
+          <div className="w-11/12 h-auto flex flex-row gap-2 snap-x overflow-auto">
             {/* <Cards allMatch={matches}/> */}
             {matches &&
               matches.slice(0, 10).map((m) => {
@@ -105,9 +122,9 @@ export const Home = () => {
         </div>
         <div className="flex flex-col w-full justify-center items-center">
           <TitleContentMedium title="Partidos mas apostados" />
-          <div className="flex flex-row justify-between gap-1 w-5/6 mb-10">
-            {matchesMostBets &&
-              matchesMostBets.slice(0, 4).map((m) => {
+          <div className="flex flex-row justify-between gap-1 w-11/12 mb-10">
+            {mostBets &&
+              mostBets.slice(0, 4).map((m) => {
                 return (
                   <CardSmall
                     key={m.matchData.id}

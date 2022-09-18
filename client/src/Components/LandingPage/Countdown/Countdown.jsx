@@ -11,8 +11,8 @@ export const Countdown = () => {
     const dateTimeAfterWorldCupDays = NOW_IN_MS + FIRSTMATCH_DAYS_IN_MS;
 
     return (
-        <div className="bg-morado w-full sm:flex items-center justify-between px-9 pt-4">
-            <div className="flex items-center gap-x-4 ml-5 h-6 my-3">
+        <div className="bg-rojosec sm:bg-morado w-full sm:flex items-center justify-between px-9 py-4">
+            <div className="flex items-center gap-x-4 ml-5 h-6 my-3 justify-center">
                 <div className="bg-amarillo w-1 h-1 rotate-45"></div>
                 <div className="bg-amarillo w-2 h-2 rotate-45"></div>
                 <div className="bg-amarillo w-3 h-3 rotate-45"></div>
@@ -24,7 +24,7 @@ export const Countdown = () => {
             <div className="px-4 ">
                 <CountdownTimer targetDate={dateTimeAfterWorldCupDays} />
             </div>
-            <div className="flex items-center gap-x-4 mr-5 h-6 my-3">
+            <div className="flex items-center gap-x-4 mr-5 h-6 my-3 justify-center">
                 <div className="bg-amarillo w-4 h-4 rotate-45"></div>
                 <div className="bg-amarillo w-3 h-3 rotate-45"></div>
                 <div className="bg-amarillo w-2 h-2 rotate-45"></div>
