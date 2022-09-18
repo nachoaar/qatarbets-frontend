@@ -16,7 +16,7 @@ const LoggedRoutes = () => {
         setLoading(false);
         setAuth(res.data);
       });
-    console.log(auth);
+
   }, []);
 
   if (loading) {

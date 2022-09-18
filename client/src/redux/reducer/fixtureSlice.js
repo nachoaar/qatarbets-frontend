@@ -84,6 +84,7 @@ export const fixtureSlice = createSlice({
     },
     matchesRound16: (state, action) => {
       state.fixtureRoundOf16 = action.payload
+      console.log(state.fixtureRoundOf16);
     },
     matchesRound8: (state, action) => {
       state.fixtureRoundOf8 = action.payload
@@ -93,7 +94,14 @@ export const fixtureSlice = createSlice({
     },
     matchesRound2: (state, action) => {
       state.fixtureRoundOf2 = action.payload
+    },
+    resetFixture : (state, action) =>{
+      state.fixtureRoundOf16 = []
+      state.fixtureRoundOf8 = []
+      state.fixtureRoundOf4 = []
+      state.fixtureRoundOf2 = []
     }
+    
   },
 });
 
@@ -109,6 +117,7 @@ export const {
   matchesRound16,
   matchesRound8,
   matchesRound4,
-  matchesRound2
+  matchesRound2,
+  resetFixture
 } = fixtureSlice.actions;
 export default fixtureSlice.reducer;

@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Separator } from "../../Utils/Separator";
 import { CardPlayoffs } from "./CardPlayoffs/CardPlayoffs";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 export const FixturePlayoffs = () => {
   const matchesRound16 = useSelector((state) => state.fixture.fixtureRoundOf16);
@@ -9,7 +11,12 @@ export const FixturePlayoffs = () => {
   const matchesRound4 = useSelector((state) => state.fixture.fixtureRoundOf4);
   const matchesRound2 = useSelector((state) => state.fixture.fixtureRoundOf2);
 
-  console.log(matchesRound8);
+  const dispatch = useDispatch()
+  console.log(matchesRound16);
+
+  // useEffect(()=>{
+    
+  // },[dispatch])
 
   return (
     <div className="w-full h-auto flex flex-col py-6">
