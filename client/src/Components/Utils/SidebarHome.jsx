@@ -4,6 +4,7 @@ import { getFixture } from "../../redux/actions/fixtureActions";
 import { BotonGroup } from "./BotonGroup";
 import { ButtonCity } from "./Buttons/ButtonCity";
 import { ButtonFecha } from "./Buttons/ButtonFecha";
+import { ButtonStatus } from "./Buttons/ButtonStatus";
 import { TitleContent } from "./TitleContent";
 
 export const SidebarHome = ({ filter }) => {
@@ -63,6 +64,9 @@ export const SidebarHome = ({ filter }) => {
         <TitleContent title="orden de fechas" />
         <ButtonFecha order="ascendente" cod="asc"/>
         <ButtonFecha order="descendente" cod="desc"/>
+        <TitleContent title="estado del partido" />
+        <ButtonStatus order="finalizados"/>
+        <ButtonStatus order="pendientes"/>
       </div>
     </div>
   );
