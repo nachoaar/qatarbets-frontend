@@ -46,8 +46,8 @@ export const CardDetail = (props) => {
         </div>
       </div>
 
-      <div className="w-full h-auto bg-morado p-2">
-        <h3 className="text-white">head to head</h3>
+      <div className="w-full h-auto bg-morado p-2 flex flex-col items-center">
+        <h3 className="text-white">Ultimos enfrentamientos entre si: {props.headToHead?.length < 1 ? "No hubo" : ""}</h3>
         <div className="w-full h-auto flex flex-row">
           <div className="w-full h-auto flex flex-row justify-start gap-1">
             {props.headToHead &&
@@ -67,21 +67,24 @@ export const CardDetail = (props) => {
       <div className="flex flex-row justify-around gap-2 h-12">
         <button
           onClick={() => onClick(props.profit_coef_home, "home")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
+          className={`${props.status === "Finished" ? "cursor-no-drop" : ""} w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
+          disabled={props.status === "Finished" ? true : false}
         >
           <span>Local:</span>
           <p>{props.profit_coef_home}</p>
         </button>
         <button
           onClick={() => onClick(props.profit_coef_draw, "draw")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
+          className={`${props.status === "Finished" ? "cursor-no-drop" : ""} w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
+          disabled={props.status === "Finished" ? true : false}
         >
           <span>Empate:</span>
           <p>{props.profit_coef_draw}</p>
         </button>
         <button
           onClick={() => onClick(props.profit_coef_away, "away")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
+          className={`${props.status === "Finished" ? "cursor-no-drop" : ""} w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
+          disabled={props.status === "Finished" ? true : false}
         >
           <span>Visitante:</span>
           <p>{props.profit_coef_away}</p>

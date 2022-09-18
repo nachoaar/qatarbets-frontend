@@ -101,6 +101,7 @@ export const Detail = () => {
                 setProfit={setProfit}
                 setBet={setBet}
                 headToHead={headToHead}
+                status={match[0]?.status}
               />
             </div>
             <div className="w-5/12 h-max">
@@ -108,6 +109,8 @@ export const Detail = () => {
                 date={match[0]?.date}
                 city={match[0]?.city}
                 stadium_name={match[0]?.stadium_name}
+                status={match[0]?.status}
+                result_match={match[0]?.result_match}
               />
             </div>
           </div>
