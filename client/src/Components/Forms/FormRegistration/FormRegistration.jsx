@@ -58,13 +58,13 @@ export default function FormRestration() {
       message === "Usuario registrado, confirme su cuenta en el email enviado"
     ) {
       messages = (
-        <VStack maxW="900px">
+        <VStack maxW="900px"  p={0} m={-2}>
           <Alert status="success">
             <AlertIcon />
             <AlertTitle mr={2}>|</AlertTitle>
             <AlertDescription>{message}</AlertDescription>
             <Link to="/login">
-              <Button colorScheme="green">Iniciar Sesión</Button>
+              <Button colorScheme="green" size='sm'>Iniciar Sesión</Button>
             </Link>
           </Alert>
         </VStack>
