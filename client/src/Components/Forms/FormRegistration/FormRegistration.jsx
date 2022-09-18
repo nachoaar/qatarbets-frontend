@@ -50,12 +50,25 @@ export default function FormRestration() {
   let messages = null;
 
   if(message){
-    if (message === "Usuario Registrado!") {
-      navigate('/login')
+    console.log(message);
+    if (message === "Usuario registrado, confirme su cuenta en el email enviado") {
+      messages =
+      <VStack maxW="900px">
+        <Alert status='error'>
+        <AlertIcon />
+        <AlertTitle mr={2}>|</AlertTitle>
+          <AlertDescription>
+            {message}
+          </AlertDescription>
+          {/* <Link to="/login">
+          <Button colorScheme='red'>Iniciar Sesión</Button>
+          </Link> */}
+        </Alert>
+      </VStack>
     }
     messages =
       <VStack maxW="900px">
-        <Alert status='error'>
+        <Alert status="success">
         <AlertIcon />
         <AlertTitle mr={2}>|</AlertTitle>
           <AlertDescription>
