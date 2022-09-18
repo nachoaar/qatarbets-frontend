@@ -1,7 +1,8 @@
 import creatGraficObjects from "./createGraficObjects"
 
 export default function getStats(bets, userId){
-    
+
+
     let data = creatGraficObjects(bets)
 
     let sortedData = data.sort((a,b) => Number(a.date) - Number(b.date))
