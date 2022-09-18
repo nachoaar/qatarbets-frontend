@@ -2,15 +2,17 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { UserCard } from './UserBetCard.jsx/UserCard';
 import UserStatGafic from '../Dashboard/Routes/Graphs/userGrafics';
-import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
 
 export const UserProfile = ({modal, setModal}) => {
  
   const user = useSelector((store) => store.internalUser?.user);
-  const bets = useSelector((store) => store.internalUser?.bets)
+  const bets = useSelector((store) => store.internalUser?.sortedBets)
   const [modify, setModify] = useState(false)
+
+
+
 
   function handleOnClick(e) {
     e.preventDefault();
@@ -61,7 +63,6 @@ export const UserProfile = ({modal, setModal}) => {
                   <UserCard key={bet.id}
                   id={bet.id}
                   result={bet.result}
-                  money_betet={bet.money_betet}
                   userId={bet.userId}
                   matchId={bet.matchId}
                   final_profit={bet.final_profit}
@@ -70,7 +71,7 @@ export const UserProfile = ({modal, setModal}) => {
               })}
               <p className="w-full border-y border-rojo py-2 font-titulodash font-bold text-rojosec">Mi estadística</p>
               <UserStatGafic
-                dataa={bets}
+                dataa={ bets.length > 0 ? bets : []}
                 userId={user[0]?.id}
               />
             </div>

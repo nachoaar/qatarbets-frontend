@@ -11,8 +11,14 @@ export function getInternalUser() {
 
 export function getIuBets(){
   return async function(dispatch){
-    const bets = await axios.get(`${axiosURL}/bet/allBets`)
-    dispatch(getBets(bets.data))
+    const bets =(await axios.get(`${axiosURL}/bet/allBets`)).data
+    const matches  = (await axios.get(`${axiosURL}/fixture/get`) ).data
+    let payload = {
+      bets: bets,
+      matches: matches,
+    }
+
+    dispatch(getBets(payload))
   }
 }
 export function sortBets(id){

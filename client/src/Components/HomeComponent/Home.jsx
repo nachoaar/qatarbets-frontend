@@ -16,7 +16,7 @@ import { useLocation } from "react-router-dom";
 import { getTeams } from "../../redux/actions/teamActions";
 import { startingAllPlayers } from "../../redux/actions/playersActions";
 import { TitleContentMedium } from "../Utils/TitleContentMedium";
-import { getInternalUser,getIuBets,sortBets } from "../../redux/actions/internalUserActions";
+import { getInternalUser,getIuBets} from "../../redux/actions/internalUserActions";
 import { matchesMostBets } from "../../redux/actions/matchActions";
 import { Fixture } from "../Fixture/Fixture";
 import { NavigateHome } from "./NavigateHome/NavigateHome";
@@ -41,15 +41,12 @@ export const Home = () => {
   const mostBets = useSelector((state) => state.match.matchesMostBets);
   const teams = useSelector((state) => state.teams.teams);
   const numerosId = teams?.map((t) => t.id);
-
   const letras = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
   let letraGroup = filter[0]?.groupId;
 
   //estado local para mostrar o los grupos o las llaves
   const [change, SetChange] = useState(mostrar);
-
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -64,15 +61,14 @@ export const Home = () => {
       dispatch(getTeams());
     }
   }, [dispatch]);
-  
+
   useEffect(() => {
-    dispatch(sortBets(user[0]?.id))
     dispatch(startingAllPlayers(numerosId));
   }, [numerosId]);
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
-      <Navbar />
+      <Navbar id={user[0]?.id} />
       <NavigateHome setChange={SetChange} change={change}/>
       {change ? (
         <div className="flex flex-row justify-between w-11/12 my-2 gap-3">
