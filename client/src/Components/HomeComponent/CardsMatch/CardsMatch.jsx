@@ -25,6 +25,7 @@ export const CardsMatch = () => {
               profit_coef_home={m.profit_coef_home}
               profit_coef_draw={m.profit_coef_draw}
               profit_coef_away={m.profit_coef_away}
+              result_match={m.result_match}
             />
           );
         }).slice(0,9)}
