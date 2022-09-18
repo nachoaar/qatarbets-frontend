@@ -37,6 +37,7 @@ export const fixtureSlice = createSlice({
       state.fixtureFilter = state.fixtureFilterCopy.filter(
         (g) => g.city === action.payload
       );
+      state.fixtureFilterCopy = state.fixtureFilter
     },
     orderFixture: (state, action) => {
       let fixture = state.fixtureFilter;
@@ -100,8 +101,18 @@ export const fixtureSlice = createSlice({
       state.fixtureRoundOf8 = []
       state.fixtureRoundOf4 = []
       state.fixtureRoundOf2 = []
-    }
-    
+    },
+    matchesFinished: (state) => {
+      let fixture = state.fixtureFilterCopy
+      let filtered = fixture.filter(m => m.status === "Finished")
+      state.fixtureFilter = filtered
+    },
+    matchesNotStarted: (state) => {
+      let fixture = state.fixtureFilterCopy
+      let filtered = fixture.filter(m => m.status === "Not Started")
+      state.fixtureFilter = filtered
+    },
+
   },
 });
 
@@ -118,6 +129,8 @@ export const {
   matchesRound8,
   matchesRound4,
   matchesRound2,
-  resetFixture
+  resetFixture,
+  matchesFinished,
+  matchesNotStarted
 } = fixtureSlice.actions;
 export default fixtureSlice.reducer;

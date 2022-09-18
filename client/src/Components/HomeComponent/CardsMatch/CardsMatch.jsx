@@ -7,10 +7,17 @@ export const CardsMatch = () => {
   const { groupName } = useSelector((store) => store.group);
 
 
+  let fixture = [...fixtureFilter]
+
+  if(fixture.length > 6){
+    console.log("proximos partidos");
+     fixture = fixture.filter(m => m.status === "Not Started")
+  }
+
   return (
     <div className="bg-morado w-full h-1/5 rounded flex flex-col gap-1 overflow-hidden">
-      {fixtureFilter &&
-        fixtureFilter.map((m) => {
+      {fixture &&
+        fixture.map((m) => {
           return (
             <CardMatch
               key={m.id}
