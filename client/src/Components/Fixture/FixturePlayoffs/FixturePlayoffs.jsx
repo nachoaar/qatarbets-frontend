@@ -9,6 +9,7 @@ export const FixturePlayoffs = () => {
   const matchesRound4 = useSelector((state) => state.fixture.fixtureRoundOf4);
   const matchesRound2 = useSelector((state) => state.fixture.fixtureRoundOf2);
 
+
   console.log(matchesRound8);
 
   return (
