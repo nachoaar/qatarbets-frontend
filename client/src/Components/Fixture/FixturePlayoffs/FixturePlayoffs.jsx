@@ -191,8 +191,8 @@ export const FixturePlayoffs = () => {
           <div>
             <CardPlayoffs
               nameHome={
-                matchesRound2[0]?.home_name
-                  ? matchesRound2[0].home_name
+                matchesRound2[1]?.home_name
+                  ? matchesRound2[1].home_name
                   : "- Ganador 13"
               }
               nameAway={
@@ -214,8 +214,8 @@ export const FixturePlayoffs = () => {
           <div>
             <CardPlayoffs
               nameHome={
-                matchesRound2[1]?.home_name
-                  ? matchesRound2[1].home_name
+                matchesRound2[0]?.home_name
+                  ? matchesRound2[0].home_name
                   : "- Perderdor 13"
               }
               nameAway={

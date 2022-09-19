@@ -18,8 +18,8 @@ export const CardDetail = (props) => {
   if(props.stage === "8") titulo = "Octavos de final"
   if(props.stage === "4") titulo = "Cuartos de final"
   if(props.stage === "2") titulo = "Semi final"
-  if(props.stage === "1.5") titulo = "Final"
-  if(props.stage === "1") titulo = "Tercer puesto"
+  if(props.stage === "1.5") titulo = "Tercer puesto"
+  if(props.stage === "1") titulo = "Final"
 
 
   return (
