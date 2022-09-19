@@ -18,6 +18,8 @@ export const BetDashboard = () => {
   
   const {bets} = useSelector((store) => store.dashbets);
 
+
+  console.log(bets)
   useEffect(() => {
     if (bets.length === 0) {
       dispatch(getAllBets());

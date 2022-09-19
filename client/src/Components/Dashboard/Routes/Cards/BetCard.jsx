@@ -16,6 +16,8 @@ export const BetCard = (props) => {
   const {gamblerId} = useSelector((store) => store?.dashgambler);
   const {match} = useSelector((store) => store.match);
 
+
+  console.log(gamblerId)
   return (
     <div className="w-full h-auto flex flex-col gap-5">
           <div className="w-full h-24 bg-white">

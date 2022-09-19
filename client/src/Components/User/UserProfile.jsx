@@ -62,6 +62,7 @@ export const UserProfile = ({modal, setModal}) => {
                 return(
                   <UserCard key={bet.id}
                   id={bet.id}
+                  match={bet.match}
                   result={bet.result}
                   userId={bet.userId}
                   matchId={bet.matchId}
