@@ -9,12 +9,7 @@ export const playersSlice = createSlice({
   },
   reducers: {
     getStartingAllPlayers: (state, action) => {
-      if (state.allStartingPlayers.length < 32) {
-        state.allStartingPlayers = [
-          ...state.allStartingPlayers,
-          action.payload,
-        ];
-      }
+      state.allStartingPlayers = action.payload
     },
     getStartingPlayersHome: (state, action) => {
       const playersHome = state.allStartingPlayers.filter(p => p.goalkeeper[0].teamId === action.payload)

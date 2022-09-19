@@ -39,8 +39,6 @@ export const Home = () => {
   const filter = useSelector((state) => state.fixture?.fixtureFilterCopy);
   const user = useSelector((store)=> store.internalUser?.user)
   const mostBets = useSelector((state) => state.match.matchesMostBets);
-  const teams = useSelector((state) => state.teams.teams);
-  const numerosId = teams?.map((t) => t.id);
   const letras = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
   let letraGroup = filter[0]?.groupId;
@@ -63,8 +61,8 @@ export const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(startingAllPlayers(numerosId));
-  }, [numerosId]);
+    dispatch(startingAllPlayers());
+  }, []);
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">

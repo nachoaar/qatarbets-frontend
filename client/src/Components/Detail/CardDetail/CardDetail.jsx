@@ -3,7 +3,8 @@ import { ButtonHeadToHead } from "./ButtonHeadToHead/ButtonHeadToHead";
 import { ButtonHeadToHeadAway } from "./ButtonHeadToHead/ButtonHeadToHeadAway";
 
 export const CardDetail = (props) => {
-  console.log(props.headToHead);
+  console.log("soy el stage:");
+  console.log(props.stage);
 
   const onClick = (profit, bet) => {
     /* e.preventDefault(); */
@@ -12,11 +13,21 @@ export const CardDetail = (props) => {
     props.setBet(bet);
   };
 
+  let titulo = ""
+
+  if(props.stage === "8") titulo = "Octavos de final"
+  if(props.stage === "4") titulo = "Cuartos de final"
+  if(props.stage === "2") titulo = "Semi final"
+  if(props.stage === "1.5") titulo = "Tercer puesto"
+  if(props.stage === "1") titulo = "Final"
+
+
   return (
     <div className="bg-rojosec w-full h-full p-3 font-parrafo rounded-tl rounded-tr-2xl rounded-br rounded-bl-2xl flex flex-col justify-between">
       <div className=" flex flex-row justify-around text-white p-1 font-fifa">
         <p>FIFA WORLD CUP</p>
-        <p>GRUPO: {props.group}</p>
+        {!props.stage ? <p>GRUPO: {props.group}</p> : <p>{titulo}</p>}
+
       </div>
       <div className="bg-morado text-white py-9 flex flex-row justify-around items-center mb-3">
         <div className="flex flex-col justify-center items-center">
@@ -46,8 +57,11 @@ export const CardDetail = (props) => {
         </div>
       </div>
 
-      <div className="w-full h-auto bg-morado p-2">
-        <h3 className="text-white">head to head</h3>
+      <div className="w-full h-auto bg-morado p-2 flex flex-col items-center">
+        <h3 className="text-white">
+          Ultimos enfrentamientos entre si:{" "}
+          {props.headToHead?.length < 1 ? "No hubo" : ""}
+        </h3>
         <div className="w-full h-auto flex flex-row">
           <div className="w-full h-auto flex flex-row justify-start gap-1">
             {props.headToHead &&
@@ -67,21 +81,35 @@ export const CardDetail = (props) => {
       <div className="flex flex-row justify-around gap-2 h-12">
         <button
           onClick={() => onClick(props.profit_coef_home, "home")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
+          className={`${
+            props.status === "Finished" ? "cursor-no-drop" : ""
+          } w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
+          disabled={props.status === "Finished" ? true : false}
         >
           <span>Local:</span>
           <p>{props.profit_coef_home}</p>
         </button>
-        <button
-          onClick={() => onClick(props.profit_coef_draw, "draw")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
-        >
-          <span>Empate:</span>
-          <p>{props.profit_coef_draw}</p>
-        </button>
+        {!props.stage ? (
+          <button
+            onClick={() => onClick(props.profit_coef_draw, "draw")}
+            className={`${
+              props.status === "Finished" ? "cursor-no-drop" : ""
+            } w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
+            disabled={props.status === "Finished" ? true : false}
+          >
+            <span>Empate:</span>
+            <p>{props.profit_coef_draw}</p>
+          </button>
+        ) : (
+          ""
+        )}
+
         <button
           onClick={() => onClick(props.profit_coef_away, "away")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
+          className={`${
+            props.status === "Finished" ? "cursor-no-drop" : ""
+          } w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
+          disabled={props.status === "Finished" ? true : false}
         >
           <span>Visitante:</span>
           <p>{props.profit_coef_away}</p>
