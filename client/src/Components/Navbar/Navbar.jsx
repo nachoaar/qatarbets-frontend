@@ -8,6 +8,9 @@ import { useSelector } from "react-redux";
 import { useState } from 'react';
 import { UserProfile } from '../User/UserProfile';
 import Logout from '../Logout/Logout';
+import { useDispatch } from 'react-redux';
+import { sortBets } from '../../redux/actions/internalUserActions';
+
 
 const navigation = [
     { name: 'Login', href: '#', current: true },
@@ -19,11 +22,14 @@ function classNames(...classes) {
 }
 
 
-export const Navbar = () => {
+export const Navbar = ({id}) => {
     
     const [modal, setModal] = useState(false);
     const [color, setColor] = useState(false);
     const lUser = useSelector((store) => store.internalUser.user)
+
+    const dispatch = useDispatch()
+       
 
 
     const changeColor = () => {
@@ -43,6 +49,7 @@ export const Navbar = () => {
     window.addEventListener('scroll', changeColor);
 
     function handleOnClick(e) {
+        dispatch(sortBets(id))
         e.preventDefault();
         setModal(true);
     }
@@ -181,6 +188,7 @@ export const Navbar = () => {
                     <UserProfile
                         modal={modal}
                         setModal={setModal}
+                        
                     />
                 </>
             )}

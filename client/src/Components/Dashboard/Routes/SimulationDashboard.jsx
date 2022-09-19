@@ -24,24 +24,31 @@ export const Simulation = () => {
     dispatch(getFixture());
   }, [dispatch]);
 
-  function handleSimulateAll(e) {
-    e.preventDefault();
-    if (e.target.value === "cargar octavos") {
-      setFlag2(!flag2);
-      dispatch(getMatchesRound16()).then((result) => dispatch(getFixture()));
-    } else if (e.target.value === "simular octavos") {
-      dispatch(getMatchesRound8());
-    } else if (e.target.value === "simular cuartos") {
-      dispatch(getMatchesRound4());
-    } else if (e.target.value === "simular semifinal") {
-      dispatch(getMatchesRound2());
-    } else if (e.target.value === "reiniciar") {
-      axios.put(
-        "https://qatarbets-backend-production-ab54.up.railway.app/fixture/finalStageAllSimulation?sim=reset"
-      );
-      dispatch(resetFixtureSlice()).then((result) => dispatch(getFixture()));
+
+    useEffect(()=>{
+        dispatch(getFixture());
+    },[dispatch]
+    )
+
+    function handleSimulateAll(e){
+        e.preventDefault()
+        if(e.target.value === 'cargar octavos'){
+            setFlag2(!flag2)
+            dispatch(getMatchesRound16())
+        }else if(e.target.value === 'v'){
+            axios.put('https://qatarbets-backend-production-ab54.up.railway.app/fixture/groupsSimulation?sim=simulate')
+        }else if(e.target.value === 'simular octavos'){
+            dispatch(getMatchesRound8())
+        }else if(e.target.value === 'simular cuartos'){
+            dispatch(getMatchesRound4())
+        }else if(e.target.value === 'simular semifinal'){
+            dispatch(getMatchesRound2())
+        }else if(e.target.value === 'reiniciar'){
+            axios.put('https://qatarbets-backend-production-ab54.up.railway.app/fixture/groupsSimulation?sim=reset')
+            dispatch(resetFixtureSlice())
+        }
     }
-  }
+
 
   return (
     <div className="bg-gris w-full h-screen flex flex-row justify-between gap-5">
@@ -64,6 +71,7 @@ export const Simulation = () => {
           <h2 className="font-titulodash font-bold text-gristexto text-lg">
             Simulaciones
           </h2>
+          <button onClick={(e)=> handleSimulateAll(e)} value='v'>simulacioness </button>
           <button onClick={(e) => handleSimulateAll(e)} value="cargar octavos">
             cargar octavos
           </button>
