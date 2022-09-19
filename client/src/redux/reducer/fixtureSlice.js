@@ -112,6 +112,10 @@ export const fixtureSlice = createSlice({
       let filtered = fixture.filter(m => m.status === "Not Started")
       state.fixtureFilter = filtered
     },
+    matchesAll: (state) => {
+      let fixture = state.fixtureFilterCopy
+      state.fixtureFilter = fixture
+    },
 
   },
 });
@@ -131,6 +135,7 @@ export const {
   matchesRound2,
   resetFixture,
   matchesFinished,
-  matchesNotStarted
+  matchesNotStarted,
+  matchesAll
 } = fixtureSlice.actions;
 export default fixtureSlice.reducer;
