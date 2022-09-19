@@ -1,12 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { getMatchesFinished, getMatchesNotStarted, orderByDate } from "../../../redux/actions/fixtureActions";
+import { getMatchesAll, getMatchesFinished, getMatchesNotStarted } from "../../../redux/actions/fixtureActions";
 
 export const ButtonStatus = (props) => {
   const dispatch = useDispatch();
 
   const handleOnClick =(e)=> {
     e.preventDefault();
+    if (props.order === "todos") return dispatch(getMatchesAll());
     if (props.order === "finalizados") return dispatch(getMatchesFinished());
     return dispatch(getMatchesNotStarted());
   }

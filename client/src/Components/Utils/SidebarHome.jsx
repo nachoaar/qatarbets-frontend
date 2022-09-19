@@ -67,6 +67,7 @@ export const SidebarHome = ({ filter }) => {
         <TitleContent title="estado del partido" />
         <ButtonStatus order="finalizados"/>
         <ButtonStatus order="pendientes"/>
+        <ButtonStatus order="todos"/>
       </div>
     </div>
   );
