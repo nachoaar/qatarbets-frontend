@@ -14,7 +14,7 @@ let hora = new Date(props.date)
 
   return (
     <Link to={`/detail/${props.id}`}>
-      <div className="w-full h-28 bg-rojo p-1.5 flex flex-row gap-1 rounded-md transition-colors duration-700 hover:bg-rojosec">
+      <div className={` ${props.status === "Finished" ? "bg-morado hover:bg-moradosec ring-2 ring-inset ring-white" : "bg-rojo hover:bg-rojosec"} w-full h-28 p-1.5 flex flex-row gap-1 rounded-md transition-colors duration-700 `}>
         <div className="w-full flex flex-row gap-1 justify-around">
           <div className="w-12 h-full bg-rojosec flex justify-center items-center rounded-md">
             <h1 className="font-fifa text-xl text-white">{letter}</h1>
