@@ -88,10 +88,16 @@ export const fixtureSlice = createSlice({
       console.log(state.fixtureRoundOf16);
     },
     matchesRound8: (state, action) => {
-      state.fixtureRoundOf8 = action.payload
+      const matchesOctavosFinished = action.payload.slice(0,8)
+      const matchesCuartos = action.payload.slice(8,12)
+      state.fixtureRoundOf16[8] = matchesOctavosFinished
+      state.fixtureRoundOf8 = matchesCuartos
     },
     matchesRound4: (state, action) => {
-      state.fixtureRoundOf4 = action.payload
+      const matchesCuartosFinished = action.payload.slice(8,12)
+      const matchesSemi = action.payload.slice(12,14)
+      state.fixtureRoundOf8 = matchesCuartosFinished
+      state.fixtureRoundOf4 = matchesSemi
     },
     matchesRound2: (state, action) => {
       state.fixtureRoundOf2 = action.payload

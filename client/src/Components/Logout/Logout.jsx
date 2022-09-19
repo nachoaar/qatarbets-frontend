@@ -10,7 +10,7 @@ function Logout() {
 
   async function handleClick(e) {
     e.preventDefault();
-    await axios.get('https://qatarbets-backend-production-ab54.up.railway.app/validate/logout', {withCredentials: true});
+    await axios.get('https://qatarbets-backend-production.up.railway.app/validate/logout', {withCredentials: true});
     dispatch(logout())
     navigate('/')
   }

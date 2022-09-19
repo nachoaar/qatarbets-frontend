@@ -15,7 +15,8 @@ dotenv.config(); */
 export const DOMAIN = process.env.REACT_APP_DOMAIN;
 export const axiosURL =
   process.env.REACT_APP_API ||
-  "https://qatarbets-backend-production-ab54.up.railway.app" ||
+  "https://qatarbets-backend-production.up.railway.app"
+  /* "https://qatarbets-backend-production.up.railway.app" */ ||
   "http://localhost:3000";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

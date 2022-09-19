@@ -9,7 +9,7 @@ const ProtectedRoutes = () => {
   useEffect(() => {
     axios
       .get(
-        "https://qatarbets-backend-production-ab54.up.railway.app/validate/rol",
+        "https://qatarbets-backend-production.up.railway.app/validate/rol",
         { withCredentials: true }
       )
       .then((res) => {

@@ -22,7 +22,7 @@ export const SimulationCard = ({match, flagStore}) =>{
 
 
     function handleOnClick(e){
-        axios.put(`https://qatarbets-backend-production-ab54.up.railway.app/fixture/matchSimulation?sim=simulate&id=${id}`)
+        axios.put(`https://qatarbets-backend-production.up.railway.app/fixture/matchSimulation?sim=simulate&id=${id}`)
        alert('partido simulado con exito')
         e.preventDefault()
         setFlag(!flag)
@@ -31,7 +31,7 @@ export const SimulationCard = ({match, flagStore}) =>{
 
 
     function handleResetResult(e){
-        axios.put(`https://qatarbets-backend-production-ab54.up.railway.app/fixture/matchSimulation?sim=reset&id=${id}`)
+        axios.put(`https://qatarbets-backend-production.up.railway.app/fixture/matchSimulation?sim=reset&id=${id}`)
         alert('partido reiniciado con exito')
         e.preventDefault()
         setFlag(!flag)
