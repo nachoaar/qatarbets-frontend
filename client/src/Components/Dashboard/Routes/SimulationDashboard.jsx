@@ -34,7 +34,7 @@ export const Simulation = () => {
     } else if (e.target.value === "v") {
       axios
         .put(
-          "https://qatarbets-backend-production-ab54.up.railway.app/fixture/groupsSimulation?sim=simulate"
+          "https://qatarbets-backend-production.up.railway.app/fixture/groupsSimulation?sim=simulate"
         )
         .then((result) => dispatch(getFixture()))
         .then((result) => alert("partidos de grupos simulados con exito"));
@@ -53,7 +53,7 @@ export const Simulation = () => {
     } else if (e.target.value === "reiniciar") {
       axios
         .put(
-          "https://qatarbets-backend-production-ab54.up.railway.app/fixture/groupsSimulation?sim=reset"
+          "https://qatarbets-backend-production.up.railway.app/fixture/groupsSimulation?sim=reset"
         )
         .then((result) => dispatch(resetFixtureSlice()))
         .then((result) => dispatch(getFixture()))
