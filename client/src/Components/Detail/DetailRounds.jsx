@@ -108,6 +108,8 @@ export const DetailRounds = () => {
                 setProfit={setProfit}
                 setBet={setBet}
                 headToHead={headToHead}
+                stage={match?.stage}
+                status={match?.status}
               />
             </div>
             <div className="w-5/12 h-max">
@@ -115,6 +117,8 @@ export const DetailRounds = () => {
                 date={match?.date}
                 city={match?.city}
                 stadium_name={match?.stadium_name}
+                status={match?.status}
+                result_match={match?.result_match}
               />
             </div>
           </div>
