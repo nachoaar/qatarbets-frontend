@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login, registerUser } from "../../redux/reducer/userSlice";
-import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import { clearMessage } from "../../redux/reducer/messageSlice";
 
 function GoogleAuth() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [token, setToken] = useState(false);
+  const [msg, setMsg] = useState('');
   const [user, setUser] = useState({});
+  const [modal, setModal] = useState(false);
+  const { message } = useSelector((state) => state.message);
 
-  const createOrGetUser = async (response, addUser) => {
+  const createOrGetUser = async (response) => {
     const decoded = jwt_decode(response.credential);
     const userInfo = {
       pass: decoded.sub,
@@ -21,17 +24,13 @@ function GoogleAuth() {
       avatar: decoded.picture,
     };
     setUser(userInfo);
-    const data = Promise.resolve(
+    /* const data = Promise.resolve(
       dispatch(login({ pass: userInfo.pass, email: userInfo.email }))
     );
-    const message = await data;
-    setTimeout(() => {
-      if (message.payload.user.message === "Usuario logueado con exito!") {
-        navigate("/home");
-      } else {
-        setToken(true);
-      }
-    }, 1000);
+    const message = (await data).payload.user; */
+    
+    
+    
   };
 
   let handleChange = async (e) => {
@@ -44,7 +43,7 @@ function GoogleAuth() {
     });
   };
 
-  let handleSubmit = async (e) => {
+  let handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
       registerUser({
@@ -55,30 +54,39 @@ function GoogleAuth() {
         avatar: user.avatar,
       })
     );
-    navigate('/login')
   };
+  if (msg !== '') {
+    if (message.hasOwnProperty("error")) {
+      setToken(true);
+      setModal(true);
+    }
+  }
+  
   return (
-    <div>
-      {!token ? (
-        <GoogleLogin
-          onSuccess={(res) => {
-            createOrGetUser(res);
-          }}
-          onError={(err) => console.log(err)}
-        />
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      {!token && !modal ? (
+      <GoogleLogin
+        type="standard"
+        theme="outline"
+        size="large"
+        onSuccess={(res) => {
+          createOrGetUser(res);
+        }}
+        onError={(err) => console.log(err)}
+      />
       ) : (
-        <form onSubmit={handleSubmit}>
-          <label>
-            Edad:
-            <input
-              name="edad"
-              placeholder="Edad aqui"
-              onChange={handleChange}
-              type="number"
-            />
-          </label>
-          <button type="submit">Confirmar</button>
-        </form>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Edad:
+          <input
+            name="edad"
+            placeholder="Edad aqui"
+            onChange={handleChange}
+            type="number"
+          />
+        </label>
+        <button type="submit">Confirmar</button>
+      </form>
       )}
     </div>
   );

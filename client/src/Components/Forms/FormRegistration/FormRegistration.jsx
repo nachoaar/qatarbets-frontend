@@ -36,6 +36,7 @@ export default function FormRestration() {
     formState: { errors },
   } = useForm();
   const { message } = useSelector((state) => state.message);
+  const [msg, setMsg] = useState('');
   const { isLoggedIn } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
@@ -51,11 +52,12 @@ export default function FormRestration() {
     reset();
     const { name, age, email, pass } = input;
     dispatch(registerUser({ name, age, email, pass }));
+    setMsg(message.message)
   };
 
   let messages = null;
 
-  if (message) {
+  if (msg !== '') {
     if (
       message === "Usuario registrado, confirme su cuenta en el email enviado"
     ) {
@@ -72,12 +74,13 @@ export default function FormRestration() {
         </VStack>
       );
     } else {
+      console.log(message);
       messages = (
         <VStack maxW="900px">
           <Alert status="error">
             <AlertIcon />
             <AlertTitle mr={2}>|</AlertTitle>
-            <AlertDescription>{message.error}</AlertDescription>
+            <AlertDescription>{message}</AlertDescription>
             {/* <Link to="/login">
           <Button colorScheme='red'>Iniciar Sesión</Button>
           </Link> */}
@@ -223,8 +226,8 @@ export default function FormRestration() {
               Registrarse
             </Button>
             <FormErrorMessage>{message && message}</FormErrorMessage>
-          <GoogleAuth />
           </form>
+          <GoogleAuth />
           <Link to="/login">
             <p className="text-rojosec font-titulodash text-sm">
               ¿Ya tenés una cuenta? hace click aquí
