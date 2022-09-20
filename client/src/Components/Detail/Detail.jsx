@@ -16,7 +16,6 @@ import {
   startingPlayersHome,
 } from "../../redux/actions/playersActions";
 import { Footer } from "../Footer/Footer";
-import FormLogin from "../Forms/FormLogin/FormLogin";
 import { Slider } from "../HomeComponent/Slider/Slider";
 import Modal from "../Modal/Modal";
 import { Navbar } from "../Navbar/Navbar";
