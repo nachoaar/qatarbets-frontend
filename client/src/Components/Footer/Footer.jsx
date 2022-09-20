@@ -7,7 +7,7 @@ import lin from "../../media/linkedin.png";
 export const Footer = () => {
   return (
     <div className="w-full items-center bg-morado text-gris flex flex-wrap mx-auto justify-evenly p-4">
-      <div className="flex flex-row flex-wrap w-11/12">
+      <div className="flex flex-row flex-wrap w-full sm:w-11/12">
         <div className="w-full sm:w-3/4">
           <svg
             className="pl-6"
