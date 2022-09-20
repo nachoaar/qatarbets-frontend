@@ -7,13 +7,8 @@ import { FixturePlayoffs } from "./FixturePlayoffs/FixturePlayoffs";
 
 export const Fixture = () => {
 
-  const dispatch = useDispatch();
-/*   const [select, SetSelect] = useState(false); */
+/*   const dispatch = useDispatch();
 
-/*   const onClick = (e, activar) => {
-    e.preventDefault();
-    SetSelect(activar);
-  }; */
 
   const onSimulateRound16 = (e)=>{
     e.preventDefault();
@@ -33,12 +28,12 @@ export const Fixture = () => {
   const onSimulateRound2 = (e)=>{
     e.preventDefault();
     dispatch(getMatchesRound2());
-  }
+  } */
 
 
   return (
     <div className="flex flex-col items-center h-auto w-11/12">
-      <div className="bg-moradosec w-full flex flex-row gap-4 pl-8 py-2 text-md">
+      {/* <div className="bg-moradosec w-full flex flex-row gap-4 pl-8 py-2 text-md">
         <button
           className="bg-rojo text-white p-2 rounded"
           onClick={onSimulateRound16}
@@ -63,7 +58,7 @@ export const Fixture = () => {
         >
           cargar final
         </button>
-      </div>
+      </div> */}
       <FixturePlayoffs />
     </div>
   );

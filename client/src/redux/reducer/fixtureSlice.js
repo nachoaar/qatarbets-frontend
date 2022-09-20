@@ -37,6 +37,7 @@ export const fixtureSlice = createSlice({
       state.fixtureFilter = state.fixtureFilterCopy.filter(
         (g) => g.city === action.payload
       );
+      state.fixtureFilterCopy = state.fixtureFilter
     },
     orderFixture: (state, action) => {
       let fixture = state.fixtureFilter;
@@ -87,10 +88,16 @@ export const fixtureSlice = createSlice({
       console.log(state.fixtureRoundOf16);
     },
     matchesRound8: (state, action) => {
-      state.fixtureRoundOf8 = action.payload
+      const matchesOctavosFinished = action.payload.slice(0,8)
+      const matchesCuartos = action.payload.slice(8,12)
+      state.fixtureRoundOf16[8] = matchesOctavosFinished
+      state.fixtureRoundOf8 = matchesCuartos
     },
     matchesRound4: (state, action) => {
-      state.fixtureRoundOf4 = action.payload
+      const matchesCuartosFinished = action.payload.slice(8,12)
+      const matchesSemi = action.payload.slice(12,14)
+      state.fixtureRoundOf8 = matchesCuartosFinished
+      state.fixtureRoundOf4 = matchesSemi
     },
     matchesRound2: (state, action) => {
       state.fixtureRoundOf2 = action.payload
@@ -100,8 +107,22 @@ export const fixtureSlice = createSlice({
       state.fixtureRoundOf8 = []
       state.fixtureRoundOf4 = []
       state.fixtureRoundOf2 = []
-    }
-    
+    },
+    matchesFinished: (state) => {
+      let fixture = state.fixtureFilterCopy
+      let filtered = fixture.filter(m => m.status === "Finished")
+      state.fixtureFilter = filtered
+    },
+    matchesNotStarted: (state) => {
+      let fixture = state.fixtureFilterCopy
+      let filtered = fixture.filter(m => m.status === "Not Started")
+      state.fixtureFilter = filtered
+    },
+    matchesAll: (state) => {
+      let fixture = state.fixtureFilterCopy
+      state.fixtureFilter = fixture
+    },
+
   },
 });
 
@@ -118,6 +139,9 @@ export const {
   matchesRound8,
   matchesRound4,
   matchesRound2,
-  resetFixture
+  resetFixture,
+  matchesFinished,
+  matchesNotStarted,
+  matchesAll
 } = fixtureSlice.actions;
 export default fixtureSlice.reducer;

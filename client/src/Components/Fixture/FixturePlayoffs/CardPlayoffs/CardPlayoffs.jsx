@@ -10,7 +10,7 @@ export const CardPlayoffs = ({ nameHome, nameAway, id, stage }) => {
   };
 
   return (
-    <button onClick={onClick} className="group ease-in-out duration-300 hover:scale-105">
+    <button onClick={onClick} className="group ease-in-out duration-300 hover:scale-105" disabled={nameHome.search("-") === -1 ? false : true}>
       <div className="flex flex-col gap-2">
         <div className="flex flex-row gap-1 justify-start px-7 py-2 bg-rojo rounded-tr-lg rounded-bl-lg group-hover:bg-rojosec">
           {nameHome?.search("-") === -1 ? (

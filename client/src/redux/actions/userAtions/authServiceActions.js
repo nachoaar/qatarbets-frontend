@@ -8,13 +8,13 @@ const register = async (name, age, email, pass, avatar) => {
     pass,
     avatar,
   }
-    const postUser = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/user/register', dataUser);
+    const postUser = await axios.post('https://qatarbets-backend-production.up.railway.app/user/register', dataUser);
     return postUser;
 };
-//https://qatarbets-backend-production-ab54.up.railway.app
+//https://qatarbets-backend-production.up.railway.app
 const loginUser = async (email, pass) => {
   try {
-    const logUser = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/user/login',{email, pass}, {withCredentials: true} );
+    const logUser = await axios.post('https://qatarbets-backend-production.up.railway.app/user/login',{email, pass}, {withCredentials: true} );
     if(logUser.data){
       localStorage.setItem("user", JSON.stringify(logUser.data));
     }

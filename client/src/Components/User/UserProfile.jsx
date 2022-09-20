@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 export const UserProfile = ({modal, setModal}) => {
- 
+
   const user = useSelector((store) => store.internalUser?.user);
   const bets = useSelector((store) => store.internalUser?.sortedBets)
   const [modify, setModify] = useState(false)
@@ -51,8 +51,8 @@ export const UserProfile = ({modal, setModal}) => {
                 <p className="border-b border-grisfooter w-100">{user.length >= 1 ? user[0].email : 'example@example.com'}</p>
               </div>
             </div>
-            { modify === true ? <button className="w-48 h-10 mb-2 rounded-lg border border-rojo font-titulo text-grisfooter transition duration-200 hover:bg-rojo hover:text-white" onClick={(e)=> handleModifyButton(e)}>Guardar Cambios</button> 
-            : 
+            { modify === true ? <button className="w-48 h-10 mb-2 rounded-lg border border-rojo font-titulo text-grisfooter transition duration-200 hover:bg-rojo hover:text-white" onClick={(e)=> handleModifyButton(e)}>Guardar Cambios</button>
+            :
             <button className="w-48 h-10 mb-2 rounded-lg border border-rojo font-titulo text-grisfooter transition duration-200 hover:bg-rojo hover:text-white"  onClick={(e)=> handleModifyButton(e)}>Modificar perfil</button>}
           </div>
           <div className="w-full h-2/3 overflow-auto">
@@ -60,9 +60,10 @@ export const UserProfile = ({modal, setModal}) => {
               <p className="w-full border-b border-rojo pb-2 font-titulodash font-bold text-rojosec">Mis apuestas</p>
               { bets && bets?.map((bet) => {
                 return(
-                  <UserCard key={bet.id}
-                  id={bet.id}
+                  <UserCard
                   match={bet.match}
+                  key={bet.id}
+                  id={bet.id}
                   result={bet.result}
                   userId={bet.userId}
                   matchId={bet.matchId}
@@ -77,7 +78,7 @@ export const UserProfile = ({modal, setModal}) => {
               />
             </div>
           </div>
-          
+
         </div>
       </div>
     </>

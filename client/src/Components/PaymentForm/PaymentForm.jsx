@@ -22,17 +22,17 @@ const CheckoutForm = (props) => {
       type: 'card',
       card: elements.getElement(CardElement)
     });
-//https://qatarbets-backend-production-ab54.up.railway.app
+//https://qatarbets-backend-production.up.railway.app
     if (!error) {
       const { id } = paymentMethod;
 
-      const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/pay/', {
+      const { data } = await axios.post('https://qatarbets-backend-production.up.railway.app/pay/', {
         id,
         amount: amount * 100
       }, { withCredentials: true });
 
       if (data.message === 'Successful Payment') {
-        const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/bet/newBet', {
+        const { data } = await axios.post('https://qatarbets-backend-production.up.railway.app/bet/newBet', {
           fecha_hora: new Date(),
           money_bet: amount,
           result: bet,
