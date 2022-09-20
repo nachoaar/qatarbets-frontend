@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Groups = (props) => {
 
-  console.log(props)
+
 
 let navigate = useNavigate()
 
@@ -15,7 +15,7 @@ let navigate = useNavigate()
 
   return (
 
-      <button onClick={onClick} className="flex flex-col items-center bg-morado  backdrop-blur rounded-tr-3xl rounded-bl-3xl w-full sm:w-1/4 text-blanco p-2 ease-out duration-300 hover:shadow-md hover:bg-violet-900">
+      <button onClick={onClick} className="flex flex-col items-center bg-morado  backdrop-blur rounded-tr-3xl rounded-bl-3xl w-full sm:w-1/5 text-blanco p-2 ease-out duration-300 hover:shadow-md hover:bg-violet-900">
         <h2 className="text-center mb-3 font-titulo text-xl">
           {props.name.toUpperCase().replace("_", " ")}
         </h2>

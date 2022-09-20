@@ -6,27 +6,30 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { ChakraProvider } from '@chakra-ui/react';
-import { CookiesProvider } from "react-cookie";
+import { ChakraProvider } from "@chakra-ui/react";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 /* import dotenv from "dotenv";
 dotenv.config(); */
 
-export const DOMAIN = process.env.REACT_APP_DOMAIN
-export const axiosURL = process.env.REACT_APP_API || "https://qatarbets-backend-production-ab54.up.railway.app" || "http://localhost:3000";
-
+export const DOMAIN = process.env.REACT_APP_DOMAIN;
+export const axiosURL =
+  process.env.REACT_APP_API ||
+  "https://qatarbets-backend-production.up.railway.app"
+  /* "https://qatarbets-backend-production.up.railway.app" */ ||
+  "http://localhost:3000";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <CookiesProvider>
-  <ChakraProvider >
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
-  </ChakraProvider>
-  </CookiesProvider>
+  <GoogleOAuthProvider clientId="1052887030726-pfe2tpokao9lsg3kierumn1gun0ie5dm.apps.googleusercontent.com">
+    <ChakraProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    </ChakraProvider>
+  </GoogleOAuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

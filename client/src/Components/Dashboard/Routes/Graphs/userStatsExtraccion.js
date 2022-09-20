@@ -1,12 +1,11 @@
 import creatGraficObjects from "./createGraficObjects"
 
 export default function getStats(bets, userId){
-    
+
+
     let data = creatGraficObjects(bets)
 
     let sortedData = data.sort((a,b) => Number(a.date) - Number(b.date))
-    console.log(sortedData)
-    console.log(userId)
     let user = []
     if(userId){
 
@@ -36,7 +35,6 @@ export default function getStats(bets, userId){
     user.push({name: "bets", bets: counter})
     user.push({userId: userId})
     }
-    console.log(user)
     return user
 }
 

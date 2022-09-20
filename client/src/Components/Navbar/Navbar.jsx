@@ -7,6 +7,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useSelector } from "react-redux";
 import { useState } from 'react';
 import { UserProfile } from '../User/UserProfile';
+import Logout from '../Logout/Logout';
+import { useDispatch } from 'react-redux';
+import { sortBets } from '../../redux/actions/internalUserActions';
+
 
 const navigation = [
     { name: 'Login', href: '#', current: true },
@@ -17,11 +21,17 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export const Navbar = () => {
 
+export const Navbar = ({id}) => {
+    
     const [modal, setModal] = useState(false);
-
     const [color, setColor] = useState(false);
+    const lUser = useSelector((store) => store.internalUser.user)
+
+    const dispatch = useDispatch()
+       
+
+
     const changeColor = () => {
         if (window.scrollY >= 20) {
             setColor(true)
@@ -29,17 +39,17 @@ export const Navbar = () => {
             setColor(false)
         }
     }
-
-    const { isLoggedIn } = useSelector((state) => state.user);
-    let islogerenderusrprofile = null;
-    if(isLoggedIn){
-      islogerenderusrprofile = <button onClick={(e) => handleOnClick(e)} className="text-white">Mi Perfil</button>
-    }
+    const user = useSelector((state) => state.user);
+    // let islogerenderusrprofile = null;
+    // if(isLoggedIn){
+    //   islogerenderusrprofile = <button onClick={(e) => handleOnClick(e)} className="text-white">Mi Perfil</button>
+    // }
 
 
     window.addEventListener('scroll', changeColor);
 
     function handleOnClick(e) {
+        dispatch(sortBets(id))
         e.preventDefault();
         setModal(true);
     }
@@ -95,7 +105,6 @@ export const Navbar = () => {
                                     </div>
                                 </div> */}
                             </div>
-                            {islogerenderusrprofile}
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 {/* <button
                                     type="button"
@@ -107,16 +116,21 @@ export const Navbar = () => {
 
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative ml-3">
-                                    <div>
-                                        <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
-                                            <span className="sr-only">Open user menu</span>
-                                            {/* <img
-                                                className="h-8 w-8 rounded-full"
-                                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt=""
-                                            /> */}
-                                        </Menu.Button>
-                                    </div>
+                                    {user.isLoggedIn ? (
+                                        <div className="flex flex-row justify-center items-center gap-4">
+                                            <p className="text-white font-titulo text-lg">{user.user.name}</p>
+                                            <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-offset-2">
+                                                <span className="sr-only">Open user menu</span>
+                                                <img
+                                                    className="h-10 w-10 rounded-full"
+                                                    src={user.user.avatar}
+                                                    alt="avatar usuario"
+                                                />
+                                            </Menu.Button>
+                                        </div>
+                                    ) : (
+                                        <></>
+                                    )}
                                     <Transition
                                         as={Fragment}
                                         enter="transition ease-out duration-100"
@@ -129,32 +143,21 @@ export const Navbar = () => {
                                         <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                             <Menu.Item>
                                                 {({ active }) => (
-                                                    <a
-                                                        href="/"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                    >
-                                                        Your Profile
-                                                    </a>
+                                                    <p onClick={(e) => handleOnClick(e)} className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>Mi Perfil</p>
                                                 )}
                                             </Menu.Item>
-                                            <Menu.Item>
+                                            { lUser[0]?.rol === "admin" ? <Menu.Item>
                                                 {({ active }) => (
-                                                    <a
-                                                        href="/"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                    >
-                                                        Settings
-                                                    </a>
+                                                <Link to='/dashboard'>
+                                                    <p className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>Dashboard</p>
+                                                </Link>
                                                 )}
-                                            </Menu.Item>
+                                            </Menu.Item> : <></>}
                                             <Menu.Item>
                                                 {({ active }) => (
-                                                    <a
-                                                        href="/"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                    >
-                                                        <Link to='/register'>Sign out</Link>
-                                                    </a>
+                                                    <div className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>
+                                                        <Logout />
+                                                    </div>
                                                 )}
                                             </Menu.Item>
                                         </Menu.Items>
@@ -185,6 +188,7 @@ export const Navbar = () => {
                     <UserProfile
                         modal={modal}
                         setModal={setModal}
+                        
                     />
                 </>
             )}

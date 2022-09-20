@@ -3,21 +3,18 @@ import { Link } from "react-router-dom";
 
 export const CardMatch = (props) => {
   let groupN = props.groupName?.find((e, index) => index + 1 === props.group);
-  let letter = groupN[groupN.length - 1];
+  let letter = groupN[groupN?.length - 1];
 
 
 let date = new Date(props.date)
-
 date = date.toLocaleDateString("es-AR",{day:'numeric', month:'numeric', year:'numeric'});
-
 let hora = new Date(props.date)
-
 
 
 
   return (
     <Link to={`/detail/${props.id}`}>
-      <div className="w-full h-28 bg-rojo p-1.5 flex flex-row gap-1 rounded-md transition-colors duration-700 hover:bg-rojosec">
+      <div className={` ${props.status === "Finished" ? "bg-morado hover:bg-moradosec ring-2 ring-inset ring-white" : "bg-rojo hover:bg-rojosec"} w-full h-28 p-1.5 flex flex-row gap-1 rounded-md transition-colors duration-700 `}>
         <div className="w-full flex flex-row gap-1 justify-around">
           <div className="w-12 h-full bg-rojosec flex justify-center items-center rounded-md">
             <h1 className="font-fifa text-xl text-white">{letter}</h1>
@@ -49,11 +46,14 @@ let hora = new Date(props.date)
             </div>
           </div>
           <div className="flex flex-col h-full w-7 gap-1">
-            <div className="w-full bg-rojosec h-1/2 rounded-tl rounded-bl flex flex-row justify-center items-center">
-              <p className="font-parrafo text-white text-lg">0</p>
+            <div className={` ${props.result_match === "home" ? "bg-green-600" : "bg-rojosec"} w-full h-1/2 rounded-tl rounded-bl flex flex-row justify-center items-center` }>
+              <p className="font-parrafo text-white text-lg">L</p>
             </div>
-            <div className="w-full bg-rojosec h-1/2 rounded-tl rounded-bl flex flex-row justify-center items-center">
-              <p className="font-parrafo text-white text-lg">0</p>
+            <div className={` ${props.result_match === "tie" ? "bg-green-600" : "bg-rojosec"} w-full h-1/2 rounded-tl rounded-bl flex flex-row justify-center items-center` }>
+              <p className="font-parrafo text-white text-lg">E</p>
+            </div>
+            <div className={` ${props.result_match === "away" ? "bg-green-600" : "bg-rojosec"} w-full h-1/2 rounded-tl rounded-bl flex flex-row justify-center items-center` }>
+              <p className="font-parrafo text-white text-lg">V</p>
             </div>
           </div>
           <div className="flex flex-col bg-morado h-full w-24 gap-1">
@@ -78,7 +78,7 @@ let hora = new Date(props.date)
         <div className="flex flex-row gap-1 justify-between">
           <div className="flex flex-col bg-rojosec h-full w-auto">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
-              <p className="font-parrafo text-white text-lg px-6">LOCAL</p>
+              <p className="font-parrafo text-white text-md px-4">LOCAL</p>
             </div>
             <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
               <p className="font-parrafo text-black text-lg">{props.profit_coef_home}</p>
@@ -86,7 +86,7 @@ let hora = new Date(props.date)
           </div>
           <div className="flex flex-col bg-rojosec h-full w-auto">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
-              <p className="font-parrafo text-white text-lg px-6">EMPATE</p>
+              <p className="font-parrafo text-white text-md px-4">EMPATE</p>
             </div>
             <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
               <p className="font-parrafo text-black text-lg">{props.profit_coef_draw}</p>
@@ -94,7 +94,7 @@ let hora = new Date(props.date)
           </div>
           <div className="flex flex-col bg-rojosec h-full w-auto">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
-              <p className="font-parrafo text-white text-lg px-6">VISITANTE</p>
+              <p className="font-parrafo text-white text-md px-4">VISITANTE</p>
             </div>
             <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
               <p className="font-parrafo text-black text-lg">{props.profit_coef_away}</p>

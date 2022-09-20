@@ -22,10 +22,10 @@ export const SidebarDashboard = () => {
         </Link>
       </div>
       <div className="flex flex-col justify-center items-center w-full gap-3 h-auto mt-16">
-        <ButtonDashboard section={'dashboard/'} name={'dashboard'} />
-        <ButtonDashboard section={'dashboard/users/'} name={'usuarios'} />
+        <ButtonDashboard section={'dashboard/'} name={'usuarios'} />
         <ButtonDashboard section={'dashboard/matchs/'} name={'partidos'} />
         <ButtonDashboard section={'dashboard/bets/'} name={'apuestas'} />
+        <ButtonDashboard section={'dashboard/simulation'} name={'simular partido'} />
       </div>
     </div>
   )

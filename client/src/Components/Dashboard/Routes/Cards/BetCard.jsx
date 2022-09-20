@@ -13,7 +13,7 @@ export const BetCard = (props) => {
     dispatch(matchId(props.matchId))
   },[dispatch, props]);
 
-  const {gamblerId} = useSelector((store) => store.dashgambler);
+  const {gamblerId} = useSelector((store) => store?.dashgambler);
   const {match} = useSelector((store) => store.match);
 
   return (
@@ -22,7 +22,7 @@ export const BetCard = (props) => {
             <table className="shadow font-titulodash text-sm text-textotable w-full h-full border-collapse border border-gristexto text-center table-fixed">
               <tbody>
                 <tr>
-                  <th className="border border-gristexto bg-gris text-gristexto">USER</th>
+                <th className="border border-gristexto bg-gris text-gristexto">USER</th>
                   <th className="border border-gristexto bg-gris text-gristexto">MATCH</th>
                   <th className="border border-gristexto bg-gris text-gristexto">PROFIT</th>
                   <th className="border border-gristexto bg-gris text-gristexto">RESULT</th>

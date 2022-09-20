@@ -10,29 +10,29 @@ import {
 } from "../../redux/actions/fixtureActions";
 import { getTeams } from "../../redux/actions/teamActions";
 import { getGroups } from "../../redux/actions/groupActions";
+import { startingAllPlayers } from "../../redux/actions/playersActions";
+import { matchesMostBets } from "../../redux/actions/matchActions";
 
 export const LandingPage = () => {
   const dispatch = useDispatch();
 
+  const teams = useSelector((state) => state.teams.teams);
+
+
   useEffect(() => {
-    dispatch(getFixture()).then((result) => dispatch(getMatchesPerGroup(2)));
-    dispatch(getTeams());
+    dispatch(getFixture()).then((result) => dispatch(getMatchesPerGroup()));
+    dispatch(getTeams())
     dispatch(getGroups());
+    dispatch(matchesMostBets());
+    dispatch(startingAllPlayers());
   }, [dispatch]);
 
-  const fixture = useSelector((estate) => estate.fixture);
-  const matchesPerGroups = useSelector((estate) => estate.fixture.fixtureGamesPerGroup);
-
-  const upcomingMatches = fixture.fixture.slice(0, 3);
 
 
   return (
     <div className="flex flex-col">
       <SectionUno />
-      <SectionDos
-        upcomingMatches={upcomingMatches}
-        matchesPerGroups={matchesPerGroups}
-      />
+      <SectionDos />
       <SectionThree />
       <Footer />
     </div>

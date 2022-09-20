@@ -1,12 +1,14 @@
-import axios from "axios";
 import { Routes, Route } from "react-router-dom";
-import { DashboardAdmin } from "./Components/Dashboard/Dashboard";
 import { BetDashboard } from "./Components/Dashboard/Routes/BetDashboard";
 import { MatchDashboard } from "./Components/Dashboard/Routes/MatchDashboard";
+import { Simulation } from "./Components/Dashboard/Routes/SimulationDashboard";
 import { UserDashboard } from "./Components/Dashboard/Routes/UserDashboard";
 import { Detail } from "./Components/Detail/Detail";
+import { DetailRounds } from "./Components/Detail/DetailRounds";
+import { Fixture } from "./Components/Fixture/Fixture";
 import FormLogin from "./Components/Forms/FormLogin/FormLogin";
 import FormRestration from "./Components/Forms/FormRegistration/FormRegistration";
+import GoogleAuth from "./Components/Google/GoogleAuth";
 import { Home } from "./Components/HomeComponent/Home";
 import { LandingPage } from "./Components/LandingPage/LandingPage";
 import Logout from "./Components/Logout/Logout";
@@ -23,6 +25,7 @@ function App() {
   return (
     <Routes>
       <Route exact path="/" element={<LandingPage />} />
+      <Route exact path="/google" element={<GoogleAuth />} />
       <Route exact path="/register" element={<FormRestration />} />
       <Route exact path="/login" element={<FormLogin />} />
       <Route exact path="/logout" element={<Logout />} />
@@ -30,11 +33,12 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/payment" element={<PaymentForm />} />
         <Route exact path="/detail/:id" element={<Detail />} />
+        <Route exact path="/detail/:stage/:id" element={<DetailRounds />} />
         <Route element={<ProtectedRoutes />}>
-          <Route exact path="/dashboard" element={<DashboardAdmin />} />
+          <Route exact path="/dashboard" element={<UserDashboard />} />
           <Route exact path="/dashboard/bets/" element={<BetDashboard />} />
           <Route exact path="/dashboard/matchs/" element={<MatchDashboard />} />
-          <Route exact path="/dashboard/users/" element={<UserDashboard />} />
+          <Route exact path="/dashboard/simulation" element={<Simulation />} />
         </Route>
       </Route>
     </Routes>

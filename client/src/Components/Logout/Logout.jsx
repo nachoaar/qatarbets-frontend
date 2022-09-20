@@ -1,18 +1,22 @@
 import axios from 'axios';
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { logout } from '../../redux/reducer/userSlice.js';
 
 function Logout() {
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  let handleClick = async (e) => {
-    await axios.get('https://qatarbets-backend-production-ab54.up.railway.app/validate/logout', {withCredentials: true})
-    navigate('/login')
+  async function handleClick(e) {
+    e.preventDefault();
+    await axios.get('https://qatarbets-backend-production.up.railway.app/validate/logout', {withCredentials: true});
+    dispatch(logout())
+    navigate('/')
   }
 
   return (
-    <button onClick={handleClick}>Logout</button>
+    <p onClick={(e) => handleClick(e)}>Logout</p>
   )
 }
 
