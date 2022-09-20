@@ -7,8 +7,6 @@ import { clearMessage } from "../../../redux/reducer/messageSlice";
 import { Footer } from "../../Footer/Footer";
 import { login, logout } from "../../../redux/reducer/userSlice";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
-import { gapi } from "gapi-script";
-import { useCookies } from "react-cookie";
 
 import {
   FormControl,
