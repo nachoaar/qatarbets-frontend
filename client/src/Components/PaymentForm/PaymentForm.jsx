@@ -28,7 +28,8 @@ const CheckoutForm = (props) => {
 
       const { data } = await axios.post(`${axiosURL}/pay/`, {
         id,
-        amount: amount * 100
+        amount: amount * 100,
+        matchId: matchId,
       }, { withCredentials: true });
 
       if (data.message === 'Successful Payment') {
