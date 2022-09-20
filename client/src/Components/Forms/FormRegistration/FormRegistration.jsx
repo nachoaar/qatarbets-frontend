@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { registerUser } from "../../../redux/reducer/userSlice";
 import { clearMessage } from "../../../redux/reducer/messageSlice";
 import { Footer } from "../../Footer/Footer";
+import GoogleAuth from "../../Google/GoogleAuth";
 
 import {
   FormControl,
@@ -25,6 +26,7 @@ import {
   AlertDescription,
   // FormHelperText,
 } from "@chakra-ui/react";
+
 
 export default function FormRestration() {
   const {
@@ -75,7 +77,7 @@ export default function FormRestration() {
           <Alert status="error">
             <AlertIcon />
             <AlertTitle mr={2}>|</AlertTitle>
-            <AlertDescription>{message}</AlertDescription>
+            <AlertDescription>{message.error}</AlertDescription>
             {/* <Link to="/login">
           <Button colorScheme='red'>Iniciar Sesión</Button>
           </Link> */}
@@ -221,6 +223,7 @@ export default function FormRestration() {
               Registrarse
             </Button>
             <FormErrorMessage>{message && message}</FormErrorMessage>
+          <GoogleAuth />
           </form>
           <Link to="/login">
             <p className="text-rojosec font-titulodash text-sm">
