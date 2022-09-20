@@ -55,30 +55,41 @@ function GoogleAuth() {
         avatar: user.avatar,
       })
     );
-    navigate('/login')
+    navigate("/login");
   };
   return (
-    <div>
+    <div className="w-full">
       {!token ? (
-        <GoogleLogin
-          onSuccess={(res) => {
-            createOrGetUser(res);
-          }}
-          onError={(err) => console.log(err)}
-        />
+        <div className="w-full flex items-center justify-center p-4 rounded ring-1 ring-gris">
+          <GoogleLogin
+            onSuccess={(res) => {
+              createOrGetUser(res);
+            }}
+            onError={(err) => console.log(err)}
+          />
+        </div>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <label>
-            Edad:
+        <div className="w-full my-1">
+          <form
+            onSubmit={handleSubmit}
+            className="ring-1 ring-rojosec p-4 rounded flex flex-col gap-2 "
+          >
+            <p className="text-md font-semibold">* Por favor ingrese su edad</p>
+            {/* <label className="mr-4">Edad:</label> */}
             <input
               name="edad"
               placeholder="Edad aqui"
               onChange={handleChange}
               type="number"
+              autoFocus
+              className="ring-1 ring-rojosec rounded p-2"
             />
-          </label>
-          <button type="submit">Confirmar</button>
-        </form>
+
+            <button type="submit" className="p-2 bg-morado rounded text-white">
+              Confirmar
+            </button>
+          </form>
+        </div>
       )}
     </div>
   );

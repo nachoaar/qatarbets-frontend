@@ -131,7 +131,7 @@ export default function FormLogin(props) {
             </FormErrorMessage>
           </FormControl>
 
-          <Button type='submit' colorScheme='red' m={3}>Iniciar Sesion</Button>
+          <Button type='submit' colorScheme='red' m={3} >Iniciar Sesion</Button>
           <Link to="/register">
           <Button colorScheme='gray' m={3}>Registrarse</Button>
           </Link>
