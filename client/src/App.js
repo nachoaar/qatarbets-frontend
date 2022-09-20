@@ -8,11 +8,8 @@ import { DetailRounds } from "./Components/Detail/DetailRounds";
 import { Fixture } from "./Components/Fixture/Fixture";
 import FormLogin from "./Components/Forms/FormLogin/FormLogin";
 import FormRestration from "./Components/Forms/FormRegistration/FormRegistration";
-import GoogleAuth from "./Components/Google/GoogleAuth";
 import { Home } from "./Components/HomeComponent/Home";
 import { LandingPage } from "./Components/LandingPage/LandingPage";
-import Logout from "./Components/Logout/Logout";
-import { PaymentForm } from "./Components/PaymentForm/PaymentForm";
 import LoggedRoutes from "./Components/Protections/LoggedRoutes";
 import ProtectedRoutes from "./Components/Protections/ProtectedRoutes";
 
@@ -25,13 +22,10 @@ function App() {
   return (
     <Routes>
       <Route exact path="/" element={<LandingPage />} />
-      <Route exact path="/google" element={<GoogleAuth />} />
       <Route exact path="/register" element={<FormRestration />} />
       <Route exact path="/login" element={<FormLogin />} />
-      <Route exact path="/logout" element={<Logout />} />
       <Route element={<LoggedRoutes />}>
         <Route path="/home" element={<Home />} />
-        <Route path="/payment" element={<PaymentForm />} />
         <Route exact path="/detail/:id" element={<Detail />} />
         <Route exact path="/detail/:stage/:id" element={<DetailRounds />} />
         <Route element={<ProtectedRoutes />}>
