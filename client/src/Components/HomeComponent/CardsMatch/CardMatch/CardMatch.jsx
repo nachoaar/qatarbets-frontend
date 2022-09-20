@@ -14,7 +14,7 @@ let hora = new Date(props.date)
 
   return (
     <Link to={`/detail/${props.id}`}>
-      <div className={` ${props.status === "Finished" ? "bg-morado hover:bg-moradosec ring-2 ring-inset ring-white" : "bg-rojo hover:bg-rojosec"} w-full h-auto sm:h-28 p-1.5 flex flex-col sm:flex-row gap-1 rounded-md transition-colors duration-700 `}>
+      <div className={` ${props.status === "Finished" ? "bg-morado hover:bg-moradosec ring-2 ring-inset ring-white" : "bg-rojo hover:bg-rojosec"} mb-2 sm:mb-0 w-full h-auto sm:h-28 p-1.5 flex flex-col sm:flex-row gap-1 rounded-md transition-colors duration-700 `}>
         <div className="w-full flex flex-row gap-1 justify-around">
           <div className="w-12 sm:h-full bg-rojosec flex justify-center items-center rounded-md">
             <h1 className="font-fifa text-xl text-white">{letter}</h1>
@@ -75,7 +75,7 @@ let hora = new Date(props.date)
             <div className="bg-amarillo w-2 h-2 rotate-45"></div>
           </div>
         </div>
-        <div className="flex flex-row gap-1 justify-between w-full bg-rojosec sm:bg-transparent">
+        <div className="flex flex-row gap-1 justify-between w-full bg-rojosec rounded sm:bg-transparent">
           <div className="rounded flex flex-col bg-rojosec h-full w-20">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
               <p className="font-parrafo text-white text-md px-4">LOCAL</p>
