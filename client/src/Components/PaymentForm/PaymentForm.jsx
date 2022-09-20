@@ -3,7 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import { ButtonMedium } from '../Utils/Buttons/ButtonMedium';
-
+import { axiosURL } from '../../index.js';
 const stripePromise = loadStripe(`${process.env.REACT_APP_CLAVE_STRIPE}`);
 
 
@@ -26,13 +26,13 @@ const CheckoutForm = (props) => {
     if (!error) {
       const { id } = paymentMethod;
 
-      const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/pay/', {
+      const { data } = await axios.post(`${axiosURL}/pay/`, {
         id,
         amount: amount * 100
       }, { withCredentials: true });
 
       if (data.message === 'Successful Payment') {
-        const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/bet/newBet', {
+        const { data } = await axios.post(`${axiosURL}/bet/newBet`, {
           fecha_hora: new Date(),
           money_bet: amount,
           result: bet,
