@@ -38,7 +38,7 @@ const CheckoutForm = (props) => {
           result: bet,
           condition: "ready",
           expected_profit: amount * profit,
-          final_profit: 0,
+          final_profit: null,
           matchId: matchId,
         }, { withCredentials: true });
         if (data === 'La apuesta se creo correctamente') {
