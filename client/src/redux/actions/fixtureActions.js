@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup, getFixtureCity, orderFixture, MatchId, matchId, cleanMatchId, matchesRound16, matchesRound8, matchesRound4, matchesRound2, resetFixture, matchesFinished, matchesNotStarted, matchesAll} from "../reducer/fixtureSlice";
+import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup, getFixtureCity, orderFixture, MatchId, matchId, cleanMatchId, matchesRound16, matchesRound8, matchesRound4, matchesRound2, resetFixture, matchesFinished, matchesNotStarted,fixtureRoundFinal, matchesAll} from "../reducer/fixtureSlice";
 import { axiosURL } from "../../index.js";
 
 export function getFixture() {
@@ -96,6 +96,13 @@ export function getMatchesRound2() {
     );
     dispatch(matchesRound2(matches.data));
   };
+}
+
+export function  getMatchFinal (){
+  return async function(dispatch){
+    const matches = (await axios.post( `${axiosURL}/fixture/finalStageAllSimulation?sim=simulate`))
+    dispatch(fixtureRoundFinal(matches.data))
+  }
 }
 
 export function resetFixtureSlice(){

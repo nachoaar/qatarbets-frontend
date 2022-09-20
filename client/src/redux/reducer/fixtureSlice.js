@@ -13,7 +13,8 @@ export const fixtureSlice = createSlice({
     fixtureRoundOf16: [],
     fixtureRoundOf8: [],
     fixtureRoundOf4: [],
-    fixtureRoundOf2: []
+    fixtureRoundOf2: [],
+    fixtureFinal: [], 
 
   },
   reducers: {
@@ -102,11 +103,15 @@ export const fixtureSlice = createSlice({
     matchesRound2: (state, action) => {
       state.fixtureRoundOf2 = action.payload
     },
+    matchRoundFinal: (state,action)=>{
+      state.fixtureFinal = action.payload
+    },
     resetFixture : (state, action) =>{
       state.fixtureRoundOf16 = []
       state.fixtureRoundOf8 = []
       state.fixtureRoundOf4 = []
       state.fixtureRoundOf2 = []
+      state.fixtureFinal = []
     },
     matchesFinished: (state) => {
       let fixture = state.fixtureFilterCopy
@@ -139,6 +144,7 @@ export const {
   matchesRound8,
   matchesRound4,
   matchesRound2,
+  fixtureRoundFinal,
   resetFixture,
   matchesFinished,
   matchesNotStarted,

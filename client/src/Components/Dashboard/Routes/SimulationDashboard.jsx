@@ -11,6 +11,7 @@ import {
   getMatchesRound2,
   getMatchesRound4,
   getMatchesRound8,
+  getMatchFinal,
   resetFixtureSlice,
 } from "../../../redux/actions/fixtureActions";
 import axios from "axios";
@@ -50,7 +51,11 @@ export const Simulation = () => {
       dispatch(getMatchesRound2()).then((result) =>
         alert("partidos de semifinal simulados con exito")
       );
-    } else if (e.target.value === "reiniciar") {
+    } else if(e.target.value === "simular final"){
+      dispatch(getMatchFinal()).then((result) =>{
+        alert("final simulada con exito")
+      })
+    } else if(e.target.value === "reiniciar") {
       axios
         .put(
           "https://qatarbets-backend-production.up.railway.app/fixture/groupsSimulation?sim=reset"
@@ -116,6 +121,13 @@ export const Simulation = () => {
             value="simular semifinal"
           >
             simular semifinal{" "}
+          </button>
+          <button
+            className="bg-rojo p-2 text-white rounded hover:bg-rojosec"
+            onClick={(e) => handleSimulateAll(e)}
+            value="simular final"
+          >
+            simular final{" "}
           </button>
           <button
             className="bg-rojo p-2 text-white rounded hover:bg-rojosec"
