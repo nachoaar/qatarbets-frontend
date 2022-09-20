@@ -20,7 +20,7 @@ export default function getStats(bets, userId){
         if(sortedData[i]?.userId === userId){
             total += sortedData[i]?.money_bet
 
-            if(sortedData[i]?.final_profit !== 0){
+            if(sortedData[i]?.final_profit > 0){
                 gained += sortedData[i]?.final_profit
             }else{
                 losed += sortedData[i]?.money_bet
@@ -30,9 +30,9 @@ export default function getStats(bets, userId){
     }
     
     user.push({name:"total", total:total})
-    user.push({name: "gained", gained: gained})
-    user.push({name: "losed", losed: losed})
-    user.push({name: "bets", bets: counter})
+    user.push({name:"gained", gained: gained})
+    user.push({name:"losed", losed: losed})
+    user.push({name:"bets", bets: counter})
     user.push({userId: userId})
     }
     return user

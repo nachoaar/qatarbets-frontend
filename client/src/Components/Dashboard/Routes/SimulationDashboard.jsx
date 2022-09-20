@@ -87,7 +87,7 @@ export const Simulation = () => {
             onClick={(e) => handleSimulateAll(e)}
             value="v"
           >
-            simulacioness{" "}
+            simular fase de grupos{" "}
           </button>
           <button
             className="bg-rojo p-2 text-white rounded hover:bg-rojosec"

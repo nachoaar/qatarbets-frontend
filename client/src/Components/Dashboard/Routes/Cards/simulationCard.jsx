@@ -8,7 +8,7 @@ import { getFixture } from "../../../../redux/actions/fixtureActions";
 
 export const SimulationCard = ({match, flagStore}) =>{
 
-    console.log(match);
+
 
     let id = match.id
 
@@ -18,7 +18,6 @@ export const SimulationCard = ({match, flagStore}) =>{
     const [flag, setFlag] = useState(true)
     const dispatch = useDispatch()
 
-    console.log(result1[0])
 
 
     function handleOnClick(e){
@@ -45,8 +44,8 @@ export const SimulationCard = ({match, flagStore}) =>{
             <span className="text-amarillo">{result !== null ? result[0]?.result_match : 'simula el partido'}</span>
           </div>
           <div className="flex flex-col gap-1">
-            {<button className="bg-rojo rounded p-1" onClick={(e)=>handleOnClick(e)} disabled={flag === false} >simular</button>}
-            {<button className="bg-rojo rounded p-1" onClick={(e)=> handleResetResult(e)} disabled={flag === true} > reiniciar </button>}
+            {<button className="bg-rojo rounded p-1" onClick={(e)=>handleOnClick(e)} disabled={flag === true} >simular</button>}
+            {<button className="bg-rojo rounded p-1" onClick={(e)=> handleResetResult(e)} disabled={flag === false} > reiniciar </button>}
           </div>
         </div>
     )
