@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-
+import GoogleAuth from "../../Google/GoogleAuth.jsx";
 import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
@@ -35,7 +35,7 @@ export default function FormLogin(props) {
   const { message } = useSelector((state) => state.message);
   const navigate = useNavigate()
 
-
+  const [msg, setMsg] = useState('');
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
@@ -49,6 +49,7 @@ export default function FormLogin(props) {
     const { email, pass } = input;
     setLoading(true);
     dispatch(login({email, pass}))
+    setMsg(message);
     /* .unwrap()
       .then(() => {
         navigate("/home");
@@ -61,7 +62,7 @@ export default function FormLogin(props) {
 
   let messages = null;
 
-  if(message){
+  if(msg !== ''){
     /* if (message === "Usuario Registrado!") {
       navigate('/login')
     } */
@@ -133,6 +134,7 @@ export default function FormLogin(props) {
           <Button colorScheme='gray' m={3}>Registrarse</Button>
           </Link>
         </form>
+        <GoogleAuth />
         <Link to="/">
             <p className="text-rojosec font-titulodash text-sm">¿Deseas volver? hace click aquí</p>
         </Link>
