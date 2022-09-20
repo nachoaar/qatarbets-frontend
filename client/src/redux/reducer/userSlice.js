@@ -28,6 +28,10 @@ export const login = createAsyncThunk(
   async ({ email, pass }, thunkAPI) => {
     try {
       const data = await authService.loginUser(email, pass);
+      if (data.hasOwnProperty('error')) {
+        thunkAPI.dispatch(setMessage(data)); 
+        return localStorage.removeItem("user");
+      }
       thunkAPI.dispatch(setMessage(data));
       return { user: data };
     } catch (error) {
