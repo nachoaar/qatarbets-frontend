@@ -4,7 +4,6 @@ export const betSlice = createSlice({
   name:"bet",
   initialState: {
     bets: [],
-    userBets:[]
   },
   reducers: {
     AllBets: (state, action) => {

@@ -11,7 +11,6 @@ import WeekBets from './Graphs/mostPickedInTheWeek';
 export const MatchDashboard = () => {
   
   const dispatch = useDispatch();
-  const [date, setDate] = useState('');
 
   const {filterFixtureDash} = useSelector((store) => store.dashfixture);
   const {bets} = useSelector((store) => store.dashbets);
@@ -22,11 +21,6 @@ export const MatchDashboard = () => {
     }
   },[dispatch, filterFixtureDash]);
 
-  function handleInput(e){
-    e.preventDefault()
-    if(e.target.value.length === 10){
-    setDate(e.target.value)}
-}
 
   return (
     <div className="bg-gris w-full h-screen flex flex-row justify-between gap-5">
@@ -68,9 +62,7 @@ export const MatchDashboard = () => {
               <div className="w-full border-b border-gristexto"></div>
                 <WeekBets
                   dataa={bets}
-                  date={date}
                 />
-                <input type="text"placeholder="ingrese una fecha"  onChange={(e) => handleInput(e)}/>
               <div className="w-full border-b border-gristexto"></div>
             </div>
           </div>

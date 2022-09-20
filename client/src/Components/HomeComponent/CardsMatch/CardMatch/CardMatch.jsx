@@ -14,9 +14,9 @@ let hora = new Date(props.date)
 
   return (
     <Link to={`/detail/${props.id}`}>
-      <div className={` ${props.status === "Finished" ? "bg-morado hover:bg-moradosec ring-2 ring-inset ring-white" : "bg-rojo hover:bg-rojosec"} w-full h-28 p-1.5 flex flex-row gap-1 rounded-md transition-colors duration-700 `}>
+      <div className={` ${props.status === "Finished" ? "bg-morado hover:bg-moradosec ring-2 ring-inset ring-white" : "bg-rojo hover:bg-rojosec"} w-full h-auto sm:h-28 p-1.5 flex flex-col sm:flex-row gap-1 rounded-md transition-colors duration-700 `}>
         <div className="w-full flex flex-row gap-1 justify-around">
-          <div className="w-12 h-full bg-rojosec flex justify-center items-center rounded-md">
+          <div className="w-12 sm:h-full bg-rojosec flex justify-center items-center rounded-md">
             <h1 className="font-fifa text-xl text-white">{letter}</h1>
           </div>
           <div className="flex flex-col h-full w-44 rounded-md gap-1">
@@ -56,7 +56,7 @@ let hora = new Date(props.date)
               <p className="font-parrafo text-white text-lg">V</p>
             </div>
           </div>
-          <div className="flex flex-col bg-morado h-full w-24 gap-1">
+          <div className="rounded flex flex-col bg-morado h-full w-24 gap-1">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
               <p className="font-parrafo text-white text-lg">{props.status}</p>
             </div>
@@ -69,34 +69,34 @@ let hora = new Date(props.date)
               </p>
             </div>
           </div>
-          <div className="flex flex-col h-full w-6 gap-3 justify-center items-center">
+          <div className="flex flex-col h-full w-0 sm:w-6 gap-3 justify-center items-center invisible sm:visible">
             <div className="bg-amarillo w-2 h-2 rotate-45"></div>
             <div className="bg-amarillo w-3 h-3 rotate-45"></div>
             <div className="bg-amarillo w-2 h-2 rotate-45"></div>
           </div>
         </div>
-        <div className="flex flex-row gap-1 justify-between">
-          <div className="flex flex-col bg-rojosec h-full w-auto">
+        <div className="flex flex-row gap-1 justify-between w-full bg-rojosec sm:bg-transparent">
+          <div className="rounded flex flex-col bg-rojosec h-full w-20">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
               <p className="font-parrafo text-white text-md px-4">LOCAL</p>
             </div>
-            <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
+            <div className="rounded w-full h-1/2 flex flex-row justify-center items-center bg-white">
               <p className="font-parrafo text-black text-lg">{props.profit_coef_home}</p>
             </div>
           </div>
-          <div className="flex flex-col bg-rojosec h-full w-auto">
+          <div className="rounded flex flex-col bg-rojosec h-full w-20">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
               <p className="font-parrafo text-white text-md px-4">EMPATE</p>
             </div>
-            <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
+            <div className="rounded w-full h-1/2 flex flex-row justify-center items-center bg-white">
               <p className="font-parrafo text-black text-lg">{props.profit_coef_draw}</p>
             </div>
           </div>
-          <div className="flex flex-col bg-rojosec h-full w-auto">
+          <div className="rounded flex flex-col bg-rojosec h-full w-20">
             <div className="w-full h-1/2 flex flex-row justify-center items-center">
               <p className="font-parrafo text-white text-md px-4">VISITANTE</p>
             </div>
-            <div className="w-full h-1/2 flex flex-row justify-center items-center bg-white">
+            <div className="rounded w-full h-1/2 flex flex-row justify-center items-center bg-white">
               <p className="font-parrafo text-black text-lg">{props.profit_coef_away}</p>
             </div>
           </div>

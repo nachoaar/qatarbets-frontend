@@ -22,7 +22,7 @@ const CheckoutForm = (props) => {
       type: 'card',
       card: elements.getElement(CardElement)
     });
-//https://qatarbets-backend-production-ab54.up.railway.app
+//https://qatarbets-backend-production.up.railway.app
     if (!error) {
       const { id } = paymentMethod;
 

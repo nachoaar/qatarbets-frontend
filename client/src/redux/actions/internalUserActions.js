@@ -13,9 +13,11 @@ export function getIuBets(){
   return async function(dispatch){
     const bets =(await axios.get(`${axiosURL}/bet/allBets`)).data
     const matches  = (await axios.get(`${axiosURL}/fixture/get`) ).data
+    const gamblers = (await axios.get(`${axiosURL}/user/`)).data
     let payload = {
       bets: bets,
       matches: matches,
+      gamblers: gamblers,
     }
 
     dispatch(getBets(payload))
