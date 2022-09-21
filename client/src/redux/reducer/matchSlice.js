@@ -11,11 +11,17 @@ export const matchSlice = createSlice({
     getMatch: (state, action) => {
       state.match = action.payload
     },
+    getMatchesMostBets: (state, action) => {
+      state.matchesMostBets = action.payload
+    },
+    getMatchesHeadToHead: (state, action) => {
+      state.matchesHeadToHead = action.payload
+    },
     cleanMatch: (state) => {
       state.match = []
     }
   }
 });
 
-export const { getMatch, cleanMatch } = matchSlice.actions;
+export const { getMatch, cleanMatch, getMatchesMostBets, getMatchesHeadToHead } = matchSlice.actions;
 export default matchSlice.reducer;

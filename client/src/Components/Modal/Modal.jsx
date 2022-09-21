@@ -12,11 +12,11 @@ const Modal = ({ isOpen, closeModal, children }) => {
     >
       <div
         onClick={handleModalContainerClick}
-        className="relative bg-gris p-4 h-full overflow-auto "
+        className="relative bg-rojo p-4 sm:p-8 h-full w-full sm:w-2/5 overflow-auto flex flex-col gap-4"
       >
         <button
           onClick={closeModal}
-          className="bg-slate-400 text-black p-2 rounded absolute top-4 right-4"
+          className="bg-white text-black p-2 rounded absolute top-4 right-4"
         >
           X
         </button>

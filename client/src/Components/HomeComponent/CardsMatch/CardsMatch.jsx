@@ -6,6 +6,21 @@ export const CardsMatch = () => {
   const { fixtureFilter } = useSelector((store) => store.fixture);
   const { groupName } = useSelector((store) => store.group);
 
+<<<<<<< HEAD
+=======
+
+  let fixture = [...fixtureFilter]
+
+/*   if(fixture.length > 6){
+    console.log("proximos partidos");
+     fixture = fixture.filter(m => m.status === "Not Started")
+  } */
+
+/*   fixture = fixture.filter(m => m.status === "Not Started")
+
+  console.log(fixture); */
+
+>>>>>>> 4ad1b23bda8c71fee707dc813af42ec63360a2e3
 
   return (
     <div className="w-full h-1/5 rounded flex flex-col gap-1 overflow-hidden">

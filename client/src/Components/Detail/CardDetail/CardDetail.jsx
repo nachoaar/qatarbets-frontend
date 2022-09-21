@@ -21,12 +21,6 @@ export const CardDetail = (props) => {
   if(props.stage === "1.5") titulo = "Tercer puesto"
   if(props.stage === "1") titulo = "Final"
 
-  const onClick = (profit, bet) => {
-    /* e.preventDefault(); */
-    props.openModal();
-    props.setProfit(profit);
-    props.setBet(bet)
-  };
 
   return (
     <div className="bg-rojosec w-full h-full p-3 font-parrafo rounded-tl rounded-tr-2xl rounded-br rounded-bl-2xl flex flex-col justify-between">
@@ -62,12 +56,6 @@ export const CardDetail = (props) => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-      <div className="flex flex-row justify-around gap-2 h-12">
-        <button
-          onClick={() => onClick(props.profit_coef_home, "local")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
-=======
 
       <div className="w-full h-auto bg-morado p-2 flex flex-col items-center">
         <h3 className="text-white">
@@ -97,23 +85,10 @@ export const CardDetail = (props) => {
             props.status === "Finished" ? "cursor-no-drop" : ""
           } rounded w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
           disabled={props.status === "Finished" ? true : false}
->>>>>>> 4ad1b23bda8c71fee707dc813af42ec63360a2e3
         >
           <span>Local:</span>
           <p>{props.profit_coef_home}</p>
         </button>
-<<<<<<< HEAD
-        <button
-          onClick={() => onClick(props.profit_coef_draw, "empate")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
-        >
-          <span>Empate:</span>
-          <p>{props.profit_coef_draw}</p>
-        </button>
-        <button
-          onClick={() => onClick(props.profit_coef_away, "visitante")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
-=======
         {!props.stage ? (
           <button
             onClick={() => onClick(props.profit_coef_draw, "draw")}
@@ -135,7 +110,6 @@ export const CardDetail = (props) => {
             props.status === "Finished" ? "cursor-no-drop" : ""
           } rounded w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
           disabled={props.status === "Finished" ? true : false}
->>>>>>> 4ad1b23bda8c71fee707dc813af42ec63360a2e3
         >
           <span>Visitante:</span>
           <p>{props.profit_coef_away}</p>

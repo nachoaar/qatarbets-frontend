@@ -1,6 +1,8 @@
 import React, { useState, useEffect  } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+
+import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
@@ -96,13 +98,6 @@ export default function FormLogin(props) {
     }
   };
 
-  console.log("estado del usuario", isLoggedIn);
-  console.log(props)
-
-  const logoutSuccess = () => {
-    console.log("Log out successfull!");
-  }
-
   // if (isLoggedIn) {
   //   return <Navigate to="/profile" />;
   // }
@@ -170,7 +165,7 @@ export default function FormLogin(props) {
             </FormErrorMessage>
           </FormControl>
 
-          <Button type='submit' colorScheme='red' m={3}>Iniciar Sesion</Button>
+          <Button type='submit' colorScheme='red' m={3} >Iniciar Sesion</Button>
           <Link to="/register">
           <Button colorScheme='gray' m={3}>Registrarse</Button>
           </Link>

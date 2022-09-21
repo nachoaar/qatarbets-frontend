@@ -37,23 +37,32 @@ export const Home = () => {
 
   const matches = useSelector((state) => state.fixture?.fixture);
   const filter = useSelector((state) => state.fixture?.fixtureFilterCopy);
+  const user = useSelector((store)=> store.internalUser?.user)
+  const mostBets = useSelector((state) => state.match.matchesMostBets);
   const letras = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
   let letraGroup = filter[0]?.groupId;
 
-  console.log(letras[letraGroup]);
-
+  //estado local para mostrar o los grupos o las llaves
+  const [change, SetChange] = useState(mostrar);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getGroups());
+    dispatch(getInternalUser())
+    dispatch(getIuBets())
+    dispatch(matchesMostBets());
     if (groupId) {
       dispatch(getGroupMatch(Number(groupId)));
     } else {
       dispatch(getFixture());
+      dispatch(getTeams());
     }
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(startingAllPlayers());
+  }, []);
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">

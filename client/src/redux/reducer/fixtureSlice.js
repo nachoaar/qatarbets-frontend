@@ -139,5 +139,15 @@ export const {
   filterByGroup,
   getFixtureCity,
   orderFixture,
+  matchId,
+  cleanMatchId,
+  matchesRound16,
+  matchesRound8,
+  matchesRound4,
+  matchesRound2,
+  resetFixture,
+  matchesFinished,
+  matchesNotStarted,
+  matchesAll
 } = fixtureSlice.actions;
 export default fixtureSlice.reducer;

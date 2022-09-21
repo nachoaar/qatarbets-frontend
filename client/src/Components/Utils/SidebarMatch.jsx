@@ -24,11 +24,7 @@ export const SidebarMatch = (props) => {
             />
           );
         })}
-<<<<<<< HEAD
-      <TitleContentMedium title="seleccionar otro grupo"/>
-=======
       <TitleContent title="seleccionar otro grupo"/>
->>>>>>> 4ad1b23bda8c71fee707dc813af42ec63360a2e3
       {group &&
           group.map((g) => {
             return (
