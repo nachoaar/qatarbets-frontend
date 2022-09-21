@@ -14,6 +14,7 @@ import {
   resetFixtureSlice,
 } from "../../../redux/actions/fixtureActions";
 import axios from "axios";
+import swal from "sweetalert";
 
 export const Simulation = () => {
   const matches2 = useSelector((store) => store.fixture.fixture);
@@ -29,7 +30,11 @@ export const Simulation = () => {
     if (e.target.value === "cargar octavos") {
       setFlag2(!flag2);
       dispatch(getMatchesRound16()).then((result) =>
-        alert("partidos de octavos cargados con exito")
+      swal({
+        title: "Operacion realizada con exito!!",
+        text: "Se cargaron todos los equipos clasificados a 8vos de final",
+        button: "Acept"
+      })
       );
     } else if (e.target.value === "v") {
       axios
@@ -37,18 +42,34 @@ export const Simulation = () => {
           "https://qatarbets-backend-production.up.railway.app/fixture/groupsSimulation?sim=simulate"
         )
         .then((result) => dispatch(getFixture()))
-        .then((result) => alert("partidos de grupos simulados con exito"));
+        .then((result) => swal({
+          title: "Operacion realizada con exito!!",
+          text: "Se simularon todos los partidos de la fase de grupos",
+          button: "Acept"
+        }));
     } else if (e.target.value === "simular octavos") {
       dispatch(getMatchesRound8()).then((result) =>
-        alert("partidos de octavos simulados con exito")
+      swal({
+        title: "Operacion realizada con exito!!",
+        text: "Se simularon todos los partidos de 8vos de final y se cargaron los equipos clasificados a 4tos de final",
+        button: "Acept"
+      })
       );
     } else if (e.target.value === "simular cuartos") {
       dispatch(getMatchesRound4()).then((result) =>
-        alert("partidos de cuartos simulados con exito")
+      swal({
+        title: "Operacion realizada con exito!!",
+        text: "Se simularon los partidos de 4tos de final y se cargaron los cuatro equipos clasificados a semifinales",
+        button: "Acept"
+      })
       );
     } else if (e.target.value === "simular semifinal") {
       dispatch(getMatchesRound2()).then((result) =>
-        alert("partidos de semifinal simulados con exito")
+      swal({
+        title: "Operacion realizada con exito!!",
+        text: "Se simularon los partidos de semifinal y se cargaron los dos equipos finalistas del torneo!!",
+        button: "Acept"
+      })
       );
     } else if (e.target.value === "reiniciar") {
       axios
@@ -57,7 +78,11 @@ export const Simulation = () => {
         )
         .then((result) => dispatch(resetFixtureSlice()))
         .then((result) => dispatch(getFixture()))
-        .then((result) => alert("partidos reiniciados con exito"));
+        .then((result) => swal({
+          title: "Operacion realizada con exito!!",
+          text: "Se reiniciaron todos los partidos",
+          button: "Acept"
+        }));
     }
   }
 
