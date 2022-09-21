@@ -9,18 +9,11 @@ import swal from "sweetalert";
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_CLAVE_STRIPE}`);
 
-<<<<<<< HEAD
-const CheckoutForm = (props) => {
-  // console.log(props);
-  // console.log(id, profit, bet);
-  const {id, profit, bet} = props.props
-=======
 
 const CheckoutForm = (props) => {
   // console.log(props);
   // console.log(id, profit, bet);
   const {matchId, profit, bet} = props.props
->>>>>>> 64fd9c6972ab4789862fa9318724dac9804c2421
   const [amount, setAmount] = useState(0);
 
   const stripe = useStripe();
@@ -36,18 +29,11 @@ const CheckoutForm = (props) => {
     if (!error) {
       const { payId } = paymentMethod;
 
-<<<<<<< HEAD
-      const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/pay/', {
-        payId,
-        amount: amount * 100
-      });
-=======
       const { data } = await axios.post(`${axiosURL}/pay/`, {
         id,
         amount: amount * 100,
         matchId: matchId,
       }, { withCredentials: true });
->>>>>>> 64fd9c6972ab4789862fa9318724dac9804c2421
 
       if (data.message === 'Successful Payment') {
         const { data } = await axios.post(`${axiosURL}/bet/newBet`, {
@@ -57,11 +43,7 @@ const CheckoutForm = (props) => {
           condition: "ready",
           expected_profit: amount * profit,
           final_profit: 0,
-<<<<<<< HEAD
-          matchId: id,
-=======
           matchId: matchId,
->>>>>>> 64fd9c6972ab4789862fa9318724dac9804c2421
         }, { withCredentials: true });
         if (data === 'La apuesta se creo correctamente') {
           swal({
