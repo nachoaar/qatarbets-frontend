@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { UserProfile } from '../User/UserProfile';
 import Logout from '../Logout/Logout';
 import { useDispatch } from 'react-redux';
-import { sortBets } from '../../redux/actions/internalUserActions';
+import { getIuBets, sortBets } from '../../redux/actions/internalUserActions';
 
 
 const navigation = [
@@ -48,11 +48,18 @@ export const Navbar = ({id}) => {
 
     window.addEventListener('scroll', changeColor);
 
+
     function handleOnClick(e) {
-        dispatch(sortBets(id))
         e.preventDefault();
+        dispatch(getIuBets())
+        setTimeout(()=>{
+            dispatch(sortBets(id))
+        },2000)
         setModal(true);
     }
+
+    let loclaRoute = window.location.href
+
 
     return (
         <Disclosure as="nav" className={color ? "bg-rojo fixed top-0 z-50 w-full transition duration-500 shadow-xl" : "bg-transparent fixed top-0 z-50 w-full transition duration-500"}>
@@ -146,6 +153,13 @@ export const Navbar = ({id}) => {
                                                     <p onClick={(e) => handleOnClick(e)} className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>Mi Perfil</p>
                                                 )}
                                             </Menu.Item>
+                                            { loclaRoute !== 'http://localhost:3000/home' ?<Menu.Item>
+                                            {({ active }) => (
+                                                <Link to='/home'>
+                                                    <p className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>Home</p>
+                                                </Link>
+                                                )}
+                                            </Menu.Item> : <></>}
                                             { lUser[0]?.rol === "admin" ? <Menu.Item>
                                                 {({ active }) => (
                                                 <Link to='/dashboard'>
@@ -188,7 +202,6 @@ export const Navbar = ({id}) => {
                     <UserProfile
                         modal={modal}
                         setModal={setModal}
-                        
                     />
                 </>
             )}
