@@ -1,12 +1,13 @@
 import axios from "axios";
 
-const register = async (name, age, email, pass, avatar) => {
+const register = async (name, age, email, pass, avatar, emailvalidate) => {
   const dataUser = {
     name,
     age,
     email,
     pass,
     avatar,
+    emailvalidate
   }
     const postUser = await axios.post('https://qatarbets-backend-production.up.railway.app/user/register', dataUser);
     return postUser;
