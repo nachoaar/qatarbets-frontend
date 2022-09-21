@@ -3,12 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const betSlice = createSlice({
   name:"bet",
   initialState: {
-    bets: []
+    bets: [],
   },
   reducers: {
     AllBets: (state, action) => {
       state.bets = action.payload
-    }
+    },
   }
 });
 

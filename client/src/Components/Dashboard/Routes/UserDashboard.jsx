@@ -8,6 +8,8 @@ import { SidebarDashboard } from '../SidebarDashboard/SidebarDashboard';
 import { UserCard } from './Cards/UserCard';
 import UserStatGafic from './Graphs/userGrafics';
 import image from '../../../media/metric.png';
+import { dashFixture } from '../../../redux/actions/dashboardActions/dashFixtureActions';
+import { getAllBets } from '../../../redux/actions/dashboardActions/dashBetActions';
 
 export const UserDashboard = () => {
 
@@ -22,12 +24,14 @@ export const UserDashboard = () => {
   const {gamblerName} = useSelector((store) => store.dashgambler);
   const {bets} = useSelector((store) => store.dashbets);
 
-  console.log(gamblerName);
 
   useEffect(() => {
-    if (gamblers.length === 0) {
-      dispatch(getGamblers());
-    }
+    dispatch(dashFixture());
+    dispatch(getAllBets());
+    dispatch(getGamblers());
+  },[dispatch]);
+
+  useEffect(() => {
     return () => {
       dispatch(CacheDashGambler());
       setGraph({
@@ -35,7 +39,7 @@ export const UserDashboard = () => {
         id: ""
       })
     };
-  },[dispatch, gamblers]);
+  },[dispatch]);
 
   function handleOnClick(e) {
     e.preventDefault();

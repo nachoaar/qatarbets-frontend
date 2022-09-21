@@ -19,8 +19,13 @@ import {
   VStack,
   Button,
   FormErrorMessage,
+  AlertIcon,
+  Alert,
+  AlertTitle,
+  AlertDescription,
   // FormHelperText,
 } from '@chakra-ui/react'
+import GoogleAuth from '../../Google/GoogleAuth';
 
 
 export default function FormLogin(props) {
@@ -28,7 +33,10 @@ export default function FormLogin(props) {
   const { reset, register, handleSubmit, formState: { errors } } = useForm();
   const { isLoggedIn } = useSelector((state) => state.user);
   const { message } = useSelector((state) => state.message);
+  const [msg, setMsg] = useState('');
+  const navigate = useNavigate()
 
+  const [flag, setFlag] = useState(false);
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
@@ -49,15 +57,43 @@ export default function FormLogin(props) {
     reset()
     const { email, pass } = input;
     setLoading(true);
+    setFlag(true)
     dispatch(login({email, pass}))
-    .unwrap()
+    /* .unwrap()
       .then(() => {
-        props.history.push("/home");
+        navigate("/home");
         window.location.reload();
       })
       .catch(() => {
         setLoading(false);
-      });
+      }); */
+  };
+  let messages = null;
+  if(message){
+    /* if (message === "Usuario Registrado!") {
+      navigate('/login')
+    } */
+    if (flag) {
+      if (message.hasOwnProperty("error")) {
+        setLoading(false)
+        messages =
+          <VStack maxW="900px">
+            <Alert status='error'>
+            <AlertIcon />
+            <AlertTitle mr={2}>|</AlertTitle>
+              <AlertDescription>
+                {message.error}
+              </AlertDescription>
+              {/* <Link to="/login">
+              <Button colorScheme='red'>Iniciar Sesión</Button>
+              </Link> */}
+            </Alert>
+          </VStack>
+      } else {
+        setLoading(false)
+        navigate('/home')
+      }
+    }
   };
 
   console.log("estado del usuario", isLoggedIn);
@@ -84,6 +120,7 @@ export default function FormLogin(props) {
     <Center>
       <VStack maxW="900px" w = {[250, 300, 400]} boxShadow='dark-lg' p='6' rounded='md' bg='white' m={20}>
         <Heading>Login</Heading>
+      {messages}
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl m={3} w = {[150, 250, 350]} id='email'  isInvalid={errors.email? true : false} isRequired>
@@ -138,6 +175,10 @@ export default function FormLogin(props) {
           <Button colorScheme='gray' m={3}>Registrarse</Button>
           </Link>
         </form>
+        <GoogleAuth />
+        <Link to="/">
+            <p className="text-rojosec font-titulodash text-sm">¿Deseas volver? hace click aquí</p>
+        </Link>
       </VStack>
     </Center>
     <Footer/>

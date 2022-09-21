@@ -35,8 +35,8 @@ const [two,setTwo] = useState(true)
               <YAxis />
               <Tooltip />
               <Legend />
-            { one === true ? (<Line type="monotone" dataKey="losed" stroke="#8884d8"/>) :(<></>)}
-            {  two === true ? (<Line type="monotone" dataKey="gains" stroke="#82ca9d"  />):(<></>)}
+            { two === true ? (<Line type="monotone" dataKey="losed" stroke="#8884d8"/>) :(<></>)}
+            {  one === true ? (<Line type="monotone" dataKey="gains" stroke="#82ca9d"  />):(<></>)}
             </LineChart>
             <div className="flex gap-2">
                 <button className=" flex-1 m-1 border shadow-sm " onClick={(e)=>{ handleButtons(e)}} value='gains'>Gains</button> 

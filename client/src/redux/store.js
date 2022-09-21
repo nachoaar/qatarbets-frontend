@@ -10,8 +10,13 @@ import players from "./reducer/playersSlice";
 import betSlice from "./reducer/dashboardReducer/dashbetSlice";
 import gamblerSlice from "./reducer/dashboardReducer/dashgamblerSlice";
 import fixtureDashSlice from "./reducer/dashboardReducer/dashfixtureSlice";
+<<<<<<< HEAD
 import pass from "./reducer/passSlice";
 
+=======
+import simulationSlice  from "./reducer/dashboardReducer/dashsimulationSlice";
+import internalUserData from "./reducer/internalUserData";
+>>>>>>> 4ad1b23bda8c71fee707dc813af42ec63360a2e3
 
 
 export default configureStore({
@@ -26,6 +31,11 @@ export default configureStore({
     dashgambler: gamblerSlice,
     dashfixture: fixtureDashSlice,
     user,
+<<<<<<< HEAD
     pass,
+=======
+    dashsimulation: simulationSlice,
+    internalUser: internalUserData,
+>>>>>>> 4ad1b23bda8c71fee707dc813af42ec63360a2e3
   }
 })

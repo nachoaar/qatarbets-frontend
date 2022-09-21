@@ -3,32 +3,30 @@ import {
   getStartingPlayersHome,
   getStartingPlayersAway,
   cleanStartingPlayers,
+  getStartingAllPlayers,
 } from "../reducer/playersSlice";
+import { axiosURL } from "../../index.js";
+
+//trae 11 jugadores por equipo
+export function startingAllPlayers() {
+  return async function (dispatch) {
+      const players = await axios.get(
+        `${axiosURL}/teams/AllPlayersSquadDb11`
+      );
+      dispatch(getStartingAllPlayers(players.data));
+  };
+}
 
 export function startingPlayersHome(payload) {
-  try {
-    return async function (dispatch) {
-      const startingPlayersHome = await axios.get(
-        `https://qatarbets-backend-production-ab54.up.railway.app/teams/playersSquadDb11/${payload}`
-      );
-      dispatch(getStartingPlayersHome(startingPlayersHome.data));
-    };
-  } catch (error) {
-    console.log("erro en actions players" + error);
-  }
+  return async function (dispatch) {
+    dispatch(getStartingPlayersHome(payload));
+  };
 }
 
 export function startingPlayersAway(payload) {
-  try {
-    return async function (dispatch) {
-      const startingPlayersAway = await axios.get(
-        `https://qatarbets-backend-production-ab54.up.railway.app/teams/playersSquadDb11/${payload}`
-      );
-      dispatch(getStartingPlayersAway(startingPlayersAway.data));
-    };
-  } catch (error) {
-    console.log("error en el action player" + error);
-  }
+  return async function (dispatch) {
+    dispatch(getStartingPlayersAway(payload));
+  };
 }
 
 export function startingPlayersClean() {

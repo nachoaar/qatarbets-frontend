@@ -11,11 +11,6 @@ export default function ValidateUser() {
     const verificar = async (token) =>{
        await axios.get(`http://localhost:3001/validate/verify/${token}`);
     }
-    // function redirectHome(event) {
-    //     event.preventDefault();
-    //     dispatch(verificar(token))
-
-    // }
 
 
      useEffect(() => {

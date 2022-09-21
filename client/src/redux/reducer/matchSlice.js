@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 export const matchSlice = createSlice({
   name:'match',
   initialState:{
-    match: []
+    match: [],
+    matchesMostBets: [],
+    matchesHeadToHead: []
   },
   reducers:{
     getMatch: (state, action) => {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const register = async (name, age, email, pass) => {
+const register = async (name, age, email, pass, avatar, emailvalidate) => {
   const dataUser = {
     name,
     age,
@@ -19,8 +19,6 @@ const loginUser = async (email, pass) => {
     if(logUser.data){
       localStorage.setItem("user", JSON.stringify(logUser.data));
     }
-    console.log(logUser);
-    //console.log(logUser.data);
     return logUser.data
   } catch (error) {
     console.log(error)

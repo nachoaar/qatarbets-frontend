@@ -1,9 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import { DashboardAdmin } from "./Components/Dashboard/Dashboard";
+import NotFound from "./Components/404.jsx/NotFound";
 import { BetDashboard } from "./Components/Dashboard/Routes/BetDashboard";
 import { MatchDashboard } from "./Components/Dashboard/Routes/MatchDashboard";
+import { Simulation } from "./Components/Dashboard/Routes/SimulationDashboard";
 import { UserDashboard } from "./Components/Dashboard/Routes/UserDashboard";
 import { Detail } from "./Components/Detail/Detail";
+import { DetailRounds } from "./Components/Detail/DetailRounds";
 import FormLogin from "./Components/Forms/FormLogin/FormLogin";
 import FormRestration from "./Components/Forms/FormRegistration/FormRegistration";
 import { Home } from "./Components/HomeComponent/Home";

@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { Navbar } from "../../Navbar/Navbar";
 import { Navigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
@@ -17,11 +18,13 @@ import {
   InputRightElement,
   VStack,
   Button,
-  FormErrorMessage
+  FormErrorMessage,
+  AlertIcon,
+  Alert,
+  AlertTitle,
+  AlertDescription,
   // FormHelperText,
-} from '@chakra-ui/react'
-
-
+} from "@chakra-ui/react";
 
 export default function FormRestration() {
   const { reset, register, handleSubmit, formState: { errors } } = useForm();
@@ -29,14 +32,13 @@ export default function FormRestration() {
   const { message } = useSelector((state) => state.message);
   const { isLoggedIn } = useSelector((state) => state.user);
 
-  const [show, setShow] = useState(false)
-  const handleClick = () => setShow(!show)
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(clearMessage());
   }, [dispatch]);
-
 
   const onSubmit = (input) => {
     reset();
@@ -143,9 +145,14 @@ export default function FormRestration() {
           <Button type='submit' colorScheme='red' m={3}>Registrarse</Button>
           <FormErrorMessage>{message && message}</FormErrorMessage>
           </form>
+          <Link to="/login">
+            <p className="text-rojosec font-titulodash text-sm">
+              ¿Ya tenés una cuenta? hace click aquí
+            </p>
+          </Link>
         </VStack>
     </Center>
     <Footer/>
     </>
-  )
+  );
 }

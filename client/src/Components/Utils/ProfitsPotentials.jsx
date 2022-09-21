@@ -11,8 +11,13 @@ export const ProfitsPotentials = ({ profit, home_team, away_team, bet, date }) =
   };
 
   return (
+<<<<<<< HEAD
     <div className="flex flex-col p-4 bg-morado z-10 mt-12 text-white rounded-lg gap-2">
       <div className="flex flex-row items-center">
+=======
+    <div className="flex flex-col p-4 bg-morado z-10  text-white rounded-lg gap-2">
+      <div className="flex flex-row flex-wrap items-center">
+>>>>>>> 4ad1b23bda8c71fee707dc813af42ec63360a2e3
         <div className="flex flex-row gap-1 p-2">
           <p>Local: </p>
           <span className="font-fifa text-lg">{home_team}</span>

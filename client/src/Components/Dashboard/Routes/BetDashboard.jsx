@@ -1,26 +1,25 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-
 import { getAllBets } from '../../../redux/actions/dashboardActions/dashBetActions';
 import BetResultGraph from './Graphs/betGraphics';
 import DayliBetsGraphic from './Graphs/dayliBets';
 import WeaklyBetsGraphic from './Graphs/weaklyBetGraphic';
-
-
 import { NavbarDashboard } from '../NavbarDashboard/NavbarDashboard';
 import { SidebarDashboard } from '../SidebarDashboard/SidebarDashboard';
 import { BetCard } from './Cards/BetCard';
+import { getIuBets } from '../../../redux/actions/internalUserActions';
+
 
 export const BetDashboard = () => {
 
   const dispatch = useDispatch();
   
-  const {bets} = useSelector((store) => store.dashbets);
+  const bets = useSelector((store) => store.internalUser.bets);
 
   useEffect(() => {
     if (bets.length === 0) {
-      dispatch(getAllBets());
+      dispatch(getIuBets())
     } 
   },[dispatch, bets]);
 
@@ -47,8 +46,9 @@ export const BetDashboard = () => {
                     id={b.id}
                     result={b.result}
                     money_bet={b.money_bet}
+                    user={b.user}
                     userId={b.userId}
-                    matchId={b.matchId}
+                    match={b.match}
                     final_profit={b.final_profit}
                   />
                 )
