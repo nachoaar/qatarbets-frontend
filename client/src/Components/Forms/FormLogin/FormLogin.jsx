@@ -37,7 +37,7 @@ export default function FormLogin(props) {
   const [msg, setMsg] = useState('');
   const navigate = useNavigate()
 
-
+  const [flag, setFlag] = useState(false);
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
@@ -50,8 +50,8 @@ export default function FormLogin(props) {
     reset()
     const { email, pass } = input;
     setLoading(true);
+    setFlag(true)
     dispatch(login({email, pass}))
-    setMsg(message)
     /* .unwrap()
       .then(() => {
         navigate("/home");
@@ -61,29 +61,31 @@ export default function FormLogin(props) {
         setLoading(false);
       }); */
   };
-
   let messages = null;
-
-  if(msg !== ''){
+  if(message){
     /* if (message === "Usuario Registrado!") {
       navigate('/login')
     } */
-    if (message.hasOwnProperty("error")) {
-      messages =
-        <VStack maxW="900px">
-          <Alert status='error'>
-          <AlertIcon />
-          <AlertTitle mr={2}>|</AlertTitle>
-            <AlertDescription>
-              {message.error}
-            </AlertDescription>
-            {/* <Link to="/login">
-            <Button colorScheme='red'>Iniciar Sesión</Button>
-            </Link> */}
-          </Alert>
-        </VStack>
-    } else {
-      navigate('/home')
+    if (flag) {
+      if (message.hasOwnProperty("error")) {
+        setLoading(false)
+        messages =
+          <VStack maxW="900px">
+            <Alert status='error'>
+            <AlertIcon />
+            <AlertTitle mr={2}>|</AlertTitle>
+              <AlertDescription>
+                {message.error}
+              </AlertDescription>
+              {/* <Link to="/login">
+              <Button colorScheme='red'>Iniciar Sesión</Button>
+              </Link> */}
+            </Alert>
+          </VStack>
+      } else {
+        setLoading(false)
+        navigate('/home')
+      }
     }
   };
 
