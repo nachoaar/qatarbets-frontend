@@ -56,7 +56,7 @@ const CheckoutForm = (props) => {
   console.log(amount);
 
   return <form onSubmit={handleSubmit}>
-    <div className="bg-moradosec w-full mx-auto px-6 py-8 rounded-lg">
+    <div className="bg-moradosec w-full mx-auto p-4 sm:px-6 sm:py-8 rounded-lg">
       <label className="font-titulo text-white mr-5 text-xl">Amount USD $</label>
        <select
           onChange={e => handleInputChange(e.target.value)}

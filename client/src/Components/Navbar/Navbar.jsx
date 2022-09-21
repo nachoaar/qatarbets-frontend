@@ -23,13 +23,13 @@ function classNames(...classes) {
 
 
 export const Navbar = ({id}) => {
-    
+
     const [modal, setModal] = useState(false);
     const [color, setColor] = useState(false);
     const lUser = useSelector((store) => store.internalUser.user)
 
     const dispatch = useDispatch()
-       
+
 
 
     const changeColor = () => {
@@ -71,7 +71,7 @@ export const Navbar = ({id}) => {
                                     )}
                                 </Disclosure.Button>
                             </div>
-                            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                            <div className="flex flex-1 items-center ml-12 sm:ml-0 sm:items-stretch justify-start">
                                 <div className="flex flex-shrink-0 items-center">
                                     <Link to="/">
                                     <svg className="h-10" width="62" height="65" viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -188,7 +188,7 @@ export const Navbar = ({id}) => {
                     <UserProfile
                         modal={modal}
                         setModal={setModal}
-                        
+
                     />
                 </>
             )}

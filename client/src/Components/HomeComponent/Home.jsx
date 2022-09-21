@@ -81,7 +81,7 @@ export const Home = () => {
                   : "partidos del grupo: " + letras[letraGroup - 1]
               }
             />
-            <div className="w-full h-auto bg-morado">
+            <div className="w-full h-auto">
               <CardsMatch />
             </div>
           </div>
