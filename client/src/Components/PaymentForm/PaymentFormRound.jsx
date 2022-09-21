@@ -17,6 +17,9 @@ const CheckoutForm = (props) => {
   const {matchId, profit, bet} = props.props
   const [amount, setAmount] = useState(0);
 
+  console.log("desde checkout");
+  console.log(matchId.toString());
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -36,11 +39,14 @@ const CheckoutForm = (props) => {
       }, { withCredentials: true });
 
       if (data.message === 'Successful Payment') {
+
+        console.log(matchId.toString());
+
         const { data } = await axios.post(`${axiosURL}/bet/newBet`, {
           fecha_hora: new Date(),
           money_bet: amount,
           result: bet,
-          condition: matchId,
+          condition: matchId.toString(),
           expected_profit: amount * profit,
           final_profit: 0,
           matchId: null,
