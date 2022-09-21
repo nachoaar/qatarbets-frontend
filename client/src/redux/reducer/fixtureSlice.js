@@ -10,6 +10,12 @@ export const fixtureSlice = createSlice({
     fixtureGamesPerGroup: [],
     filtredMatches: [],
     fixtureMatchId: [],
+    fixtureRoundOf16: [],
+    fixtureRoundOf8: [],
+    fixtureRoundOf4: [],
+    fixtureThirdPlaceMatch: [],
+    fixtureFinalMatch: [],
+
   },
   reducers: {
     getAllFixture: (state, action) => {
@@ -32,6 +38,7 @@ export const fixtureSlice = createSlice({
       state.fixtureFilter = state.fixtureFilterCopy.filter(
         (g) => g.city === action.payload
       );
+      state.fixtureFilterCopy = state.fixtureFilter
     },
     orderFixture: (state, action) => {
       let fixture = state.fixtureFilter;
@@ -66,7 +73,7 @@ export const fixtureSlice = createSlice({
         /* state.fixtureGamesPerGroup.push(state.fixture.filter(m => m.groupId === i).slice(0, action.payload)); */
       }
     },
-    //nuevo para detail dos
+    //
     matchId: (state, action) => {
       console.log("desde la action " + action.payload);
       const match = state.fixture?.filter((m) => m.id === Number(action.payload));
@@ -76,7 +83,52 @@ export const fixtureSlice = createSlice({
     },
     cleanMatchId: (state) =>{
       state.fixtureMatchId = []
-    }
+    },
+    matchesRound16: (state, action) => {
+      state.fixtureRoundOf16 = action.payload
+      console.log(state.fixtureRoundOf16);
+    },
+    matchesRound8: (state, action) => {
+      const matchesOctavosFinished = action.payload.slice(0,8)
+      const matchesCuartos = action.payload.slice(8,12)
+      state.fixtureRoundOf16[8] = matchesOctavosFinished
+      state.fixtureRoundOf8 = matchesCuartos
+    },
+    matchesRound4: (state, action) => {
+      const matchesCuartosFinished = action.payload.slice(8,12)
+      const matchesSemi = action.payload.slice(12,14)
+      state.fixtureRoundOf8 = matchesCuartosFinished
+      state.fixtureRoundOf4 = matchesSemi
+    },
+    matchesRound2: (state, action) => {
+      const matchesSemiFinished = action.payload.slice(12,14)
+      const matchThirdPlace = action.payload.slice(14,15)
+      const matchFinal = action.payload.slice(15,16)
+      state.fixtureRoundOf4 = matchesSemiFinished
+      state.fixtureThirdPlaceMatch = matchThirdPlace
+      state.fixtureFinalMatch = matchFinal
+    },
+    resetFixture : (state, action) =>{
+      state.fixtureRoundOf16 = []
+      state.fixtureRoundOf8 = []
+      state.fixtureRoundOf4 = []
+      state.fixtureRoundOf2 = []
+    },
+    matchesFinished: (state) => {
+      let fixture = state.fixtureFilterCopy
+      let filtered = fixture.filter(m => m.status === "Finished")
+      state.fixtureFilter = filtered
+    },
+    matchesNotStarted: (state) => {
+      let fixture = state.fixtureFilterCopy
+      let filtered = fixture.filter(m => m.status === "Not Started")
+      state.fixtureFilter = filtered
+    },
+    matchesAll: (state) => {
+      let fixture = state.fixtureFilterCopy
+      state.fixtureFilter = fixture
+    },
+
   },
 });
 
@@ -88,6 +140,14 @@ export const {
   getFixtureCity,
   orderFixture,
   matchId,
-  cleanMatchId
+  cleanMatchId,
+  matchesRound16,
+  matchesRound8,
+  matchesRound4,
+  matchesRound2,
+  resetFixture,
+  matchesFinished,
+  matchesNotStarted,
+  matchesAll
 } = fixtureSlice.actions;
 export default fixtureSlice.reducer;

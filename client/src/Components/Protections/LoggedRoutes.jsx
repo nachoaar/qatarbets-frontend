@@ -9,14 +9,14 @@ const LoggedRoutes = () => {
   useEffect(() => {
     axios
       .get(
-        "https://qatarbets-backend-production-ab54.up.railway.app/validate",
+        "https://qatarbets-backend-production.up.railway.app/validate",
         { withCredentials: true }
       )
       .then((res) => {
         setLoading(false);
         setAuth(res.data);
       });
-    console.log(auth);
+
   }, []);
 
   if (loading) {

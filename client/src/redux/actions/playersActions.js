@@ -5,24 +5,15 @@ import {
   cleanStartingPlayers,
   getStartingAllPlayers,
 } from "../reducer/playersSlice";
+import { axiosURL } from "../../index.js";
 
 //trae 11 jugadores por equipo
-export function startingAllPlayers(teams) {
-  console.log("desde la action");
-  console.log(teams);
-
+export function startingAllPlayers() {
   return async function (dispatch) {
-    const startingPlayers = [];
-
-    teams.map(async (id) => {
-      console.log("desde el map" + id);
       const players = await axios.get(
-        `https://qatarbets-backend-production-ab54.up.railway.app/teams/playersSquadDb11/${id}`
+        `${axiosURL}/teams/AllPlayersSquadDb11`
       );
-      console.log(players.data);
-      /* startingPlayers = [...startingPlayers, players.data] */
       dispatch(getStartingAllPlayers(players.data));
-    });
   };
 }
 

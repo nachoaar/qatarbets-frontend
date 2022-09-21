@@ -18,13 +18,13 @@ export const Court = ({
           {playersGoalkeeperHome &&
             playersGoalkeeperHome.map((p) => {
               return (
-                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                <div className="cursor-pointer flex flex-row items-center rounded-full border-4 border-amarillo shadow-md shadow-black overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-amarillo hover:z-50 group">
                   <img
                     src={p.photo}
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-amarillo ">
                     <p className="font-semibold text-md bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
@@ -38,13 +38,13 @@ export const Court = ({
           {playersDefenderHome &&
             playersDefenderHome.map((p) => {
               return (
-                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                <div className="border-4 border-amarillo shadow-md shadow-black cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-amarillo hover:z-50 group">
                   <img
                     src={p.photo}
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-amarillo ">
                     <p className="font-semibold text-md  bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
@@ -57,13 +57,13 @@ export const Court = ({
           {playersMidfielderHome &&
             playersMidfielderHome.map((p) => {
               return (
-                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                <div className="border-4 border-amarillo shadow-md shadow-black cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-amarillo hover:z-50 group">
                   <img
                     src={p.photo}
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-amarillo ">
                     <p className="font-semibold text-md  bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
@@ -76,13 +76,13 @@ export const Court = ({
           {playersAttackersHome &&
             playersAttackersHome.map((p) => {
               return (
-                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                <div className="border-4 border-amarillo shadow-md shadow-black cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-amarillo hover:z-50 group">
                   <img
                     src={p.photo}
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-amarillo ">
                     <p className="font-semibold text-md  bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
@@ -98,14 +98,14 @@ export const Court = ({
           {playersAttackersAway &&
             playersAttackersAway.map((p) => {
               return (
-                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                <div className="border-4 border-rojosec shadow-md shadow-black cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-rojosec hover:z-50 group">
                   <img
                     src={p.photo}
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md  bg-rojosec text-white rounded p-1">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-rojosec text-white">
+                    <p className="font-semibold text-md  bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -117,14 +117,14 @@ export const Court = ({
           {playersMidfielderAway &&
             playersMidfielderAway.map((p) => {
               return (
-                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                <div className="border-4 border-rojosec shadow-md shadow-black cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-rojosec hover:z-50 group">
                   <img
                     src={p.photo}
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md  bg-rojosec text-white rounded p-1">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-rojosec text-white ">
+                    <p className="font-semibold text-md  bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -136,14 +136,14 @@ export const Court = ({
           {playersDefenderAway &&
             playersDefenderAway.map((p) => {
               return (
-                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                <div className="border-4 border-rojosec shadow-md shadow-black cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-rojosec hover:z-50 group">
                   <img
                     src={p.photo}
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md  bg-rojosec text-white rounded p-1">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-rojosec text-white ">
+                    <p className="font-semibold text-md  bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>
@@ -155,14 +155,14 @@ export const Court = ({
           {playersGoalkeeperAway &&
             playersGoalkeeperAway.map((p) => {
               return (
-                <div className="cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-white hover:z-50 group">
+                <div className="border-4 border-rojosec shadow-md shadow-black cursor-pointer flex flex-row items-center rounded-full overflow-hidden transform transition-all ease-out duration-1000 hover:rounded-md hover:scale-125 hover:bg-rojosec hover:z-50 group">
                   <img
                     src={p.photo}
                     alt=""
                     className="h-12 w-12 group-hover:w-16 group-hover:h-16"
                   />
-                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-white ">
-                    <p className="font-semibold text-md  bg-rojosec text-white rounded p-1">{p.name}</p>
+                  <div className="h-0 w-0 group-hover:h-auto group-hover:w-24 group-hover:p-2 text-left text-xs bg-rojosec text-white ">
+                    <p className="font-semibold text-md  bg-morado text-white rounded p-1">{p.name}</p>
                     <p>{p.position}</p>
                     <p>age: {p.age}</p>
                   </div>

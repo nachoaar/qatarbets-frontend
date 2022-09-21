@@ -24,7 +24,6 @@ export const UserDashboard = () => {
   const {gamblerName} = useSelector((store) => store.dashgambler);
   const {bets} = useSelector((store) => store.dashbets);
 
-  console.log(gamblerName);
 
   useEffect(() => {
     dispatch(dashFixture());

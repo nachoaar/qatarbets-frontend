@@ -26,7 +26,7 @@ export default function SmallCards(){
         mediumMatches.push(fixture.fixture[randomIndex])
     }
 
-    console.log(mediumMatches)
+
 
     return(
         <div>

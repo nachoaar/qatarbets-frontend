@@ -8,6 +8,9 @@ import { useSelector } from "react-redux";
 import { useState } from 'react';
 import { UserProfile } from '../User/UserProfile';
 import Logout from '../Logout/Logout';
+import { useDispatch } from 'react-redux';
+import { sortBets } from '../../redux/actions/internalUserActions';
+
 
 const navigation = [
     { name: 'Login', href: '#', current: true },
@@ -18,11 +21,17 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export const Navbar = () => {
+
+export const Navbar = ({id}) => {
 
     const [modal, setModal] = useState(false);
-
     const [color, setColor] = useState(false);
+    const lUser = useSelector((store) => store.internalUser.user)
+
+    const dispatch = useDispatch()
+
+
+
     const changeColor = () => {
         if (window.scrollY >= 20) {
             setColor(true)
@@ -30,7 +39,6 @@ export const Navbar = () => {
             setColor(false)
         }
     }
-
     const user = useSelector((state) => state.user);
     // let islogerenderusrprofile = null;
     // if(isLoggedIn){
@@ -41,6 +49,7 @@ export const Navbar = () => {
     window.addEventListener('scroll', changeColor);
 
     function handleOnClick(e) {
+        dispatch(sortBets(id))
         e.preventDefault();
         setModal(true);
     }
@@ -62,7 +71,7 @@ export const Navbar = () => {
                                     )}
                                 </Disclosure.Button>
                             </div>
-                            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                            <div className="flex flex-1 items-center ml-12 sm:ml-0 sm:items-stretch justify-start">
                                 <div className="flex flex-shrink-0 items-center">
                                     <Link to="/">
                                     <svg className="h-10" width="62" height="65" viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -137,6 +146,13 @@ export const Navbar = () => {
                                                     <p onClick={(e) => handleOnClick(e)} className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>Mi Perfil</p>
                                                 )}
                                             </Menu.Item>
+                                            { lUser[0]?.rol === "admin" ? <Menu.Item>
+                                                {({ active }) => (
+                                                <Link to='/dashboard'>
+                                                    <p className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>Dashboard</p>
+                                                </Link>
+                                                )}
+                                            </Menu.Item> : <></>}
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <div className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>
@@ -172,6 +188,7 @@ export const Navbar = () => {
                     <UserProfile
                         modal={modal}
                         setModal={setModal}
+
                     />
                 </>
             )}

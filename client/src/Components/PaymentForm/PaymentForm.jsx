@@ -3,14 +3,24 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import { ButtonMedium } from '../Utils/Buttons/ButtonMedium';
+import { axiosURL } from '../../index.js';
+import swal from "sweetalert";
 
-const stripePromise = loadStripe("pk_test_51LfBfGH8GSChtV84IGSv7a6FNuytSwQSVrCy3gyenf4zdJ7TtMsWodH3bxJ4AhAyRMd7UhsiLpGTH9r7uGDKTJiV00wpKR8Haa");
 
+const stripePromise = loadStripe(`${process.env.REACT_APP_CLAVE_STRIPE}`);
 
+<<<<<<< HEAD
 const CheckoutForm = (props) => {
   // console.log(props);
   // console.log(id, profit, bet);
   const {id, profit, bet} = props.props
+=======
+
+const CheckoutForm = (props) => {
+  // console.log(props);
+  // console.log(id, profit, bet);
+  const {matchId, profit, bet} = props.props
+>>>>>>> 64fd9c6972ab4789862fa9318724dac9804c2421
   const [amount, setAmount] = useState(0);
 
   const stripe = useStripe();
@@ -22,27 +32,44 @@ const CheckoutForm = (props) => {
       type: 'card',
       card: elements.getElement(CardElement)
     });
-
+//https://qatarbets-backend-production.up.railway.app
     if (!error) {
       const { payId } = paymentMethod;
 
+<<<<<<< HEAD
       const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/pay/', {
         payId,
         amount: amount * 100
       });
+=======
+      const { data } = await axios.post(`${axiosURL}/pay/`, {
+        id,
+        amount: amount * 100,
+        matchId: matchId,
+      }, { withCredentials: true });
+>>>>>>> 64fd9c6972ab4789862fa9318724dac9804c2421
 
       if (data.message === 'Successful Payment') {
-        const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/bet/newBet', {
+        const { data } = await axios.post(`${axiosURL}/bet/newBet`, {
           fecha_hora: new Date(),
           money_bet: amount,
           result: bet,
           condition: "ready",
           expected_profit: amount * profit,
           final_profit: 0,
+<<<<<<< HEAD
           matchId: id,
+=======
+          matchId: matchId,
+>>>>>>> 64fd9c6972ab4789862fa9318724dac9804c2421
         }, { withCredentials: true });
         if (data === 'La apuesta se creo correctamente') {
-          alert('Pago realizado con exito!!')
+          swal({
+            title: "Pago realizado con exito!!",
+            text: "Muchas gracias por su apuesta",
+            button: "Acept"
+          })
+          /* alert('Pago realizado con exito!!') */
         }
       }
     }
@@ -55,7 +82,7 @@ const CheckoutForm = (props) => {
   console.log(amount);
 
   return <form onSubmit={handleSubmit}>
-    <div className="bg-moradosec w-full mx-auto px-6 py-8 rounded-lg">
+    <div className="bg-moradosec w-full mx-auto p-4 sm:px-6 sm:py-8 rounded-lg">
       <label className="font-titulo text-white mr-5 text-xl">Amount USD $</label>
        <select
           onChange={e => handleInputChange(e.target.value)}
@@ -76,7 +103,7 @@ const CheckoutForm = (props) => {
 }
 
 export const PaymentForm = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <Elements stripe={stripePromise}>
       <CheckoutForm props = {props}/>

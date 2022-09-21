@@ -25,6 +25,7 @@ export const SidebarDashboard = () => {
         <ButtonDashboard section={'dashboard/'} name={'usuarios'} />
         <ButtonDashboard section={'dashboard/matchs/'} name={'partidos'} />
         <ButtonDashboard section={'dashboard/bets/'} name={'apuestas'} />
+        <ButtonDashboard section={'dashboard/simulation'} name={'simular partido'} />
       </div>
     </div>
   )

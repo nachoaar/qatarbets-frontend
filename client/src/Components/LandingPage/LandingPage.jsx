@@ -17,26 +17,15 @@ export const LandingPage = () => {
   const dispatch = useDispatch();
 
   const teams = useSelector((state) => state.teams.teams);
-  const numerosId = teams?.map((t) => t.id);
-  console.log("numerosId");
-  console.log(numerosId);
 
-  const allPlayers = useSelector((state) => state.players?.allStartingPlayers);
 
   useEffect(() => {
     dispatch(getFixture()).then((result) => dispatch(getMatchesPerGroup()));
-    dispatch(getTeams())/* .then((result) => {
-      if (allPlayers.length < 1) {
-        dispatch(startingAllPlayers(numerosId));
-      }
-    }); */
+    dispatch(getTeams())
     dispatch(getGroups());
     dispatch(matchesMostBets());
+    dispatch(startingAllPlayers());
   }, [dispatch]);
-
-  useEffect(() =>{
-    dispatch(startingAllPlayers(numerosId));
-  },[numerosId])
 
 
 
