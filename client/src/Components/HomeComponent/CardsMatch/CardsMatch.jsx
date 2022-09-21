@@ -20,7 +20,7 @@ export const CardsMatch = () => {
 
 
   return (
-    <div className="bg-morado w-full h-1/5 rounded flex flex-col gap-1 overflow-hidden">
+    <div className="w-full h-1/5 rounded flex flex-col gap-1 overflow-hidden">
       {fixture &&
         fixture.map((m) => {
           return (

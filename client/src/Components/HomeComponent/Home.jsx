@@ -69,9 +69,11 @@ export const Home = () => {
       <Navbar id={user[0]?.id} />
       <NavigateHome setChange={SetChange} change={change}/>
       {change ? (
-        <div className="flex flex-row justify-between w-11/12 my-2 gap-3">
-          <SidebarHome filter={filter} />
-          <div className="h-full w-3/5 flex flex-col gap-3">
+        <div className="flex flex-col sm:flex-row justify-between w-11/12 my-2 gap-3">
+          <div className="w-full sm:w-2/5">
+            <SidebarHome filter={filter} />
+          </div>
+          <div className="h-full w-full sm:w-3/5 flex flex-col gap-3">
             <TitleContent
               title={
                 filter.length > 6
@@ -79,7 +81,7 @@ export const Home = () => {
                   : "partidos del grupo: " + letras[letraGroup - 1]
               }
             />
-            <div className="w-full h-auto bg-morado">
+            <div className="w-full h-auto">
               <CardsMatch />
             </div>
           </div>
@@ -114,9 +116,9 @@ export const Home = () => {
               })}
           </div>
         </div>
-        <div className="flex flex-col w-full justify-center items-center">
+        <div className="hidden lg:flex flex-col w-full justify-center items-center">
           <TitleContentMedium title="Partidos mas apostados" />
-          <div className="flex flex-row justify-between gap-1 w-11/12 mb-10">
+          <div className="flex flex-col sm:flex-row justify-between gap-1 w-full sm:w-11/12 mb-10">
             {mostBets &&
               mostBets.slice(0, 4).map((m) => {
                 return (

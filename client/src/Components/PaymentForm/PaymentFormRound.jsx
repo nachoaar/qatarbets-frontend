@@ -11,10 +11,14 @@ const stripePromise = loadStripe(`${process.env.REACT_APP_CLAVE_STRIPE}`);
 
 
 const CheckoutForm = (props) => {
-  // console.log(props);
+  /* console.log("desde funcion fantasma");
+  console.log(props); */
   // console.log(id, profit, bet);
   const {matchId, profit, bet} = props.props
   const [amount, setAmount] = useState(0);
+
+  console.log("desde checkout");
+  console.log(matchId.toString());
 
   const stripe = useStripe();
   const elements = useElements();
@@ -31,19 +35,21 @@ const CheckoutForm = (props) => {
 
       const { data } = await axios.post(`${axiosURL}/pay/`, {
         id,
-        amount: amount * 100,
-        matchId: matchId,
+        amount: amount * 100
       }, { withCredentials: true });
 
       if (data.message === 'Successful Payment') {
+
+        console.log(matchId.toString());
+
         const { data } = await axios.post(`${axiosURL}/bet/newBet`, {
           fecha_hora: new Date(),
           money_bet: amount,
           result: bet,
-          condition: "ready",
+          condition: matchId.toString(),
           expected_profit: amount * profit,
           final_profit: 0,
-          matchId: matchId,
+          matchId: null,
         }, { withCredentials: true });
         if (data === 'La apuesta se creo correctamente') {
           swal({
@@ -84,8 +90,9 @@ const CheckoutForm = (props) => {
   </form>
 }
 
-export const PaymentForm = (props) => {
-  // console.log(props);
+export const PaymentFormRound = (props) => {
+/* console.log("desde payment");
+ console.log(props.matchId); */
   return (
     <Elements stripe={stripePromise}>
       <CheckoutForm props = {props}/>

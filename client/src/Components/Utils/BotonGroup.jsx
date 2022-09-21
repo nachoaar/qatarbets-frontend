@@ -25,11 +25,11 @@ export const BotonGroup = (props) => {
   return (
     <button
       onClick={(e) => handleOnClick(e)}
-      className="w-full transition duration-700 bg-gris hover:bg-rojo text-rojo hover:text-white font-parrafo p-2 active:bg-violet-700 focus:outline-none focus:ring focus:ring-rojosec focus:bg-rojo focus:text-white"
+      className="w-full transition duration-700 bg-gris rounded hover:bg-rojo text-rojo hover:text-white font-parrafo p-2 active:bg-violet-700 focus:outline-none focus:ring focus:ring-rojosec focus:bg-rojo focus:text-white"
     >
       <div className="flex flex-row justify-between gap-3">
-        <div className="p-3 flex items-center">
-          <h1 className="font-fifa font-medium text-xl">{props.name}</h1>
+        <div className="p-1 sm:p-3 flex items-center">
+          <h1 className="font-fifa font-medium text-md sm:text-xl">{props.name}</h1>
         </div>
         <div className="flex flex-row justify-between items-center w-full gap-3">
           <div className="text-left w-2/4">

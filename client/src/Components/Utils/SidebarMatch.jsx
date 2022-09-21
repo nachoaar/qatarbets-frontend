@@ -9,7 +9,7 @@ export const SidebarMatch = (props) => {
   const { group } = useSelector((store) => store.group);
 
   return (
-    <div className="h-full w-1/5 py-2 flex flex-col gap-1 border-t-2 border-gris">
+    <div className="h-full w-full py-2 flex flex-col gap-1 border-t-2 border-gris">
       <TitleContentMedium title={`PARTIDOS DEL GRUPO ${props.group}`} />
       {props.fixture &&
         props.fixture.map((f) => {

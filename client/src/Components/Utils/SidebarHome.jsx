@@ -6,6 +6,7 @@ import { ButtonCity } from "./Buttons/ButtonCity";
 import { ButtonFecha } from "./Buttons/ButtonFecha";
 import { ButtonStatus } from "./Buttons/ButtonStatus";
 import { TitleContent } from "./TitleContent";
+import { Triangle } from "./Triangle";
 
 export const SidebarHome = ({ filter }) => {
   const { group } = useSelector((store) => store.group);
@@ -15,14 +16,13 @@ export const SidebarHome = ({ filter }) => {
   let ciudades = new Set(filter?.map((c) => c.city));
   let ciudadesArray = Array.from(ciudades);
 
-
   function handleOnClick(e) {
     e.preventDefault();
     dispatch(getFixture());
   }
 
   return (
-    <div className="h-full w-2/5 bg-gradient-to-b from-morado to-moradosec py-2 flex flex-row gap-1 border-t-2 border-gris">
+    <div className="h-full w-full py-2 flex flex-row gap-1 ">
       <div className="flex flex-col gap-1 w-1/2">
         <div className="flex items-center justify-between">
           <TitleContent title="grupos" />
@@ -54,7 +54,9 @@ export const SidebarHome = ({ filter }) => {
       </div>
 
       <div className="flex flex-col gap-1 w-1/2">
-        <TitleContent title="ciudades" />
+        <div className="flex pl-2">
+          <TitleContent title="ciudades" />
+        </div>
 
         {ciudadesArray &&
           ciudadesArray.map((c) => {
@@ -62,12 +64,12 @@ export const SidebarHome = ({ filter }) => {
           })}
 
         <TitleContent title="orden de fechas" />
-        <ButtonFecha order="ascendente" cod="asc"/>
-        <ButtonFecha order="descendente" cod="desc"/>
+        <ButtonFecha order="ascendente" cod="asc" />
+        <ButtonFecha order="descendente" cod="desc" />
         <TitleContent title="estado del partido" />
-        <ButtonStatus order="finalizados"/>
-        <ButtonStatus order="pendientes"/>
-        <ButtonStatus order="todos"/>
+        <ButtonStatus order="finalizados" />
+        <ButtonStatus order="pendientes" />
+        <ButtonStatus order="todos" />
       </div>
     </div>
   );
