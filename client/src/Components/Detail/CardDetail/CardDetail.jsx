@@ -32,11 +32,11 @@ export const CardDetail = (props) => {
       <div className="bg-morado text-white py-9 flex flex-row justify-around items-center mb-3">
         <div className="flex flex-col justify-center items-center">
           <div className="mb-3">
-            <p className="text-2xl font-fifa">{props.home_team}</p>
+            <p className="text-lg sm:text-2xl font-fifa">{props.home_team}</p>
           </div>
           <div className="bg-amarillo border-solid border-4 border-white w-14 h-12 rounded-tr-lg rounded-bl-lg overflow-hidden flex items-center justify-center">
             <img
-              src={`https://countryflagsapi.com/png/${props.home_team}`}
+              src={props.home_team === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${props.home_team}`}
               alt=""
               className="w-14 h-12"
             />
@@ -45,11 +45,11 @@ export const CardDetail = (props) => {
         <h2 className="font-fifa">VS</h2>
         <div className="flex flex-col justify-center items-center">
           <div className="mb-3">
-            <p className="text-2xl font-fifa">{props.away_team}</p>
+            <p className="text-lg sm:text-2xl font-fifa">{props.away_team}</p>
           </div>
           <div className="bg-amarillo border-solid border-4 border-white w-14 h-12 rounded-tr-lg rounded-bl-lg overflow-hidden flex items-center justify-center">
             <img
-              src={`https://countryflagsapi.com/png/${props.away_team}`}
+              src={props.away_team === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${props.away_team}`}
               alt=""
               className="w-14 h-12"
             />
@@ -63,13 +63,13 @@ export const CardDetail = (props) => {
           {props.headToHead?.length < 1 ? "No hubo" : ""}
         </h3>
         <div className="w-full h-auto flex flex-row">
-          <div className="w-full h-auto flex flex-row justify-start gap-1">
+          <div className="w-full h-auto flex flex-row flex-wrap justify-start gap-1">
             {props.headToHead &&
               props.headToHead.map((m) => {
                 return <ButtonHeadToHead result={m.result} />;
               })}
           </div>
-          <div className="w-full h-auto flex flex-row justify-end gap-1">
+          <div className="w-full h-auto flex flex-row flex-wrap justify-end gap-1">
             {props.headToHead &&
               props.headToHead.map((m) => {
                 return <ButtonHeadToHeadAway result={m.result} />;
@@ -78,12 +78,12 @@ export const CardDetail = (props) => {
         </div>
       </div>
 
-      <div className="flex flex-row justify-around gap-2 h-12">
+      <div className={` ${props.status === "Finished" ? "hidden sm:flex" : ""} flex flex-row justify-around gap-2 h-12`}>
         <button
           onClick={() => onClick(props.profit_coef_home, "home")}
           className={`${
             props.status === "Finished" ? "cursor-no-drop" : ""
-          } w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
+          } rounded w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
           disabled={props.status === "Finished" ? true : false}
         >
           <span>Local:</span>
@@ -94,7 +94,7 @@ export const CardDetail = (props) => {
             onClick={() => onClick(props.profit_coef_draw, "draw")}
             className={`${
               props.status === "Finished" ? "cursor-no-drop" : ""
-            } w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
+            } rounded w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
             disabled={props.status === "Finished" ? true : false}
           >
             <span>Empate:</span>
@@ -108,7 +108,7 @@ export const CardDetail = (props) => {
           onClick={() => onClick(props.profit_coef_away, "away")}
           className={`${
             props.status === "Finished" ? "cursor-no-drop" : ""
-          } w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
+          } rounded w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
           disabled={props.status === "Finished" ? true : false}
         >
           <span>Visitante:</span>

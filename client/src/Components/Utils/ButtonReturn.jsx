@@ -15,7 +15,7 @@ export const ButtonReturn = ({title}) => {
   return (
     <button
       onClick={(e) => onClick(e)}
-      className="w-full transition duration-700 bg-gris hover:bg-rojo text-rojo hover:text-white font-parrafo p-2 active:bg-violet-700 focus:outline-none focus:ring focus:ring-rojosec focus:bg-rojo focus:text-white"
+      className=" rounded w-full transition duration-700 bg-gris hover:bg-rojo text-rojo hover:text-white font-parrafo p-2 active:bg-violet-700 focus:outline-none focus:ring focus:ring-rojosec focus:bg-rojo focus:text-white"
     >
       <div className="flex flex-row justify-between">
         <div className="p-3 flex items-center">

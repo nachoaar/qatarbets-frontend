@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { BotonGroup } from "./BotonGroup";
 import { ButtonMatch } from "./ButtonMatch";
+import { TitleContent } from "./TitleContent";
 import { TitleContentMedium } from "./TitleContentMedium";
 
 export const SidebarMatch = (props) => {
@@ -10,7 +11,7 @@ export const SidebarMatch = (props) => {
 
   return (
     <div className="h-full w-full py-2 flex flex-col gap-1 border-t-2 border-gris">
-      <TitleContentMedium title={`PARTIDOS DEL GRUPO ${props.group}`} />
+      <TitleContent title={`Partidos del grupo ${props.group}`} />
       {props.fixture &&
         props.fixture.map((f) => {
           return (
@@ -23,7 +24,7 @@ export const SidebarMatch = (props) => {
             />
           );
         })}
-      <TitleContentMedium title="seleccionar otro grupo"/>
+      <TitleContent title="seleccionar otro grupo"/>
       {group &&
           group.map((g) => {
             return (

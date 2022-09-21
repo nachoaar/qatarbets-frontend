@@ -9,7 +9,8 @@ export const FixturePlayoffs = () => {
   const matchesRound16 = useSelector((state) => state.fixture.fixtureRoundOf16);
   const matchesRound8 = useSelector((state) => state.fixture.fixtureRoundOf8);
   const matchesRound4 = useSelector((state) => state.fixture.fixtureRoundOf4);
-  const matchesRound2 = useSelector((state) => state.fixture.fixtureRoundOf2);
+  const matchThirdPlace = useSelector((state) => state.fixture.fixtureThirdPlaceMatch);
+  const matchFinal = useSelector((state) => state.fixture.fixtureFinalMatch);
 
 
   console.log(matchesRound8);
@@ -194,13 +195,13 @@ export const FixturePlayoffs = () => {
           <div>
             <CardPlayoffs
               nameHome={
-                matchesRound2[1]?.home_name
-                  ? matchesRound2[1].home_name
+                matchFinal[0]?.home_name
+                  ? matchFinal[0].home_name
                   : "- Ganador 13"
               }
               nameAway={
-                matchesRound2[0]?.away_name
-                  ? matchesRound2[0].away_name
+                matchFinal[0]?.away_name
+                  ? matchFinal[0].away_name
                   : "- Ganador 13"
               }
               stage={"Final"}
@@ -217,16 +218,16 @@ export const FixturePlayoffs = () => {
           <div>
             <CardPlayoffs
               nameHome={
-                matchesRound2[0]?.home_name
-                  ? matchesRound2[0].home_name
+                matchThirdPlace[0]?.home_name
+                  ? matchThirdPlace[0].home_name
                   : "- Perderdor 13"
               }
               nameAway={
-                matchesRound2[1]?.away_name
-                  ? matchesRound2[1].away_name
+                matchThirdPlace[0]?.away_name
+                  ? matchThirdPlace[0].away_name
                   : "- Perdedor 13"
               }
-              stage={"Final"}
+              stage={"Tercer"}
               id={15}
             />
           </div>

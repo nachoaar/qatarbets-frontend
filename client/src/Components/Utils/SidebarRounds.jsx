@@ -1,14 +1,16 @@
 import React from "react";
 import { ButtonMatch } from "./ButtonMatch";
 import { ButtonReturn } from "./ButtonReturn";
+import { SeparatorLine } from "./SeparatorLine";
+import { TitleContent } from "./TitleContent";
 import { TitleContentMedium } from "./TitleContentMedium";
 
 export const SidebarRounds = (props) => {
   return (
-    <div className="h-full w-1/5 py-2 flex flex-col gap-1 border-t-2 border-gris">
-      {props.fixture?.length > 2 ? (
+    <div className="h-full py-2 flex flex-col gap-1 border-t-2 border-gris">
+      {props.fixture?.length >= 2 ? (
         <div className="flex flex-col gap-1">
-          <TitleContentMedium title={`${props.stage}`} />
+          <TitleContent title={`${props.stage}`} />
           {props.fixture &&
             props.fixture.map((f) => {
               return (
@@ -21,12 +23,12 @@ export const SidebarRounds = (props) => {
                 />
               );
             })}
-          <TitleContentMedium title="Volver al fixture" />
+          <SeparatorLine />
           <ButtonReturn title={"Volver al fixture"} />{" "}
         </div>
       ) : (
         <div>
-          <TitleContentMedium title="Volver al fixture" />
+          <SeparatorLine />
           <ButtonReturn title={"Volver al fixture"} />
         </div>
       )}

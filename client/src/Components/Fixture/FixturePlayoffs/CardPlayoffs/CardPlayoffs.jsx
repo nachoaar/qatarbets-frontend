@@ -16,7 +16,7 @@ export const CardPlayoffs = ({ nameHome, nameAway, id, stage }) => {
           {nameHome?.search("-") === -1 ? (
             <div className="bg-amarillo border-solid border-2 border-white w-8 h-6 rounded-tr-md rounded-bl-md overflow-hidden flex items-center justify-center">
               <img
-                src={`https://countryflagsapi.com/png/${nameHome}`}
+                src={nameHome === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${nameHome}`}
                 alt=""
                 className="w-8 h-6"
               />
@@ -32,7 +32,7 @@ export const CardPlayoffs = ({ nameHome, nameAway, id, stage }) => {
           {nameAway?.search("-") === -1 ? (
             <div className="bg-amarillo border-solid border-2 border-white w-8 h-6 rounded-tr-md rounded-bl-md overflow-hidden flex items-center justify-center">
               <img
-                src={`https://countryflagsapi.com/png/${nameAway}`}
+                src={nameAway === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${nameAway}`}
                 alt=""
                 className="w-8 h-6"
               />

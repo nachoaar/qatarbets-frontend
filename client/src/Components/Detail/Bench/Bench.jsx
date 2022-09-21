@@ -7,7 +7,7 @@ export const Bench = ({homeName, awayName, coachHome, coachAway}) => {
         <h3 className="font-parrafo text-lg font-medium">local: </h3>
         <div className="bg-amarillo border-solid border-2 border-white w-8 h-6 rounded-tr-md rounded-bl-md overflow-hidden flex items-center justify-center">
           <img
-            src={`https://countryflagsapi.com/png/${homeName}`}
+            src={homeName === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${homeName}`}
             alt=""
             className="w-8 h-6"
           />
@@ -21,7 +21,7 @@ export const Bench = ({homeName, awayName, coachHome, coachAway}) => {
         <h3 className="font-parrafo text-lg font-medium">visitante: </h3>
         <div className="bg-amarillo border-solid border-2 border-white w-8 h-6 rounded-tr-md rounded-bl-md overflow-hidden flex items-center justify-center">
           <img
-            src={`https://countryflagsapi.com/png/${awayName}`}
+            src={awayName === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${awayName}`}
             alt=""
             className="w-8 h-6"
           />
