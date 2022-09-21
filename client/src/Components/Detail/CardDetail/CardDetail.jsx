@@ -11,10 +11,6 @@ export const CardDetail = (props) => {
     props.openModal();
     props.setProfit(profit);
     props.setBet(bet);
-<<<<<<< HEAD
-    props.setBetEng(betEng)
-=======
->>>>>>> 64fd9c6972ab4789862fa9318724dac9804c2421
   };
 
   let titulo = ""
@@ -84,16 +80,11 @@ export const CardDetail = (props) => {
 
       <div className={` ${props.status === "Finished" ? "hidden sm:flex" : ""} flex flex-row justify-around gap-2 h-12`}>
         <button
-<<<<<<< HEAD
-          onClick={() => onClick(props.profit_coef_home, "local", "home")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
-=======
           onClick={() => onClick(props.profit_coef_home, "home")}
           className={`${
             props.status === "Finished" ? "cursor-no-drop" : ""
           } rounded w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
           disabled={props.status === "Finished" ? true : false}
->>>>>>> 64fd9c6972ab4789862fa9318724dac9804c2421
         >
           <span>Local:</span>
           <p>{props.profit_coef_home}</p>
@@ -114,23 +105,11 @@ export const CardDetail = (props) => {
         )}
 
         <button
-<<<<<<< HEAD
-          onClick={() => onClick(props.profit_coef_draw, "empate", "draw")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
-        >
-          <span>Empate:</span>
-          <p>{props.profit_coef_draw}</p>
-        </button>
-        <button
-          onClick={() => onClick(props.profit_coef_away, "visitante", "away")}
-          className="w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white"
-=======
           onClick={() => onClick(props.profit_coef_away, "away")}
           className={`${
             props.status === "Finished" ? "cursor-no-drop" : ""
           } rounded w-1/3 bg-slate-200 p-1 flex flex-row justify-center items-center gap-2 font-medium ease-out duration-300 hover:bg-moradosec hover:text-white`}
           disabled={props.status === "Finished" ? true : false}
->>>>>>> 64fd9c6972ab4789862fa9318724dac9804c2421
         >
           <span>Visitante:</span>
           <p>{props.profit_coef_away}</p>
