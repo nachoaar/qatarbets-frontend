@@ -3,7 +3,7 @@ import { SectionUno } from "./SectionUno";
 import { SectionThree } from "./SectionThree";
 import { Footer } from "../Footer/Footer";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import {
   getFixture,
   getMatchesPerGroup,
@@ -15,9 +15,6 @@ import { matchesMostBets } from "../../redux/actions/matchActions";
 
 export const LandingPage = () => {
   const dispatch = useDispatch();
-
-  const teams = useSelector((state) => state.teams.teams);
-
 
   useEffect(() => {
     dispatch(getFixture()).then((result) => dispatch(getMatchesPerGroup()));
