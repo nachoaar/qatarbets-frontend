@@ -22,6 +22,7 @@ import { Navbar } from "../Navbar/Navbar";
 import { PaymentForm } from "../PaymentForm/PaymentForm";
 import { ProfitsPotentials } from "../Utils/ProfitsPotentials";
 import { SidebarMatch } from "../Utils/SidebarMatch";
+import { TitleContent } from "../Utils/TitleContent";
 import { TitleContentMedium } from "../Utils/TitleContentMedium";
 import { Bench } from "./Bench/Bench";
 import { CardDetail } from "./CardDetail/CardDetail";
@@ -115,7 +116,7 @@ export const Detail = () => {
           </div>
 
           <div className="w-full hidden sm:flex flex-col h-auto mt-4">
-            <TitleContentMedium title="Formacion de los equipos" />
+            <TitleContent title="Formacion de los equipos" />
             <Bench
               homeName={match[0]?.home_team.name}
               awayName={match[0]?.away_team.name}

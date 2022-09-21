@@ -23,7 +23,7 @@ let hora = new Date(props.date)
             <div className="w-full bg-morado h-1/2 rounded-md flex flex-row gap-3 justify-start items-center">
               <div className="overflow-hidden border-2 border-white w-10 h-10 bg-morado translate-x-1 rounded flex items-center">
                 <img
-                  src={`https://countryflagsapi.com/png/${props.home_team}`}
+                  src={props.home_team === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${props.home_team}`}
                   alt=""
                   className="h-10 w-10"
                 />
@@ -35,7 +35,7 @@ let hora = new Date(props.date)
             <div className="w-full bg-morado h-1/2 rounded-md flex flex-row gap-3 justify-start items-center">
               <div className="overflow-hidden border-2 border-white w-10 h-10 bg-morado translate-x-1 rounded flex items-center">
                 <img
-                  src={`https://countryflagsapi.com/png/${props.away_team}`}
+                  src={props.away_team === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${props.away_team}`}
                   alt=""
                   className="h-10 w-10"
                 />

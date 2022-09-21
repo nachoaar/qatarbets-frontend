@@ -25,7 +25,7 @@ let navigate = useNavigate()
               <div className="bg-rojosec gap-1 h-auto p-2 flex items-center justify-around mb-2 rounded-tr-lg rounded-bl-lg w-11/12">
                 <div className="bg-amarillo overflow-hidden items-center border-solid border-4 border-white w-14 h-10 rounded-tr-lg rounded-bl-lg">
                   <img
-                    src={`https://countryflagsapi.com/png/${t.name}`}
+                    src={ t.name === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${t.name}`}
                     alt=""
                     className="w-full h-full"
                   />
