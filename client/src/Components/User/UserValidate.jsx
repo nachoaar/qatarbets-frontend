@@ -9,7 +9,7 @@ export default function ValidateUser() {
     const { token } = useParams();
 
     const verificar = async (token) =>{
-       await axios.get(`http://localhost:3001/validate/verify/${token}`);
+       await axios.get(`https://qatarbets-backend-production.up.railway.app/validate/verify/${token}`);
     }
 
 
