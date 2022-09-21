@@ -15,7 +15,7 @@ export const FixturePlayoffs = () => {
   console.log(matchesRound8);
 
   return (
-    <div className="w-full h-136 bg-slate-300 flex flex-col my-6">
+    <div className="w-full h-136 flex flex-col my-6">
 
       <div className="w-full hidden sm:flex flex-row py-6">
         <div className="w-2/5 flex flex-row text-center font-fifa text-white">
@@ -44,8 +44,8 @@ export const FixturePlayoffs = () => {
       </div>
 
 
-      <div className="flex flex-row snap-x overflow-x-auto">
-        <div className="flex flex-row gap-1 h-128 w-2/5 justify-center ">
+      <div className="w-full flex flex-row snap-x overflow-x-auto sm:overflow-hidden">
+        <div className="flex flex-row gap-1 h-128 sm:w-2/5 justify-center snap-start">
           <div className="flex flex-col justify-between py-7 snap-start">
             <div className="flex flex-col gap-20">
               <Separator />
@@ -187,8 +187,8 @@ export const FixturePlayoffs = () => {
 
 
         {/* FINAL */}
-        <div className="w-1/5 flex flex-col justify-start items-center gap-4 snap-start">
-          <div className="font-fifa text-3xl text-white">
+        <div className="sm:w-1/5 flex flex-col justify-start items-center gap-4 snap-start">
+          <div className="font-fifa text-xl sm:text-3xl text-white">
             <p>Final</p>
           </div>
           <div>
@@ -232,7 +232,7 @@ export const FixturePlayoffs = () => {
           </div>
         </div>
 
-        <div className="flex flex-row gap-1 h-128 w-2/5 justify-center ">
+        <div className="flex flex-row gap-1 h-128 sm:w-2/5 justify-center ">
           <div className="bg-morado flex flex-col justify-center snap-start">
             <div>
               <CardPlayoffs

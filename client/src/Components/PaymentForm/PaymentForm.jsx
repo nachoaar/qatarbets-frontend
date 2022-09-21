@@ -48,7 +48,6 @@ const CheckoutForm = (props) => {
           swal({
             title: "Pago realizado con exito!!",
             text: "Muchas gracias por su apuesta",
-            icon: "success",
             button: "Acept"
           })
           /* alert('Pago realizado con exito!!') */
