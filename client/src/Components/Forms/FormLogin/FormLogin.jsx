@@ -5,10 +5,9 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import { gapi } from 'gapi-script';
 import { login } from '../../../redux/reducer/userSlice';
 import { Footer } from '../../Footer/Footer'
+
 
 import {
   FormControl,
@@ -43,16 +42,8 @@ export default function FormLogin(props) {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
 
-  const clientId="214431339153-ao6cnr5b12t0j093f4ica9lrtdd4mka1.apps.googleusercontent.com";
-
   useEffect(() => {
-    dispatch(clearMessage())
-     
-
-    gapi.load("client:auth2", ()=>{
-      gapi.auth2.init({clientId:clientId})
-    })
-
+    dispatch(clearMessage());
   }, [dispatch]);
 
   const onSubmit = (input) => {
@@ -98,17 +89,6 @@ export default function FormLogin(props) {
     }
   };
 
-  // if (isLoggedIn) {
-  //   return <Navigate to="/profile" />;
-  // }
-
-  const responseGoogle = (res) => {
-    console.log('Logueado como: ', res.profileObj);
-  }
-
-  const responseGoogleF = (res) => {
-    console.log('Login fail: ', res);
-  }
   return (
     <>
     {/* <Navbar /> */}
@@ -148,18 +128,6 @@ export default function FormLogin(props) {
                 </Button>
                   </InputRightElement>
               </InputGroup>
-              <GoogleLogin
-              clientId={clientId}
-              buttonText="Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogleF}
-              cookiePolicy={'single_host_origin'}/>
-
-              <GoogleLogout
-              clientId={clientId}
-              buttonText={"Logout"}
-              onLogoutSuccess={logoutSuccess}/>
-
             <FormErrorMessage>
               {errors.pass && errors.pass.message}
             </FormErrorMessage>
