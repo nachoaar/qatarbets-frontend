@@ -101,12 +101,8 @@ export const Detail = () => {
                 openModal={openModalBet}
                 setProfit={setProfit}
                 setBet={setBet}
-<<<<<<< HEAD
-                setBetEng={setBetEng}
-=======
                 headToHead={headToHead}
                 status={match[0]?.status}
->>>>>>> 64fd9c6972ab4789862fa9318724dac9804c2421
               />
             </div>
             <div className="w-full sm:w-5/12 h-max">
@@ -169,15 +165,7 @@ export const Detail = () => {
         />
         {/* <FormLogin /> */}
         <TitleContentMedium title="realiza tu pago" />
-<<<<<<< HEAD
-        <PaymentForm
-          profit={profit}
-          id={id}
-          bet={betEng}
-        />
-=======
         <PaymentForm profit={profit} matchId={id} bet={bet} />
->>>>>>> 64fd9c6972ab4789862fa9318724dac9804c2421
       </Modal>
     </div>
   );
