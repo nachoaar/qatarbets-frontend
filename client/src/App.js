@@ -12,6 +12,7 @@ import { Home } from "./Components/HomeComponent/Home";
 import { LandingPage } from "./Components/LandingPage/LandingPage";
 import LoggedRoutes from "./Components/Protections/LoggedRoutes";
 import ProtectedRoutes from "./Components/Protections/ProtectedRoutes";
+import ValidateUser from "./Components/User/UserValidate";
 
 function App() {
   /* axios.get('http://localhost:3001/validate', {withCredentials: true})
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/detail/:id" element={<Detail />} />
         <Route exact path="/detail/:stage/:id" element={<DetailRounds />} />
         <Route element={<ProtectedRoutes />}>
+        <Route exact path="/userVerify/:token" element={<ValidateUser/>}/>
           <Route exact path="/dashboard" element={<UserDashboard />} />
           <Route exact path="/dashboard/bets/" element={<BetDashboard />} />
           <Route exact path="/dashboard/matchs/" element={<MatchDashboard />} />
