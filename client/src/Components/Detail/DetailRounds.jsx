@@ -15,8 +15,10 @@ import { Slider } from "../HomeComponent/Slider/Slider";
 import Modal from "../Modal/Modal";
 import { Navbar } from "../Navbar/Navbar";
 import { PaymentForm } from "../PaymentForm/PaymentForm";
+import { PaymentFormRound } from "../PaymentForm/PaymentFormRound";
 import { ProfitsPotentials } from "../Utils/ProfitsPotentials";
 import { SidebarRounds } from "../Utils/SidebarRounds";
+import { TitleContent } from "../Utils/TitleContent";
 import { TitleContentMedium } from "../Utils/TitleContentMedium";
 import { Bench } from "./Bench/Bench";
 import { CardDetail } from "./CardDetail/CardDetail";
@@ -33,7 +35,10 @@ export const DetailRounds = () => {
   );
   const matchesCuartos = useSelector((state) => state.fixture.fixtureRoundOf8);
   const matchesSemis = useSelector((state) => state.fixture.fixtureRoundOf4);
-  const matchesFinal = useSelector((state) => state.fixture.fixtureRoundOf2);
+  const matchThirdPlace = useSelector(
+    (state) => state.fixture.fixtureThirdPlaceMatch
+  );
+  const matchFinal = useSelector((state) => state.fixture.fixtureFinalMatch);
 
   let match = [];
   let matches = [];
@@ -50,12 +55,14 @@ export const DetailRounds = () => {
     match = matchesSemis?.find((m) => m.id === Number(id));
     matches = matchesSemis;
   }
-  if (stage === "Final") {
-    match = matchesFinal?.find((m) => m.id === Number(id));
-    matches = matchesFinal;
+  if (stage === "Tercer") {
+    match = matchThirdPlace[0];
+    matches = matchThirdPlace[0];
   }
-
-
+  if (stage === "Final") {
+    match = matchFinal[0];
+    matches = matchFinal[0];
+  }
 
   console.log("partido filtrado");
   console.log(match);
@@ -68,35 +75,30 @@ export const DetailRounds = () => {
   let playersHome = useSelector((store) => store.players.startingPlayersHome);
   let playersAway = useSelector((store) => store.players.startingPlayersAway);
 
-
-
   const headToHead = useSelector((state) => state.match.matchesHeadToHead);
-
-  const nameGroups = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
   //para el modal
   const [profit, setProfit] = useState(0);
   const [bet, setBet] = useState("");
   const [isOpenBet, openModalBet, closeModalBet] = useModal(false);
 
-
   useEffect(() => {
     dispatch(startingPlayersHome(idHome));
     dispatch(startingPlayersAway(idAway));
     dispatch(matchesHeadToHead(idHome, idAway));
-    return() => {
-      dispatch(startingPlayersClean())
-    }
+    return () => {
+      dispatch(startingPlayersClean());
+    };
   }, [idHome, idAway]);
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
       <Navbar />
 
-      <div className="flex flex-row justify-center p-4 w-5/6 gap-3 h-auto mt-20">
-        <div className="w-4/5">
-          <div className="flex flex-row gap-2">
-            <div className="w-7/12">
+      <div className="flex flex-col sm:flex-row justify-center sm:p-4 w-11/12 sm:w-5/6 gap-3 h-auto mt-20">
+        <div className="w-full sm:w-4/5">
+          <div className="flex flex-col sm:flex-row gap-2">
+            <div className="w-full sm:w-7/12">
               <CardDetail
                 home_team={match?.home_name}
                 away_team={match?.away_name}
@@ -112,7 +114,7 @@ export const DetailRounds = () => {
                 status={match?.status}
               />
             </div>
-            <div className="w-5/12 h-max">
+            <div className="w-full sm:w-5/12 h-max">
               <CardCity
                 date={match?.date}
                 city={match?.city}
@@ -123,14 +125,13 @@ export const DetailRounds = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col h-auto mt-4">
-            <TitleContentMedium title="Formacion de los equipos" />
+          <div className="w-full hidden sm:flex flex-col h-auto mt-4">
+            <TitleContent title="Formacion de los equipos" />
             <Bench
               homeName={match?.home_name}
               awayName={match?.away_name}
-              /*
-
-               */
+              coachHome={playersHome[0]?.coach[0]}
+              coachAway={playersAway[0]?.coach[0]}
             />
             <div className="w-full h-auto pb-4">
               {Object.entries(playersHome).length === 0 ? (
@@ -148,13 +149,14 @@ export const DetailRounds = () => {
                 />
               )}
             </div>
-            <div className="w-full h-32 overflow-hidden flex items-center">
-              <Slider />
-            </div>
+          </div>
+          <div className="w-full h-32 overflow-hidden flex items-center">
+            <Slider />
           </div>
         </div>
-
-        <SidebarRounds stage={stage} fixture={matches} />
+        <div className="w-full sm:w-1/5">
+          <SidebarRounds stage={stage} fixture={matches} />
+        </div>
       </div>
       <Footer />
 
@@ -169,11 +171,7 @@ export const DetailRounds = () => {
         />
 
         <TitleContentMedium title="realiza tu pago" />
-        <PaymentForm
-          profit={profit}
-          matchId={id}
-          bet={bet}
-        />
+        <PaymentFormRound profit={profit} matchId={id} bet={bet} />
       </Modal>
     </div>
   );

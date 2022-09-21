@@ -12,7 +12,7 @@ const Modal = ({ isOpen, closeModal, children }) => {
     >
       <div
         onClick={handleModalContainerClick}
-        className="relative bg-rojo p-8 h-full w-2/5 overflow-auto flex flex-col gap-4"
+        className="relative bg-rojo p-4 sm:p-8 h-full w-full sm:w-2/5 overflow-auto flex flex-col gap-4"
       >
         <button
           onClick={closeModal}

@@ -27,7 +27,7 @@ export const CardLarge = (props) => {
           <div className="text-white flex justify-start items-center w-full gap-1">
             <div className="h-8 w-10 rounded border-2 border-white bg-rojo overflow-hidden flex items-center justify-center">
               <img
-                src={`https://countryflagsapi.com/png/${props.home_team}`}
+                src={props.home_team === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${props.home_team}`}
                 alt=""
                 className="h-8 w-10"
               />
@@ -39,7 +39,7 @@ export const CardLarge = (props) => {
             <p className="font-parrafo">{props.away_team}</p>
             <div className="h-8 w-10 rounded border-2 border-white bg-rojo overflow-hidden flex items-center justify-center">
               <img
-                src={`https://countryflagsapi.com/png/${props.away_team}`}
+                src={props.away_team === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${props.away_team}`}
                 alt=""
                 className="h-8 w-10"
               />

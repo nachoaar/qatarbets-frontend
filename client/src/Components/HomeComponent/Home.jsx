@@ -81,7 +81,7 @@ export const Home = () => {
                   : "partidos del grupo: " + letras[letraGroup - 1]
               }
             />
-            <div className="w-full h-auto bg-morado">
+            <div className="w-full h-auto">
               <CardsMatch />
             </div>
           </div>
@@ -95,7 +95,7 @@ export const Home = () => {
           <Slider />
         </div>
         <div className="flex flex-col w-full justify-center items-center">
-          <TitleContentMedium title="Proximos partidos" />
+          <TitleContent title="Proximos partidos" />
           <div className="w-11/12 h-auto flex flex-row gap-2 snap-x overflow-auto">
             {/* <Cards allMatch={matches}/> */}
             {matches &&
@@ -116,8 +116,8 @@ export const Home = () => {
               })}
           </div>
         </div>
-        <div className="hidden sm:flex flex-col w-full justify-center items-center">
-          <TitleContentMedium title="Partidos mas apostados" />
+        <div className="hidden lg:flex flex-col w-full justify-center items-center">
+          <TitleContent title="Partidos mas apostados" />
           <div className="flex flex-col sm:flex-row justify-between gap-1 w-full sm:w-11/12 mb-10">
             {mostBets &&
               mostBets.slice(0, 4).map((m) => {

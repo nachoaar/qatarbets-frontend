@@ -10,13 +10,13 @@ export const CardPlayoffs = ({ nameHome, nameAway, id, stage }) => {
   };
 
   return (
-    <button onClick={onClick} className="group ease-in-out duration-300 hover:scale-105" disabled={nameHome.search("-") === -1 ? false : true}>
+    <button onClick={onClick} className="w-40 group ease-in-out duration-300 hover:scale-105" disabled={nameHome.search("-") === -1 ? false : true}>
       <div className="flex flex-col gap-2">
-        <div className="flex flex-row gap-1 justify-start px-7 py-2 bg-rojo rounded-tr-lg rounded-bl-lg group-hover:bg-rojosec">
+        <div className="flex flex-row gap-1 justify-start px-4 py-2 bg-rojo rounded-tr-lg rounded-bl-lg group-hover:bg-rojosec">
           {nameHome?.search("-") === -1 ? (
             <div className="bg-amarillo border-solid border-2 border-white w-8 h-6 rounded-tr-md rounded-bl-md overflow-hidden flex items-center justify-center">
               <img
-                src={`https://countryflagsapi.com/png/${nameHome}`}
+                src={nameHome === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${nameHome}`}
                 alt=""
                 className="w-8 h-6"
               />
@@ -28,11 +28,11 @@ export const CardPlayoffs = ({ nameHome, nameAway, id, stage }) => {
             <p>{nameHome}</p>
           </div>
         </div>
-        <div className="flex flex-row gap-1 justify-start px-7 py-2 bg-rojo rounded-tr-lg rounded-bl-lg group-hover:bg-rojosec">
+        <div className="flex flex-row gap-1 justify-start px-4 py-2 bg-rojo rounded-tr-lg rounded-bl-lg group-hover:bg-rojosec">
           {nameAway?.search("-") === -1 ? (
             <div className="bg-amarillo border-solid border-2 border-white w-8 h-6 rounded-tr-md rounded-bl-md overflow-hidden flex items-center justify-center">
               <img
-                src={`https://countryflagsapi.com/png/${nameAway}`}
+                src={nameAway === "South Korea" ? `https://countryflagsapi.com/png/The%20Republic%20Of%20Korea` : `https://countryflagsapi.com/png/${nameAway}`}
                 alt=""
                 className="w-8 h-6"
               />
