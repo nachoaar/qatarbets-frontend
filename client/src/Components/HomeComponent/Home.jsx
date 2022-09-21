@@ -21,6 +21,16 @@ export const Home = () => {
 
   const dispatch = useDispatch();
 
+  const matches = useSelector((state) => state.fixture?.fixture);
+  const filter = useSelector((state) => state.fixture?.fixtureFilterCopy);
+
+  const letras = ["A", "B", "C", "D", "E", "F", "G", "H"];
+
+  let letraGroup = filter[0]?.groupId;
+
+  console.log(letras[letraGroup]);
+
+
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(getGroups());
@@ -31,14 +41,6 @@ export const Home = () => {
     }
   }, [dispatch]);
 
-  const matches = useSelector((state) => state.fixture?.fixture);
-  const filter = useSelector((state) => state.fixture?.fixtureFilterCopy);
-
-  const letras = ["A", "B", "C", "D", "E", "F", "G", "H"];
-
-  let letraGroup = filter[0]?.groupId;
-
-  console.log(letras[letraGroup]);
 
   return (
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">

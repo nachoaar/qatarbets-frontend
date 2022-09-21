@@ -11,7 +11,7 @@ export const Court = ({
   playersAttackersAway,
 }) => {
   return (
-    <div className="w-full h-full flex flex-row bg-canchita bg-cover gap-4">
+    <div className="w-full h-128 flex flex-row bg-canchita bg-cover bg-no-repeat bg-center gap-4 p-8">
       {/* EQUIPO LOCAL */}
       <div className="w-1/2 h-auto flex flex-row justify-between ">
         <div className="h-full w-auto flex flex-col items-center justify-around px-2">

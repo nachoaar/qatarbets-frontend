@@ -24,13 +24,13 @@ const CheckoutForm = () => {
     if (!error) {
       const { id } = paymentMethod;
 
-      const { data } = await axios.post('http://localhost:3001/pay/', {
+      const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/pay/', {
         id,
         amount: amount * 100
       });
 
       if (data.message === 'Successful Payment') {
-        const { data } = await axios.post('http://localhost:3001/bet/newBet', {
+        const { data } = await axios.post('https://qatarbets-backend-production-ab54.up.railway.app/bet/newBet', {
           fecha_hora: new Date(),
           money_bet: amount,
           result: "draw",

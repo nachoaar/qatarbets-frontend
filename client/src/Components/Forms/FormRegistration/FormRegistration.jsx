@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar } from "../../Navbar/Navbar";
+import { Navigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import  { registerUser }  from '../../../redux/reducer/userSlice'
 import { clearMessage } from '../../../redux/reducer/messageSlice'
+import { Footer } from '../../Footer/Footer'
 
 import {
   FormControl,
@@ -22,9 +24,10 @@ import {
 
 
 export default function FormRestration() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { reset, register, handleSubmit, formState: { errors } } = useForm();
   const [successful, setSuccessful] = useState(false);
   const { message } = useSelector((state) => state.message);
+  const { isLoggedIn } = useSelector((state) => state.user);
 
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
@@ -36,6 +39,7 @@ export default function FormRestration() {
 
 
   const onSubmit = (input) => {
+    reset();
     const {name, age ,email, pass} = input;
     setSuccessful(false);
     dispatch(registerUser({name, age, email, pass}))
@@ -48,28 +52,31 @@ export default function FormRestration() {
       });
   };
 
-  // /^([a-zA-z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/gm
+  if (isLoggedIn) {
+    return <Navigate to="/home" />;
+  }
+
 
   return (
     <>
       <Navbar />
     <Center>
-        <VStack maxW="900px" w = {[250, 300, 400]} boxShadow='dark-lg' p='6' rounded='md' bg='white' m={8}>
-          <Heading>Sign up</Heading>
+        <VStack maxW="900px" w = {[250, 300, 400]} boxShadow='dark-lg' p='6' rounded='md' bg='white' m={20}>
+          <Heading>Registro</Heading>
           <form onSubmit={handleSubmit(onSubmit)}>
 
             <FormControl m={3} w = {[150, 250, 350]}  id='name' isInvalid={errors.name? true : false} isRequired>
-              <FormLabel htmlFor='name'>Username</FormLabel>
+              <FormLabel htmlFor='name'>Nombre de Usuario</FormLabel>
               <Input autoComplete='off' type='text' {...register('name', {
                 required: {
                   value: true,
-                  message: "Required field"
+                  message: "Campo Requerido"
                 },
                   pattern: {
                     value: /[A-Z]+$/i,
-                    message: 'only letters'
+                    message: 'Solo Letras'
                     }
-                    })} placeholder='your name'
+                    })} placeholder='Nombre de Usuario'
               />
               <FormErrorMessage>
                 {errors.name && errors.name.message}
@@ -77,13 +84,13 @@ export default function FormRestration() {
             </FormControl>
 
             <FormControl m={3} w = {[150, 250, 350]} id='age'  isInvalid={errors.age? true : false} isRequired>
-              <FormLabel htmlFor='age'>Age</FormLabel>
+              <FormLabel htmlFor='age'>Edad</FormLabel>
                 <Input autoComplete='off' type='number' {...register('age', {
                     min: {
                       value: 18,
-                      message: 'Your´re not old enough'
+                      message: 'tiene que ser +18 años'
                       }
-                      })} placeholder='Your Age +18'
+                      })} placeholder='Tu edad +18'
                 />
                 <FormErrorMessage>
                   {errors.age && errors.age.message}
@@ -91,17 +98,17 @@ export default function FormRestration() {
             </FormControl>
 
             <FormControl m={3} w = {[150, 250, 350]} id='email'  isInvalid={errors.email? true : false} isRequired>
-              <FormLabel htmlFor='email'>Email</FormLabel>
+              <FormLabel htmlFor='email'>Correo</FormLabel>
                 <Input autoComplete='off' type='text' {...register('email', {
                   required: {
                     value: true,
-                    message: "Required field"
+                    message: "Campo Requerido"
                   },
                     pattern: {
                       value: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g,
-                      message: 'invalid format'
+                      message: 'Formato Invalido'
                       }
-                      })} placeholder='example@domain.com'
+                      })} placeholder='ejemplo@domain.com'
                 />
                 <FormErrorMessage>
                   {errors.email && errors.email.message}
@@ -109,18 +116,18 @@ export default function FormRestration() {
             </FormControl>
 
             <FormControl m={3} w = {[150, 250, 350]} id='pass'  isInvalid={errors.pass? true : false} isRequired>
-              <FormLabel htmlFor='pass'>Password</FormLabel>
+              <FormLabel htmlFor='pass'>Contraseña</FormLabel>
               <InputGroup size='md'>
                 <Input autoComplete='off' type={show ? 'text' : 'password'} {...register('pass', {
                   required: {
                     value: true,
-                    message: "Required field"
+                    message: "Campo Requerido"
                   },
                     minLength: {
                       value: 8,
-                      message: 'Greater than 8'
+                      message: '8 Carateres Minimo'
                       }
-                      })} placeholder='Your Password'
+                      })} placeholder='Tu contraceña(8)'
                       />
                 <InputRightElement width='5.5rem'>
                   <Button h='2rem' size='sm' onClick={handleClick}>
@@ -133,10 +140,12 @@ export default function FormRestration() {
                   </FormErrorMessage>
             </FormControl>
 
-          <Button type='submit' colorScheme='red' m={3}>Register</Button>
+          <Button type='submit' colorScheme='red' m={3}>Registrarse</Button>
+          <FormErrorMessage>{message && message}</FormErrorMessage>
           </form>
         </VStack>
     </Center>
+    <Footer/>
     </>
   )
 }

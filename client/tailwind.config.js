@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        '128': '32rem',
+      },
       fontFamily: {
         'parrafo': ['Marvel', 'sans-serif'],
         'titulo': ['Koulen', 'cursive'],

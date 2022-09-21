@@ -10,7 +10,7 @@ import players from "./reducer/playersSlice";
 import betSlice from "./reducer/dashboardReducer/dashbetSlice";
 import gamblerSlice from "./reducer/dashboardReducer/dashgamblerSlice";
 import fixtureDashSlice from "./reducer/dashboardReducer/dashfixtureSlice";
-
+import pass from "./reducer/passSlice";
 
 
 
@@ -26,5 +26,6 @@ export default configureStore({
     dashgambler: gamblerSlice,
     dashfixture: fixtureDashSlice,
     user,
+    pass,
   }
 })
