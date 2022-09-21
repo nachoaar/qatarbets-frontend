@@ -1,7 +1,5 @@
 import React from "react";
 import { Separator } from "../../Utils/Separator";
-import { SeparatorHorizontal } from "../../Utils/SeparatorHorizontal";
-import { Triangle } from "../../Utils/Triangle";
 
 export const NavigateHome = ({ setChange, change }) => {
   const onChange = (e, change) => {

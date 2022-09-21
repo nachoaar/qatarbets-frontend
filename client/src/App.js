@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import NotFound from "./Components/404.jsx/NotFound";
 import { BetDashboard } from "./Components/Dashboard/Routes/BetDashboard";
 import { MatchDashboard } from "./Components/Dashboard/Routes/MatchDashboard";
 import { Simulation } from "./Components/Dashboard/Routes/SimulationDashboard";
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/dashboard/simulation" element={<Simulation />} />
         </Route>
       </Route>
+      <Route path="*" element={<NotFound />}/>
     </Routes>
   );
 }

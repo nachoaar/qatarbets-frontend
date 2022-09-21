@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../redux/reducer/userSlice.js';
 
-function Logout() {
+function Logout({setHiddenMenu}) {
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -12,6 +13,7 @@ function Logout() {
     e.preventDefault();
     await axios.get('https://qatarbets-backend-production.up.railway.app/validate/logout', {withCredentials: true});
     dispatch(logout())
+    setHiddenMenu(true);
     navigate('/')
   }
 
