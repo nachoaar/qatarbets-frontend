@@ -15,6 +15,7 @@ import { Slider } from "../HomeComponent/Slider/Slider";
 import Modal from "../Modal/Modal";
 import { Navbar } from "../Navbar/Navbar";
 import { PaymentForm } from "../PaymentForm/PaymentForm";
+import { PaymentFormRound } from "../PaymentForm/PaymentFormRound";
 import { ProfitsPotentials } from "../Utils/ProfitsPotentials";
 import { SidebarRounds } from "../Utils/SidebarRounds";
 import { TitleContentMedium } from "../Utils/TitleContentMedium";
@@ -169,7 +170,7 @@ export const DetailRounds = () => {
         />
 
         <TitleContentMedium title="realiza tu pago" />
-        <PaymentForm
+        <PaymentFormRound
           profit={profit}
           matchId={id}
           bet={bet}

@@ -11,7 +11,8 @@ const stripePromise = loadStripe(`${process.env.REACT_APP_CLAVE_STRIPE}`);
 
 
 const CheckoutForm = (props) => {
-  // console.log(props);
+  /* console.log("desde funcion fantasma");
+  console.log(props); */
   // console.log(id, profit, bet);
   const {matchId, profit, bet} = props.props
   const [amount, setAmount] = useState(0);
@@ -39,10 +40,10 @@ const CheckoutForm = (props) => {
           fecha_hora: new Date(),
           money_bet: amount,
           result: bet,
-          condition: "ready",
+          condition: props.matchId,
           expected_profit: amount * profit,
           final_profit: 0,
-          matchId: matchId,
+          matchId: null,
         }, { withCredentials: true });
         if (data === 'La apuesta se creo correctamente') {
           swal({
@@ -84,8 +85,9 @@ const CheckoutForm = (props) => {
   </form>
 }
 
-export const PaymentForm = (props) => {
-  // console.log(props);
+export const PaymentFormRound = (props) => {
+/* console.log("desde payment");
+ console.log(props.matchId); */
   return (
     <Elements stripe={stripePromise}>
       <CheckoutForm props = {props}/>

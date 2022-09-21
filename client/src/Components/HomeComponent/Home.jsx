@@ -116,7 +116,7 @@ export const Home = () => {
               })}
           </div>
         </div>
-        <div className="hidden sm:flex flex-col w-full justify-center items-center">
+        <div className="hidden lg:flex flex-col w-full justify-center items-center">
           <TitleContentMedium title="Partidos mas apostados" />
           <div className="flex flex-col sm:flex-row justify-between gap-1 w-full sm:w-11/12 mb-10">
             {mostBets &&

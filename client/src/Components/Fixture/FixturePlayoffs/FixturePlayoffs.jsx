@@ -15,8 +15,9 @@ export const FixturePlayoffs = () => {
   console.log(matchesRound8);
 
   return (
-    <div className="w-full h-auto flex flex-col py-6">
-      <div className="w-full flex flex-row py-6">
+    <div className="w-full h-136 bg-slate-300 flex flex-col my-6">
+
+      <div className="w-full hidden sm:flex flex-row py-6">
         <div className="w-2/5 flex flex-row text-center font-fifa text-white">
           <div className="w-1/3">
             <p>Octavos de final</p>
@@ -41,9 +42,11 @@ export const FixturePlayoffs = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row ">
-        <div className="flex flex-row gap-1 h-128 w-2/5 justify-center">
-          <div className="flex flex-col justify-between py-7">
+
+
+      <div className="flex flex-row snap-x overflow-x-auto">
+        <div className="flex flex-row gap-1 h-128 w-2/5 justify-center ">
+          <div className="flex flex-col justify-between py-7 snap-start">
             <div className="flex flex-col gap-20">
               <Separator />
               <Separator />
@@ -53,7 +56,7 @@ export const FixturePlayoffs = () => {
               <Separator />
             </div>
           </div>
-          <div className="bg-morado flex flex-col justify-between">
+          <div className="bg-morado flex flex-col justify-between snap-start">
             <div className="flex flex-col gap-6">
               <CardPlayoffs
                 nameHome={
@@ -115,7 +118,7 @@ export const FixturePlayoffs = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col justify-around">
+          <div className="flex flex-col justify-around snap-start">
             <div className="flex flex-col gap-20">
               <Separator />
             </div>
@@ -123,7 +126,7 @@ export const FixturePlayoffs = () => {
               <Separator />
             </div>
           </div>
-          <div className="bg-morado flex flex-col justify-around">
+          <div className="bg-morado flex flex-col justify-around snap-start">
             <div>
               <CardPlayoffs
                 nameHome={
@@ -157,12 +160,12 @@ export const FixturePlayoffs = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center snap-start">
             <div className="flex flex-col gap-20">
               <Separator />
             </div>
           </div>
-          <div className="bg-morado flex flex-col justify-center">
+          <div className="bg-morado flex flex-col justify-center snap-start">
             <div>
               <CardPlayoffs
                 nameHome={
@@ -184,7 +187,7 @@ export const FixturePlayoffs = () => {
 
 
         {/* FINAL */}
-        <div className="w-1/5 flex flex-col justify-start items-center gap-4">
+        <div className="w-1/5 flex flex-col justify-start items-center gap-4 snap-start">
           <div className="font-fifa text-3xl text-white">
             <p>Final</p>
           </div>
@@ -229,8 +232,8 @@ export const FixturePlayoffs = () => {
           </div>
         </div>
 
-        <div className="flex flex-row gap-1 h-128 w-2/5 justify-center">
-          <div className="bg-morado flex flex-col justify-center">
+        <div className="flex flex-row gap-1 h-128 w-2/5 justify-center ">
+          <div className="bg-morado flex flex-col justify-center snap-start">
             <div>
               <CardPlayoffs
                 nameHome={
@@ -248,12 +251,12 @@ export const FixturePlayoffs = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center snap-start">
             <div className="flex flex-col gap-20">
               <Separator />
             </div>
           </div>
-          <div className="bg-morado flex flex-col justify-around">
+          <div className="bg-morado flex flex-col justify-around snap-start">
             <div>
               <CardPlayoffs
                 nameHome={
@@ -287,7 +290,7 @@ export const FixturePlayoffs = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col justify-around">
+          <div className="flex flex-col justify-around snap-start">
             <div className="flex flex-col gap-20">
               <Separator />
             </div>
@@ -295,7 +298,7 @@ export const FixturePlayoffs = () => {
               <Separator />
             </div>
           </div>
-          <div className="bg-morado flex flex-col justify-between">
+          <div className="bg-morado flex flex-col justify-between snap-start">
             <div className="flex flex-col gap-6">
               <CardPlayoffs
                 nameHome={
@@ -357,7 +360,7 @@ export const FixturePlayoffs = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col justify-between py-7">
+          <div className="flex flex-col justify-between py-7 snap-start">
             <div className="flex flex-col gap-20">
               <Separator />
               <Separator />
