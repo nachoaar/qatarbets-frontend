@@ -40,7 +40,7 @@ const CheckoutForm = (props) => {
           fecha_hora: new Date(),
           money_bet: amount,
           result: bet,
-          condition: props.matchId,
+          condition: matchId,
           expected_profit: amount * profit,
           final_profit: 0,
           matchId: null,
@@ -49,7 +49,7 @@ const CheckoutForm = (props) => {
           swal({
             title: "Pago realizado con exito!!",
             text: "Muchas gracias por su apuesta",
-            icon: "succes",
+            icon: "success",
             button: "Acept"
           })
           /* alert('Pago realizado con exito!!') */
