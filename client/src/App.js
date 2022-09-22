@@ -25,12 +25,12 @@ function App() {
       <Route exact path="/" element={<LandingPage />} />
       <Route exact path="/register" element={<FormRestration />} />
       <Route exact path="/login" element={<FormLogin />} />
+      <Route exact path="/userVerify/:token" element={<ValidateUser/>}/>
       <Route element={<LoggedRoutes />}>
         <Route path="/home" element={<Home />} />
         <Route exact path="/detail/:id" element={<Detail />} />
         <Route exact path="/detail/:stage/:id" element={<DetailRounds />} />
         <Route element={<ProtectedRoutes />}>
-        <Route exact path="/userVerify/:token" element={<ValidateUser/>}/>
           <Route exact path="/dashboard" element={<UserDashboard />} />
           <Route exact path="/dashboard/bets/" element={<BetDashboard />} />
           <Route exact path="/dashboard/matchs/" element={<MatchDashboard />} />
