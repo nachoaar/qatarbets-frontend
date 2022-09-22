@@ -59,7 +59,7 @@ const CheckoutForm = (props) => {
           swal({
             title: "Pago realizado con exito!!",
             text: "Muchas gracias por su apuesta",
-            button: "Acept"
+            button: <a href="https://qatarbets-frontend-git-develop-nachoaar.vercel.app/">Aceptar</a> 
           })
           /* alert('Pago realizado con exito!!') */
         }
