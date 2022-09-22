@@ -31,7 +31,7 @@ export const DetailRounds = () => {
   const dispatch = useDispatch();
 
   const matchesOctavos = useSelector(
-    (state) => state.fixture.fixtureRoundOf16[8]
+    (state) => state.fixture.fixtureRoundOf16
   );
   const matchesCuartos = useSelector((state) => state.fixture.fixtureRoundOf8);
   const matchesSemis = useSelector((state) => state.fixture.fixtureRoundOf4);
@@ -56,12 +56,12 @@ export const DetailRounds = () => {
     matches = matchesSemis;
   }
   if (stage === "Tercer") {
-    match = matchThirdPlace[0];
-    matches = matchThirdPlace[0];
+    match = matchThirdPlace;
+    matches = matchThirdPlace;
   }
   if (stage === "Final") {
-    match = matchFinal[0];
-    matches = matchFinal[0];
+    match = matchFinal;
+    matches = matchFinal;
   }
 
   console.log("partido filtrado");
