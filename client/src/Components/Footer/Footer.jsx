@@ -4,12 +4,13 @@ import tw from "../../media/twitter.png";
 import ig from "../../media/instagram.png";
 import lin from "../../media/linkedin.png";
 import { SeparatorHorizontal } from "../Utils/SeparatorHorizontal";
+import AboutUs from "../AboutUs/AboutUs";
 
 export const Footer = () => {
   return (
     <div className="w-full items-center bg-morado text-gris flex flex-wrap mx-auto justify-evenly py-4 sm:p-4">
-      <div className="flex flex-row flex-wrap w-full sm:w-11/12">
-        <div className="w-full sm:w-3/4">
+      <div className="flex flex-row flex-wrap w-full sm:w-11/12 justify-around">
+        <div className="w-full sm:w-1/3">
           <svg
             className="pl-6"
             width="209"
@@ -56,24 +57,25 @@ export const Footer = () => {
           </div>
         </div>
         {/* <div className="min-w-fit px-6">
-                <h3 className="font-titulo text-2xl mt-4 text-white mb-5">Soluciones</h3>
-                <div className="font-parrafo text-xl px-6">
-                    <h5 className="cursor-pointer my-1 hover:opacity-70">App Desarrollo</h5>
-                    <h5 className="cursor-pointer my-1 hover:opacity-70">App Marketing</h5>
-                    <h5 className="cursor-pointer my-1 hover:opacity-70">IOS Desarrollo</h5>
-                    <h5 className="cursor-pointer my-1 hover:opacity-70">Android Desarrollo</h5>
-                </div>
-            </div>
-            <div className="min-w-fit px-6">
-                <h3 className="font-titulo text-2xl mt-4 text-white mb-5">Company</h3>
-                <div className="font-parrafo text-xl px-6">
-                    <h5 className="cursor-pointer my-1 hover:opacity-70">Acerca de</h5>
-                    <h5 className="cursor-pointer my-1 hover:opacity-70">Trabajos</h5>
-                    <h5 className="cursor-pointer my-1 hover:opacity-70">Procesos</h5>
-                    <h5 className="cursor-pointer my-1 hover:opacity-70">Servicios</h5>
-                </div>
-            </div> */}
-        <div className="w-full sm:w-1/4 px-6">
+          <h3 className="font-titulo text-2xl mt-4 text-white mb-5">Soluciones</h3>
+          <div className="font-parrafo text-xl px-6">
+            <h5 className="cursor-pointer my-1 hover:opacity-70">App Desarrollo</h5>
+            <h5 className="cursor-pointer my-1 hover:opacity-70">App Marketing</h5>
+            <h5 className="cursor-pointer my-1 hover:opacity-70">IOS Desarrollo</h5>
+            <h5 className="cursor-pointer my-1 hover:opacity-70">Android Desarrollo</h5>
+          </div>
+        </div> */}
+        <div className="min-w-fit px-6">
+          <h3 className="font-titulo text-2xl mt-4 text-white mb-5">Nosotros</h3>
+          <div className="font-parrafo text-xl px-6">
+            <AboutUs/>
+            {/* <h5 className="cursor-pointer my-1 hover:opacity-70">Acerca de</h5>
+            <h5 className="cursor-pointer my-1 hover:opacity-70">Trabajos</h5>
+            <h5 className="cursor-pointer my-1 hover:opacity-70">Procesos</h5>
+            <h5 className="cursor-pointer my-1 hover:opacity-70">Servicios</h5> */}
+          </div>
+        </div>
+        <div className="min-w-fit px-6">
           <h3 className="font-titulo text-2xl mt-4 text-white mb-5">
             Redes Sociales
           </h3>
@@ -149,6 +151,7 @@ export const Footer = () => {
         <SeparatorHorizontal />
         <p>Todos los derechos reservados @2022</p>
         <b>QATARBETS</b>
+        <SeparatorHorizontal />
       </div>
     </div>
   );
