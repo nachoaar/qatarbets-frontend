@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import swal from "sweetalert";
 
 export const gamblerSlice = createSlice({
   name:"gambler",
@@ -16,7 +17,11 @@ export const gamblerSlice = createSlice({
     },
     GamblerName: (state, action) => {
       let gamblerByName = state.gamblers.find((g) => g.name === action.payload)
-      gamblerByName === undefined ?  alert('usuario no encontrado'): state.gamblerName = gamblerByName
+      gamblerByName === undefined ?  swal({
+        title: "Operacion fallida!!",
+        text: "No se pudo encontrar ningun usuario con el nombre ingresado",
+        button: "Cancel",
+      }): state.gamblerName = gamblerByName
     },
     CacheGambler: (state) => {
       state.gamblerName = {}
