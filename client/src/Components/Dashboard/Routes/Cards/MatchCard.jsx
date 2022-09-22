@@ -21,7 +21,7 @@ export const MatchCard = (props) => {
                   <td className="border border-gristexto">{`${props.home_team} vs ${props.away_team}`}</td>
                   <td className="border border-gristexto">{date}</td>
                   <td className="border border-gristexto">{props.status}</td>
-                  <td className={`border border-gristexto`}>-</td>
+                  <td className={`border border-gristexto`}>{props.result_match}</td>
                 </tr>
               </tbody>
             </table>

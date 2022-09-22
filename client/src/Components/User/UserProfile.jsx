@@ -3,8 +3,12 @@ import { useSelector,useDispatch } from 'react-redux';
 import { UserCard } from './UserBetCard.jsx/UserCard';
 import UserStatGafic from '../Dashboard/Routes/Graphs/userGrafics';
 import { useState } from 'react';
-import {clearAvatar, updateUserAvatar,updateUserName } from "../../redux/actions/internalUserActions";
+import {Image} from 'cloudinary-react'
+import {clearAvatar, updateUserAvatar,updateUserName,getInternalUser } from "../../redux/actions/internalUserActions";
 import PfpInput from '../pfpInput/PfpInput';
+
+
+
 export const UserProfile = ({modal, setModal}) => {
 
   const user = useSelector((store) => store.internalUser?.user);
@@ -54,9 +58,9 @@ export const UserProfile = ({modal, setModal}) => {
           <div className="w-full flex justify-between items-end">
             <div className="w-full h-auto mb-2 flex justify-start items-start gap-4">
               <div className="w-32 h-32 overflow-hidden border-4 border-gristexto rounded-xl">
-              { modify === true ? <PfpInput /> : <img
+              { modify === true ? <PfpInput /> : <Image
                 className="h-32 w-32"
-                src={ user.length >= 1 ? user[0].avatar : ''}
+                src={user ? user[0]?.avatar : ''}
                 alt="avatar usuario"
               />}
               </div>

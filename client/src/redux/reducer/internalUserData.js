@@ -23,6 +23,7 @@ export const InternalUserSlice = createSlice({
                 let bet = {
                   id: actualBet.id,
                   match: `${action.payload.matches[index]?.home_team.name} vs ${action.payload.matches[index]?.away_team.name}`,
+                //   result_match:  action.payload.matches[index]?.result_match,
                   result: actualBet.result,
                   money_bet:actualBet.money_bet,
                   final_profit: actualBet.final_profit,
@@ -40,12 +41,6 @@ export const InternalUserSlice = createSlice({
         },
         newAvatar: (state,action) =>{
             state.avatar = action.payload
-        },
-        updateAvatar: (state, action) =>{
-            state.avatar = state.avatar
-        },
-        updateName: (state,action) =>{
-            state.newName = state.newName
         },
         clearAvatarState: (state) =>{
             state.avatar = []

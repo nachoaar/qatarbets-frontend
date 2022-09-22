@@ -31,7 +31,7 @@ export function sortBets(id){
 export function getNewAvatar(){
   return async function(dispatch){
     const avatarLink = (await axios.get("https://qatarbets-backend-production.up.railway.app/avatar/cloud/pfp")).data
-    console.log('Avatar Link --------->', avatarLink);
+    console.log('avat Link ------------------>', avatarLink)
     dispatch(newAvatar(avatarLink[0]))
   }
 }
@@ -39,14 +39,13 @@ export function getNewAvatar(){
 export function updateUserAvatar(avatar , id){
   console.log('avatar --- >', avatar)
   return async function(dispatch){
-     axios.put(`https://qatarbets-backend-production.up.railway.app/user/changeAvatar?userId=${id}&avatarLink=${avatar}`)
-    dispatch(updateAvatar())
+     await axios.put(`https://qatarbets-backend-production.up.railway.app/user/changeAvatar?userId=${id}&avatarLink=${avatar}`)
   }
 }
 
 export function updateUserName(newName, id){
   return async function(dispatch){
-      axios.put(`https://qatarbets-backend-production.up.railway.app/user/changeUserName?userId=${id}&newName=${newName}`)
+      await axios.put(`https://qatarbets-backend-production.up.railway.app/user/changeUserName?userId=${id}&newName=${newName}`)
     dispatch(updateName())
   }
 }

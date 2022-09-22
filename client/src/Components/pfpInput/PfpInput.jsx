@@ -17,8 +17,7 @@ function PfpInput(){
         formData.append("upload_preset","qatar-bets")
 
        axios.post("https://api.cloudinary.com/v1_1/dztdwrxys/image/upload", formData)
-
-        dispatch(getNewAvatar())
+        .then(r => dispatch(getNewAvatar()))
     }
 
 //     const [previewSource, setPreviewSource] = useState()
