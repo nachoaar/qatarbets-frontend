@@ -14,7 +14,7 @@ function AboutUs() {
           return (
             <div className='flex items-center justify-between gap-4 w-full' key={el.nombre}>
               <div className='flex items-center justify-center gap-2 '>
-                <img className='w-16 h-16 rounded-full mr-1 mt-2 mb-2 ring-2 ring-gris ' src={el.img} alt={el.nombre} />
+                <img className='w-14 h-14 rounded-full mr-1 mt-2 mb-2 ring-2 ring-gris ' src={el.img} alt={el.nombre} />
                 <p>{el.nombre}</p>
                 <a href={el.linkedin} target="_blank" rel="noreferrer noopener" ><img className='w-6' src={lin} /></a>
                 <br />
@@ -32,7 +32,7 @@ function AboutUs() {
           return (
             <div className='flex items-center justify-between gap-4 w-full' key={el.nombre}>
               <div className='flex items-center justify-center gap-2 '>
-                <img className='w-16 rounded-full mr-1 mt-2 mb-2 ring-2 ring-gris' src={el.img} alt={el.nombre} />
+                <img className='w-14 h-14 rounded-full mr-1 mt-2 mb-2 ring-2 ring-gris' src={el.img} alt={el.nombre} />
                 <p>{el.nombre}</p>
                 <a href={el.linkedin} target="_blank" rel="noreferrer noopener" ><img className='w-6' src={lin} /></a>
                 <br />

@@ -45,7 +45,7 @@ export const Footer = () => {
               </linearGradient>
             </defs>
           </svg>
-          <div className=" text-xl text-justify font-parrafo px-6 w-full sm:max-w-3xl">
+          <div className=" text-xl text-justify font-parrafo w-full sm:max-w-3xl">
             Apuestas Deportivas, QATARBETS Sitio N°1 en Casa de apuestas online
             de la copa del mundo. Con las apuestas de la copa del mundo ¡Estás a
             punto de vivir la emoción de ganar!, Somos QATARBETS, la familia más
@@ -65,7 +65,7 @@ export const Footer = () => {
             <h5 className="cursor-pointer my-1 hover:opacity-70">Android Desarrollo</h5>
           </div>
         </div> */}
-        <div className="min-w-fit px-6">
+        <div className="min-w-fit ">
           <h3 className="font-titulo text-2xl mt-4 text-white mb-5">Nosotros</h3>
           <div className="font-parrafo text-xl px-6">
             <AboutUs/>
@@ -75,7 +75,7 @@ export const Footer = () => {
             <h5 className="cursor-pointer my-1 hover:opacity-70">Servicios</h5> */}
           </div>
         </div>
-        <div className="min-w-fit px-6">
+        <div className="min-w-fit ">
           <h3 className="font-titulo text-2xl mt-4 text-white mb-5">
             Redes Sociales
           </h3>
