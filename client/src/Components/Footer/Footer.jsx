@@ -3,11 +3,12 @@ import fb from "../../media/facebook.png";
 import tw from "../../media/twitter.png";
 import ig from "../../media/instagram.png";
 import lin from "../../media/linkedin.png";
+import { SeparatorHorizontal } from "../Utils/SeparatorHorizontal";
 
 export const Footer = () => {
   return (
-    <div className="w-full items-center bg-morado text-gris flex flex-wrap mx-auto justify-evenly p-4">
-      <div className="flex flex-row flex-wrap w-11/12">
+    <div className="w-full items-center bg-morado text-gris flex flex-wrap mx-auto justify-evenly py-4 sm:p-4">
+      <div className="flex flex-row flex-wrap w-full sm:w-11/12">
         <div className="w-full sm:w-3/4">
           <svg
             className="pl-6"
@@ -144,8 +145,9 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex gap-0.5 w-full justify-center py-4 border-t-2 border-gris mt-8">
-        <p>Todos los derechos reservados @2020</p>
+      <div className="flex flex-col sm:flex-row gap-2 w-full justify-center items-center p-4 border-t-2 border-gris mt-8">
+        <SeparatorHorizontal />
+        <p>Todos los derechos reservados @2022</p>
         <b>QATARBETS</b>
       </div>
     </div>

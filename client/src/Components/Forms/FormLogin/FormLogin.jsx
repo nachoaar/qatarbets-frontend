@@ -26,6 +26,7 @@ import {
   AlertDescription,
   // FormHelperText,
 } from '@chakra-ui/react'
+import GoogleAuth from '../../Google/GoogleAuth';
 
 
 export default function FormLogin(props) {
@@ -33,6 +34,7 @@ export default function FormLogin(props) {
   const { reset, register, handleSubmit, formState: { errors } } = useForm();
   const { isLoggedIn } = useSelector((state) => state.user);
   const { message } = useSelector((state) => state.message);
+  const [msg, setMsg] = useState('');
   const navigate = useNavigate()
 
 
@@ -49,6 +51,7 @@ export default function FormLogin(props) {
     const { email, pass } = input;
     setLoading(true);
     dispatch(login({email, pass}))
+    setMsg(message)
     /* .unwrap()
       .then(() => {
         navigate("/home");
@@ -61,7 +64,7 @@ export default function FormLogin(props) {
 
   let messages = null;
 
-  if(message){
+  if(msg !== ''){
     /* if (message === "Usuario Registrado!") {
       navigate('/login')
     } */
@@ -128,11 +131,12 @@ export default function FormLogin(props) {
             </FormErrorMessage>
           </FormControl>
 
-          <Button type='submit' colorScheme='red' m={3}>Iniciar Sesion</Button>
+          <Button type='submit' colorScheme='red' m={3} >Iniciar Sesion</Button>
           <Link to="/register">
           <Button colorScheme='gray' m={3}>Registrarse</Button>
           </Link>
         </form>
+        <GoogleAuth />
         <Link to="/">
             <p className="text-rojosec font-titulodash text-sm">¿Deseas volver? hace click aquí</p>
         </Link>

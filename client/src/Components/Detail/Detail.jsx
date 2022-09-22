@@ -16,7 +16,6 @@ import {
   startingPlayersHome,
 } from "../../redux/actions/playersActions";
 import { Footer } from "../Footer/Footer";
-import FormLogin from "../Forms/FormLogin/FormLogin";
 import { Slider } from "../HomeComponent/Slider/Slider";
 import Modal from "../Modal/Modal";
 import { Navbar } from "../Navbar/Navbar";
@@ -85,10 +84,10 @@ export const Detail = () => {
     <div className=" bg-gradient-to-b from-morado to-moradosec flex flex-col items-center">
       <Navbar />
 
-      <div className="flex flex-row justify-center p-4 w-5/6 gap-3 h-auto mt-20">
-        <div className="w-4/5">
-          <div className="flex flex-row gap-2">
-            <div className="w-7/12">
+      <div className="flex flex-col sm:flex-row justify-center sm:p-4 w-11/12 sm:w-5/6 gap-3 h-auto mt-20">
+        <div className="w-full sm:w-4/5">
+          <div className="flex flex-col sm:flex-row gap-2">
+            <div className="w-full sm:w-7/12">
               <CardDetail
                 home_team={match[0]?.home_team.name}
                 away_team={match[0]?.away_team.name}
@@ -104,7 +103,7 @@ export const Detail = () => {
                 status={match[0]?.status}
               />
             </div>
-            <div className="w-5/12 h-max">
+            <div className="w-full sm:w-5/12 h-max">
               <CardCity
                 date={match[0]?.date}
                 city={match[0]?.city}
@@ -115,7 +114,7 @@ export const Detail = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col h-auto mt-4">
+          <div className="w-full hidden sm:flex flex-col h-auto mt-4">
             <TitleContentMedium title="Formacion de los equipos" />
             <Bench
               homeName={match[0]?.home_team.name}
@@ -139,13 +138,17 @@ export const Detail = () => {
                 />
               )}
             </div>
-            <div className="w-full h-32 overflow-hidden flex items-center">
-              <Slider />
-            </div>
+          </div>
+          <div className="w-full h-32 overflow-hidden flex items-center my-4 sm:my-0">
+            <Slider />
           </div>
         </div>
-
-        <SidebarMatch group={nameGroups[groupId - 1]} fixture={matchesGroup} />
+        <div className="w-full sm:w-1/5">
+          <SidebarMatch
+            group={nameGroups[groupId - 1]}
+            fixture={matchesGroup}
+          />
+        </div>
       </div>
       <Footer />
 
@@ -160,11 +163,7 @@ export const Detail = () => {
         />
         {/* <FormLogin /> */}
         <TitleContentMedium title="realiza tu pago" />
-        <PaymentForm
-          profit={profit}
-          matchId={id}
-          bet={bet}
-        />
+        <PaymentForm profit={profit} matchId={id} bet={bet} />
       </Modal>
     </div>
   );
