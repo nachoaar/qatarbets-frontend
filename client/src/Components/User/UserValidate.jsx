@@ -29,7 +29,7 @@ export default function ValidateUser() {
             </svg>
             <div className="flex mt-2 mb-5">
                 <Triangle />
-                <h1 className="text-3xl text-white font-fifa px-2 font-medium m-1">404 NOT FOUND</h1>  
+                <h1 className="text-3xl text-white font-fifa px-2 font-medium m-1">VALIDACIÓN</h1>  
                 <Triangle />
             </div>
             <div className=" text-xl text-white text-justify font-parrafo mb-10">
