@@ -1,12 +1,13 @@
 import axios from "axios";
 
-const register = async (name, age, email, pass, avatar) => {
+const register = async (name, age, email, pass, avatar, emailvalidate) => {
   const dataUser = {
     name,
     age,
     email,
     pass,
     avatar,
+    emailvalidate
   }
     const postUser = await axios.post('https://qatarbets-backend-production.up.railway.app/user/register', dataUser);
     return postUser;
@@ -24,8 +25,14 @@ const loginUser = async (email, pass) => {
   }
 }
 
-const logoutUser = () => {
-  localStorage.removeItem("user");
+const logoutUser = async () => {
+ try {
+  const logoutUser = await axios.get("https://qatarbets-backend-production.up.railway.app/validate/logout");
+
+  console.log(logoutUser)
+ } catch (error){
+  console.log(error)
+ }
 };
 
 const authService = {

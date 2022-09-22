@@ -11,6 +11,7 @@ function GoogleAuth() {
   const navigate = useNavigate();
   const [token, setToken] = useState(false);
   const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const createOrGetUser = async (response, addUser) => {
     const decoded = jwt_decode(response.credential);
@@ -19,6 +20,7 @@ function GoogleAuth() {
       email: decoded.email,
       name: decoded.name,
       avatar: decoded.picture,
+      emailvalidate: true
     };
     setUser(userInfo);
     const data = Promise.resolve(
@@ -46,6 +48,7 @@ function GoogleAuth() {
 
   let handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     dispatch(
       registerUser({
         name: user.name,
@@ -53,9 +56,12 @@ function GoogleAuth() {
         email: user.email,
         pass: user.pass,
         avatar: user.avatar,
+        emailvalidate: user.emailvalidate
       })
     );
-    navigate("/login");
+    setTimeout(() => {
+      window.location.reload(false)
+    }, 1000);
   };
   return (
     <div className="w-full">
@@ -85,7 +91,7 @@ function GoogleAuth() {
               className="ring-1 ring-rojosec rounded p-2"
             />
 
-            <button type="submit" className="p-2 bg-morado rounded text-white">
+            <button type="submit" className="p-2 bg-morado rounded text-white" disabled={loading === true}>
               Confirmar
             </button>
           </form>

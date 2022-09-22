@@ -5,9 +5,9 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 export const registerUser = createAsyncThunk(
   "user/registerUser",
-  async ({ name, age, email, pass, avatar }, thunkAPI) => {
+  async ({ name, age, email, pass, avatar, emailvalidate }, thunkAPI) => {
     try {
-      const response = await authService.register(name, age, email, pass, avatar);
+      const response = await authService.register(name, age, email, pass, avatar, emailvalidate);
       thunkAPI.dispatch(setMessage(response.data));
       return response.data;
     } catch (error) {

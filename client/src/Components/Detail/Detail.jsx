@@ -63,6 +63,7 @@ export const Detail = () => {
   //para el modal
   const [profit, setProfit] = useState(0);
   const [bet, setBet] = useState("");
+  const [betEng, setBetEng] = useState("");
   const [isOpenBet, openModalBet, closeModalBet] = useModal(false);
 
   useEffect(() => {
