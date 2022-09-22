@@ -22,7 +22,7 @@ export const UserProfile = ({ modal, setModal }) => {
   return (
     <>
       <div
-        className={`w-screen h-screen p-5 fixed top-0 left-0 bg-black/50 flex items-center justify-center ${
+        className={`w-screen h-screen p-8 fixed top-0 left-0 bg-black/50 flex items-center justify-center ${
           modal === false ? "hidden" : ""
         }`}
       >
@@ -75,7 +75,7 @@ export const UserProfile = ({ modal, setModal }) => {
                 </p>
               </div>
             </div>
-            {modify === true ? (
+            {/* {modify === true ? (
               <button
                 className="w-48 h-10 mb-2 rounded-lg border border-rojosec font-titulo bg-rojo transition duration-200 hover:bg-rojosec hover:text-white"
                 onClick={(e) => handleModifyButton(e)}
@@ -89,7 +89,7 @@ export const UserProfile = ({ modal, setModal }) => {
               >
                 Modificar perfil
               </button>
-            )}
+            )} */}
           </div>
           <div className="w-full h-3/5 overflow-auto">
             <div className="w-full h-auto p-2 bg-gray-100 overflow-auto border-t border-rojo flex flex-col gap-2">
