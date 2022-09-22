@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import NotFound from "./Components/404.jsx/NotFound";
+import AboutUs from "./Components/AboutUs/AboutUs";
 import { BetDashboard } from "./Components/Dashboard/Routes/BetDashboard";
 import { MatchDashboard } from "./Components/Dashboard/Routes/MatchDashboard";
 import { Simulation } from "./Components/Dashboard/Routes/SimulationDashboard";
@@ -26,6 +27,7 @@ function App() {
       <Route exact path="/register" element={<FormRestration />} />
       <Route exact path="/login" element={<FormLogin />} />
       <Route exact path="/userVerify/:token" element={<ValidateUser/>}/>
+      <Route exact path="/aboutUs" element={<AboutUs />} />
       <Route element={<LoggedRoutes />}>
         <Route path="/home" element={<Home />} />
         <Route exact path="/detail/:id" element={<Detail />} />
