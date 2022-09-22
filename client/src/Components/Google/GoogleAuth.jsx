@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login, registerUser } from "../../redux/reducer/userSlice";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
@@ -9,9 +9,11 @@ import { useNavigate } from "react-router-dom";
 function GoogleAuth() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { message } = useSelector((state) => state.message);
   const [token, setToken] = useState(false);
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const createOrGetUser = async (response, addUser) => {
     const decoded = jwt_decode(response.credential);
@@ -45,10 +47,10 @@ function GoogleAuth() {
       };
     });
   };
-
   let handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true)
+    setError('');
     dispatch(
       registerUser({
         name: user.name,
@@ -58,11 +60,17 @@ function GoogleAuth() {
         avatar: user.avatar,
         emailvalidate: user.emailvalidate
       })
-    );
-    setTimeout(() => {
-      window.location.reload(false)
-    }, 1000);
+    ).unwrap()
+    .then((res) => {
+      if (res === 'Usuario registrado') {
+        window.location.reload(false)
+      }else {
+        setLoading(false)
+        setError(res)
+      }
+    })
   };
+
   return (
     <div className="w-full">
       {!token ? (
@@ -79,9 +87,13 @@ function GoogleAuth() {
           <form
             onSubmit={handleSubmit}
             className="ring-1 ring-rojosec p-4 rounded flex flex-col gap-2 "
-          >
+            >
             <p className="text-md font-semibold">* Por favor ingrese su edad</p>
             {/* <label className="mr-4">Edad:</label> */}
+            {error !== '' ? 
+              <p className="text-red-900" >* {error}</p> :
+              null
+            }
             <input
               name="edad"
               placeholder="Edad aqui"

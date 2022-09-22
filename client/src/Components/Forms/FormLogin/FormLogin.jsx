@@ -29,11 +29,9 @@ import {
 import GoogleAuth from '../../Google/GoogleAuth';
 
 
-export default function FormLogin(props) {
+export default function FormLogin() {
   const dispatch = useDispatch();
   const { reset, register, handleSubmit, formState: { errors } } = useForm();
-  const { isLoggedIn } = useSelector((state) => state.user);
-  const { message } = useSelector((state) => state.message);
   const [msg, setMsg] = useState('');
   const navigate = useNavigate()
 
@@ -50,32 +48,28 @@ export default function FormLogin(props) {
     reset()
     const { email, pass } = input;
     setLoading(true);
-    setFlag(true)
+    // setFlag(true)
     dispatch(login({email, pass}))
-    /* .unwrap()
-      .then(() => {
-        navigate("/home");
-        window.location.reload();
+    .unwrap()
+      .then((res) => {
+        setMsg(res.user)
+        setFlag(true)
       })
-      .catch(() => {
-        setLoading(false);
-      }); */
   };
   let messages = null;
-  if(message){
+  if(msg !== ''){
     /* if (message === "Usuario Registrado!") {
       navigate('/login')
     } */
     if (flag) {
-      if (message.hasOwnProperty("error")) {
-        setLoading(false)
+      if (msg.hasOwnProperty("error")) {
         messages =
           <VStack maxW="900px">
             <Alert status='error'>
             <AlertIcon />
             <AlertTitle mr={2}>|</AlertTitle>
               <AlertDescription>
-                {message.error}
+                {msg.error}
               </AlertDescription>
               {/* <Link to="/login">
               <Button colorScheme='red'>Iniciar Sesión</Button>
@@ -83,7 +77,6 @@ export default function FormLogin(props) {
             </Alert>
           </VStack>
       } else {
-        setLoading(false)
         navigate('/home')
       }
     }
@@ -91,7 +84,7 @@ export default function FormLogin(props) {
 
   return (
     <>
-    {/* <Navbar /> */}
+    <Navbar />
     <Center>
       <VStack maxW="900px" w = {[250, 300, 400]} boxShadow='dark-lg' p='6' rounded='md' bg='white' m={20}>
         <Heading>Login</Heading>
