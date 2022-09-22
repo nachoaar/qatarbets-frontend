@@ -26,7 +26,7 @@ export const SearchDashboard = () => {
     e.preventDefault();
     input.search.length === 0 ? swal({
       title: "Operacion fallida!!",
-      text: "Por favor ingresar algo en el input",
+      text: " Por favor ingresar algo en el input ",
       button: "Cancel",
     }) : dispatch(getGamblerName(input.search));
     setInput({
