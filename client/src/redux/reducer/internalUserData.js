@@ -6,13 +6,15 @@ export const InternalUserSlice = createSlice({
         user:[],
         bets:[],
         sortedBets:[],
+        avatar:[],
+        newName: [],
     },
     reducers:{
         getUser: (state,action)=>{
             state.user = action.payload
         },
         getBets:(state, action) =>{
-            let payload = []
+            let pepe = []
             let gamblers = action.payload.gamblers
             for(let i = 0 ; i < action.payload.bets.length ; i++){
                 let actualBet = action.payload.bets[i]
@@ -26,18 +28,30 @@ export const InternalUserSlice = createSlice({
                   final_profit: actualBet.final_profit,
                   userId: actualBet.userId,
                   user: userName,
-                  fecha_hora: action.payload.matches[index].date,
+                  fecha_hora: action.payload.matches[index]?.date,
                   matchId: action.payload.matches[index].matchId,
                 }
-                payload.push(bet)
+                pepe.push(bet)
               }
-            state.bets = payload.sort((a,b)=> Number(a.fecha_hora) - Number(b.fecha_hora))
+            state.bets = pepe.sort((a,b)=> Number(a.fecha_hora) - Number(b.fecha_hora))
         },
         sortUserBets: (state,action)=>{
             state.sortedBets = state?.bets.filter((bet) => bet.userId === action.payload)
+        },
+        newAvatar: (state,action) =>{
+            state.avatar = action.payload
+        },
+        updateAvatar: (state, action) =>{
+            state.avatar = state.avatar
+        },
+        updateName: (state,action) =>{
+            state.newName = state.newName
+        },
+        clearAvatarState: (state) =>{
+            state.avatar = []
         }
     }
 
 })
-export const { getUser, getBets, sortUserBets} = InternalUserSlice.actions;
+export const { getUser, getBets, sortUserBets,newAvatar,updateAvatar, updateName, clearAvatarState} = InternalUserSlice.actions;
 export default InternalUserSlice.reducer;

@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { UserProfile } from '../User/UserProfile';
 import Logout from '../Logout/Logout';
 import { useDispatch } from 'react-redux';
-import { getIuBets, sortBets } from '../../redux/actions/internalUserActions';
+import { getIuBets, sortBets,getInternalUser } from '../../redux/actions/internalUserActions';
 
 
 const navigation = [
@@ -45,12 +45,14 @@ export const Navbar = ({id}) => {
     //   islogerenderusrprofile = <button onClick={(e) => handleOnClick(e)} className="text-white">Mi Perfil</button>
     // }
 
-
     window.addEventListener('scroll', changeColor);
+
+
 
 
     function handleOnClick(e) {
         e.preventDefault();
+        dispatch(getInternalUser())
         dispatch(getIuBets())
         setTimeout(()=>{
             dispatch(sortBets(id))
@@ -125,12 +127,12 @@ export const Navbar = ({id}) => {
                                 <Menu as="div" className="relative ml-3">
                                     {user.isLoggedIn ? (
                                         <div className="flex flex-row justify-center items-center gap-4">
-                                            <p className="text-white font-titulo text-lg">{user.user.name}</p>
+                                            <p className="text-white font-titulo text-lg">{lUser[0]?.name}</p>
                                             <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-offset-2">
                                                 <span className="sr-only">Open user menu</span>
                                                 <img
                                                     className="h-10 w-10 rounded-full"
-                                                    src={user.user.avatar}
+                                                    src={lUser[0]?.avatar}
                                                     alt="avatar usuario"
                                                 />
                                             </Menu.Button>
@@ -153,7 +155,7 @@ export const Navbar = ({id}) => {
                                                     <p onClick={(e) => handleOnClick(e)} className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>Mi Perfil</p>
                                                 )}
                                             </Menu.Item>
-                                            { loclaRoute !== 'http://localhost:3000/home' ?<Menu.Item>
+                                            { (loclaRoute !== 'http://localhost:3000/home') ? <Menu.Item>
                                             {({ active }) => (
                                                 <Link to='/home'>
                                                     <p className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>Home</p>

@@ -20,7 +20,7 @@ export const UserCard = (props) => {
                 </tr>
                 <tr>
                   <td className="border border-gristexto">{props.match}</td>
-                  <td className={`border border-gristexto ${props.final_profit > 0 ? "text-green-400" : "text-rojosec"}`}>{ props.final_profit > 0 ? props.final_profit - props.money_bet : props.money_bet }</td>
+                  <td className={`border border-gristexto ${props.final_profit > 0 ? "text-green-400" : "text-rojosec"}`}>{ props.final_profit > 0 ? props.final_profit: props.money_bet }</td>
                   <td className="border border-gristexto">{props.result}</td>
                   <td className="border border-gristexto">{props.money_bet}</td>
                 </tr>

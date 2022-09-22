@@ -1,30 +1,45 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { UserCard } from './UserBetCard.jsx/UserCard';
 import UserStatGafic from '../Dashboard/Routes/Graphs/userGrafics';
 import { useState } from 'react';
-
-
+import {clearAvatar, updateUserAvatar,updateUserName } from "../../redux/actions/internalUserActions";
+import PfpInput from '../pfpInput/PfpInput';
 export const UserProfile = ({modal, setModal}) => {
 
   const user = useSelector((store) => store.internalUser?.user);
   const bets = useSelector((store) => store.internalUser?.sortedBets)
   const [modify, setModify] = useState(false)
+  const newAvatar = useSelector((store)=> store.internalUser?.avatar)
+  const [newName,setNewName] = useState('')
+  const dispatch = useDispatch()
 
 
-
+  const handleInputName = (e)=>{
+    setNewName(e.target.value)
+  }
 
   function handleOnClick(e) {
     e.preventDefault();
     setModal(false);
   }
 
-  function handleModifyButton(e){
-    e.preventDefault(
-      setModify(!modify)
-    )
-  }
+ console.log( ' New Avatar State ----------->', newAvatar)
 
+  function handleModifyButton(e){
+    e.preventDefault()
+    if(e.target.value === 'save'){
+      if(newAvatar?.length > 0){
+        dispatch(updateUserAvatar(newAvatar, user[0]?.id))}
+        console.log('se despacho update user avatar')
+        if(newName?.length >  8 ){
+          dispatch(updateUserName(newName, user[0]?.id))
+        }  
+      }
+      setModify(!modify)
+    }
+
+  console.log('Use State Avatar ------------>',user[0]?.avatar)
 
   return (
     <>
@@ -39,19 +54,19 @@ export const UserProfile = ({modal, setModal}) => {
           <div className="w-full flex justify-between items-end">
             <div className="w-full h-auto mb-2 flex justify-start items-start gap-4">
               <div className="w-32 h-32 overflow-hidden border-4 border-gristexto rounded-xl">
-              <img
+              { modify === true ? <PfpInput /> : <img
                 className="h-32 w-32"
                 src={ user.length >= 1 ? user[0].avatar : ''}
                 alt="avatar usuario"
-              />
+              />}
               </div>
               <div className="flex flex-col gap-2">
-               { modify === true ? <input placeholder='ingresa tu nuevo nombre' type='text'/> : <p className="border-b border-grisfooter w-40 font-titulodash">{user.length >= 1 ? user[0]?.name.toUpperCase():'Nombre'}</p>}
+               { modify === true ? <input placeholder='ingresa tu nuevo nombre' type='text' onChange={(e)=>handleInputName(e)}/> : <p className="border-b border-grisfooter w-40 font-titulodash">{user.length >= 1 ? user[0]?.name.toUpperCase():'Nombre'}</p>}
                 <p className="border-b border-grisfooter w-40">{user.length >= 1 ? `${user[0].age } años`: '18+'}</p>
                 <p className="border-b border-grisfooter w-100">{user.length >= 1 ? user[0].email : 'example@example.com'}</p>
               </div>
             </div>
-            { modify === true ? <button className="w-48 h-10 mb-2 rounded-lg border border-rojo font-titulo text-grisfooter transition duration-200 hover:bg-rojo hover:text-white" onClick={(e)=> handleModifyButton(e)}>Guardar Cambios</button>
+            { modify === true ? <button className="w-48 h-10 mb-2 rounded-lg border border-rojo font-titulo text-grisfooter transition duration-200 hover:bg-rojo hover:text-white" onClick={(e)=> handleModifyButton(e)} value='save'>Guardar Cambios</button>
             :
             <button className="w-48 h-10 mb-2 rounded-lg border border-rojo font-titulo text-grisfooter transition duration-200 hover:bg-rojo hover:text-white"  onClick={(e)=> handleModifyButton(e)}>Modificar perfil</button>}
           </div>

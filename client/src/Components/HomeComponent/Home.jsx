@@ -31,7 +31,6 @@ export const Home = () => {
   let mostrar = true
   if(fase) mostrar = false
 
-  console.log(fase);
 
   const dispatch = useDispatch();
 

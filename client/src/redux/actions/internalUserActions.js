@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getUser,getBets, sortUserBets } from "../reducer/internalUserData";
+import { getUser,getBets, sortUserBets, newAvatar, updateAvatar, updateName, clearAvatarState } from "../reducer/internalUserData";
 import { axiosURL } from "../..";
 
 export function getInternalUser() {
@@ -26,5 +26,33 @@ export function getIuBets(){
 export function sortBets(id){
   return async function(dispatch){
     dispatch(sortUserBets(id))
+  }
+}
+export function getNewAvatar(){
+  return async function(dispatch){
+    const avatarLink = (await axios.get("https://qatarbets-backend-production.up.railway.app/avatar/cloud/pfp")).data
+    console.log('Avatar Link --------->', avatarLink);
+    dispatch(newAvatar(avatarLink[0]))
+  }
+}
+
+export function updateUserAvatar(avatar , id){
+  console.log('avatar --- >', avatar)
+  return async function(dispatch){
+     axios.put(`https://qatarbets-backend-production.up.railway.app/user/changeAvatar?userId=${id}&avatarLink=${avatar}`)
+    dispatch(updateAvatar())
+  }
+}
+
+export function updateUserName(newName, id){
+  return async function(dispatch){
+      axios.put(`https://qatarbets-backend-production.up.railway.app/user/changeUserName?userId=${id}&newName=${newName}`)
+    dispatch(updateName())
+  }
+}
+
+export function clearAvatar(){
+  return async function(dispatch){
+    dispatch(clearAvatarState())
   }
 }
