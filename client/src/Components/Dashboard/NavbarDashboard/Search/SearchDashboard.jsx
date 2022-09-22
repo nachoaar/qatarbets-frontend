@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getGamblerName } from '../../../../redux/actions/dashboardActions/dashGamblerActions';
 import "./SearchDashboard.css";
+import swal from "sweetalert";
 
 
 export const SearchDashboard = () => {
@@ -23,7 +24,11 @@ export const SearchDashboard = () => {
 
   function handleOnSubmit(e) {
     e.preventDefault();
-    input.search.length === 0 ? alert('Por favor rellenar el campo') : dispatch(getGamblerName(input.search));
+    input.search.length === 0 ? swal({
+      title: "Operacion fallida!!",
+      text: "Por favor ingresar algo en el input",
+      button: "Cancel",
+    }) : dispatch(getGamblerName(input.search));
     setInput({
       search: "",
     });
