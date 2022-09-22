@@ -59,8 +59,10 @@ const CheckoutForm = (props) => {
           swal({
             title: "Pago realizado con exito!!",
             text: "Muchas gracias por su apuesta",
-            confirmButtonText: <a href="https://qatarbets-frontend-git-develop-nachoaar.vercel.app/">Aceptar</a> 
-          })
+            button: "Acept"
+          }).then(function() {
+            window.location = "https://qatarbets-frontend-git-develop-nachoaar.vercel.app/";
+        });
           /* alert('Pago realizado con exito!!') */
         }
       }
