@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup, getFixtureCity, orderFixture, MatchId, matchId, cleanMatchId, matchesRound16, matchesRound8, matchesRound4, matchesRound2, resetFixture, matchesFinished, matchesNotStarted, matchesAll} from "../reducer/fixtureSlice";
+import { getAllFixture, filterByGroup, getGroupFixture, getGamesPerGroup, getFixtureCity, orderFixture, MatchId, matchId, cleanMatchId, matchesRound16, matchesRound8, matchesRound4, matchesRound2, resetFixture, matchesFinished, matchesNotStarted, matchesAll, matchesAllRounds} from "../reducer/fixtureSlice";
 import { axiosURL } from "../../index.js";
 
 export function getFixture() {
@@ -117,9 +117,19 @@ export function getMatchesNotStarted(){
   }
 }
 
-//action que filtra los partidos No finalizados
+//action que trae todos los partidos finalizados y pendientes
 export function getMatchesAll(){
   return async function(dispatch){
     dispatch(matchesAll())
   }
+}
+
+//action que trae todos los partidos de llaves
+export function getMatchesAllRounds(){
+  return async function (dispatch) {
+    const matches = await axios.get(
+      `${axiosURL}/fixture/StageFixture/allMatches`
+    );
+    dispatch(matchesAllRounds(matches.data));
+  };
 }

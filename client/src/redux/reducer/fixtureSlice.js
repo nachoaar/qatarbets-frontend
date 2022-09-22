@@ -85,13 +85,10 @@ export const fixtureSlice = createSlice({
       state.fixtureMatchId = []
     },
     matchesRound16: (state, action) => {
-      state.fixtureRoundOf16 = action.payload
-      console.log(state.fixtureRoundOf16);
+      state.fixtureRoundOf16 = action.payload[8]
     },
     matchesRound8: (state, action) => {
-      const matchesOctavosFinished = action.payload.slice(0,8)
       const matchesCuartos = action.payload.slice(8,12)
-      state.fixtureRoundOf16[8] = matchesOctavosFinished
       state.fixtureRoundOf8 = matchesCuartos
     },
     matchesRound4: (state, action) => {
@@ -112,7 +109,8 @@ export const fixtureSlice = createSlice({
       state.fixtureRoundOf16 = []
       state.fixtureRoundOf8 = []
       state.fixtureRoundOf4 = []
-      state.fixtureRoundOf2 = []
+      state.fixtureThirdPlaceMatch = []
+      state.fixtureFinalMatch = []
     },
     matchesFinished: (state) => {
       let fixture = state.fixtureFilterCopy
@@ -127,6 +125,31 @@ export const fixtureSlice = createSlice({
     matchesAll: (state) => {
       let fixture = state.fixtureFilterCopy
       state.fixtureFilter = fixture
+    },
+    matchesAllRounds: (state, action) => {
+      console.log("longitud de partidos de rounds");
+      console.log(action.payload.length);
+      console.log(action.payload);
+      if(action.payload.length === 8){
+        state.fixtureRoundOf16 = action.payload
+      }
+      if(action.payload.length === 12){
+        state.fixtureRoundOf16 = action.payload.slice(0,8)
+        state.fixtureRoundOf8 = action.payload.slice(8,12)
+      }
+      if(action.payload.length === 14){
+        state.fixtureRoundOf16 = action.payload.slice(0,8)
+        state.fixtureRoundOf8 = action.payload.slice(8,12)
+        state.fixtureRoundOf4 = action.payload.slice(12,14)
+      }
+      if(action.payload.length === 16){
+        state.fixtureRoundOf16 = action.payload.slice(0,8)
+        state.fixtureRoundOf8 = action.payload.slice(8,12)
+        state.fixtureRoundOf4 = action.payload.slice(12,14)
+        state.fixtureThirdPlaceMatch = action.payload[14]
+        state.fixtureFinalMatch = action.payload[15]
+      }
+
     },
 
   },
@@ -148,6 +171,7 @@ export const {
   resetFixture,
   matchesFinished,
   matchesNotStarted,
-  matchesAll
+  matchesAll,
+  matchesAllRounds
 } = fixtureSlice.actions;
 export default fixtureSlice.reducer;

@@ -50,12 +50,12 @@ export const SectionDos = (props) => {
           <div className="w-full sm:w-2/5 font-fifa text-white flex flex-col gap-4 sm:pr-16 text-center sm:text-left mb-8">
             <h2 className="text-3xl">APOSTA Y GANA!</h2>
             <p className="text-lg">
-              En Qatarbets ganar es muy facil. Solo tenes que el elegir el
+              En <span className='text-amarillo'>Qatarbets</span> ganar es muy facil. Solo tenes que el elegir el
               partido que mas te gusta y realizar tu apuesta.{" "}
             </p>
           </div>
-          <div className="w-full md:w-3/5 overflow-hidden">
-            <img src={require(`../../media/${selectedImage}`)} alt="" className="cursor-pointer"/>
+          <div className="rounded-xl w-full md:w-3/5 overflow-hidden mix-blend-hard-light">
+            <img src={require(`../../media/qatarLanding.jpg`)} alt="" className="cursor-pointer"/>
           </div>
         </div>
 

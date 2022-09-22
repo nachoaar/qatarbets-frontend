@@ -13,8 +13,6 @@ export const FixturePlayoffs = () => {
   const matchFinal = useSelector((state) => state.fixture.fixtureFinalMatch);
 
 
-  console.log(matchesRound8);
-
   return (
     <div className="w-full h-136 flex flex-col my-6">
 
@@ -61,13 +59,13 @@ export const FixturePlayoffs = () => {
             <div className="flex flex-col gap-6">
               <CardPlayoffs
                 nameHome={
-                  matchesRound16[0]?.a1.name
-                    ? matchesRound16[0].a1.name
+                  matchesRound16[0]?.home_name
+                    ? matchesRound16[0].home_name
                     : "- 1º del grupo A"
                 }
                 nameAway={
-                  matchesRound16[1]?.b2.name
-                    ? matchesRound16[1].b2.name
+                  matchesRound16[0]?.away_name
+                    ? matchesRound16[0].away_name
                     : "- 2º del grupo B"
                 }
                 id={1}
@@ -75,13 +73,13 @@ export const FixturePlayoffs = () => {
               />
               <CardPlayoffs
                 nameHome={
-                  matchesRound16[2]?.c1.name
-                    ? matchesRound16[2].c1.name
+                  matchesRound16[2]?.home_name
+                    ? matchesRound16[2].home_name
                     : "- 1º del grupo C"
                 }
                 nameAway={
-                  matchesRound16[3]?.d2.name
-                    ? matchesRound16[3].d2.name
+                  matchesRound16[2]?.away_name
+                    ? matchesRound16[2].away_name
                     : "- 2º del grupo D"
                 }
                 id={3}
@@ -91,13 +89,13 @@ export const FixturePlayoffs = () => {
             <div className="flex flex-col gap-6">
               <CardPlayoffs
                 nameHome={
-                  matchesRound16[4]?.e1.name
-                    ? matchesRound16[4].e1.name
+                  matchesRound16[4]?.home_name
+                    ? matchesRound16[4].home_name
                     : "- 1º del grupo E"
                 }
                 nameAway={
-                  matchesRound16[5]?.f2.name
-                    ? matchesRound16[5].f2.name
+                  matchesRound16[4]?.away_name
+                    ? matchesRound16[4].away_name
                     : "- 2º del grupo F"
                 }
                 id={5}
@@ -105,13 +103,13 @@ export const FixturePlayoffs = () => {
               />
               <CardPlayoffs
                 nameHome={
-                  matchesRound16[6]?.g1.name
-                    ? matchesRound16[6].g1.name
+                  matchesRound16[6]?.home_name
+                    ? matchesRound16[6].home_name
                     : "- 1º del grupo G"
                 }
                 nameAway={
-                  matchesRound16[7]?.h2.name
-                    ? matchesRound16[7].h2.name
+                  matchesRound16[6]?.away_name
+                    ? matchesRound16[6].away_name
                     : "- 2º del grupo H"
                 }
                 id={7}
@@ -195,13 +193,13 @@ export const FixturePlayoffs = () => {
           <div>
             <CardPlayoffs
               nameHome={
-                matchFinal[0]?.home_name
-                  ? matchFinal[0].home_name
+                matchFinal?.home_name
+                  ? matchFinal.home_name
                   : "- Ganador 13"
               }
               nameAway={
-                matchFinal[0]?.away_name
-                  ? matchFinal[0].away_name
+                matchFinal?.away_name
+                  ? matchFinal.away_name
                   : "- Ganador 13"
               }
               stage={"Final"}
@@ -218,13 +216,13 @@ export const FixturePlayoffs = () => {
           <div>
             <CardPlayoffs
               nameHome={
-                matchThirdPlace[0]?.home_name
-                  ? matchThirdPlace[0].home_name
+                matchThirdPlace?.home_name
+                  ? matchThirdPlace.home_name
                   : "- Perderdor 13"
               }
               nameAway={
-                matchThirdPlace[0]?.away_name
-                  ? matchThirdPlace[0].away_name
+                matchThirdPlace?.away_name
+                  ? matchThirdPlace.away_name
                   : "- Perdedor 13"
               }
               stage={"Tercer"}
@@ -303,13 +301,13 @@ export const FixturePlayoffs = () => {
             <div className="flex flex-col gap-6">
               <CardPlayoffs
                 nameHome={
-                  matchesRound16[1]?.b1.name
-                    ? matchesRound16[1].b1.name
+                  matchesRound16[1]?.home_name
+                    ? matchesRound16[1].home_name
                     : "- 1º del grupo B"
                 }
                 nameAway={
-                  matchesRound16[0]?.a2.name
-                    ? matchesRound16[0].a2.name
+                  matchesRound16[1]?.away_name
+                    ? matchesRound16[1].away_name
                     : "- 2º del grupo A"
                 }
                 id={2}
@@ -317,13 +315,13 @@ export const FixturePlayoffs = () => {
               />
               <CardPlayoffs
                 nameHome={
-                  matchesRound16[3]?.d1.name
-                    ? matchesRound16[3].d1.name
+                  matchesRound16[3]?.home_name
+                    ? matchesRound16[3].home_name
                     : "- 1º del grupo D"
                 }
                 nameAway={
-                  matchesRound16[2]?.c2.name
-                    ? matchesRound16[2].c2.name
+                  matchesRound16[3]?.away_name
+                    ? matchesRound16[3].away_name
                     : "- 2º del grupo C"
                 }
                 id={4}
@@ -333,13 +331,13 @@ export const FixturePlayoffs = () => {
             <div className="flex flex-col gap-6">
               <CardPlayoffs
                 nameHome={
-                  matchesRound16[5]?.f1.name
-                    ? matchesRound16[5].f1.name
+                  matchesRound16[5]?.home_name
+                    ? matchesRound16[5].home_name
                     : "- 1º del grupo F"
                 }
                 nameAway={
-                  matchesRound16[4]?.e2.name
-                    ? matchesRound16[4].e2.name
+                  matchesRound16[5]?.away_name
+                    ? matchesRound16[5].away_name
                     : "- 2º del grupo E"
                 }
                 id={6}
@@ -347,13 +345,13 @@ export const FixturePlayoffs = () => {
               />
               <CardPlayoffs
                 nameHome={
-                  matchesRound16[7]?.h1.name
-                    ? matchesRound16[7].h1.name
+                  matchesRound16[7]?.home_name
+                    ? matchesRound16[7].home_name
                     : "- 1º del grupo H"
                 }
                 nameAway={
-                  matchesRound16[6]?.g2.name
-                    ? matchesRound16[6].g2.name
+                  matchesRound16[7]?.away_name
+                    ? matchesRound16[7].away_name
                     : "- 2º del grupo G"
                 }
                 id={8}
