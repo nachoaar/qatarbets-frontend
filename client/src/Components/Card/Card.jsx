@@ -3,8 +3,6 @@ import {Link} from "react-router-dom"
 
 export default function Card({idMatch, home,away, logoHome,logoAway}){
     return(
-        //el Link es para enviarte al match del partido aunque no se si sea necesario
-        // en caso de no necesitarlo se lo puede quitar 
         <Link to={`/fixture/${idMatch}`}>
             <div>
                 <div key={idMatch}>

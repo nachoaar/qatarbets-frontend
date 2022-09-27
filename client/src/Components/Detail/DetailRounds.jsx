@@ -5,16 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useModal } from "../../hooks/useModal";
 import { matchesHeadToHead } from "../../redux/actions/matchActions";
-import {
-  startingPlayersAway,
-  startingPlayersClean,
-  startingPlayersHome,
-} from "../../redux/actions/playersActions";
 import { Footer } from "../Footer/Footer";
 import { Slider } from "../HomeComponent/Slider/Slider";
 import Modal from "../Modal/Modal";
 import { Navbar } from "../Navbar/Navbar";
-import { PaymentForm } from "../PaymentForm/PaymentForm";
 import { PaymentFormRound } from "../PaymentForm/PaymentFormRound";
 import { ProfitsPotentials } from "../Utils/ProfitsPotentials";
 import { SidebarRounds } from "../Utils/SidebarRounds";
@@ -24,6 +18,12 @@ import { Bench } from "./Bench/Bench";
 import { CardDetail } from "./CardDetail/CardDetail";
 import { CardCity } from "./CaredCity/CardCity";
 import { Court } from "./Court/Court";
+import {
+  startingPlayersAway,
+  startingPlayersClean,
+  startingPlayersHome,
+} from "../../redux/actions/playersActions";
+
 
 export const DetailRounds = () => {
   let { id, stage } = useParams();
@@ -64,8 +64,6 @@ export const DetailRounds = () => {
     matches = matchFinal;
   }
 
-  console.log("partido filtrado");
-  console.log(match);
 
   //obtengo el id de los equipos del match
   const idHome = match?.home_team_id;

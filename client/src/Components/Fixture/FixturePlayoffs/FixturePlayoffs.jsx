@@ -2,8 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Separator } from "../../Utils/Separator";
 import { CardPlayoffs } from "./CardPlayoffs/CardPlayoffs";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 
 export const FixturePlayoffs = () => {
   const matchesRound16 = useSelector((state) => state.fixture.fixtureRoundOf16);

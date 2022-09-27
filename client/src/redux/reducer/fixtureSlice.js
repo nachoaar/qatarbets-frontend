@@ -17,6 +17,7 @@ export const fixtureSlice = createSlice({
     fixtureFinalMatch: [],
 
   },
+
   reducers: {
     getAllFixture: (state, action) => {
       const ordenado = action.payload.sort(
@@ -59,7 +60,6 @@ export const fixtureSlice = createSlice({
       const asd = state.fixture
         ?.filter((match) => match.groupId === Number(action.payload))
         .slice(0, 4);
-      console.log(asd);
       state.filtredMatches = asd;
     },
     getGamesPerGroup: (state) => {
@@ -69,16 +69,10 @@ export const fixtureSlice = createSlice({
           .filter((m) => m.groupId === i)
 
         state.fixtureGamesPerGroup = [...state.fixtureGamesPerGroup, matches];
-
-        /* state.fixtureGamesPerGroup.push(state.fixture.filter(m => m.groupId === i).slice(0, action.payload)); */
       }
     },
-    //
     matchId: (state, action) => {
-      console.log("desde la action " + action.payload);
       const match = state.fixture?.filter((m) => m.id === Number(action.payload));
-      console.log("match encontrado?");
-      console.log(match);
       state.fixtureMatchId = match;
     },
     cleanMatchId: (state) =>{
@@ -127,9 +121,6 @@ export const fixtureSlice = createSlice({
       state.fixtureFilter = fixture
     },
     matchesAllRounds: (state, action) => {
-      console.log("longitud de partidos de rounds");
-      console.log(action.payload.length);
-      console.log(action.payload);
       if(action.payload.length === 8){
         state.fixtureRoundOf16 = action.payload
       }
@@ -149,9 +140,7 @@ export const fixtureSlice = createSlice({
         state.fixtureThirdPlaceMatch = action.payload[14]
         state.fixtureFinalMatch = action.payload[15]
       }
-
     },
-
   },
 });
 

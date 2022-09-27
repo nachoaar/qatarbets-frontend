@@ -3,7 +3,6 @@ import { ButtonMatch } from "./ButtonMatch";
 import { ButtonReturn } from "./ButtonReturn";
 import { SeparatorLine } from "./SeparatorLine";
 import { TitleContent } from "./TitleContent";
-import { TitleContentMedium } from "./TitleContentMedium";
 
 export const SidebarRounds = (props) => {
   return (

@@ -5,12 +5,9 @@ export const CardMatch = (props) => {
   let groupN = props.groupName?.find((e, index) => index + 1 === props.group);
   let letter = groupN[groupN?.length - 1];
 
-
 let date = new Date(props.date)
 date = date.toLocaleDateString("es-AR",{day:'numeric', month:'numeric', year:'numeric'});
 let hora = new Date(props.date)
-
-
 
   return (
     <Link to={`/detail/${props.id}`}>

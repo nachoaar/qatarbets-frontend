@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 export const ProfitsPotentials = ({ profit, home_team, away_team, bet, date }) => {
 
-
   const [monto, setMonto] = useState(0);
 
   const onChange = (e) => {

@@ -12,32 +12,32 @@ export default function SmallCards(){
   useEffect(() => {
     dispatch(getFixture());
   }, [dispatch]);
-    let randomIndex = 0
-    const fixture = useSelector((state)=> state.fixture)
 
-    let mediumMatches = []
+  let randomIndex = 0
 
-    while(mediumMatches.length < 4){
-        let provicional = Math.floor((Math.random() * 47));
-        while(provicional === randomIndex){
-            provicional = Math.floor((Math.random() * 47))
-        }
-        randomIndex = provicional
-        mediumMatches.push(fixture.fixture[randomIndex])
+  const fixture = useSelector((state)=> state.fixture)
+
+  let mediumMatches = []
+
+  while(mediumMatches.length < 4){
+    let provicional = Math.floor((Math.random() * 47));
+    while(provicional === randomIndex){
+      provicional = Math.floor((Math.random() * 47))
     }
+    randomIndex = provicional
+    mediumMatches.push(fixture.fixture[randomIndex])
+  }
 
-
-
-    return(
-        <div>
-            { mediumMatches && mediumMatches?.map((match) =>{
-                    return(
-                        <CardSmall
-                        match={match}
-                        />
-                    )
-                })
-            }
-        </div>
-    )
+  return(
+    <div>
+      { mediumMatches && mediumMatches?.map((match) =>{
+        return(
+          <CardSmall
+            match={match}
+          />
+        )
+        })
+      }
+    </div>
+  )
 }

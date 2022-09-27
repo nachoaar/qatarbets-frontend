@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 export const CardXs = (props) => {
 
-  /* console.log("desde cardxs" + props.date) */
-
   return (
     <button className="h-24 wid-auto">
       <Link to={`/detail/${props.id}`}>

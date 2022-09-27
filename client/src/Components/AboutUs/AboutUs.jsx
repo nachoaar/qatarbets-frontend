@@ -1,12 +1,10 @@
 import React from 'react'
-import { Navbar } from '../Navbar/Navbar'
 import nosotros from './nosotros';
 import lin from "../../media/linkedin.png";
 import git from "../../media/github.png";
 import { SeparatorHorizontal } from '../Utils/SeparatorHorizontal';
 
 function AboutUs() {
-  console.log(nosotros);
   return (
     <div className='flex flex-wrap gap-4'>
       <div className='flex flex-col items-start justify-center'>

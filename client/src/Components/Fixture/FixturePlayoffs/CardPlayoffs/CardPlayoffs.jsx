@@ -5,7 +5,6 @@ export const CardPlayoffs = ({ nameHome, nameAway, id, stage }) => {
   const navigate = useNavigate();
 
   const onClick = () => {
-   /*  e.preventDefault(); */
     navigate(`/detail/${stage}/${id}`);
   };
 

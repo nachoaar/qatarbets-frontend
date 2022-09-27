@@ -1,7 +1,6 @@
 import React from "react";
 
 export const ButtonHeadToHead = ({ result }) => {
-  console.log(result);
 
   let variants = {
     color: "",
@@ -20,8 +19,6 @@ export const ButtonHeadToHead = ({ result }) => {
     variants.color = "bg-yellow-400";
     variants.letter = "E"
   }
-/*   if (result === "winner_away") color = "bg-rojosec"; */
-
 
   return (
     <button className= {` px-3 py-1 ${variants.color} rounded-sm`} >

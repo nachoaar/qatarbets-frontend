@@ -7,7 +7,6 @@ import soccer from "../../../media/socer.png";
 
 export const CardCity = (props) => {
 
-
   let date = new Date(props.date);
 
   date = date.toLocaleDateString("es-AR", {
