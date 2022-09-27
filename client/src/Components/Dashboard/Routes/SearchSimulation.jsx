@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "../NavbarDashboard/Search/SearchDashboard.css"
 
@@ -12,7 +11,6 @@ export const SearchSimulation = () => {
   });
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   function handleOnChange(e) {
     setInput({

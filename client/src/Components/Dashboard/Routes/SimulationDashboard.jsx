@@ -5,6 +5,8 @@ import { SidebarDashboard } from "../SidebarDashboard/SidebarDashboard";
 import { NavbarDashboard } from "../NavbarDashboard/NavbarDashboard";
 import { SimulationCard } from "./Cards/simulationCard";
 import { useState } from "react";
+import axios from "axios";
+import swal from "sweetalert";
 import {
   getFixture,
   getMatchesRound16,
@@ -13,8 +15,6 @@ import {
   getMatchesRound8,
   resetFixtureSlice,
 } from "../../../redux/actions/fixtureActions";
-import axios from "axios";
-import swal from "sweetalert";
 
 export const Simulation = () => {
   const matches2 = useSelector((store) => store.fixture.fixture);

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Menu } from '@headlessui/react'
 import { useSelector } from 'react-redux';
 import { SearchDashboard } from './Search/SearchDashboard'
 import Logout from '../../Logout/Logout';
@@ -11,18 +11,11 @@ import { Link } from 'react-router-dom';
 export const NavbarDashboard = () => {
 
   const user = useSelector((state) => state.user);
-  const [location,setLocation] = useState(window.location.href)
-
-
-
-
-
+  const [location, setLocation] = useState(window.location.href)
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
-}
-
-
+  }
 
   return (
     <nav className="w-full h-20 flex flex-row items-center">
@@ -39,7 +32,7 @@ export const NavbarDashboard = () => {
                 <span className="sr-only">Open user menu</span>
                 <img
                 className='h-10 w-10 rounded-full'
-                src={user.user.avatar} 
+                src={user.user.avatar}
                 />
                 </Menu.Button>
               </div>
@@ -54,7 +47,7 @@ export const NavbarDashboard = () => {
                 </Link>
               )}
             </Menu.Item>
-           <Menu.Item>{
+          <Menu.Item>{
               ({active}) =>(
                 <div className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}>
                   <Logout />

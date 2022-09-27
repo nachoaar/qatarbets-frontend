@@ -9,15 +9,6 @@ export const CardsMatch = () => {
 
   let fixture = [...fixtureFilter]
 
-/*   if(fixture.length > 6){
-    console.log("proximos partidos");
-     fixture = fixture.filter(m => m.status === "Not Started")
-  } */
-
-/*   fixture = fixture.filter(m => m.status === "Not Started")
-  console.log(fixture); */
-
-
   return (
     <div className="w-full h-1/5 rounded flex flex-col gap-1 overflow-hidden">
       {fixture &&

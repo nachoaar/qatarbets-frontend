@@ -16,10 +16,6 @@ import ProtectedRoutes from "./Components/Protections/ProtectedRoutes";
 import ValidateUser from "./Components/User/UserValidate";
 
 function App() {
-  /* axios.get('http://localhost:3001/validate', {withCredentials: true})
-  .then((res) => {
-    console.log(res.data);
-  }) */
 
   return (
     <Routes>

@@ -9,14 +9,10 @@ import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
-/* import dotenv from "dotenv";
-dotenv.config(); */
-
 export const DOMAIN = process.env.REACT_APP_DOMAIN;
 export const axiosURL =
   process.env.REACT_APP_API ||
-  "https://qatarbets-backend-production.up.railway.app"
-  /* "https://qatarbets-backend-production.up.railway.app" */ ||
+  "https://qatarbets-backend-production.up.railway.app" ||
   "http://localhost:3000";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

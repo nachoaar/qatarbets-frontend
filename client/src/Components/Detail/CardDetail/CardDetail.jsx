@@ -3,11 +3,8 @@ import { ButtonHeadToHead } from "./ButtonHeadToHead/ButtonHeadToHead";
 import { ButtonHeadToHeadAway } from "./ButtonHeadToHead/ButtonHeadToHeadAway";
 
 export const CardDetail = (props) => {
-  console.log("soy el stage:");
-  console.log(props.stage);
 
   const onClick = (profit, bet, betEng) => {
-    /* e.preventDefault(); */
     props.openModal();
     props.setProfit(profit);
     props.setBet(bet);

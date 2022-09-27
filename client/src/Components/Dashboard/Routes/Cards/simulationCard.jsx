@@ -1,11 +1,5 @@
 import React from "react";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setSimulated,
-  resetMatchSimulation,
-  getAllGames,
-} from "../../../../redux/actions/dashboardActions/dashSimulationAction";
 import axios from "axios";
 import { getFixture } from "../../../../redux/actions/fixtureActions";
 import swal from "sweetalert";
@@ -16,19 +10,18 @@ export const SimulationCard = ({ match, flagStore }) => {
   const result1 = useSelector((store) =>
     store.fixture?.fixture.filter((match) => match.id === id)
   );
+
   const result2 = useSelector((store) =>
     store.fixture?.fixture.filter((match) => match.id === id)
   );
+
   const result = flagStore === false ? result1 : result2;
-  const [flag, setFlag] = useState(true);
   const dispatch = useDispatch();
 
   function handleOnClick(e) {
     e.preventDefault();
     axios
-      .put(
-        `https://qatarbets-backend-production.up.railway.app/fixture/matchSimulation?sim=simulate&id=${id}`
-      )
+      .put(`https://qatarbets-backend-production.up.railway.app/fixture/matchSimulation?sim=simulate&id=${id}`)
       .then((r) =>
         swal({
           title: "Operacion realizada con exito!!",
@@ -37,8 +30,6 @@ export const SimulationCard = ({ match, flagStore }) => {
         })
       )
       .then((r) => dispatch(getFixture()));
-
-    /* setFlag(!flag); */
   }
 
   function handleResetResult(e) {
@@ -54,8 +45,6 @@ export const SimulationCard = ({ match, flagStore }) => {
         })
       )
       .then((r) => dispatch(getFixture()));
-
-    /* setFlag(!flag); */
   }
 
   return (
@@ -70,7 +59,7 @@ export const SimulationCard = ({ match, flagStore }) => {
         {
           <button
             className="bg-rojo rounded p-1"
-            onClick={(e) => handleOnClick(e)} /* disabled={flag === true} */
+            onClick={(e) => handleOnClick(e)}
           >
             simular
           </button>
@@ -80,7 +69,7 @@ export const SimulationCard = ({ match, flagStore }) => {
             className="bg-rojo rounded p-1"
             onClick={(e) =>
               handleResetResult(e)
-            } /* disabled={flag === false} */
+            }
           >
             {" "}
             reiniciar{" "}

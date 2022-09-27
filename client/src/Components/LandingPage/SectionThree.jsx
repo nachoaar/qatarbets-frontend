@@ -1,9 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Groups } from "../Utils/Groups";
-import { TitleContent } from "../Utils/TitleContent";
-
-
 
 export const SectionThree = () => {
 

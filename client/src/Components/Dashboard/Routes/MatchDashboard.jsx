@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { dashFixture } from '../../../redux/actions/dashboardActions/dashFixtureActions';
@@ -9,12 +8,11 @@ import { MatchCard } from './Cards/MatchCard';
 import WeekBets from './Graphs/mostPickedInTheWeek';
 
 export const MatchDashboard = () => {
-  
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const {filterFixtureDash} = useSelector((store) => store.dashfixture);
   const {bets} = useSelector((store) => store.dashbets);
-  
+
   useEffect(() => {
     if (filterFixtureDash.length === 0) {
       dispatch(dashFixture());

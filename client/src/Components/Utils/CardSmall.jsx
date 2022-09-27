@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { groupLetter } from "./GroupLetter";
 
 export const CardSmall = (props) => {
-  console.log(props.groupId);
 
   let date = new Date(props.date);
 

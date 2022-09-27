@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
 import { login, registerUser } from "../../redux/reducer/userSlice";
-import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
@@ -89,8 +88,7 @@ function GoogleAuth() {
             className="ring-1 ring-rojosec p-4 rounded flex flex-col gap-2 "
             >
             <p className="text-md font-semibold">* Por favor ingrese su edad</p>
-            {/* <label className="mr-4">Edad:</label> */}
-            {error !== '' ? 
+            {error !== '' ?
               <p className="text-red-900" >* {error}</p> :
               null
             }

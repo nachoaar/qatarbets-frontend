@@ -1,14 +1,11 @@
 import React, { useState, useEffect  } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from 'react-router-dom';
 import { Navbar } from "../../Navbar/Navbar";
 import { useForm } from "react-hook-form";
 import { clearMessage } from '../../../redux/reducer/messageSlice'
 import { login } from '../../../redux/reducer/userSlice';
 import { Footer } from '../../Footer/Footer'
-
-
 import {
   FormControl,
   FormLabel,
@@ -24,7 +21,6 @@ import {
   Alert,
   AlertTitle,
   AlertDescription,
-  // FormHelperText,
 } from '@chakra-ui/react'
 import GoogleAuth from '../../Google/GoogleAuth';
 
@@ -48,7 +44,6 @@ export default function FormLogin() {
     reset()
     const { email, pass } = input;
     setLoading(true);
-    // setFlag(true)
     dispatch(login({email, pass}))
     .unwrap()
       .then((res) => {
@@ -58,9 +53,6 @@ export default function FormLogin() {
   };
   let messages = null;
   if(msg !== ''){
-    /* if (message === "Usuario Registrado!") {
-      navigate('/login')
-    } */
     if (flag) {
       if (msg.hasOwnProperty("error")) {
         messages =
@@ -71,9 +63,6 @@ export default function FormLogin() {
               <AlertDescription>
                 {msg.error}
               </AlertDescription>
-              {/* <Link to="/login">
-              <Button colorScheme='red'>Iniciar Sesión</Button>
-              </Link> */}
             </Alert>
           </VStack>
       } else {

@@ -56,23 +56,10 @@ export const Footer = () => {
             sector de Bootcamps en Desarrollo Web.
           </div>
         </div>
-        {/* <div className="min-w-fit px-6">
-          <h3 className="font-titulo text-2xl mt-4 text-white mb-5">Soluciones</h3>
-          <div className="font-parrafo text-xl px-6">
-            <h5 className="cursor-pointer my-1 hover:opacity-70">App Desarrollo</h5>
-            <h5 className="cursor-pointer my-1 hover:opacity-70">App Marketing</h5>
-            <h5 className="cursor-pointer my-1 hover:opacity-70">IOS Desarrollo</h5>
-            <h5 className="cursor-pointer my-1 hover:opacity-70">Android Desarrollo</h5>
-          </div>
-        </div> */}
         <div className="min-w-fit ">
           <h3 className="font-titulo text-2xl mt-4 text-white mb-5">Nosotros</h3>
           <div className="font-parrafo text-xl px-6">
             <AboutUs/>
-            {/* <h5 className="cursor-pointer my-1 hover:opacity-70">Acerca de</h5>
-            <h5 className="cursor-pointer my-1 hover:opacity-70">Trabajos</h5>
-            <h5 className="cursor-pointer my-1 hover:opacity-70">Procesos</h5>
-            <h5 className="cursor-pointer my-1 hover:opacity-70">Servicios</h5> */}
           </div>
         </div>
         <div className="min-w-fit ">

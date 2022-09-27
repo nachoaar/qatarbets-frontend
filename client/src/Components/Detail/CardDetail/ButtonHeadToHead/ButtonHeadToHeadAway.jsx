@@ -1,7 +1,6 @@
 import React from "react";
 
 export const ButtonHeadToHeadAway = ({ result }) => {
-  console.log(result);
 
   let variants = {
     color: "",
@@ -20,7 +19,6 @@ export const ButtonHeadToHeadAway = ({ result }) => {
     variants.color = "bg-yellow-400";
     variants.letter = "E"
   }
-/*   if (result === "winner_away") color = "bg-rojosec"; */
 
 
   return (

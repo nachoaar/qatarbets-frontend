@@ -8,23 +8,24 @@ import { RandomMatches } from "../Filter/FourRandomMatches";
 
 
 export default function Cards({allMatch}){
-    let fourMatches = RandomMatches(allMatch)
+  let fourMatches = RandomMatches(allMatch)
 
-    const dispatch = useDispatch()
-    useEffect(()=>{
-        dispatch(getFixture())
-    },[dispatch])
-    const filtrados = useSelector((state) => state.fixture.filtredMatches)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getFixture())
+  },[dispatch])
 
-    return(
-        <div>
-            { filtrados.length > 1 ?  filtrados.map((match)=>{
-                return(
-                    <CardMedium key={match.id} match={match}/>
-                )
-            }) : fourMatches.map((match) =>{
-                return(<CardMedium key={match.id} match={match}/>)
-            })}
-        </div>
-    )
+  const filtrados = useSelector((state) => state.fixture.filtredMatches)
+
+  return(
+    <div>
+      { filtrados.length > 1 ?  filtrados.map((match)=>{
+        return(
+          <CardMedium key={match.id} match={match}/>
+            )
+        }) : fourMatches.map((match) =>{
+          return(<CardMedium key={match.id} match={match}/>)
+      })}
+    </div>
+  )
 }

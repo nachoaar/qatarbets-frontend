@@ -12,7 +12,7 @@ const register = async (name, age, email, pass, avatar, emailvalidate) => {
     const postUser = await axios.post('https://qatarbets-backend-production.up.railway.app/user/register', dataUser);
     return postUser;
 };
-//https://qatarbets-backend-production.up.railway.app
+
 const loginUser = async (email, pass) => {
   try {
     const logUser = await axios.post('https://qatarbets-backend-production.up.railway.app/user/login',{email, pass}, {withCredentials: true} );
@@ -26,7 +26,7 @@ const loginUser = async (email, pass) => {
 }
 
 const logoutUser = async () => {
- localStorage.removeItem("user");
+  localStorage.removeItem("user");
 };
 
 const authService = {

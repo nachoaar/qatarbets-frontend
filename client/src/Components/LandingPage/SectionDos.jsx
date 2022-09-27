@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
 import { CardLarge } from "../Utils/CardLarge";
 import { Countdown } from "../LandingPage/Countdown/Countdown";
 import { useSelector } from "react-redux";
@@ -8,7 +7,6 @@ import { TitleContent } from "../Utils/TitleContent";
 export const SectionDos = (props) => {
 
   const images = ['publilanding1.png','publilanding2.png','publilanding3.png'];
-  let autoPlay = true;
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
@@ -31,15 +29,6 @@ export const SectionDos = (props) => {
   const matches = useSelector((state) => state.fixture?.fixture);
   const matchesMostBets = useSelector((state) => state.match.matchesMostBets);
 
-
-/*   useEffect(() => {
-    if(autoPlay) {
-      const interval = setInterval(() => {
-        selectNewImage(selectedIndex, images)
-      }, 5000);
-      return () => clearInterval(interval);
-    }
-  }); */
 
   return (
     <div className="h-max flex flex-col justify-around items-center bg-morado py-6">

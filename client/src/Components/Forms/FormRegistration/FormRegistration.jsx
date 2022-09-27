@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Navbar } from "../../Navbar/Navbar";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { registerUser } from "../../../redux/reducer/userSlice";
 import { clearMessage } from "../../../redux/reducer/messageSlice";
 import { Footer } from "../../Footer/Footer";
-
 import {
   FormControl,
   FormLabel,
@@ -76,9 +75,6 @@ export default function FormRestration() {
             <AlertIcon />
             <AlertTitle mr={2}>|</AlertTitle>
             <AlertDescription>{message}</AlertDescription>
-            {/* <Link to="/login">
-          <Button colorScheme='red'>Iniciar Sesión</Button>
-          </Link> */}
           </Alert>
         </VStack>
       );

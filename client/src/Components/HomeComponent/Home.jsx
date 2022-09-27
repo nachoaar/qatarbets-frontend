@@ -15,7 +15,6 @@ import { Slider } from "./Slider/Slider";
 import { useLocation } from "react-router-dom";
 import { getTeams } from "../../redux/actions/teamActions";
 import { startingAllPlayers } from "../../redux/actions/playersActions";
-import { TitleContentMedium } from "../Utils/TitleContentMedium";
 import { getInternalUser,getIuBets} from "../../redux/actions/internalUserActions";
 import { matchesMostBets } from "../../redux/actions/matchActions";
 import { Fixture } from "../Fixture/Fixture";
@@ -30,8 +29,6 @@ export const Home = () => {
 
   let mostrar = true
   if(fase) mostrar = false
-
-  console.log(fase);
 
   const dispatch = useDispatch();
 
